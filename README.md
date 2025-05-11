@@ -2,7 +2,7 @@
 
 ## Índice
 1. [Descripción del Proyecto](#descripción-del-proyecto)
-2. [Participantes](#participantes)
+2. [Participantes del equipo](#participantes)
 3. [Diagrama Entidad-Relación (E/R)](#diagrama-entidad-relación-er)
 4. [Diagrama Relacional](#diagrama-relacional)
 5. [Script BDD](#script-bdd)
