@@ -31,12 +31,12 @@ Resumen del objetivo del proyecto, su funcionalidad principal y tecnologías uti
 > El diagrama muestra las entidades principales, sus relaciones y atributos clave en el sistema.
 
 ## Diagrama Relacional
-[Ver el Diagrama Relacional](diagramaRelacional-definitivo.mwb)
+[Ver el Diagrama Relacional](./diagramaRelacional-def.mwb)
 
 > Representa las entidades, relaciones y atributos clave del sistema.
 
 ## Script BDD
-[Ver el Script de bases de datos](bd-script-grupo4-definitivo.sql)
+[Ver el Script de bases de datos](./scrip-equipo4-def.sql)
 
 > Contiene las instrucciones SQL para crear y estructurar la base de datos.
 
