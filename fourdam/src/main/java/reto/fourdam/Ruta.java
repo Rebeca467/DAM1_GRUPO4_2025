@@ -42,9 +42,9 @@ public class Ruta {
     private int nivelEsfuerzo;
     private int tipoTerreno;
     private int indicaciones;
-    private String tipoActividad;//Enum
+    private Actividad tipoActividad;
     private Set<String> temporada;
-    private boolean accesibilidad;
+    //private boolean accesibilidad;
     private boolean familiar;
     private String url;
     private Estado estado;
@@ -59,7 +59,7 @@ public class Ruta {
     }
     // quito el id porque es autoincremental
 
-    public Ruta(Usuario autor, String nombre, LocalDate fecha_creacion, Punto punto_ini, Punto punto_fin, double distanciaTotal, double desnivel, double desnivelPositivo, double desnivelNegativo, double altMax, double altMin, ClasificacionRuta clasificacion, int nivelRiesgo, int nivelEsfuerzo, int tipoTerreno, int indicaciones, String tipoActividad, Set<String> temporada, boolean accesibilidad, boolean familiar, String url, Estado estado, String recomendaciones, String zonaGeografica, LinkedHashSet<Punto> puntosIntermedios, double duracion, int mediaValoracion) {
+    public Ruta(Usuario autor, String nombre, LocalDate fecha_creacion, Punto punto_ini, Punto punto_fin, double distanciaTotal, double desnivel, double desnivelPositivo, double desnivelNegativo, double altMax, double altMin, ClasificacionRuta clasificacion, int nivelRiesgo, int nivelEsfuerzo, int tipoTerreno, int indicaciones, Actividad tipoActividad, Set<String> temporada, /*boolean accesibilidad,*/ boolean familiar, String url, Estado estado, String recomendaciones, String zonaGeografica, LinkedHashSet<Punto> puntosIntermedios, double duracion, int mediaValoracion) {
         this.autor = autor;
         this.nombre = nombre;
         this.fecha_creacion = fecha_creacion;
@@ -78,7 +78,7 @@ public class Ruta {
         this.indicaciones = indicaciones;
         this.tipoActividad = tipoActividad;
         this.temporada = temporada;
-        this.accesibilidad = accesibilidad;
+        //this.accesibilidad = accesibilidad;
         this.familiar = familiar;
         this.url = url;
         this.estado = estado;
@@ -232,11 +232,11 @@ public class Ruta {
         this.indicaciones = indicaciones;
     }
 
-    public String getTipoActividad() {
+    public Actividad getTipoActividad() {
         return tipoActividad;
     }
 
-    public void setTipoActividad(String tipoActividad) {
+    public void setTipoActividad(Actividad tipoActividad) {
         this.tipoActividad = tipoActividad;
     }
 
@@ -248,13 +248,13 @@ public class Ruta {
         this.temporada = temporada;
     }
 
-    public boolean isAccesibilidad() {
+    /*public boolean isAccesibilidad() {
         return accesibilidad;
     }
 
     public void setAccesibilidad(boolean accesibilidad) {
         this.accesibilidad = accesibilidad;
-    }
+    }*/
 
     public boolean isFamiliar() {
         return familiar;
@@ -358,6 +358,6 @@ public class Ruta {
 
     @Override
     public String toString() {
-        return "Ruta{" + "id=" + id + ", autor=" + autor + ", nombre=" + nombre + ", fecha_creacion=" + fecha_creacion + ", punto_ini=" + punto_ini + ", punto_fin=" + punto_fin + ", distanciaTotal=" + distanciaTotal + ", duracion=" + duracion + ", desnivel=" + desnivel + ", altMax=" + altMax + ", altMin=" + altMin + ", clasificacion=" + clasificacion + ", nivelRiesgo=" + nivelRiesgo + ", nivelEsfuerzo=" + nivelEsfuerzo + ", tipoTerreno=" + tipoTerreno + ", indicaciones=" + indicaciones + ", tipoActividad=" + tipoActividad + ", temporada=" + temporada + ", accesibilidad=" + accesibilidad + ", familiar=" + familiar + ", url=" + url + ", estado=" + estado + ", recomendaciones=" + recomendaciones + ", zonaGeografica=" + zonaGeografica + '}';
+        return "Ruta{" + "id=" + id + ", autor=" + autor + ", nombre=" + nombre + ", fecha_creacion=" + fecha_creacion + ", punto_ini=" + punto_ini + ", punto_fin=" + punto_fin + ", distanciaTotal=" + distanciaTotal + ", duracion=" + duracion + ", desnivel=" + desnivel + ", altMax=" + altMax + ", altMin=" + altMin + ", clasificacion=" + clasificacion + ", nivelRiesgo=" + nivelRiesgo + ", nivelEsfuerzo=" + nivelEsfuerzo + ", tipoTerreno=" + tipoTerreno + ", indicaciones=" + indicaciones + ", tipoActividad=" + tipoActividad + ", temporada=" + temporada + ", accesibilidad=" +/* accesibilidad +*/ ", familiar=" + familiar + ", url=" + url + ", estado=" + estado + ", recomendaciones=" + recomendaciones + ", zonaGeografica=" + zonaGeografica + '}';
     }
 }
