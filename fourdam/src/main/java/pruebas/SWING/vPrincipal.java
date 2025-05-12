@@ -5,8 +5,6 @@
 package pruebas.SWING;
 
 import DAOs.metodosDB;
-import static DAOs.metodosDB.rutaPorId;
-import static DAOs.metodosDB.usuPorId;
 import java.time.LocalDate;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -19,7 +17,7 @@ import reto.fourdam.Valoracion;
  * @author DAM106
  */
 public class vPrincipal extends javax.swing.JFrame {
-
+    private metodosDB metodos = new metodosDB();
     /**
      * Creates new form vPrincipal
      */
@@ -1476,7 +1474,7 @@ public class vPrincipal extends javax.swing.JFrame {
             Valoracion valoracion = crearValoracion(idUsuario, idRuta, fecha, dificultad, belleza, interes);
 
             if (valoracion != null) {
-                metodosDB.guardarValoracionEnDB(valoracion);
+                metodos.agregarValoracion(valoracion);
                 JOptionPane.showMessageDialog(null, "Valoración creada correctamente.");
             } else {
                 JOptionPane.showMessageDialog(null, "No se pudo crear la valoración (usuario o ruta inválidos).");
@@ -1691,7 +1689,7 @@ public class vPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txtZona1;
     // End of variables declaration//GEN-END:variables
 
-    public static Valoracion crearValoracion(
+    public Valoracion crearValoracion(
             int idUsuario,
             int idRuta,
             LocalDate fecha,
@@ -1699,13 +1697,13 @@ public class vPrincipal extends javax.swing.JFrame {
             int belleza,
             int interes
     ) {
-        Usuario usuario = usuPorId(idUsuario);
-        Ruta ruta = rutaPorId(idRuta);
+        Usuario usuario = metodos.usuPorId(idUsuario);
+        Ruta ruta = metodos.rutaPorId(idRuta);
 
         if (usuario != null && ruta != null) {
             return new Valoracion(usuario, ruta, fecha, dificultad, belleza, interes);
         } else {
-            System.err.println("Usuario o ruta no encontrados.");
+            System.out.println("Usuario o ruta no encontrados.");
             return null;
         }
     }
