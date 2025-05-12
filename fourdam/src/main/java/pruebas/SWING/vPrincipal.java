@@ -5,6 +5,7 @@
 package pruebas.SWING;
 
 import java.sql.Connection;
+import DAOs.metodosDB;
 import javax.swing.JFrame;
 import reto.fourdam.AccesoBaseDatos;
 
@@ -1318,6 +1319,7 @@ public class vPrincipal extends javax.swing.JFrame {
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
+        metodosDB.verificaUsuario(txtCorreo.getText());
     }//GEN-LAST:event_btnSigninMouseClicked
 
     private void btnModificarRutaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarRutaMouseClicked
