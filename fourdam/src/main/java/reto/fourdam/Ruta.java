@@ -15,6 +15,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.LinkedHashSet;
 import java.util.Set;
 import validaciones.Teclado;
 
@@ -31,6 +32,8 @@ public class Ruta {
     private Punto punto_fin;
     private double distanciaTotal;
     private double desnivel;
+    private double desnivelPositivo;
+    private double desnivelNegativo;
     private double altMax;
     private double altMin;
     private ClasificacionRuta clasificacion;
@@ -46,14 +49,15 @@ public class Ruta {
     private Estado estado;
     private String recomendaciones;
     private String zonaGeografica;
-    private File puntosIntermedios;
+    private LinkedHashSet<Punto> puntosIntermedios;
     private double duracion;
 
     public Ruta() {
         
     }
     // quito el id porque es autoincremental
-    public Ruta(Usuario autor, String nombre, LocalDate fecha_creacion, Punto punto_ini, Punto punto_fin, double distanciaTotal, ClasificacionRuta clasificacion, double desnivel, double altMax, double altMin, ClasificacionRuta valueOf, int nivelRiesgo, int nivelEsfuerzo, int tipoTerreno, int indicaciones, String tipoActividad, Set<String> temporada, boolean accesibilidad, boolean familiar, String url, Estado estado, String recomendaciones, String zonaGeografica, double duracion, File puntosIntermedios) {        
+
+    public Ruta(Usuario autor, String nombre, LocalDate fecha_creacion, Punto punto_ini, Punto punto_fin, double distanciaTotal, double desnivel, double desnivelPositivo, double desnivelNegativo, double altMax, double altMin, ClasificacionRuta clasificacion, int nivelRiesgo, int nivelEsfuerzo, int tipoTerreno, int indicaciones, String tipoActividad, Set<String> temporada, boolean accesibilidad, boolean familiar, String url, Estado estado, String recomendaciones, String zonaGeografica, LinkedHashSet<Punto> puntosIntermedios, double duracion) {
         this.autor = autor;
         this.nombre = nombre;
         this.fecha_creacion = fecha_creacion;
@@ -61,6 +65,8 @@ public class Ruta {
         this.punto_fin = punto_fin;
         this.distanciaTotal = distanciaTotal;
         this.desnivel = desnivel;
+        this.desnivelPositivo = desnivelPositivo;
+        this.desnivelNegativo = desnivelNegativo;
         this.altMax = altMax;
         this.altMin = altMin;
         this.clasificacion = clasificacion;
@@ -80,12 +86,19 @@ public class Ruta {
         this.duracion = duracion;
     }
 
+   
+    
+
     //añado el get de id
 
     public int getId() {
         return id;
     }
-        
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public Usuario getAutor() {
         return autor;
     }
@@ -114,7 +127,7 @@ public class Ruta {
         return punto_ini;
     }
 
-    public void setPunto_ini(PuntoInteres punto_ini) {
+    public void setPunto_ini(Punto punto_ini) {
         this.punto_ini = punto_ini;
     }
 
@@ -122,39 +135,47 @@ public class Ruta {
         return punto_fin;
     }
 
-    public void setPunto_fin(PuntoInteres punto_fin) {
+    public void setPunto_fin(Punto punto_fin) {
         this.punto_fin = punto_fin;
     }
 
-   public double getDistanciaTotal() {
-      return distanciaTotal;
+    public double getDistanciaTotal() {
+        return distanciaTotal;
     }
 
-    public void setDistanciaTotal(float distanciaTotal) {
+    public void setDistanciaTotal(double distanciaTotal) {
         this.distanciaTotal = distanciaTotal;
-    }
-
-    public double getDuracion() {
-        return duracion;
-    }
-
-    public void setDuracion(double duracion) {
-        this.duracion = duracion;
     }
 
     public double getDesnivel() {
         return desnivel;
     }
 
-    public void setDesnivel(float desnivel) {
+    public void setDesnivel(double desnivel) {
         this.desnivel = desnivel;
     }
 
-   public double getAltMax() {
+    public double getDesnivelPositivo() {
+        return desnivelPositivo;
+    }
+
+    public void setDesnivelPositivo(double desnivelPositivo) {
+        this.desnivelPositivo = desnivelPositivo;
+    }
+
+    public double getDesnivelNegativo() {
+        return desnivelNegativo;
+    }
+
+    public void setDesnivelNegativo(double desnivelNegativo) {
+        this.desnivelNegativo = desnivelNegativo;
+    }
+
+    public double getAltMax() {
         return altMax;
     }
 
-    public void setAltMax(float altMax) {
+    public void setAltMax(double altMax) {
         this.altMax = altMax;
     }
 
@@ -162,7 +183,7 @@ public class Ruta {
         return altMin;
     }
 
-    public void setAltMin(float altMin) {
+    public void setAltMin(double altMin) {
         this.altMin = altMin;
     }
 
@@ -270,13 +291,25 @@ public class Ruta {
         this.zonaGeografica = zonaGeografica;
     }
 
-    public File getPuntosIntermedios() {
+    public LinkedHashSet<Punto> getPuntosIntermedios() {
         return puntosIntermedios;
     }
 
-    public void setPuntosIntermedios(File puntosIntermedios) {
+    public void setPuntosIntermedios(LinkedHashSet<Punto> puntosIntermedios) {
         this.puntosIntermedios = puntosIntermedios;
     }
+
+    public double getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(double duracion) {
+        this.duracion = duracion;
+    }
+
+  
+
+    
     
     /*public File fichaSeguridad(){
         String linea;
