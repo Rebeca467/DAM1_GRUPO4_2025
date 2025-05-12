@@ -5,17 +5,19 @@
 package reto.fourdam;
 
 import ENUMs.TipoPInteres;
+import java.time.LocalDateTime;
 
 /**
  *
  * @author DAM124
  */
 public class PuntoInteres extends Punto {
+
     private TipoPInteres tipo;
     private String caracteristicasEsp;
 
-    public PuntoInteres(double latitud, double longitud, String imagen, TipoPInteres tipo, String caracteristicasEsp) {
-        super(latitud,longitud,imagen);
+    public PuntoInteres(double latitud, double longitud, double elevacion, LocalDateTime tiempo, String imagen, TipoPInteres tipo, String caracteristicasEsp) {
+        super(latitud, longitud, elevacion, tiempo, imagen);
         this.tipo = tipo;
         this.caracteristicasEsp = caracteristicasEsp;
     }
@@ -34,7 +36,7 @@ public class PuntoInteres extends Punto {
     public double getLongitud() {
         return super.getLongitud();
     }
-    
+
     @Override
     public String toString() {
         return "PuntoInteres{" + "tipo=" + tipo + ", caracteristicasEsp=" + caracteristicasEsp + '}';

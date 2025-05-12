@@ -151,7 +151,7 @@ public class metodosDB {
         }
         return exito;
     }
-    
+
     public boolean agregarValoracionTecnica(ValoracionTec v) {
         Connection con = AccesoBaseDatos.getInstance().getConn();
         boolean exito = false;
@@ -227,7 +227,7 @@ public class metodosDB {
     }
 
     public void modificarRuta() {
-        
+
     }
 
     public void modificarPunto() {
@@ -239,11 +239,15 @@ public class metodosDB {
                 rs.getString("nombre"),
                 rs.getDate("fecha").toLocalDate(),
                 new Punto(
-                        rs.getDouble("latitud_inicial"),
-                        rs.getDouble("longitud_inicial"),
+                        rs.getDouble("latitud_final"),
+                        rs.getDouble("longitud_final"),
+                        rs.getDouble("elevacion"),
+                        rs.getTimestamp("tiempo_final").toLocalDateTime(),
                         null),
                 new Punto(rs.getDouble("latitud_final"),
                         rs.getDouble("longitud_final"),
+                        rs.getDouble("elevacion"),
+                        rs.getTimestamp("tiempo_final").toLocalDateTime(),
                         null),
                 rs.getDouble("distancia"),
                 null,
@@ -267,7 +271,8 @@ public class metodosDB {
                 null
         );
     }
-    // ------------------------------ MIRAR METODO ---------------------------
+
+    // si hay numeros es porque se pueden pedir datos por index
     private Usuario crearUsuario(final ResultSet rs) throws SQLException {
         return new Usuario(
                 rs.getString(2),
@@ -319,5 +324,30 @@ public class metodosDB {
 
     private ValoracionTec crearValoracionTecnica(final ResultSet rs) throws SQLException {
         return null;
+    }
+
+    public static void verificaUsuario(String email) {
+        String sql = "SELECT rol FROM usuarios WHERE correo = ?";
+
+        try (Connection conn = AccesoBaseDatos.getInstance().getConn(); PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, email);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    String rolStr = rs.getString("rol").toUpperCase();
+                    try {
+                        TipoUsuario rol = TipoUsuario.valueOf(rolStr);
+                        System.out.println("El usuario tiene el rol: " + rol);
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Rol no reconocido en la base de datos: " + rolStr);
+                    }
+                } else {
+                    System.out.println("Usuario no encontrado con ese correo.");
+                }
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error al acceder a la base de datos: " + e.getMessage());
+        }
     }
 }
