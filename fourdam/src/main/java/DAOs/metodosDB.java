@@ -124,7 +124,42 @@ public class metodosDB {
         return valoracionesTecnicas;
     }
 
-    public void agregarRuta() {
+    public void agregarRuta(Ruta r) {
+        Connection con = AccesoBaseDatos.getInstance().getConn();
+        boolean exito = false;
+        String sql = "insert into ruta (id_usuario, nombre, fecha, latitud_inicial, longitud_inicial, latitud_final, longitud_final, distancia, desnivel, desnivel_positivo, desnivel_negativo, altitud_minima, altitud_maxima, estado, url, familiar, temporada, indicaciones, terreno, esfuerzo, riesgo, zona, recomendaciones, clasificacion, nombre_inicial, nombre_final, media_valoraciones)values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        int salida = -1;
+        try (PreparedStatement ps = getConnection().prepareStatement(sql)){
+        ps.setString(2, r.getNombre());      // nombre
+        ps.setDate(3, Date.valueOf(r.getFecha_creacion())); // fecha
+        ps.setDouble(4, r.getPunto_ini().getLatitud());     // latitud_inicial
+        ps.setDouble(5, r.getPunto_ini().getLongitud());    // longitud_inicial
+        ps.setDouble(6, r.getPunto_fin().getLatitud());     // latitud_final
+        ps.setDouble(7, r.getPunto_fin().getLongitud());    // longitud_final
+        ps.setDouble(8, r.getDistanciaTotal());             // distancia
+        ps.setDouble(9, r.getDesnivel());                   // desnivel total
+        ps.setDouble(10,r.getDesnivel());                  // desnivel_positivo (ajústalo si tienes valor separado)
+        ps.setDouble(11, r.getDesnivel());                  // desnivel_negativo (ídem)
+        ps.setDouble(12, r.getAltMin());                    // altitud_minima
+        ps.setDouble(13, r.getAltMax());                    // altitud_maxima
+        ps.setString(14, r.getEstado().toString());         // estado
+        ps.setString(15, r.getUrl());                       // url
+        ps.setBoolean(16, r.isFamiliar());                  // familiar
+        ps.setString(17, String.join(",", r.getTemporada())); // temporada
+        ps.setInt(18, r.getIndicaciones());                 // indicaciones
+        ps.setInt(19, r.getTipoTerreno());                  // terreno
+        ps.setInt(20, r.getNivelEsfuerzo());                // esfuerzo
+        ps.setInt(21, r.getNivelRiesgo());                  // riesgo
+        ps.setString(22, r.getZonaGeografica());            // zona
+            
+            if (salida != 1) {
+                throw new Exception(" No se ha insertado/modificado un solo registro");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
+        }
     }
 
     public void agregarCalendario() {
