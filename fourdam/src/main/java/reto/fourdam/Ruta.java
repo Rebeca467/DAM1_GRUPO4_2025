@@ -30,7 +30,6 @@ public class Ruta {
     private Punto punto_ini;
     private Punto punto_fin;
     private double distanciaTotal;
-    private LocalTime duracion;
     private double desnivel;
     private double altMax;
     private double altMin;
@@ -48,22 +47,20 @@ public class Ruta {
     private String recomendaciones;
     private String zonaGeografica;
     private File puntosIntermedios;
-
+    private double duracion;
 
     public Ruta() {
         
     }
-
-    public Ruta(int id, Usuario autor, String nombre, LocalDate fecha_creacion, Punto punto_ini, Punto punto_fin, double distanciaTotal, LocalTime duracion, double desnivel,double altMax, double altMin, ClasificacionRuta clasificacion, int nivelRiesgo, int nivelEsfuerzo, int tipoTerreno, int indicaciones, String tipoActividad, Set<String> temporada, boolean accesibilidad, boolean familiar, String url, Estado estado, String recomendaciones, String zonaGeografica, File puntosIntermedios) {
-        this.id = id;
+    // quito el id porque es autoincremental
+    public Ruta(Usuario autor, String nombre, LocalDate fecha_creacion, Punto punto_ini, Punto punto_fin, double distanciaTotal, ClasificacionRuta clasificacion, double desnivel, double altMax, double altMin, ClasificacionRuta valueOf, int nivelRiesgo, int nivelEsfuerzo, int tipoTerreno, int indicaciones, String tipoActividad, Set<String> temporada, boolean accesibilidad, boolean familiar, String url, Estado estado, String recomendaciones, String zonaGeografica, double duracion, File puntosIntermedios) {        
         this.autor = autor;
         this.nombre = nombre;
         this.fecha_creacion = fecha_creacion;
         this.punto_ini = punto_ini;
         this.punto_fin = punto_fin;
         this.distanciaTotal = distanciaTotal;
-        this.duracion = duracion;
-        this.desnivel= desnivel;
+        this.desnivel = desnivel;
         this.altMax = altMax;
         this.altMin = altMin;
         this.clasificacion = clasificacion;
@@ -80,6 +77,13 @@ public class Ruta {
         this.recomendaciones = recomendaciones;
         this.zonaGeografica = zonaGeografica;
         this.puntosIntermedios = puntosIntermedios;
+        this.duracion = duracion;
+    }
+
+    //añado el get de id
+
+    public int getId() {
+        return id;
     }
         
     public Usuario getAutor() {
@@ -130,11 +134,11 @@ public class Ruta {
         this.distanciaTotal = distanciaTotal;
     }
 
-    public LocalTime getDuracion() {
+    public double getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(LocalTime duracion) {
+    public void setDuracion(double duracion) {
         this.duracion = duracion;
     }
 

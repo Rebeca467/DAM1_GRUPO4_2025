@@ -14,17 +14,17 @@ import validaciones.Teclado;
  */
 public class Alumno extends Usuario{
 
-    public Alumno(int id, String nombre, String apellidos, String email, String cnna, TipoUsuario rol) {
-        super(id, nombre, apellidos, email, cnna, rol);
+    public Alumno(String nombre, String apellidos, String email, String cnna, TipoUsuario rol) {
+        super(nombre, apellidos, email, cnna, rol);
     }
 
     public Alumno() {
     }
-    
-    @Override
+    // -------------------------------- MIRAR ---------------------------
+    /*@Override
     public Resenna resennar(Ruta ruta){
         return super.resennar(ruta);
-    }
+    }*/
     
     public Valoracion valorar(Ruta ruta){
         return new Valoracion(Alumno.this, ruta, LocalDate.now(), Teclado.intervalos("Nivel de dificultad entre 1-5", 1, 5), Teclado.intervalos("Belleza de la ruta entre 1-5", 1, 5), Teclado.intervalos("Interes cultural entre 1-5", 1, 5));

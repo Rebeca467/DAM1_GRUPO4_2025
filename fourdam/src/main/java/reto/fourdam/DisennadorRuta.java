@@ -14,26 +14,26 @@ import validaciones.Teclado;
  */
 public class DisennadorRuta extends Alumno {
 
-    public DisennadorRuta(int id, String nombre, String apellidos, String email, String cnna, TipoUsuario rol) {
-        super(id, nombre, apellidos, email, cnna, rol);
+    public DisennadorRuta(String nombre, String apellidos, String email, String cnna, TipoUsuario rol) {
+        super(nombre, apellidos, email, cnna, rol);
     }
 
     public DisennadorRuta() {
     }
      
-    @Override
+    /*@Override
     public Resenna resennar(Ruta ruta){
         return super.resennar(ruta);
-    }
+    }*/
     
     @Override
     public Valoracion valorar(Ruta ruta){
         return super.valorar(ruta);
     }
-    
-    public ValoracionTec vTec(Ruta ruta){
+    // ------------------------------------------ AÑADIR ID ----------------------------
+    /*public ValoracionTec vTec(Ruta ruta){
         return new ValoracionTec(DisennadorRuta.this, ruta, LocalDate.now(), Teclado.intervalos("Nivel de dificultad entre 1-5", 1, 5), Teclado.texto("Equipo recomendado para la ruta"));
-    }
+    }*/
     
     @Override
     public Ruta crearRuta(){
