@@ -23,6 +23,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -160,12 +161,33 @@ public class Fichero {
                     double lat = Double.parseDouble(puntoParts[1]);
                     double lon = Double.parseDouble(puntoParts[2]);
                     float elev = puntoParts[3].equals("-") ? 0 : Float.parseFloat(puntoParts[3]);
-                    //LocalDateTime tiempo = puntoParts[4]; // arreglar esto
+                    
+                    // Convertir el string de tiempo a LocalDateTime
+                    LocalDateTime tiempo = null;
+                    if (!puntoParts[4].equals("-") && !puntoParts[4].isEmpty()) {
+                        try {
+                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
+                            tiempo = LocalDateTime.parse(puntoParts[4], formatter);
+                        } catch (Exception e) {
+                            System.out.println("Error al parsear el tiempo: " + puntoParts[4] + ". Se usará null. Error: " + e.getMessage());
+                        }
+                    }
+                    
                     String nombre = puntoParts[5];
+                    TipoPInteres tipo = null;
+                    try {
+                        tipo = TipoPInteres.valueOf(tipoStr.toUpperCase());
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Tipo de punto no reconocido: " + tipoStr + ". Se usará el primer valor del enum.");
+                        if (TipoPInteres.values().length > 0) {
+                            tipo = TipoPInteres.values()[0];
+                        } else {
+                            System.out.println("No hay valores en el enum TipoPInteres. No se puede crear el punto.");
+                            continue;
+                        }
+                    }
 
-                    TipoPInteres tipo = TipoPInteres.valueOf(tipoStr.toUpperCase());
-
-                    PuntoInteres punto = new PuntoInteres(lat, lon, elev, null, "imagen.jpg", tipo, nombre);
+                    PuntoInteres punto = new PuntoInteres(lat, lon, elev, tiempo, "imagen.jpg", tipo, nombre);
                     waypoints.add(punto);
                 }
             }
