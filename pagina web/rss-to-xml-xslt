@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:output method="html" indent="yes"/>
+    
+    <!-- Plantilla principal -->
+    <xsl:template match="/">
+        <div class="noticias-lista">
+            <xsl:apply-templates select="//item"/>
+        </div>
+    </xsl:template>
+    
+    <!-- Plantilla para cada item de noticia -->
+    <xsl:template match="item">
+        <article class="noticia">
+            <h3 class="noticia-titulo">
+                <xsl:choose>
+                    <xsl:when test="link">
+                        <a href="{link}" target="_blank">
+                            <xsl:value-of select="title"/>
+                        </a>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="title"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </h3>
+            
+            <div class="noticia-fecha">
+                <xsl:value-of select="pubDate"/>
+            </div>
+            
+            <div class="noticia-contenido">
+                <xsl:value-of select="description" disable-output-escaping="yes"/>
+            </div>
+            
+            <xsl:if test="link">
+                <div class="noticia-enlace">
+                    <a href="{link}" target="_blank">Leer más</a>
+                </div>
+            </xsl:if>
+        </article>
+    </xsl:template>
+</xsl:stylesheet>

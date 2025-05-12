@@ -4,112 +4,400 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RAL - Rutas al Aire Libre</title>
-    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <h1>Rutas al Aire Libre</h1>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>Rutas al Aire Libre</h1>
+            </div>
+            <div class="header-actions">
+                <button class="btn premium-btn"><i class="fas fa-crown"></i> Pásate a Premium</button>
+                <button class="btn login-btn"><i class="fas fa-sign-in-alt"></i> Iniciar sesión</button>
+                <button class="btn register-btn"><i class="fas fa-user-plus"></i> Regístrate</button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
     </header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="rutas.html">Rutas</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-        <div class="button-group">
-            <button class="menu-toggle premium-btn">Pásate a Premium</button>
-            <button class="menu-toggle login-btn">Iniciar sesión</button>
-            <button class="menu-toggle register-btn">Regístrate</button>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="rutas.html"><i class="fas fa-hiking"></i> Rutas</a></li>
+                <li><a href="noticias.html"><i class="fas fa-newspaper"></i> Novedades</a></li>
+                <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+            </ul>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar rutas...">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
         </div>
     </nav>
-    <aside class="sidebar">
-        <h2>Información Adicional</h2>
-        <p>Consulta nuestras recomendaciones de equipo y seguridad para disfrutar de tus rutas al máximo.</p>
-        <ul>
-            <li><a href="#equipo">Equipo</a></li>
-            <li><a href="#seguridad">Seguridad</a></li>
-            <li><a href="#clima">Clima</a></li>
-            <li><a href="#mapas">Mapas</a></li>
-        </ul>
-    </aside>
-    <main>
-        <h1>Las mejores rutas de Senderismo en España</h1>
-        <section id="inicio">
-            <h2>Inicio</h2>
-            <p>Bienvenido a nuestra página dedicada a las mejores rutas de montaña. Aquí encontrarás información para planificar tus aventuras al aire libre.</p>
-        </section>
-        <section id="rutas">
-            <h2>Rutas</h2>
-            <p>Explora nuestras rutas recomendadas:</p>
-            <div class="rutas-box">
-                <h3>Ruta del Pico del Águila</h3>
-                <div class="rutas-info">
-                    <div>
-                        <span>10,85km</span>
-                        <small>Distancia</small>
-                    </div>
-                    <div>
-                        <span>506m</span>
-                        <small>Desnivel +</small>
-                    </div>
-                    <div>
-                        <span>Senderismo</span>
-                        <small>Tipo de ruta</small>
-                    </div>
-                </div>
-                <h4>Descripción</h4>
-                <p>Una caminata desafiante con vistas espectaculares.</p>
-                <img src="/imagenes/ruta1.jfif" alt="Ruta del Pico del Águila" class="ruta-img">
+
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>Descubre las mejores rutas de senderismo</h1>
+            <p>Explora miles de rutas, comparte tus aventuras y conecta con otros amantes de la naturaleza</p>
+            <div class="hero-buttons">
+                <a href="rutas.html" class="btn btn-primary"><i class="fas fa-compass"></i> Explorar rutas</a>
+                <a href="#" class="btn btn-secondary"><i class="fas fa-map-marked-alt"></i> Crear ruta</a>
             </div>
-            <div class="rutas-box">
-                <h3>Sendero del Bosque Encantado</h3>
-                <div class="rutas-info">
-                    <div>
-                        <span>10,85km</span>
-                        <small>Distancia</small>
-                    </div>
-                    <div>
-                        <span>506m</span>
-                        <small>Desnivel +</small>
-                    </div>
-                    <div>
-                        <span>Senderismo</span>
-                        <small>Tipo de ruta</small>
-                    </div>
-                </div>
-                <h4>Descripción</h4>
-                <p>Ideal para familias y principiantes.</p>
-                <img src="/imagenes/ruta1.jfif" alt="Sendero del Bosque Encantado" class="ruta-img">
-            </div>
-            <div class="rutas-box">
-                <h3>Travesía de los Tres Picos</h3>
-                <div class="rutas-info">
-                    <div>
-                        <span>10,85km</span>
-                        <small>Distancia</small>
-                    </div>
-                    <div>
-                        <span>506m</span>
-                        <small>Desnivel +</small>
-                    </div>
-                    <div>
-                        <span>Senderismo</span>
-                        <small>Tipo de ruta</small>
-                    </div>
-                </div>
-                <h4>Descripción</h4>
-                <p>Una experiencia inolvidable para los más aventureros.</p>
-                <img src="/imagenes/ruta1.jfif" alt="Travesía de los Tres Picos" class="ruta-img">
+        </div>
+    </div>
+
+    <main class="container">
+        <section class="featured-section">
+            <div class="section-header">
+                <h2><i class="fas fa-star"></i> Rutas destacadas</h2>
+                <a href="rutas.html" class="view-all">Ver todas <i class="fas fa-arrow-right"></i></a>
             </div>
 
+            <div class="routes-grid">
+                <div class="route-card">
+                    <div class="route-image">
+                        <img src="/imagenes/ruta1.jfif" alt="Ruta del Pico del Águila">
+                        <div class="route-type"><i class="fas fa-hiking"></i> Senderismo</div>
+                    </div>
+                    <div class="route-content">
+                        <h3>Ruta del Pico del Águila</h3>
+                        <div class="route-stats">
+                            <div class="stat">
+                                <i class="fas fa-route"></i>
+                                <span>10,85 km</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-mountain"></i>
+                                <span>506 m</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>4h 30m</span>
+                            </div>
+                        </div>
+                        <div class="route-difficulty">
+                            <span class="difficulty moderate">Moderada</span>
+                        </div>
+                        <p class="route-description">Una caminata desafiante con vistas espectaculares.</p>
+                        <div class="route-actions">
+                            <button class="btn btn-small"><i class="fas fa-heart"></i></button>
+                            <button class="btn btn-small"><i class="fas fa-bookmark"></i></button>
+                            <a href="#" class="btn btn-primary btn-small">Ver detalles</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="route-card">
+                    <div class="route-image">
+                        <img src="/imagenes/ruta2.jfif" alt="Sendero del Bosque Encantado">
+                        <div class="route-type"><i class="fas fa-hiking"></i> Senderismo</div>
+                    </div>
+                    <div class="route-content">
+                        <h3>Sendero del Bosque Encantado</h3>
+                        <div class="route-stats">
+                            <div class="stat">
+                                <i class="fas fa-route"></i>
+                                <span>8,5 km</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-mountain"></i>
+                                <span>300 m</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>3h 15m</span>
+                            </div>
+                        </div>
+                        <div class="route-difficulty">
+                            <span class="difficulty easy">Fácil</span>
+                        </div>
+                        <p class="route-description">Ideal para familias y principiantes.</p>
+                        <div class="route-actions">
+                            <button class="btn btn-small"><i class="fas fa-heart"></i></button>
+                            <button class="btn btn-small"><i class="fas fa-bookmark"></i></button>
+                            <a href="#" class="btn btn-primary btn-small">Ver detalles</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="route-card">
+                    <div class="route-image">
+                        <img src="/imagenes/ruta3.jfif" alt="Travesía de los Tres Picos">
+                        <div class="route-type"><i class="fas fa-hiking"></i> Senderismo</div>
+                    </div>
+                    <div class="route-content">
+                        <h3>Travesía de los Tres Picos</h3>
+                        <div class="route-stats">
+                            <div class="stat">
+                                <i class="fas fa-route"></i>
+                                <span>15 km</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-mountain"></i>
+                                <span>800 m</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>6h 45m</span>
+                            </div>
+                        </div>
+                        <div class="route-difficulty">
+                            <span class="difficulty hard">Difícil</span>
+                        </div>
+                        <p class="route-description">Una experiencia inolvidable para los más aventureros.</p>
+                        <div class="route-actions">
+                            <button class="btn btn-small"><i class="fas fa-heart"></i></button>
+                            <button class="btn btn-small"><i class="fas fa-bookmark"></i></button>
+                            <a href="#" class="btn btn-primary btn-small">Ver detalles</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
-        <section id="contacto">
-            <h2>Contacto</h2>
-            <p>¿Tienes preguntas o sugerencias? Contáctanos a través de nuestro correo: <a href="mailto:info@rutasdemontana.com">info@rutasdemontana.com</a>.</p>
+
+        <!-- Nueva sección de feed de actualizaciones -->
+        <section class="feed-section">
+            <div class="section-header">
+                <h2><i class="fas fa-newspaper"></i> Últimas actualizaciones</h2>
+                <a href="noticias.html" class="view-all">Ver todas <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="feed-container" id="feedContainer">
+                <div class="feed-loading">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Cargando actualizaciones...</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="activities-section">
+            <div class="section-header">
+                <h2><i class="fas fa-compass"></i> Explora por actividad</h2>
+            </div>
+            <div class="activities-grid">
+                <a href="#" class="activity-card">
+                    <i class="fas fa-hiking"></i>
+                    <span>Senderismo</span>
+                </a>
+                <a href="#" class="activity-card">
+                    <i class="fas fa-biking"></i>
+                    <span>Ciclismo</span>
+                </a>
+                <a href="#" class="activity-card">
+                    <i class="fas fa-running"></i>
+                    <span>Trail Running</span>
+                </a>
+                <a href="#" class="activity-card">
+                    <i class="fas fa-skiing"></i>
+                    <span>Esquí</span>
+                </a>
+                <a href="#" class="activity-card">
+                    <i class="fas fa-water"></i>
+                    <span>Kayak</span>
+                </a>
+                <a href="#" class="activity-card">
+                    <i class="fas fa-horse"></i>
+                    <span>Equitación</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="info-card">
+                <i class="fas fa-map-marked-alt"></i>
+                <h3>Rutas verificadas</h3>
+                <p>Todas nuestras rutas son verificadas por expertos para garantizar su precisión y seguridad.</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Disponible offline</h3>
+                <p>Descarga las rutas y utilízalas sin conexión durante tus aventuras.</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-users"></i>
+                <h3>Comunidad activa</h3>
+                <p>Únete a miles de aventureros que comparten sus experiencias y consejos.</p>
+            </div>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2025 Rutas de Montaña. Todos los derechos reservados.</p>
+
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h3><i class="fas fa-info-circle"></i> Información Útil</h3>
+            <button class="close-sidebar" id="closeSidebar"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="sidebar-content">
+            <div class="sidebar-section">
+                <h4><i class="fas fa-tshirt"></i> Equipo</h4>
+                <p>Consulta nuestras recomendaciones de equipo para disfrutar de tus rutas al máximo.</p>
+                <a href="#" class="sidebar-link">Ver recomendaciones</a>
+            </div>
+            <div class="sidebar-section">
+                <h4><i class="fas fa-shield-alt"></i> Seguridad</h4>
+                <p>Consejos importantes para mantener la seguridad durante tus aventuras.</p>
+                <a href="#" class="sidebar-link">Leer consejos</a>
+            </div>
+            <div class="sidebar-section">
+                <h4><i class="fas fa-cloud-sun"></i> Clima</h4>
+                <p>Información meteorológica actualizada para planificar tus salidas.</p>
+                <a href="#" class="sidebar-link">Consultar previsión</a>
+            </div>
+            <div class="sidebar-section">
+                <h4><i class="fas fa-map"></i> Mapas</h4>
+                <p>Accede a mapas detallados de las zonas de senderismo.</p>
+                <a href="#" class="sidebar-link">Ver mapas</a>
+            </div>
+        </div>
+    </aside>
+
+    <div class="sidebar-toggle" id="sidebarToggle">
+        <i class="fas fa-info-circle"></i>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Rutas al Aire Libre</h3>
+                <p>Tu compañero perfecto para descubrir las mejores rutas de senderismo en España.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces rápidos</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="rutas.html">Rutas</a></li>
+                    <li><a href="noticias.html">Novedades</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Recursos</h4>
+                <ul>
+                    <li><a href="#">Guías de senderismo</a></li>
+                    <li><a href="#">Equipo recomendado</a></li>
+                    <li><a href="#">Consejos de seguridad</a></li>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <ul class="contact-info">
+                    <li><i class="fas fa-envelope"></i> info@rutasalaire.com</li>
+                    <li><i class="fas fa-phone"></i> +34 912 345 678</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Madrid, España</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Rutas al Aire Libre. Todos los derechos reservados.</p>
+        </div>
     </footer>
+
+    <script>
+        // Sidebar toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebar = document.querySelector('.sidebar');
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const closeSidebar = document.getElementById('closeSidebar');
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const mainNav = document.querySelector('.main-nav');
+
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('active');
+            });
+
+            closeSidebar.addEventListener('click', function() {
+                sidebar.classList.remove('active');
+            });
+
+            mobileMenuToggle.addEventListener('click', function() {
+                mainNav.classList.toggle('active');
+                this.querySelector('i').classList.toggle('fa-bars');
+                this.querySelector('i').classList.toggle('fa-times');
+            });
+
+            // Cargar el feed de actualizaciones
+            loadFeed();
+        });
+
+        // Función para cargar el feed desde feed.xml
+        function loadFeed() {
+            const feedContainer = document.getElementById('feedContainer');
+            
+            fetch('feed.xml')
+                .then(response => response.text())
+                .then(data => {
+                    // Parsear el XML
+                    const parser = new DOMParser();
+                    const xml = parser.parseFromString(data, 'application/xml');
+                    const items = xml.querySelectorAll('item');
+                    
+                    // Limpiar el contenedor
+                    feedContainer.innerHTML = '';
+                    
+                    // Limitar a 3 elementos para la página principal
+                    const maxItems = Math.min(items.length, 3);
+                    
+                    for (let i = 0; i < maxItems; i++) {
+                        const item = items[i];
+                        const title = item.querySelector('title').textContent;
+                        const link = item.querySelector('link').textContent;
+                        const description = item.querySelector('description').textContent;
+                        
+                        // Crear elemento de feed
+                        const feedItem = document.createElement('div');
+                        feedItem.className = 'feed-item';
+                        
+                        // Fecha aleatoria para demostración (en un caso real vendría del XML)
+                        const date = new Date();
+                        date.setDate(date.getDate() - Math.floor(Math.random() * 10));
+                        const formattedDate = date.toLocaleDateString('es-ES', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                        });
+                        
+                        feedItem.innerHTML = `
+                            <div class="feed-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>${formattedDate}</span>
+                            </div>
+                            <h3 class="feed-title">${title}</h3>
+                            <p class="feed-description">${description}</p>
+                            <a href="${link}" class="feed-link">Leer más <i class="fas fa-arrow-right"></i></a>
+                        `;
+                        
+                        feedContainer.appendChild(feedItem);
+                    }
+                    
+                    // Añadir botón para ver más si hay más de 3 elementos
+                    if (items.length > 3) {
+                        const viewMoreBtn = document.createElement('a');
+                        viewMoreBtn.href = 'noticias.html';
+                        viewMoreBtn.className = 'btn btn-primary view-more-btn';
+                        viewMoreBtn.innerHTML = '<i class="fas fa-newspaper"></i> Ver más actualizaciones';
+                        feedContainer.appendChild(viewMoreBtn);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error al cargar el feed:', error);
+                    feedContainer.innerHTML = `
+                        <div class="feed-error">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <p>No se pudieron cargar las actualizaciones. Inténtalo de nuevo más tarde.</p>
+                        </div>
+                    `;
+                });
+        }
+    </script>
 </body>
 </html>
