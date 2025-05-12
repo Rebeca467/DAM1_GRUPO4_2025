@@ -4,6 +4,7 @@
  */
 package pruebas.SWING;
 
+import DAOs.metodosDB;
 import javax.swing.JFrame;
 
 /**
@@ -1315,6 +1316,7 @@ public class vPrincipal extends javax.swing.JFrame {
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
+        metodosDB.verificaUsuario(txtCorreo.getText());
     }//GEN-LAST:event_btnSigninMouseClicked
 
     private void btnModificarRutaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarRutaMouseClicked
