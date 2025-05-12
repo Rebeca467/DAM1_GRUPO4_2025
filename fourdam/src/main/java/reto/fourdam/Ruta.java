@@ -51,13 +51,14 @@ public class Ruta {
     private String zonaGeografica;
     private LinkedHashSet<Punto> puntosIntermedios;
     private double duracion;
+    private int mediaValoracion;
 
     public Ruta() {
         
     }
     // quito el id porque es autoincremental
 
-    public Ruta(Usuario autor, String nombre, LocalDate fecha_creacion, Punto punto_ini, Punto punto_fin, double distanciaTotal, double desnivel, double desnivelPositivo, double desnivelNegativo, double altMax, double altMin, ClasificacionRuta clasificacion, int nivelRiesgo, int nivelEsfuerzo, int tipoTerreno, int indicaciones, String tipoActividad, Set<String> temporada, boolean accesibilidad, boolean familiar, String url, Estado estado, String recomendaciones, String zonaGeografica, LinkedHashSet<Punto> puntosIntermedios, double duracion) {
+    public Ruta(Usuario autor, String nombre, LocalDate fecha_creacion, Punto punto_ini, Punto punto_fin, double distanciaTotal, double desnivel, double desnivelPositivo, double desnivelNegativo, double altMax, double altMin, ClasificacionRuta clasificacion, int nivelRiesgo, int nivelEsfuerzo, int tipoTerreno, int indicaciones, String tipoActividad, Set<String> temporada, boolean accesibilidad, boolean familiar, String url, Estado estado, String recomendaciones, String zonaGeografica, LinkedHashSet<Punto> puntosIntermedios, double duracion, int mediaValoracion) {
         this.autor = autor;
         this.nombre = nombre;
         this.fecha_creacion = fecha_creacion;
@@ -84,7 +85,10 @@ public class Ruta {
         this.zonaGeografica = zonaGeografica;
         this.puntosIntermedios = puntosIntermedios;
         this.duracion = duracion;
+        this.mediaValoracion = mediaValoracion;
     }
+
+    
 
    
     
@@ -306,6 +310,16 @@ public class Ruta {
     public void setDuracion(double duracion) {
         this.duracion = duracion;
     }
+
+    public int getMediaValoracion() {
+        return mediaValoracion;
+    }
+
+    public void setMediaValoracion(int mediaValoracion) {
+        this.mediaValoracion = mediaValoracion;
+    }
+    
+    
 
   
 
