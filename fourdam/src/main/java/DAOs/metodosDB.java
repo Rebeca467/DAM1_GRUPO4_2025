@@ -288,7 +288,6 @@ public class metodosDB {
                         rs.getDouble("longitud_final"),
                         null),
                 rs.getDouble("distancia"),
-                null,
                 rs.getDouble("desnivel"),
                 rs.getDouble("desnivel_positivo"),
                 rs.getDouble("desnivel_negativo"),
