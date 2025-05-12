@@ -470,5 +470,33 @@
             <p>&copy; 2025 Rutas al Aire Libre. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <script>
+        // Sidebar toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebar = document.querySelector('.sidebar');
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const closeSidebar = document.getElementById('closeSidebar');
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const mainNav = document.querySelector('.main-nav');
+
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('active');
+            });
+
+            closeSidebar.addEventListener('click', function() {
+                sidebar.classList.remove('active');
+            });
+
+            mobileMenuToggle.addEventListener('click', function() {
+                mainNav.classList.toggle('active');
+                this.querySelector('i').classList.toggle('fa-bars');
+                this.querySelector('i').classList.toggle('fa-times');
+            });
+
+            // Cargar el feed de actualizaciones
+            loadFeed();
+        });
+    </script>
 </body>
 </html>
