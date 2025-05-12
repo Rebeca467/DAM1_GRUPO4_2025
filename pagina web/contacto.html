@@ -1,65 +1,250 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contacto - Rutas al Aire Libre</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Rutas al Aire Libre</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
-  <header>
-    <h1>Contáctanos</h1>
-  </header>
-
-  <nav>
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="rutas.html">Rutas</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
-    </ul>
-    <div class="button-group">
-      <button class="login-btn">Iniciar Sesión</button>
-      <button class="register-btn">Regístrate</button>
-    </div>
-  </nav>
-
-  <main>
-    <section class="rutas-box">
-      <h2>Envíanos un mensaje</h2>
-      <p>¿Tienes alguna pregunta o sugerencia? Completa el siguiente formulario y te responderemos lo antes posible.</p>
-
-      <form action="#" method="POST" class="contact-form">
-        <div style="display: grid; gap: 1rem;">
-          <label>
-            Nombre completo:<br />
-            <input type="text" name="nombre" required placeholder="Tu nombre" />
-          </label>
-
-          <label>
-            Correo electrónico:<br />
-            <input type="email" name="email" required placeholder="tucorreo@ejemplo.com" />
-          </label>
-
-          <label>
-            Asunto:<br />
-            <input type="text" name="asunto" required placeholder="Asunto del mensaje" />
-          </label>
-
-          <label>
-            Mensaje:<br />
-            <textarea name="mensaje" rows="6" required placeholder="Escribe tu mensaje aquí..."></textarea>
-          </label>
-
-          <button type="submit" class="menu-toggle">Enviar mensaje</button>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>Rutas al Aire Libre</h1>
+            </div>
+            <div class="header-actions">
+                <button class="btn premium-btn"><i class="fas fa-crown"></i> Pásate a Premium</button>
+                <button class="btn login-btn"><i class="fas fa-sign-in-alt"></i> Iniciar sesión</button>
+                <button class="btn register-btn"><i class="fas fa-user-plus"></i> Regístrate</button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
-      </form>
-    </section>
-  </main>
+    </header>
 
-  <footer>
-    <p>&copy; 2025 Rutas de Montaña. Todos los derechos reservados.</p>
-  </footer>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="rutas.html"><i class="fas fa-hiking"></i> Rutas</a></li>
+                <li><a href="noticias.html"><i class="fas fa-newspaper"></i> Novedades</a></li>
+                <li><a href="contacto.html" class="active"><i class="fas fa-envelope"></i> Contacto</a></li>
+            </ul>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar rutas...">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </nav>
 
+    <main class="container contact-page">
+        <div class="contact-header">
+            <h1><i class="fas fa-envelope"></i> Contáctanos</h1>
+            <p>¿Tienes alguna pregunta o sugerencia? Completa el siguiente formulario y te responderemos lo antes posible.</p>
+        </div>
+
+        <div class="contact-content">
+            <div class="contact-form-container">
+                <div class="form-card">
+                    <h2><i class="fas fa-paper-plane"></i> Envíanos un mensaje</h2>
+                    <form action="#" method="POST" class="contact-form">
+                        <div class="form-group">
+                            <label for="nombre"><i class="fas fa-user"></i> Nombre completo</label>
+                            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email"><i class="fas fa-envelope"></i> Correo electrónico</label>
+                            <input type="email" id="email" name="email" required placeholder="tucorreo@ejemplo.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="asunto"><i class="fas fa-heading"></i> Asunto</label>
+                            <input type="text" id="asunto" name="asunto" required placeholder="Asunto del mensaje">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensaje"><i class="fas fa-comment-alt"></i> Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" rows="6" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="terminos" required>
+                                Acepto la política de privacidad y los términos de uso
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-paper-plane"></i> Enviar mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="contact-info-container">
+                <div class="info-card">
+                    <h2><i class="fas fa-info-circle"></i> Información de contacto</h2>
+                    <ul class="contact-details">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong>
+                                <p>info@rutasalaire.com</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Teléfono</strong>
+                                <p>+34 912 345 678</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Dirección</strong>
+                                <p>Calle Montaña, 123<br>28001 Madrid, España</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Horario de atención</strong>
+                                <p>Lunes a Viernes: 9:00 - 18:00<br>Sábados: 10:00 - 14:00</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="social-card">
+                    <h2><i class="fas fa-share-alt"></i> Síguenos</h2>
+                    <div class="social-grid">
+                        <a href="#" class="social-item">
+                            <i class="fab fa-facebook"></i>
+                            <span>Facebook</span>
+                        </a>
+                        <a href="#" class="social-item">
+                            <i class="fab fa-twitter"></i>
+                            <span>Twitter</span>
+                        </a>
+                        <a href="#" class="social-item">
+                            <i class="fab fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                        <a href="#" class="social-item">
+                            <i class="fab fa-youtube"></i>
+                            <span>YouTube</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="faq-card">
+                    <h2><i class="fas fa-question-circle"></i> Preguntas frecuentes</h2>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>¿Cómo puedo crear una cuenta?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Puedes registrarte haciendo clic en el botón "Regístrate" en la parte superior de la página y siguiendo los pasos indicados.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>¿Qué incluye la membresía Premium?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>La membresía Premium incluye acceso a todas las rutas, descarga de mapas offline, estadísticas avanzadas y soporte prioritario.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>¿Cómo puedo compartir mis propias rutas?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Una vez registrado, puedes subir tus rutas desde tu perfil utilizando la opción "Crear ruta" y siguiendo el asistente de creación.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Rutas al Aire Libre</h3>
+                <p>Tu compañero perfecto para descubrir las mejores rutas de senderismo en España.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces rápidos</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="rutas.html">Rutas</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Recursos</h4>
+                <ul>
+                    <li><a href="#">Guías de senderismo</a></li>
+                    <li><a href="#">Equipo recomendado</a></li>
+                    <li><a href="#">Consejos de seguridad</a></li>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <ul class="contact-info">
+                    <li><i class="fas fa-envelope"></i> info@rutasalaire.com</li>
+                    <li><i class="fas fa-phone"></i> +34 912 345 678</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Madrid, España</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Rutas al Aire Libre. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const mainNav = document.querySelector('.main-nav');
+
+            mobileMenuToggle.addEventListener('click', function() {
+                mainNav.classList.toggle('active');
+                this.querySelector('i').classList.toggle('fa-bars');
+                this.querySelector('i').classList.toggle('fa-times');
+            });
+
+            // FAQ toggle
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const faqItem = this.parentElement;
+                    faqItem.classList.toggle('active');
+                    
+                    const icon = this.querySelector('i');
+                    icon.classList.toggle('fa-chevron-down');
+                    icon.classList.toggle('fa-chevron-up');
+                });
+            });
+        });
+    </script>
 </body>
 </html>

@@ -3,224 +3,472 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RAL - Rutas al Aire Libre</title>
+    <title>Rutas - Rutas al Aire Libre</title>
     <link rel="stylesheet" href="styles.css">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <h1>Rutas al Aire Libre</h1>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>Rutas al Aire Libre</h1>
+            </div>
+            <div class="header-actions">
+                <button class="btn premium-btn"><i class="fas fa-crown"></i> Pásate a Premium</button>
+                <button class="btn login-btn"><i class="fas fa-sign-in-alt"></i> Iniciar sesión</button>
+                <button class="btn register-btn"><i class="fas fa-user-plus"></i> Regístrate</button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
     </header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="rutas.html">Rutas</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-        <div class="search-bar">
-            <input type="text" placeholder="Buscar rutas...">
-            <button>Buscar</button>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="rutas.html" class="active"><i class="fas fa-hiking"></i> Rutas</a></li>
+                <li><a href="noticias.html"><i class="fas fa-newspaper"></i> Novedades</a></li>
+                <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+            </ul>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar rutas...">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
         </div>
     </nav>
-    <main>
-        <h1>Explora las mejores rutas de Senderismo</h1>
-        <section id="rutas">
-            <div class="grid-container">
-                <div class="rutas-box rutas-boxgrid">
-                    <img src="/imagenes/ruta1.jfif" alt="Ruta del Pico del Águila">
-                    <h3>Ruta del Pico del Águila</h3>
-                    <div class="rutasbox-info">
-                        <div>
-                            <span>10,85km</span>
-                            <small>Distancia</small>
-                        </div>
-                        <div>
-                            <span>506m</span>
-                            <small>Desnivel +</small>
-                        </div>
-                        <div>
-                            <span>Senderismo</span>
-                            <small>Tipo de ruta</small>
-                        </div>
+
+    <main class="container routes-page">
+        <div class="filters-section">
+            <div class="filters-header">
+                <h2><i class="fas fa-filter"></i> Filtros</h2>
+                <button class="btn btn-small" id="toggleFilters"><i class="fas fa-chevron-down"></i></button>
+            </div>
+            <div class="filters-content" id="filtersContent">
+                <div class="filter-group">
+                    <label>Actividad</label>
+                    <div class="filter-options">
+                        <label class="filter-option">
+                            <input type="checkbox" checked> Senderismo
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> Ciclismo
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> Trail Running
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> Esquí
+                        </label>
                     </div>
-                    <p>Una caminata desafiante con vistas espectaculares.</p>
                 </div>
-                <div class="rutas-box rutas-boxgrid">
-                    <img src="/imagenes/ruta2.jfif" alt="Sendero del Bosque Encantado">
-                    <h3>Sendero del Bosque Encantado</h3>
-                    <div class="rutasbox-info">
-                        <div>
-                            <span>8,5km</span>
-                            <small>Distancia</small>
-                        </div>
-                        <div>
-                            <span>300m</span>
-                            <small>Desnivel +</small>
-                        </div>
-                        <div>
-                            <span>Senderismo</span>
-                            <small>Tipo de ruta</small>
-                        </div>
+                <div class="filter-group">
+                    <label>Dificultad</label>
+                    <div class="filter-options">
+                        <label class="filter-option">
+                            <input type="checkbox"> Fácil
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" checked> Moderada
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> Difícil
+                        </label>
                     </div>
-                    <p>Ideal para familias y principiantes.</p>
                 </div>
-                <div class="rutas-box rutas-boxgrid">
-                    <img src="/imagenes/ruta3.jfif" alt="Travesía de los Tres Picos">
-                    <h3>Travesía de los Tres Picos</h3>
-                    <div class="rutasbox-info">
-                        <div>
-                            <span>15km</span>
-                            <small>Distancia</small>
-                        </div>
-                        <div>
-                            <span>800m</span>
-                            <small>Desnivel +</small>
-                        </div>
-                        <div>
-                            <span>Senderismo</span>
-                            <small>Tipo de ruta</small>
-                        </div>
+                <div class="filter-group">
+                    <label>Distancia (km)</label>
+                    <div class="range-slider">
+                        <input type="range" min="0" max="50" value="20" class="slider" id="distanceRange">
+                        <span id="distanceValue">20 km</span>
                     </div>
-                    <p>Una experiencia inolvidable para los más aventureros.</p>
                 </div>
-                <div class="rutas-box rutas-boxgrid">
-                    <img src="/imagenes/ruta4.jfif" alt="Cañón del Río Claro">
-                    <h3>Cañón del Río Claro</h3>
-                    <div class="rutasbox-info">
-                        <div>
-                            <span>12km</span>
-                            <small>Distancia</small>
-                        </div>
-                        <div>
-                            <span>450m</span>
-                            <small>Desnivel +</small>
-                        </div>
-                        <div>
-                            <span>Senderismo</span>
-                            <small>Tipo de ruta</small>
-                        </div>
+                <div class="filter-group">
+                    <label>Duración (horas)</label>
+                    <div class="range-slider">
+                        <input type="range" min="0" max="12" value="5" class="slider" id="durationRange">
+                        <span id="durationValue">5 horas</span>
                     </div>
-                    <p>Un recorrido pintoresco a lo largo del río.</p>
                 </div>
-                <div class="rutas-box rutas-boxgrid">
-                    <img src="/imagenes/ruta5.jfif" alt="Ruta de las Cascadas">
-                    <h3>Ruta de las Cascadas</h3>
-                    <div class="rutasbox-info">
-                        <div>
-                            <span>7km</span>
-                            <small>Distancia</small>
-                        </div>
-                        <div>
-                            <span>200m</span>
-                            <small>Desnivel +</small>
-                        </div>
-                        <div>
-                            <span>Senderismo</span>
-                            <small>Tipo de ruta</small>
-                        </div>
-                    </div>
-                    <p>Perfecta para los amantes del agua y la naturaleza.</p>
-                </div>
-                <div class="rutas-box rutas-boxgrid">
-                    <img src="/imagenes/ruta6.jfif" alt="Camino del Sol">
-                    <h3>Camino del Sol</h3>
-                    <div class="rutasbox-info">
-                        <div>
-                            <span>18km</span>
-                            <small>Distancia</small>
-                        </div>
-                        <div>
-                            <span>600m</span>
-                            <small>Desnivel +</small>
-                        </div>
-                        <div>
-                            <span>Senderismo</span>
-                            <small>Tipo de ruta</small>
-                        </div>
-                    </div>
-                    <p>Una ruta larga con vistas impresionantes al atardecer.</p>
-                </div>
-                <div class="rutas-box rutas-boxgrid">
-                    <img src="/imagenes/ruta7.jfif" alt="Senda del Valle Verde">
-                    <h3>Senda del Valle Verde</h3>
-                    <div class="rutasbox-info">
-                        <div>
-                            <span>9km</span>
-                            <small>Distancia</small>
-                        </div>
-                        <div>
-                            <span>350m</span>
-                            <small>Desnivel +</small>
-                        </div>
-                        <div>
-                            <span>Senderismo</span>
-                            <small>Tipo de ruta</small>
-                        </div>
-                    </div>
-                    <p>Un paseo relajante entre paisajes verdes.</p>
-                </div>
-                <div class="rutas-box rutas-boxgrid">
-                    <img src="/imagenes/ruta8.jfif" alt="Ruta de las Estrellas">
-                    <h3>Ruta de las Estrellas</h3>
-                    <div class="rutasbox-info">
-                        <div>
-                            <span>5km</span>
-                            <small>Distancia</small>
-                        </div>
-                        <div>
-                            <span>150m</span>
-                            <small>Desnivel +</small>
-                        </div>
-                        <div>
-                            <span>Senderismo nocturno</span>
-                            <small>Tipo de ruta</small>
-                        </div>
-                    </div>
-                    <p>Ideal para observar el cielo nocturno.</p>
-                </div>
-                <div class="rutas-box rutas-boxgrid">
-                    <img src="/imagenes/ruta9.jfif" alt="Ruta del Mirador Azul">
-                    <h3>Ruta del Mirador Azul</h3>
-                    <div class="rutasbox-info">
-                        <div>
-                            <span>6km</span>
-                            <small>Distancia</small>
-                        </div>
-                        <div>
-                            <span>250m</span>
-                            <small>Desnivel +</small>
-                        </div>
-                        <div>
-                            <span>Senderismo</span>
-                            <small>Tipo de ruta</small>
-                        </div>
-                    </div>
-                    <p>Un mirador con vistas espectaculares al lago.</p>
-                </div>
-                <div class="rutas-box rutas-boxgrid">
-                    <img src="/imagenes/ruta10.jfif" alt="Ruta del Desierto Dorado">
-                    <h3>Ruta del Desierto Dorado</h3>
-                    <div class="rutasbox-info">
-                        <div>
-                            <span>20km</span>
-                            <small>Distancia</small>
-                        </div>
-                        <div>
-                            <span>700m</span>
-                            <small>Desnivel +</small>
-                        </div>
-                        <div>
-                            <span>Senderismo</span>
-                            <small>Tipo de ruta</small>
-                        </div>
-                    </div>
-                    <p>Una aventura única a través de paisajes áridos.</p>
+                <div class="filter-actions">
+                    <button class="btn btn-primary"><i class="fas fa-search"></i> Aplicar filtros</button>
+                    <button class="btn btn-secondary"><i class="fas fa-redo"></i> Restablecer</button>
                 </div>
             </div>
-        </section>
+        </div>
+
+        <div class="routes-header">
+            <h1><i class="fas fa-map-marked-alt"></i> Explora las mejores rutas de Senderismo</h1>
+            <div class="routes-sorting">
+                <label for="sortRoutes">Ordenar por:</label>
+                <select id="sortRoutes">
+                    <option value="popular">Popularidad</option>
+                    <option value="recent">Más recientes</option>
+                    <option value="distance">Distancia (menor a mayor)</option>
+                    <option value="duration">Duración (menor a mayor)</option>
+                    <option value="difficulty">Dificultad</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="routes-grid">
+            <div class="route-card">
+                <div class="route-image">
+                    <img src="/imagenes/ruta1.jfif" alt="Ruta del Pico del Águila">
+                    <div class="route-type"><i class="fas fa-hiking"></i> Senderismo</div>
+                </div>
+                <div class="route-content">
+                    <h3>Ruta del Pico del Águila</h3>
+                    <div class="route-stats">
+                        <div class="stat">
+                            <i class="fas fa-route"></i>
+                            <span>10,85 km</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-mountain"></i>
+                            <span>506 m</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-clock"></i>
+                            <span>4h 30m</span>
+                        </div>
+                    </div>
+                    <div class="route-difficulty">
+                        <span class="difficulty moderate">Moderada</span>
+                    </div>
+                    <p class="route-description">Una caminata desafiante con vistas espectaculares.</p>
+                    <div class="route-actions">
+                        <button class="btn btn-small"><i class="fas fa-heart"></i></button>
+                        <button class="btn btn-small"><i class="fas fa-bookmark"></i></button>
+                        <a href="#" class="btn btn-primary btn-small">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="route-card">
+                <div class="route-image">
+                    <img src="/imagenes/ruta2.jfif" alt="Sendero del Bosque Encantado">
+                    <div class="route-type"><i class="fas fa-hiking"></i> Senderismo</div>
+                </div>
+                <div class="route-content">
+                    <h3>Sendero del Bosque Encantado</h3>
+                    <div class="route-stats">
+                        <div class="stat">
+                            <i class="fas fa-route"></i>
+                            <span>8,5 km</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-mountain"></i>
+                            <span>300 m</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-clock"></i>
+                            <span>3h 15m</span>
+                        </div>
+                    </div>
+                    <div class="route-difficulty">
+                        <span class="difficulty easy">Fácil</span>
+                    </div>
+                    <p class="route-description">Ideal para familias y principiantes.</p>
+                    <div class="route-actions">
+                        <button class="btn btn-small"><i class="fas fa-heart"></i></button>
+                        <button class="btn btn-small"><i class="fas fa-bookmark"></i></button>
+                        <a href="#" class="btn btn-primary btn-small">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="route-card">
+                <div class="route-image">
+                    <img src="/imagenes/ruta3.jfif" alt="Travesía de los Tres Picos">
+                    <div class="route-type"><i class="fas fa-hiking"></i> Senderismo</div>
+                </div>
+                <div class="route-content">
+                    <h3>Travesía de los Tres Picos</h3>
+                    <div class="route-stats">
+                        <div class="stat">
+                            <i class="fas fa-route"></i>
+                            <span>15 km</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-mountain"></i>
+                            <span>800 m</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-clock"></i>
+                            <span>6h 45m</span>
+                        </div>
+                    </div>
+                    <div class="route-difficulty">
+                        <span class="difficulty hard">Difícil</span>
+                    </div>
+                    <p class="route-description">Una experiencia inolvidable para los más aventureros.</p>
+                    <div class="route-actions">
+                        <button class="btn btn-small"><i class="fas fa-heart"></i></button>
+                        <button class="btn btn-small"><i class="fas fa-bookmark"></i></button>
+                        <a href="#" class="btn btn-primary btn-small">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="route-card">
+                <div class="route-image">
+                    <img src="/imagenes/ruta4.jfif" alt="Cañón del Río Claro">
+                    <div class="route-type"><i class="fas fa-hiking"></i> Senderismo</div>
+                </div>
+                <div class="route-content">
+                    <h3>Cañón del Río Claro</h3>
+                    <div class="route-stats">
+                        <div class="stat">
+                            <i class="fas fa-route"></i>
+                            <span>12 km</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-mountain"></i>
+                            <span>450 m</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-clock"></i>
+                            <span>5h 15m</span>
+                        </div>
+                    </div>
+                    <div class="route-difficulty">
+                        <span class="difficulty moderate">Moderada</span>
+                    </div>
+                    <p class="route-description">Un recorrido pintoresco a lo largo del río.</p>
+                    <div class="route-actions">
+                        <button class="btn btn-small"><i class="fas fa-heart"></i></button>
+                        <button class="btn btn-small"><i class="fas fa-bookmark"></i></button>
+                        <a href="#" class="btn btn-primary btn-small">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="route-card">
+                <div class="route-image">
+                    <img src="/imagenes/ruta5.jfif" alt="Ruta de las Cascadas">
+                    <div class="route-type"><i class="fas fa-hiking"></i> Senderismo</div>
+                </div>
+                <div class="route-content">
+                    <h3>Ruta de las Cascadas</h3>
+                    <div class="route-stats">
+                        <div class="stat">
+                            <i class="fas fa-route"></i>
+                            <span>7 km</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-mountain"></i>
+                            <span>200 m</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-clock"></i>
+                            <span>2h 45m</span>
+                        </div>
+                    </div>
+                    <div class="route-difficulty">
+                        <span class="difficulty easy">Fácil</span>
+                    </div>
+                    <p class="route-description">Perfecta para los amantes del agua y la naturaleza.</p>
+                    <div class="route-actions">
+                        <button class="btn btn-small"><i class="fas fa-heart"></i></button>
+                        <button class="btn btn-small"><i class="fas fa-bookmark"></i></button>
+                        <a href="#" class="btn btn-primary btn-small">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="route-card">
+                <div class="route-image">
+                    <img src="/imagenes/ruta6.jfif" alt="Camino del Sol">
+                    <div class="route-type"><i class="fas fa-hiking"></i> Senderismo</div>
+                </div>
+                <div class="route-content">
+                    <h3>Camino del Sol</h3>
+                    <div class="route-stats">
+                        <div class="stat">
+                            <i class="fas fa-route"></i>
+                            <span>18 km</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-mountain"></i>
+                            <span>600 m</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-clock"></i>
+                            <span>7h 30m</span>
+                        </div>
+                    </div>
+                    <div class="route-difficulty">
+                        <span class="difficulty hard">Difícil</span>
+                    </div>
+                    <p class="route-description">Una ruta larga con vistas impresionantes al atardecer.</p>
+                    <div class="route-actions">
+                        <button class="btn btn-small"><i class="fas fa-heart"></i></button>
+                        <button class="btn btn-small"><i class="fas fa-bookmark"></i></button>
+                        <a href="#" class="btn btn-primary btn-small">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="route-card">
+                <div class="route-image">
+                    <img src="/imagenes/ruta7.jfif" alt="Senda del Valle Verde">
+                    <div class="route-type"><i class="fas fa-hiking"></i> Senderismo</div>
+                </div>
+                <div class="route-content">
+                    <h3>Senda del Valle Verde</h3>
+                    <div class="route-stats">
+                        <div class="stat">
+                            <i class="fas fa-route"></i>
+                            <span>9 km</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-mountain"></i>
+                            <span>350 m</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-clock"></i>
+                            <span>3h 45m</span>
+                        </div>
+                    </div>
+                    <div class="route-difficulty">
+                        <span class="difficulty moderate">Moderada</span>
+                    </div>
+                    <p class="route-description">Un paseo relajante entre paisajes verdes.</p>
+                    <div class="route-actions">
+                        <button class="btn btn-small"><i class="fas fa-heart"></i></button>
+                        <button class="btn btn-small"><i class="fas fa-bookmark"></i></button>
+                        <a href="#" class="btn btn-primary btn-small">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="route-card">
+                <div class="route-image">
+                    <img src="/imagenes/ruta8.jfif" alt="Ruta de las Estrellas">
+                    <div class="route-type"><i class="fas fa-moon"></i> Senderismo nocturno</div>
+                </div>
+                <div class="route-content">
+                    <h3>Ruta de las Estrellas</h3>
+                    <div class="route-stats">
+                        <div class="stat">
+                            <i class="fas fa-route"></i>
+                            <span>5 km</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-mountain"></i>
+                            <span>150 m</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-clock"></i>
+                            <span>2h 15m</span>
+                        </div>
+                    </div>
+                    <div class="route-difficulty">
+                        <span class="difficulty easy">Fácil</span>
+                    </div>
+                    <p class="route-description">Ideal para observar el cielo nocturno.</p>
+                    <div class="route-actions">
+                        <button class="btn btn-small"><i class="fas fa-heart"></i></button>
+                        <button class="btn btn-small"><i class="fas fa-bookmark"></i></button>
+                        <a href="#" class="btn btn-primary btn-small">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="route-card">
+                <div class="route-image">
+                    <img src="/imagenes/ruta9.jfif" alt="Ruta del Mirador Azul">
+                    <div class="route-type"><i class="fas fa-hiking"></i> Senderismo</div>
+                </div>
+                <div class="route-content">
+                    <h3>Ruta del Mirador Azul</h3>
+                    <div class="route-stats">
+                        <div class="stat">
+                            <i class="fas fa-route"></i>
+                            <span>6 km</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-mountain"></i>
+                            <span>250 m</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-clock"></i>
+                            <span>2h 30m</span>
+                        </div>
+                    </div>
+                    <div class="route-difficulty">
+                        <span class="difficulty easy">Fácil</span>
+                    </div>
+                    <p class="route-description">Un mirador con vistas espectaculares al lago.</p>
+                    <div class="route-actions">
+                        <button class="btn btn-small"><i class="fas fa-heart"></i></button>
+                        <button class="btn btn-small"><i class="fas fa-bookmark"></i></button>
+                        <a href="#" class="btn btn-primary btn-small">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pagination">
+            <a href="#" class="pagination-item"><i class="fas fa-chevron-left"></i></a>
+            <a href="#" class="pagination-item active">1</a>
+            <a href="#" class="pagination-item">2</a>
+            <a href="#" class="pagination-item">3</a>
+            <a href="#" class="pagination-item">4</a>
+            <a href="#" class="pagination-item">5</a>
+            <a href="#" class="pagination-item"><i class="fas fa-chevron-right"></i></a>
+        </div>
     </main>
-    <footer>
-        <p>&copy; 2025 Rutas de Montaña. Todos los derechos reservados.</p>
+
+    <div class="map-toggle" id="mapToggle">
+        <i class="fas fa-map-marked-alt"></i>
+        <span>Ver mapa</span>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Rutas al Aire Libre</h3>
+                <p>Tu compañero perfecto para descubrir las mejores rutas de senderismo en España.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces rápidos</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="rutas.html">Rutas</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Recursos</h4>
+                <ul>
+                    <li><a href="#">Guías de senderismo</a></li>
+                    <li><a href="#">Equipo recomendado</a></li>
+                    <li><a href="#">Consejos de seguridad</a></li>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <ul class="contact-info">
+                    <li><i class="fas fa-envelope"></i> info@rutasalaire.com</li>
+                    <li><i class="fas fa-phone"></i> +34 912 345 678</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Madrid, España</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Rutas al Aire Libre. Todos los derechos reservados.</p>
+        </div>
     </footer>
 </body>
 </html>
