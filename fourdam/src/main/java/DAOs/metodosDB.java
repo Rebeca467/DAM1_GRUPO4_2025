@@ -12,6 +12,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import javax.swing.JOptionPane;
 import reto.fourdam.AccesoBaseDatos;
 import reto.fourdam.Punto;
 import reto.fourdam.Resenna;
@@ -45,9 +46,9 @@ public class metodosDB {
 
         } catch (SQLException ex) {
             // errores
-            System.out.println("SQLException: " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage());
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());
+            JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage());
         }
         return rutas;
     }
@@ -75,13 +76,50 @@ public class metodosDB {
     public void agregarCalendario() {
     }
 
-    public void agregarValoracion() {
+    public boolean agregarResenna(Resenna r) {
+        Connection con = AccesoBaseDatos.getInstance().getConn();
+        boolean exito = false;
+        String sql = "insert into reseña (idReseña, comentario, fecha, id_ruta, id_usuario)values(?,?,?,?,?);";
+        int resultado = -1;
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, r.getIdResenna());
+            ps.setString(2, r.getComentario());
+            ps.setDate(3, Date.valueOf(r.getFecha()));
+            ps.setInt(4, r.getRuta().getId());
+            ps.setInt(5, r.getUsuario().getId());
+            resultado = ps.executeUpdate();
+            if (resultado == 1) {
+                exito = true;
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
+        }
+        return exito;
     }
+    
+    public boolean agregarValoracionTecnica(ValoracionTec v) {
+        Connection con = AccesoBaseDatos.getInstance().getConn();
+        boolean exito = false;
+        String sql = "insert into valoraciontetcnica (idValoracionTecnica, recomendaciones, dificultad, fecha, id_ruta, id_usuario)values(?,?,?,?,?,?);";
+        int resultado = -1;
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, v.getIdValoracionTecnica());
+            ps.setString(2, v.getEquipoRecomendado());
+            ps.setString(3, v.getDificultad());
+            ps.setDate(4, Date.valueOf(v.getFecha()));
+            ps.setInt(5, v.getRuta().getId());
+            ps.setInt(6, v.getUsuario().getId());
+            resultado = ps.executeUpdate();
+            if (resultado == 1) {
+                exito = true;
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
+        }
+        return exito;
 
-    public void agregarResenna() {
-    }
-
-    public void agregarValoracionTecnica() {
     }
 
     public Ruta rutaPorId(int id) {
@@ -101,7 +139,7 @@ public class metodosDB {
 
         } catch (SQLException ex) {
             // errores
-            System.out.println("SQLException: " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage());
         }
         return usuario;
     }
@@ -114,10 +152,28 @@ public class metodosDB {
     public void eliminarRuta() {
     }
 
-    public void eliminarResenna() {
+    public boolean eliminarResenna(int k, Resenna r) {
+        boolean exito = false;
+        int resultado = -1;
+        String sql = "delete reseñas where idReseña=?;";
+        Connection con = AccesoBaseDatos.getInstance().getConn();
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, k);
+            resultado = ps.executeUpdate();
+            if (resultado == 1) {
+                exito = true;
+            } else {
+                JOptionPane.showMessageDialog(null, "ERROR: ");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage());
+        }
+        return exito;
     }
 
     public void modificarRuta() {
+        
     }
 
     public void modificarPunto() {
@@ -125,7 +181,6 @@ public class metodosDB {
 
     private Ruta crearRuta(final ResultSet rs) throws SQLException {
         return new Ruta(
-                rs.getInt("id_rutas"),
                 usuPorId(rs.getInt("id_usuario")),
                 rs.getString("nombre"),
                 rs.getDate("fecha").toLocalDate(),
@@ -154,13 +209,13 @@ public class metodosDB {
                 Estado.valueOf(rs.getString("estado")),
                 rs.getString("recomendaciones"),
                 rs.getString("zona"),
+                rs.getDouble("duracion"),
                 null
         );
     }
-
+    // ------------------------------ MIRAR METODO ---------------------------
     private Usuario crearUsuario(final ResultSet rs) throws SQLException {
         return new Usuario(
-                rs.getInt(1),
                 rs.getString(2),
                 rs.getString(3),
                 rs.getString(4),
@@ -170,13 +225,13 @@ public class metodosDB {
 
     public void insertarValoracion(Valoracion v) {
 
-        String sql = "insert into valoraciones(id_usuario,Rutas_id_rutas,fecha,dificultad,belleza,interés,texto_tecnico,texto_reseña) values (?,?,?,?,?,?,?,?);";
+        String sql = "insert into valoraciones(id_usuario,id_ruta,fecha,dificultad,belleza,interés) values (?,?,?,?,?,?);";
 
         try (PreparedStatement ps = getConnection().prepareStatement(sql);) {
 
-            ps.setObject(1, v.getUsuario());
+            ps.setInt(1, v.getUsuario().getId());
 
-            ps.setObject(2, v.getRuta());
+            ps.setInt(2, v.getRuta().getId());
 
             ps.setDate(3, Date.valueOf(v.getFecha()));
 
@@ -186,19 +241,15 @@ public class metodosDB {
 
             ps.setInt(6, v.getInteresCultural());
 
-            // texto_tecnico
-            // texto_reseña
         } catch (SQLException e) {
 
         }
     }
-    
-    
 
     private Calendario crearCalendario(final ResultSet rs) throws SQLException {
         return null;
     }
-    
+
     //USAR EN 'CREARRUTA'
     private Punto crearPunto(final ResultSet rs) throws SQLException {
         return null;

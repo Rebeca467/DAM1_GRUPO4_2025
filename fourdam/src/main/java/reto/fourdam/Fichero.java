@@ -88,7 +88,7 @@ public class Fichero {
                 ruta.setAutor(new Usuario(nombreAutor, apellidos, email, cnna, rol));
                 ruta.setUrl(url);
                 ruta.setFecha_creacion(LocalDate.now());
-                ruta.setDuracion(LocalTime.of(0, 0));
+                //ruta.setDuracion(LocalTime.of(0, 0));
 
                 br.readLine();
 

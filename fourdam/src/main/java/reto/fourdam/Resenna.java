@@ -11,15 +11,40 @@ import java.time.LocalDate;
  * @author DAM124
  */
 public class Resenna {
+
+    private int idResenna;
     private Usuario usuario;
     private Ruta ruta;
     private LocalDate fecha;
     private String comentario;
 
-    public Resenna(Usuario usuario, Ruta ruta, LocalDate fecha, String comentario) {
+    public Resenna(int idRes, Usuario usuario, Ruta ruta, LocalDate fecha, String comentario) {
+        this.idResenna = idRes;
         this.usuario = usuario;
         this.ruta = ruta;
         this.fecha = fecha;
         this.comentario = comentario;
-    }  
+    }
+
+    public int getIdResenna() {
+        return idResenna;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public Ruta getRuta() {
+        return ruta;
+    }
+
+    public LocalDate getFecha() {
+        return fecha;
+    }
+
+    public String getComentario() {
+        return comentario;
+    }
+    
+    
 }

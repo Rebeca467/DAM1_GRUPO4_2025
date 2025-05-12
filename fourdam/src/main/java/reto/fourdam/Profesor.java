@@ -12,27 +12,27 @@ import ENUMs.TipoUsuario;
  */
 public class Profesor extends DisennadorRuta {
 
-    public Profesor(int id, String nombre, String apellidos, String email, String cnna, TipoUsuario rol) {
-        super(id, nombre, apellidos, email, cnna, rol);
+    public Profesor(String nombre, String apellidos, String email, String cnna, TipoUsuario rol) {
+        super(nombre, apellidos, email, cnna, rol);
     }
 
     public Profesor() {
     }
-    
+    /*
     @Override
     public Resenna resennar(Ruta ruta){
         return super.resennar(ruta);
-    }
+    }*/
     
     @Override
     public Valoracion valorar(Ruta ruta){
         return super.valorar(ruta);
     }
-    
+    /*
     @Override
     public ValoracionTec vTec(Ruta ruta){
         return super.vTec(ruta);
-    }
+    }*/
     
     @Override
     public Ruta crearRuta(){

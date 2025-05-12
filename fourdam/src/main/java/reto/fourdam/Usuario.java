@@ -20,18 +20,8 @@ public class Usuario{
     private String cnna;
     private TipoUsuario rol;
 
-
-    public Usuario(int id,String nombre, String apellidos, String email, String cnna,TipoUsuario rol) {
-        this.id=id;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.email = email;
-        this.cnna = cnna;
-        this.rol= rol;
-
-    }
+    // quito el id porque es autoincremental
     public Usuario(String nombre, String apellidos, String email, String cnna,TipoUsuario rol) {
-        this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.email = email;
@@ -39,6 +29,7 @@ public class Usuario{
         this.rol= rol;
 
     }
+    
     public Usuario() {
         this.nombre ="Invitado";
         this.apellidos = "";
@@ -47,6 +38,23 @@ public class Usuario{
         this.rol = TipoUsuario.INVITADO;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getCnna() {
+        return cnna;
+    }
+    
+
     public String getNombre() {
         return nombre;
     }
@@ -54,10 +62,10 @@ public class Usuario{
     public TipoUsuario getRol() {
         return rol;
     }
-    
-    public Resenna resennar(Ruta ruta){
-        return new Resenna(Usuario.this, ruta, LocalDate.now(), Teclado.texto("Comentario respecto a la ruta"));
-    }
+    /////////////////////// MIRAR METODO
+    /*public Resenna resennar(Ruta ruta){
+        return new Resenna(,Usuario.this, ruta, LocalDate.now(), Teclado.texto("Comentario respecto a la ruta"));
+    }*/
 
     @Override
     public String toString() {
