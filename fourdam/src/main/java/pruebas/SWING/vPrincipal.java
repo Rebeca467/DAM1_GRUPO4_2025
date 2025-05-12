@@ -4,7 +4,9 @@
  */
 package pruebas.SWING;
 
+import java.sql.Connection;
 import javax.swing.JFrame;
+import reto.fourdam.AccesoBaseDatos;
 
 /**
  *
@@ -27,6 +29,7 @@ public class vPrincipal extends javax.swing.JFrame {
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
+        Connection conn = AccesoBaseDatos.getInstance().getConn();
     }
 
     /**
