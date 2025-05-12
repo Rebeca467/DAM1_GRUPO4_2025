@@ -63,9 +63,9 @@ public class Usuario{
         return rol;
     }
     /////////////////////// MIRAR METODO
-    /*public Resenna resennar(Ruta ruta){
-        return new Resenna(,Usuario.this, ruta, LocalDate.now(), Teclado.texto("Comentario respecto a la ruta"));
-    }*/
+    public Resenna resennar(Ruta ruta){
+        return new Resenna(1,Usuario.this, ruta, LocalDate.now(), Teclado.texto("Comentario respecto a la ruta"));
+    }
 
     @Override
     public String toString() {

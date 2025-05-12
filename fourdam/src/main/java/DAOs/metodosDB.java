@@ -218,11 +218,11 @@ public class metodosDB {
 
     }
 
-    public Ruta rutaPorId(int id) {
+    public static Ruta rutaPorId(int id) {
         return null;
     }
 
-    public Usuario usuPorId(int id) {
+    public static Usuario usuPorId(int id) {
         Usuario usuario = null;
         String sql = "SELECT id_usuario,nombre,apellidos,correo,contraseña,rol FROM usuarios WHERE id=?";
         try (PreparedStatement stmt = getConnection().prepareStatement(sql);) {
@@ -281,11 +281,15 @@ public class metodosDB {
                 rs.getString("nombre"),
                 rs.getDate("fecha").toLocalDate(),
                 new Punto(
-                        rs.getDouble("latitud_inicial"),
-                        rs.getDouble("longitud_inicial"),
+                        rs.getDouble("latitud_final"),
+                        rs.getDouble("longitud_final"),
+                        rs.getDouble("elevacion"),
+                        rs.getTimestamp("tiempo_final").toLocalDateTime(),
                         null),
                 new Punto(rs.getDouble("latitud_final"),
                         rs.getDouble("longitud_final"),
+                        rs.getDouble("elevacion"),
+                        rs.getTimestamp("tiempo_final").toLocalDateTime(),
                         null),
                 rs.getDouble("distancia"),
                 null,
@@ -313,7 +317,7 @@ public class metodosDB {
         );
     }
 
-    // ------------------------------ MIRAR METODO ---------------------------
+    // si hay numeros es porque se pueden pedir datos por index
     private Usuario crearUsuario(final ResultSet rs) throws SQLException {
         return new Usuario(
                 rs.getString(2),
@@ -351,18 +355,110 @@ public class metodosDB {
 
     //USAR EN 'CREARRUTA'
     private Punto crearPunto(final ResultSet rs) throws SQLException {
-        return null;
+        return new Punto(
+            rs.getDouble("latitud"),
+            rs.getDouble("longitud"),
+            rs.getDouble("elevacion"),
+            rs.getTimestamp("tiempo") != null ? rs.getTimestamp("tiempo").toLocalDateTime() : null,
+            rs.getString("imagen")
+        );
     }
 
-    private Valoracion crearValoracion(final ResultSet rs) throws SQLException {
+    public static Valoracion crearValoracion(final ResultSet rs) throws SQLException {
+        Usuario usuario = usuPorId(rs.getInt("id_usuario"));
+        Ruta ruta = rutaPorId(rs.getInt("id_ruta"));
+        
+        if (usuario != null && ruta != null) {
+            return new Valoracion(
+                usuario,
+                ruta,
+                rs.getDate("fecha").toLocalDate(),
+                rs.getInt("dificultad"),
+                rs.getInt("belleza"),
+                rs.getInt("interes")
+            );
+        }
         return null;
     }
+    
+    public static void guardarValoracionEnDB(Valoracion valoracion) {
+    String sql = "INSERT INTO valoraciones (id_usuario, id_ruta, fecha, dificultad, belleza, interes) " +
+                 "VALUES (?, ?, ?, ?, ?, ?)";
+
+    try (Connection conn = AccesoBaseDatos.getInstance().getConn();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+        stmt.setInt(1, valoracion.getUsuario().getId());
+        stmt.setInt(2, valoracion.getRuta().getId());
+        stmt.setDate(3, Date.valueOf(valoracion.getFecha()));
+        stmt.setInt(4, valoracion.getDificultad());
+        stmt.setInt(5, valoracion.getBelleza());
+        stmt.setInt(6, valoracion.getInteresCultural());
+
+        stmt.executeUpdate();
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(null, "Error al guardar valoración en la base de datos: " + e.getMessage());
+    }
+}
+
 
     private Resenna crearResenna(final ResultSet rs) throws SQLException {
+        Usuario usuario = usuPorId(rs.getInt("id_usuario"));
+        Ruta ruta = rutaPorId(rs.getInt("id_ruta"));
+        
+        if (usuario != null && ruta != null) {
+            return new Resenna(
+                rs.getInt("idReseña"),
+                usuario,
+                ruta,
+                rs.getDate("fecha").toLocalDate(),
+                rs.getString("comentario")
+            );
+        }
         return null;
     }
 
     private ValoracionTec crearValoracionTecnica(final ResultSet rs) throws SQLException {
+        Usuario usuario = usuPorId(rs.getInt("id_usuario"));
+        Ruta ruta = rutaPorId(rs.getInt("id_ruta"));
+        
+        if (usuario != null && ruta != null) {
+            return new ValoracionTec(
+                rs.getInt("idValoracionTecnica"),
+                usuario,
+                ruta,
+                rs.getDate("fecha").toLocalDate(),
+                rs.getString("dificultad"),
+                rs.getString("recomendaciones")
+            );
+        }
         return null;
+    }
+
+    public static void verificaUsuario(String email) {
+        String sql = "SELECT rol FROM usuarios WHERE correo = ?";
+
+        try (Connection conn = AccesoBaseDatos.getInstance().getConn(); PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, email);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    String rolStr = rs.getString("rol").toUpperCase();
+                    try {
+                        TipoUsuario rol = TipoUsuario.valueOf(rolStr);
+                        System.out.println("El usuario tiene el rol: " + rol);
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Rol no reconocido en la base de datos: " + rolStr);
+                    }
+                } else {
+                    System.out.println("Usuario no encontrado con ese correo.");
+                }
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error al acceder a la base de datos: " + e.getMessage());
+        }
     }
 }

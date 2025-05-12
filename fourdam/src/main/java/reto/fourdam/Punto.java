@@ -4,6 +4,8 @@
  */
 package reto.fourdam;
 
+import java.time.LocalDateTime;
+
 /**
  *
  * @author DAM106
@@ -12,10 +14,14 @@ public class Punto {
     private double latitud;
     private double longitud;
     private String imagen;
+    private double elevacion;
+    private LocalDateTime tiempo;
 
-    public Punto(double latitud, double longitud, String imagen) {
+    public Punto(double latitud, double longitud, double elevacion, LocalDateTime tiempo, String imagen) {
         this.latitud = latitud;
         this.longitud = longitud;
+        this.elevacion = elevacion;
+        this.tiempo = tiempo;
         this.imagen = imagen;
     }
 
@@ -30,6 +36,16 @@ public class Punto {
     public String getImagen() {
         return imagen;
     }
+
+    public double getElevacion() {
+        return elevacion;
+    }
+
+    public LocalDateTime getTiempo() {
+        return tiempo;
+    }
+    
+    
 
     @Override
     public String toString() {

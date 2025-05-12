@@ -18,8 +18,8 @@ public class Resenna {
     private LocalDate fecha;
     private String comentario;
 
-    public Resenna(int idRes, Usuario usuario, Ruta ruta, LocalDate fecha, String comentario) {
-        this.idResenna = idRes;
+    public Resenna(Usuario usuario, Ruta ruta, LocalDate fecha, String comentario) {
+        this.idResenna = 1;
         this.usuario = usuario;
         this.ruta = ruta;
         this.fecha = fecha;
