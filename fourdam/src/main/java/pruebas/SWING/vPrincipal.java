@@ -4,7 +4,15 @@
  */
 package pruebas.SWING;
 
+import DAOs.metodosDB;
+import static DAOs.metodosDB.rutaPorId;
+import static DAOs.metodosDB.usuPorId;
+import java.time.LocalDate;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import reto.fourdam.Ruta;
+import reto.fourdam.Usuario;
+import reto.fourdam.Valoracion;
 
 /**
  *
@@ -41,23 +49,20 @@ public class vPrincipal extends javax.swing.JFrame {
         ValorarRuta = new javax.swing.JDialog();
         btnValorar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        txtNomUsu = new javax.swing.JTextPane();
         jLabel53 = new javax.swing.JLabel();
-        jLabel54 = new javax.swing.JLabel();
         jLabel55 = new javax.swing.JLabel();
         jLabel56 = new javax.swing.JLabel();
         jLabel57 = new javax.swing.JLabel();
         jLabel58 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextPane2 = new javax.swing.JTextPane();
+        txtDificultad = new javax.swing.JTextPane();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTextPane4 = new javax.swing.JTextPane();
+        txtNomRuta = new javax.swing.JTextPane();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTextPane5 = new javax.swing.JTextPane();
+        txtBelleza = new javax.swing.JTextPane();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jTextPane6 = new javax.swing.JTextPane();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        btnSalirV = new javax.swing.JButton();
+        txtInteresCult = new javax.swing.JTextPane();
         VerInfoRutas = new javax.swing.JDialog();
         ReseñaRuta = new javax.swing.JDialog();
         jLabel4 = new javax.swing.JLabel();
@@ -211,12 +216,15 @@ public class vPrincipal extends javax.swing.JFrame {
         ValorarRuta.setSize(new java.awt.Dimension(400, 450));
 
         btnValorar.setText("VALORAR");
+        btnValorar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnValorarMouseClicked(evt);
+            }
+        });
 
-        jScrollPane2.setViewportView(jTextPane1);
+        jScrollPane2.setViewportView(txtNomUsu);
 
         jLabel53.setText("Nombre ruta");
-
-        jLabel54.setText("Fecha");
 
         jLabel55.setText("Dificultad");
 
@@ -226,22 +234,13 @@ public class vPrincipal extends javax.swing.JFrame {
 
         jLabel58.setText("Nombre Usuario");
 
-        jScrollPane4.setViewportView(jTextPane2);
+        jScrollPane4.setViewportView(txtDificultad);
 
-        jScrollPane6.setViewportView(jTextPane4);
+        jScrollPane6.setViewportView(txtNomRuta);
 
-        jScrollPane7.setViewportView(jTextPane5);
+        jScrollPane7.setViewportView(txtBelleza);
 
-        jScrollPane8.setViewportView(jTextPane6);
-
-        jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
-
-        btnSalirV.setText("Salir");
-        btnSalirV.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnSalirVMouseClicked(evt);
-            }
-        });
+        jScrollPane8.setViewportView(txtInteresCult);
 
         javax.swing.GroupLayout ValorarRutaLayout = new javax.swing.GroupLayout(ValorarRuta.getContentPane());
         ValorarRuta.getContentPane().setLayout(ValorarRutaLayout);
@@ -255,13 +254,9 @@ public class vPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ValorarRutaLayout.createSequentialGroup()
-                        .addGroup(ValorarRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel53))
+                        .addComponent(jLabel53)
                         .addGap(28, 28, 28)
-                        .addGroup(ValorarRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel56)
                     .addGroup(ValorarRutaLayout.createSequentialGroup()
                         .addGap(134, 134, 134)
@@ -272,11 +267,8 @@ public class vPrincipal extends javax.swing.JFrame {
                             .addComponent(jLabel57)
                             .addGap(18, 18, 18)
                             .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(ValorarRutaLayout.createSequentialGroup()
-                            .addGap(96, 96, 96)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel55)
-                    .addComponent(btnSalirV))
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel55))
                 .addContainerGap(310, Short.MAX_VALUE))
         );
         ValorarRutaLayout.setVerticalGroup(
@@ -290,11 +282,7 @@ public class vPrincipal extends javax.swing.JFrame {
                 .addGroup(ValorarRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel53))
-                .addGap(21, 21, 21)
-                .addGroup(ValorarRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel54)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(61, 61, 61)
                 .addGroup(ValorarRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel55))
@@ -308,9 +296,7 @@ public class vPrincipal extends javax.swing.JFrame {
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
                 .addComponent(btnValorar)
-                .addGap(18, 18, 18)
-                .addComponent(btnSalirV)
-                .addContainerGap(249, Short.MAX_VALUE))
+                .addContainerGap(290, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout VerInfoRutasLayout = new javax.swing.GroupLayout(VerInfoRutas.getContentPane());
@@ -408,7 +394,6 @@ public class vPrincipal extends javax.swing.JFrame {
         );
 
         ValoracionTec.setTitle("Valoración Tecnica");
-        ValoracionTec.setPreferredSize(new java.awt.Dimension(400, 400));
         ValoracionTec.setSize(new java.awt.Dimension(400, 450));
 
         jLabel59.setText("Nombre usuario");
@@ -784,7 +769,7 @@ public class vPrincipal extends javax.swing.JFrame {
                             .addComponent(txtRiesgo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtClasificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnCrearRuta))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(CreaRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CreaRutasLayout.createSequentialGroup()
                         .addComponent(jLabel25)
@@ -1159,7 +1144,7 @@ public class vPrincipal extends javax.swing.JFrame {
                                 .addGroup(ModificarRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtRiesgo1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtClasificacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(ModificarRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModificarRutasLayout.createSequentialGroup()
                                 .addComponent(jLabel46)
@@ -1315,6 +1300,7 @@ public class vPrincipal extends javax.swing.JFrame {
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
+        metodosDB.verificaUsuario(txtCorreo.getText());
     }//GEN-LAST:event_btnSigninMouseClicked
 
     private void btnModificarRutaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarRutaMouseClicked
@@ -1420,19 +1406,6 @@ public class vPrincipal extends javax.swing.JFrame {
         DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnSalirReseñaMouseClicked
 
-    private void btnSalirVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirVMouseClicked
-        LogIn.setVisible(false);
-        Menu.setVisible(false);
-        CreaRutas.setVisible(false);
-        VerRutas.setVisible(true);
-        ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
-        ValoracionTec.setVisible(false);
-        ValorarRuta.setVisible(false);
-        VerInfoRutas.setVisible(false);
-        DescargaFichas.setVisible(false);
-    }//GEN-LAST:event_btnSalirVMouseClicked
-
     private void btnSalirVTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirVTMouseClicked
         LogIn.setVisible(false);
         Menu.setVisible(false);
@@ -1484,6 +1457,38 @@ public class vPrincipal extends javax.swing.JFrame {
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnSalirCrearRMouseClicked
+
+    private void btnValorarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValorarMouseClicked
+        int filaSeleccionada = jTable1.getSelectedRow();
+        
+        /*if (filaSeleccionada == -1) {
+            JOptionPane.showMessageDialog(this, "Por favor, seleccione una ruta para valorar", "Información", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }*/
+        try {
+            int idUsuario = Integer.parseInt(txtNomUsu.getText());
+            int idRuta = Integer.parseInt(txtNomRuta.getText());
+            LocalDate fecha = LocalDate.now();
+            int dificultad = Integer.parseInt(txtDificultad.toString());
+            int belleza = Integer.parseInt(txtBelleza.toString());
+            int interes = Integer.parseInt(txtInteresCult.toString());
+
+            Valoracion valoracion = crearValoracion(idUsuario, idRuta, fecha, dificultad, belleza, interes);
+
+            if (valoracion != null) {
+                metodosDB.guardarValoracionEnDB(valoracion);
+                JOptionPane.showMessageDialog(null, "Valoración creada correctamente.");
+            } else {
+                JOptionPane.showMessageDialog(null, "No se pudo crear la valoración (usuario o ruta inválidos).");
+            }
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Introduce valores válidos.");
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnValorarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1545,7 +1550,6 @@ public class vPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnSalirCrearR;
     private javax.swing.JButton btnSalirModificarR;
     private javax.swing.JButton btnSalirReseña;
-    private javax.swing.JButton btnSalirV;
     private javax.swing.JButton btnSalirVT;
     private javax.swing.JButton btnSalirVerR;
     private javax.swing.JButton btnSignin;
@@ -1560,7 +1564,6 @@ public class vPrincipal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbAcessibilidad1;
     private javax.swing.JComboBox<String> cmbIndicacion;
     private javax.swing.JComboBox<String> cmbIndicacion1;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1609,7 +1612,6 @@ public class vPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel53;
-    private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
@@ -1632,11 +1634,6 @@ public class vPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextPane jTextPane1;
-    private javax.swing.JTextPane jTextPane2;
-    private javax.swing.JTextPane jTextPane4;
-    private javax.swing.JTextPane jTextPane5;
-    private javax.swing.JTextPane jTextPane6;
     private javax.swing.JTextField txtActividad;
     private javax.swing.JTextField txtActividad1;
     private javax.swing.JTextField txtAltitudMax;
@@ -1645,6 +1642,7 @@ public class vPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txtAltitudMin1;
     private javax.swing.JTextField txtAutor;
     private javax.swing.JTextField txtAutor1;
+    private javax.swing.JTextPane txtBelleza;
     private javax.swing.JTextField txtClasificacion;
     private javax.swing.JTextField txtClasificacion1;
     private javax.swing.JTextArea txtComentario;
@@ -1654,6 +1652,7 @@ public class vPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txtDesnivelNegativo1;
     private javax.swing.JTextField txtDesnivelPositivo;
     private javax.swing.JTextField txtDesnivelPositivo1;
+    private javax.swing.JTextPane txtDificultad;
     private javax.swing.JTextField txtDificultadVal;
     private javax.swing.JTextField txtDistancia;
     private javax.swing.JTextField txtDistancia1;
@@ -1664,9 +1663,12 @@ public class vPrincipal extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField txtFecha;
     private javax.swing.JFormattedTextField txtFecha1;
     private javax.swing.JFormattedTextField txtFechaReseña;
+    private javax.swing.JTextPane txtInteresCult;
     private javax.swing.JTextField txtMediaValoraciones;
     private javax.swing.JTextField txtMediaValoraciones1;
+    private javax.swing.JTextPane txtNomRuta;
     private javax.swing.JTextField txtNomUVal;
+    private javax.swing.JTextPane txtNomUsu;
     private javax.swing.JTextField txtNombreRRes;
     private javax.swing.JTextField txtNombreRVal;
     private javax.swing.JTextField txtNombreRuta;
@@ -1688,4 +1690,24 @@ public class vPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txtZona;
     private javax.swing.JTextField txtZona1;
     // End of variables declaration//GEN-END:variables
+
+    public static Valoracion crearValoracion(
+            int idUsuario,
+            int idRuta,
+            LocalDate fecha,
+            int dificultad,
+            int belleza,
+            int interes
+    ) {
+        Usuario usuario = usuPorId(idUsuario);
+        Ruta ruta = rutaPorId(idRuta);
+
+        if (usuario != null && ruta != null) {
+            return new Valoracion(usuario, ruta, fecha, dificultad, belleza, interes);
+        } else {
+            System.err.println("Usuario o ruta no encontrados.");
+            return null;
+        }
+    }
+
 }
