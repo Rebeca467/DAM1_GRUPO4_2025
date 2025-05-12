@@ -54,20 +54,74 @@ public class metodosDB {
     }
 
     public List<Punto> listarPuntos() {
-        return null;
+       List<Punto> puntos = new ArrayList<>();
+        try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT id_rutas, id_usuario, nombre, fecha, latitud_inicial, longitud_inicial, latitud_final, longitud_final, distancia, desnivel, desnivel_positivo, desnivel_negativo, altitud_minima, altitud_maxima, estado, url, familiar, temporada, indicaciones, terreno, esfuerzo, riesgo, zona, recomendaciones, clasificacion, nombre_inicial, nombre_final, media_valoraciones FROM rutas;");) {
+            while (rs.next()) {
+                Punto punto = crearPunto(rs);
+                puntos.add(punto);
+            }
+
+        } catch (SQLException ex) {
+            // errores
+            JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage());
+        }
+        return puntos;
     }
 
     public List<Valoracion> listarValoraciones() {
-        return null;
+        List<Valoracion> valoraciones = new ArrayList<>();
+        try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT id_rutas, id_usuario, nombre, fecha, latitud_inicial, longitud_inicial, latitud_final, longitud_final, distancia, desnivel, desnivel_positivo, desnivel_negativo, altitud_minima, altitud_maxima, estado, url, familiar, temporada, indicaciones, terreno, esfuerzo, riesgo, zona, recomendaciones, clasificacion, nombre_inicial, nombre_final, media_valoraciones FROM rutas;");) {
+            while (rs.next()) {
+                Valoracion valoracion = crearValoracion(rs);
+                valoraciones.add(valoracion);
+            }
+
+        } catch (SQLException ex) {
+            // errores
+            JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage());
+        }
+        return valoraciones;
     }
 
     public List<Resenna> listarResaennas() {
-        return null;
+        List<Resenna> resennas = new ArrayList<>();
+        try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT id_rutas, id_usuario, nombre, fecha, latitud_inicial, longitud_inicial, latitud_final, longitud_final, distancia, desnivel, desnivel_positivo, desnivel_negativo, altitud_minima, altitud_maxima, estado, url, familiar, temporada, indicaciones, terreno, esfuerzo, riesgo, zona, recomendaciones, clasificacion, nombre_inicial, nombre_final, media_valoraciones FROM rutas;");) {
+            while (rs.next()) {
+                Resenna resenna= crearResenna(rs);
+                resennas.add(resenna);
+            }
+
+        } catch (SQLException ex) {
+            // errores
+            JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage());
+        }
+        return resennas;
+    
     }
 
     //PREGUNTAR
     public List<ValoracionTec> listarValoracionesTecnicas() {
-        return null;
+        
+        List<ValoracionTec> valoracionesTecnicas = new ArrayList<>();
+        try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT id_rutas, id_usuario, nombre, fecha, latitud_inicial, longitud_inicial, latitud_final, longitud_final, distancia, desnivel, desnivel_positivo, desnivel_negativo, altitud_minima, altitud_maxima, estado, url, familiar, temporada, indicaciones, terreno, esfuerzo, riesgo, zona, recomendaciones, clasificacion, nombre_inicial, nombre_final, media_valoraciones FROM rutas;");) {
+            while (rs.next()) {
+                ValoracionTec valoracionTec= crearValoracionTecnica(rs);
+                valoracionesTecnicas.add(valoracionTec);
+            }
+
+        } catch (SQLException ex) {
+            // errores
+            JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage());
+        }
+        return valoracionesTecnicas;
     }
 
     public void agregarRuta() {
