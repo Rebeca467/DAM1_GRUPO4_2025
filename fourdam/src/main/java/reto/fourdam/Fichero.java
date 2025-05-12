@@ -31,7 +31,7 @@ import java.time.format.DateTimeFormatter;
  */
 public class Fichero {
 
-    public static String rutaToCsv(Ruta ruta) {
+    /*public static String rutaToCsv(Ruta ruta) {
         String linea = "";
         linea += ruta.getNombre() + ";"
                 + ruta.getAutor().getNombre() + ";"
@@ -82,16 +82,11 @@ public class Fichero {
                     System.out.println("Cabecera incompleta. Se esperaban al menos 22 campos.");
                     return null;
                 }
-<<<<<<< Updated upstream
 
-<<<<<<< Updated upstream
-=======
                 if (!waypoints.isEmpty()) {
                     ruta.setPunto_ini(waypoints.get(0));
                     ruta.setPunto_fin(waypoints.get(waypoints.size() - 1));
-=======
-                
->>>>>>> Stashed changes
+
                 String nombreRuta = parts[0];
                 String nombreAutor = parts[1];
                 String email = parts[2];
@@ -198,10 +193,7 @@ public class Fichero {
 
                     PuntoInteres punto = new PuntoInteres(lat, lon, elev, tiempo, "imagen.jpg", tipo, nombre);
                     waypoints.add(punto);
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
->>>>>>> Stashed changes
+
                 }
             }
 
@@ -216,6 +208,6 @@ public class Fichero {
         }
 
         return ruta;
-    }
+    }*/
 
 }

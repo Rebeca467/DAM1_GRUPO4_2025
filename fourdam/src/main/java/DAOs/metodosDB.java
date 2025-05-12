@@ -2,6 +2,7 @@ package DAOs;
 
 import ENUMs.ClasificacionRuta;
 import ENUMs.Estado;
+import ENUMs.Temporada;
 import ENUMs.TipoUsuario;
 import java.sql.Connection;
 import java.sql.Date;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.Set;
 import javax.swing.JOptionPane;
 import reto.fourdam.AccesoBaseDatos;
+import reto.fourdam.Actividad;
 import reto.fourdam.Punto;
 import reto.fourdam.Resenna;
 import reto.fourdam.Ruta;
@@ -36,9 +38,9 @@ public class metodosDB {
         return AccesoBaseDatos.getInstance().getConn();
     }
 
-    public List<Ruta> listarRutas() {
-        List<Ruta> rutas = new ArrayList<>();
-        try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT id_rutas, id_usuario, nombre, fecha, latitud_inicial, longitud_inicial, latitud_final, longitud_final, distancia, desnivel, desnivel_positivo, desnivel_negativo, altitud_minima, altitud_maxima, estado, url, familiar, temporada, indicaciones, terreno, esfuerzo, riesgo, zona, recomendaciones, clasificacion, nombre_inicial, nombre_final, media_valoraciones FROM rutas;");) {
+    public ArrayList<Ruta> listarRutas() {
+        ArrayList<Ruta> rutas = new ArrayList<>();
+        try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT id_ruta, id_usuario, nombre, fecha, latitud_inicial, longitud_inicial, latitud_final, longitud_final, distancia, desnivel, desnivel_positivo, desnivel_negativo, altitud_minima, altitud_maxima, estado, url, familiar, temporada, indicaciones, terreno, esfuerzo, riesgo, zona, recomendaciones, clasificacion, nombre_inicial, nombre_final, media_valoraciones, duracion FROM rutas;");) {
             while (rs.next()) {
                 Ruta ruta = crearRuta(rs);
                 rutas.add(ruta);
@@ -53,9 +55,10 @@ public class metodosDB {
         return rutas;
     }
 
+    // este metodo tiene la consulta igual que listar rutas
     public List<Punto> listarPuntos() {
         List<Punto> puntos = new ArrayList<>();
-        try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT id_rutas, id_usuario, nombre, fecha, latitud_inicial, longitud_inicial, latitud_final, longitud_final, distancia, desnivel, desnivel_positivo, desnivel_negativo, altitud_minima, altitud_maxima, estado, url, familiar, temporada, indicaciones, terreno, esfuerzo, riesgo, zona, recomendaciones, clasificacion, nombre_inicial, nombre_final, media_valoraciones FROM rutas;");) {
+        try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT id_ruta, id_usuario, nombre, fecha, latitud_inicial, longitud_inicial, latitud_final, longitud_final, distancia, desnivel, desnivel_positivo, desnivel_negativo, altitud_minima, altitud_maxima, estado, url, familiar, temporada, indicaciones, terreno, esfuerzo, riesgo, zona, recomendaciones, clasificacion, nombre_inicial, nombre_final, media_valoraciones FROM rutas;");) {
             while (rs.next()) {
                 Punto punto = crearPunto(rs);
                 puntos.add(punto);
@@ -70,6 +73,7 @@ public class metodosDB {
         return puntos;
     }
 
+    // este metodo tiene la consulta igual que listar rutas
     public List<Valoracion> listarValoraciones() {
         List<Valoracion> valoraciones = new ArrayList<>();
         try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT id_rutas, id_usuario, nombre, fecha, latitud_inicial, longitud_inicial, latitud_final, longitud_final, distancia, desnivel, desnivel_positivo, desnivel_negativo, altitud_minima, altitud_maxima, estado, url, familiar, temporada, indicaciones, terreno, esfuerzo, riesgo, zona, recomendaciones, clasificacion, nombre_inicial, nombre_final, media_valoraciones FROM rutas;");) {
@@ -87,6 +91,7 @@ public class metodosDB {
         return valoraciones;
     }
 
+    // este metodo tiene la consulta igual que listar rutas
     public List<Resenna> listarResaennas() {
         List<Resenna> resennas = new ArrayList<>();
         try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT id_rutas, id_usuario, nombre, fecha, latitud_inicial, longitud_inicial, latitud_final, longitud_final, distancia, desnivel, desnivel_positivo, desnivel_negativo, altitud_minima, altitud_maxima, estado, url, familiar, temporada, indicaciones, terreno, esfuerzo, riesgo, zona, recomendaciones, clasificacion, nombre_inicial, nombre_final, media_valoraciones FROM rutas;");) {
@@ -105,6 +110,7 @@ public class metodosDB {
 
     }
 
+    // este metodo tiene la consulta igual que listar rutas
     //PREGUNTAR
     public List<ValoracionTec> listarValoracionesTecnicas() {
 
@@ -224,7 +230,7 @@ public class metodosDB {
 
     public Usuario usuPorId(int id) {
         Usuario usuario = null;
-        String sql = "SELECT id_usuario,nombre,apellidos,correo,contraseña,rol FROM usuarios WHERE id=?";
+        String sql = "SELECT id_usuario,nombre,apellidos,correo,contraseña,rol FROM usuarios WHERE id_usuario=?";
         try (PreparedStatement stmt = getConnection().prepareStatement(sql);) {
             stmt.setInt(1, id);
             try (ResultSet rs = stmt.executeQuery();) {
@@ -283,13 +289,9 @@ public class metodosDB {
                 new Punto(
                         rs.getDouble("latitud_final"),
                         rs.getDouble("longitud_final"),
-                        rs.getDouble("elevacion"),
-                        rs.getTimestamp("tiempo_final").toLocalDateTime(),
                         null),
                 new Punto(rs.getDouble("latitud_final"),
                         rs.getDouble("longitud_final"),
-                        rs.getDouble("elevacion"),
-                        rs.getTimestamp("tiempo_final").toLocalDateTime(),
                         null),
                 rs.getDouble("distancia"),
                 rs.getDouble("desnivel"),
@@ -302,9 +304,10 @@ public class metodosDB {
                 rs.getInt("esfuerzo"),
                 rs.getInt("terreno"),
                 rs.getInt("indicaciones"),
-                rs.getString("actividad"),
+                new Actividad(
+                        rs.getString("nombre")
+                ),
                 Set.of(rs.getString("temporada").split(",")),
-                rs.getBoolean("accesibilidad"),
                 rs.getBoolean("familiar"),
                 rs.getString("url"),
                 Estado.valueOf(rs.getString("estado")),
@@ -357,8 +360,6 @@ public class metodosDB {
         return new Punto(
                 rs.getDouble("latitud"),
                 rs.getDouble("longitud"),
-                rs.getDouble("elevacion"),
-                rs.getTimestamp("tiempo") != null ? rs.getTimestamp("tiempo").toLocalDateTime() : null,
                 rs.getString("imagen")
         );
     }
@@ -379,17 +380,16 @@ public class metodosDB {
         }
         return null;
     }
-   
 
     private Resenna crearResenna(final ResultSet rs) throws SQLException {
-        
-            return new Resenna(
-                    rs.getString("comentario"),
-                    rs.getDate("fecha").toLocalDate(),
-                    rutaPorId(rs.getInt("id_ruta")),
-                    usuPorId(rs.getInt("id_usuario"))
-            );
-        
+
+        return new Resenna(
+                rs.getString("comentario"),
+                rs.getDate("fecha").toLocalDate(),
+                rutaPorId(rs.getInt("id_ruta")),
+                usuPorId(rs.getInt("id_usuario"))
+        );
+
     }
 
     private ValoracionTec crearValoracionTecnica(final ResultSet rs) throws SQLException {
@@ -433,4 +433,28 @@ public class metodosDB {
             System.out.println("Error al acceder a la base de datos: " + e.getMessage());
         }
     }
+
+    // ============================================================== ENUMS ===================================================
+    public static ArrayList<String> Clasificacion() {
+        ArrayList<String> lista = new ArrayList<>();
+        for (ClasificacionRuta c : ClasificacionRuta.values()) {
+            lista.add(c.name()); 
+        }
+        return lista;
+    }
+    public static ArrayList<String> Estado() {
+        ArrayList<String> lista = new ArrayList<>();
+        for (Estado e : Estado.values()) {
+            lista.add(e.name()); 
+        }
+        return lista;
+    }
+    public static ArrayList<String> Temporada() {
+        ArrayList<String> lista = new ArrayList<>();
+        for (Temporada t : Temporada.values()) {
+            lista.add(t.name()); 
+        }
+        return lista;
+    }
+    
 }
