@@ -13,18 +13,20 @@ import java.time.LocalDate;
 public class Resenna {
 
     private int idResenna;
-    private Usuario usuario;
-    private Ruta ruta;
-    private LocalDate fecha;
     private String comentario;
+    private LocalDate fecha;
+    private Ruta ruta;
+    private Usuario usuario;
 
-    public Resenna(Usuario usuario, Ruta ruta, LocalDate fecha, String comentario) {
-        this.idResenna = 1;
-        this.usuario = usuario;
-        this.ruta = ruta;
-        this.fecha = fecha;
+    public Resenna(String comentario, LocalDate fecha, Ruta ruta, Usuario usuario) {
         this.comentario = comentario;
+        this.fecha = fecha;
+        this.ruta = ruta;
+        this.usuario = usuario;
     }
+   
+
+   
 
     public int getIdResenna() {
         return idResenna;
