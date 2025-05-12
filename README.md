@@ -66,7 +66,7 @@ Resumen del objetivo del proyecto, su funcionalidad principal y tecnologías uti
 > Documento donde se presenta el cálculo de los subsidios de la Seguridad Social.
 
 ## Peligros y riesgos
-[Ver peligros y riesgos](./subsidios_SS.pdf)
+[Ver peligros y riesgos](./Peligros-riesgos.pdf)
  
 > Documento donde se muestran los peligros y riesgos de una actividad
 
