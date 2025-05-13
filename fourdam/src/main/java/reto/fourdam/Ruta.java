@@ -248,14 +248,6 @@ public class Ruta {
         this.temporada = temporada;
     }
 
-    /*public boolean isAccesibilidad() {
-        return accesibilidad;
-    }
-
-    public void setAccesibilidad(boolean accesibilidad) {
-        this.accesibilidad = accesibilidad;
-    }*/
-
     public boolean isFamiliar() {
         return familiar;
     }
