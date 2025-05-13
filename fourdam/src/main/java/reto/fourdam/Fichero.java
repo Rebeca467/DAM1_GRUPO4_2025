@@ -10,7 +10,6 @@ import ENUMs.TipoUsuario;
 import ENUMs.Estado;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
@@ -19,23 +18,26 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import java.time.format.DateTimeFormatter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
+ * Clase para manejar la conversión de rutas a CSV y viceversa.
  *
  * @author DAM106
  */
 public class Fichero {
 
+    /**
+     * Convierte una ruta a formato CSV.
+     *
+     * @param ruta Objeto Ruta a convertir.
+     * @return String en formato CSV.
+     */
     public static String rutaToCsv(Ruta ruta) {
-        String linea = "";
-        linea += ruta.getNombre() + ";"
+        String linea = ruta.getNombre() + ";"
                 + ruta.getAutor().getNombre() + ";"
                 + ruta.getAutor().getEmail() + ";"
                 + ruta.getFecha_creacion() + ";"
@@ -48,16 +50,17 @@ public class Fichero {
                 + ruta.getNivelEsfuerzo() + ";"
                 + ruta.getTipoTerreno() + ";"
                 + ruta.getIndicaciones() + ";"
-                + ruta.getTipoActividad() + ";"
+                + ruta.getTipoActividad().getNombre() + ";"
                 + ruta.getTemporada() + ";"
-                + ruta.isAccesibilidad() + ";"
                 + ruta.isFamiliar() + ";"
                 + ruta.getUrl() + ";"
                 + ruta.getEstado() + ";"
                 + ruta.getRecomendaciones() + ";"
                 + ruta.getZonaGeografica() + ";"
                 + ruta.getDuracion() + "\n";
+
         linea += "Tipo;Latitud;Longitud;Elevación;Tiempo;Nombre\n";
+
         if (ruta.getPunto_ini() != null) {
             Punto ini = ruta.getPunto_ini();
             linea += "waypoint;" + ini.getLatitud() + ";" + ini.getLongitud() + ";" + ini.getElevacion() + ";" + ini.getTiempo() + ";" + ruta.getNombre() + "\n";
@@ -71,6 +74,12 @@ public class Fichero {
         return linea;
     }
 
+    /**
+     * Convierte un archivo CSV a un objeto Ruta.
+     *
+     * @param file Archivo CSV a leer.
+     * @return Objeto Ruta generado a partir del archivo.
+     */
     public static Ruta csvToRuta(File file) {
         Ruta ruta = new Ruta();
         List<PuntoInteres> waypoints = new ArrayList<>();
@@ -85,129 +94,97 @@ public class Fichero {
                     return null;
                 }
 
-                if (!waypoints.isEmpty()) {
-                    ruta.setPunto_ini(waypoints.get(0));
-                    ruta.setPunto_fin(waypoints.get(waypoints.size() - 1));
+                // Parsear los datos de la ruta
+                String nombreRuta = parts[0];
+                String nombreAutor = parts[1];
+                String email = parts[2];
+                LocalDate fecha = LocalDate.parse(parts[3]);
+                double distancia = Double.parseDouble(parts[4]);
+                double desnivel = Double.parseDouble(parts[5]);
+                double altMax = Double.parseDouble(parts[6]);
+                double altMin = Double.parseDouble(parts[7]);
+                ClasificacionRuta clasificacion = ClasificacionRuta.valueOf(parts[8]);
+                int nivelRiesgo = Integer.parseInt(parts[9]);
+                int nivelEsfuerzo = Integer.parseInt(parts[10]);
+                int tipoTerreno = Integer.parseInt(parts[11]);
+                int indicaciones = Integer.parseInt(parts[12]);
+                String nombreActividad = parts[13]; // Ahora es el nombre de la actividad
+                Set<String> temporada = Set.of(parts[14].split(","));
+                boolean familiar = Boolean.parseBoolean(parts[15]);
+                String url = parts[16];
+                Estado estado = Estado.valueOf(parts[17]);
+                String recomendaciones = parts[18];
+                String zonaGeografica = parts[19];
+                double duracion = Double.parseDouble(parts[20]);
 
-                    String nombreRuta = parts[0];
-                    String nombreAutor = parts[1];
-                    String email = parts[2];
-                    LocalDate fecha = LocalDate.parse(parts[3]);
-                    double distancia = Double.parseDouble(parts[4]);
-                    double desnivel = Double.parseDouble(parts[5]);
-                    double altMax = Double.parseDouble(parts[6]);
-                    double altMin = Double.parseDouble(parts[7]);
-                    ClasificacionRuta clasificacion = ClasificacionRuta.valueOf(parts[8]);
-                    int nivelRiesgo = Integer.parseInt(parts[9]);
-                    int nivelEsfuerzo = Integer.parseInt(parts[10]);
-                    int tipoTerreno = Integer.parseInt(parts[11]);
-                    int indicaciones = Integer.parseInt(parts[12]);
-                    String tipoActividad = parts[13];
-                    Set<String> temporada = Set.of(parts[14].split(","));
-                    boolean accesibilidad = Boolean.parseBoolean(parts[15]);
-                    boolean familiar = Boolean.parseBoolean(parts[16]);
-                    String url = parts[17];
-                    Estado estado = Estado.valueOf(parts[18]);
-                    String recomendaciones = parts[19];
-                    String zonaGeografica = parts[20];
-                    double duracion = Double.parseDouble(parts[21]);
+                // Crear la actividad a partir del nombre
+                Actividad actividad = new Actividad(nombreActividad);
 
-                    // Comprobar usuario en la base de datos
-                    TipoUsuario rol = null;
-                    String sql = "SELECT * FROM usuarios WHERE correo=?";
-                    Connection conn = AccesoBaseDatos.getInstance().getConn();
-                    try (PreparedStatement ps = conn.prepareStatement(sql)) {
-                        ps.setString(1, email);
-                        try (ResultSet rs = ps.executeQuery()) {
-                            if (rs.next()) {
-                                String rolStr = rs.getString("rol").toUpperCase();
-                                rol = TipoUsuario.valueOf(rolStr);
-                            } else {
-                                System.out.println("Usuario no encontrado en la base de datos: " + email);
-                                return null;
-                            }
-
+                // Comprobar usuario en la base de datos
+                TipoUsuario rol = null;
+                String sql = "SELECT * FROM usuarios WHERE correo=?";
+                Connection conn = AccesoBaseDatos.getInstance().getConn();
+                try (PreparedStatement ps = conn.prepareStatement(sql)) {
+                    ps.setString(1, email);
+                    try (ResultSet rs = ps.executeQuery()) {
+                        if (rs.next()) {
+                            String rolStr = rs.getString("rol").toUpperCase();
+                            rol = TipoUsuario.valueOf(rolStr);
+                        } else {
+                            System.out.println("Usuario no encontrado en la base de datos: " + email);
+                            return null;
                         }
-                    } catch (SQLException ex) {
-                        System.out.println("Error al consultar usuario: " + ex.getMessage());
-                        return null;
                     }
-
-                    Usuario autor = new Usuario(nombreAutor, "", email, "", rol);
-                    ruta.setAutor(autor);
-                    ruta.setNombre(nombreRuta);
-                    ruta.setFecha_creacion(fecha);
-                    ruta.setDistanciaTotal((float) distancia);
-                    ruta.setDesnivel((float) desnivel);
-                    ruta.setAltMax((float) altMax);
-                    ruta.setAltMin((float) altMin);
-                    ruta.setClasificacion(clasificacion);
-                    ruta.setNivelRiesgo(nivelRiesgo);
-                    ruta.setNivelEsfuerzo(nivelEsfuerzo);
-                    ruta.setTipoTerreno(tipoTerreno);
-                    ruta.setIndicaciones(indicaciones);
-                    ruta.setTipoActividad(tipoActividad);
-                    ruta.setTemporada(temporada);
-                    ruta.setAccesibilidad(accesibilidad);
-                    ruta.setFamiliar(familiar);
-                    ruta.setUrl(url);
-                    ruta.setEstado(estado);
-                    ruta.setRecomendaciones(recomendaciones);
-                    ruta.setZonaGeografica(zonaGeografica);
-                    ruta.setDuracion(duracion);
+                } catch (SQLException ex) {
+                    System.out.println("Error al consultar usuario: " + ex.getMessage());
+                    return null;
                 }
 
-                // Leer puntos
-                br.readLine(); // salta la cabecera de puntos
+                Usuario autor = new Usuario(nombreAutor, "", email, "", rol);
+                ruta.setAutor(autor);
+                ruta.setNombre(nombreRuta);
+                ruta.setFecha_creacion(fecha);
+                ruta.setDistanciaTotal((float) distancia);
+                ruta.setDesnivel((float) desnivel);
+                ruta.setAltMax((float) altMax);
+                ruta.setAltMin((float) altMin);
+                ruta.setClasificacion(clasificacion);
+                ruta.setNivelRiesgo(nivelRiesgo);
+                ruta.setNivelEsfuerzo(nivelEsfuerzo);
+                ruta.setTipoTerreno(tipoTerreno);
+                ruta.setIndicaciones(indicaciones);
+                ruta.setTipoActividad(actividad); // Asignar la actividad
+                ruta.setTemporada(temporada);
+                ruta.setFamiliar(familiar);
+                ruta.setUrl(url);
+                ruta.setEstado(estado);
+                ruta.setRecomendaciones(recomendaciones);
+                ruta.setZonaGeografica(zonaGeografica);
+                ruta.setDuracion(duracion);
+            }
 
-                String puntoLinea;
-                while ((puntoLinea = br.readLine()) != null) {
-                    String[] puntoParts = puntoLinea.split(";");
-                    if (puntoParts.length >= 6) {
-                        String tipoStr = puntoParts[0];
-                        double lat = Double.parseDouble(puntoParts[1]);
-                        double lon = Double.parseDouble(puntoParts[2]);
-                        float elev = puntoParts[3].equals("-") ? 0 : Float.parseFloat(puntoParts[3]);
+            // Leer puntos de interés
+            br.readLine(); // Saltar la cabecera de puntos
 
-                        // Convertir el string de tiempo a LocalDateTime
-                        LocalDateTime tiempo = null;
-                        if (!puntoParts[4].equals("-") && !puntoParts[4].isEmpty()) {
-                            try {
-                                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
-                                tiempo = LocalDateTime.parse(puntoParts[4], formatter);
-                            } catch (Exception e) {
-                                System.out.println("Error al parsear el tiempo: " + puntoParts[4] + ". Se usará null. Error: " + e.getMessage());
-                            }
-                        }
+            String puntoLinea;
+            while ((puntoLinea = br.readLine()) != null) {
+                String[] puntoParts = puntoLinea.split(";");
+                if (puntoParts.length >= 6) {
+                    String tipoStr = puntoParts[0];
+                    double lat = Double.parseDouble(puntoParts[1]);
+                    double lon = Double.parseDouble(puntoParts[3]);
 
-                        String nombre = puntoParts[5];
-                        TipoPInteres tipo = null;
-                        try {
-                            tipo = TipoPInteres.valueOf(tipoStr.toUpperCase());
-                        } catch (IllegalArgumentException e) {
-                            System.out.println("Tipo de punto no reconocido: " + tipoStr + ". Se usará el primer valor del enum.");
-                            if (TipoPInteres.values().length > 0) {
-                                tipo = TipoPInteres.values()[0];
-                            } else {
-                                System.out.println("No hay valores en el enum TipoPInteres. No se puede crear el punto.");
-                                continue;
-                            }
-                        }
+                    String nombre = puntoParts[4];
+                    TipoPInteres tipo = TipoPInteres.valueOf(tipoStr.toUpperCase());
 
-                        PuntoInteres punto = new PuntoInteres(lat, lon, elev, tiempo, "imagen.jpg", tipo, nombre);
-                        waypoints.add(punto);
-                    }
-                }
-
-
-                if (!waypoints.isEmpty()) {
-                    ruta.setPunto_ini(waypoints.get(0));
-                    ruta.setPunto_fin(waypoints.get(waypoints.size() - 1));
-                    PuntoInteres punto = new PuntoInteres(lat, lon, elev, tiempo, "imagen.jpg", tipo, nombre);
+                    PuntoInteres punto = new PuntoInteres(lat, lon, "imagen.jpg", tipo, nombre);
                     waypoints.add(punto);
-
                 }
+            }
 
+            if (!waypoints.isEmpty()) {
+                ruta.setPunto_ini(waypoints.get(0));
+                ruta.setPunto_fin(waypoints.get(waypoints.size() - 1));
             }
 
         } catch (IOException | NumberFormatException e) {
