@@ -32,8 +32,8 @@ import java.util.logging.Logger;
  * @author DAM106
  */
 public class Fichero {
-
     public static String rutaToCsv(Ruta ruta) {
+
         String linea = "";
         linea += ruta.getNombre() + ";"
                 + ruta.getAutor().getNombre() + ";"
