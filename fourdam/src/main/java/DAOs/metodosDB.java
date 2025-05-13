@@ -18,12 +18,15 @@ import java.util.Set;
 import javax.swing.JOptionPane;
 import reto.fourdam.AccesoBaseDatos;
 import reto.fourdam.Actividad;
+import reto.fourdam.Administrador;
+import reto.fourdam.Alumno;
+import reto.fourdam.DisennadorRuta;
+import reto.fourdam.Profesor;
 import reto.fourdam.Punto;
 import reto.fourdam.PuntoInteres;
 import reto.fourdam.PuntoPeligro;
 import reto.fourdam.Resenna;
 import reto.fourdam.Ruta;
-import reto.fourdam.SWING.Calendario;
 import reto.fourdam.Usuario;
 import reto.fourdam.Valoracion;
 import reto.fourdam.ValoracionTec;
@@ -258,6 +261,7 @@ public class metodosDB {
         return ruta;
     }
 
+
     public PuntoInteres pInteresPorCoordenadas(double longitud, double latitud) {
         PuntoInteres punto = null;
         String sql = "SELECT idPuntos_interes, id_ruta, nombre, tipo, caracteristicas, url, longitud, latitud FROM puntos_interes WHERE longitud=? AND latitud=?";
@@ -298,7 +302,9 @@ public class metodosDB {
 
     }
 
-    public Usuario usuPorId(int id) {
+    
+
+    public static Usuario usuPorId(int id) {
         Usuario usuario = null;
         String sql = "SELECT id_usuario,nombre,apellidos,correo,contraseña,rol FROM usuarios WHERE id_usuario=?";
         try (PreparedStatement stmt = getConnection().prepareStatement(sql);) {
@@ -470,13 +476,29 @@ public class metodosDB {
     }
 
     // si hay numeros es porque se pueden pedir datos por index
-    private Usuario crearUsuario(final ResultSet rs) throws SQLException {
-        return new Usuario(
-                rs.getString(2),
-                rs.getString(3),
-                rs.getString(4),
-                rs.getString(5),
-                TipoUsuario.valueOf(rs.getString(6)));
+    private static Usuario crearUsuario(final ResultSet rs) throws SQLException {
+        Usuario u = null;
+        switch(verificaUsuario(rs.getString(4)).toString()){
+            case "INVITADO" -> {
+                u = new Usuario(rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),TipoUsuario.valueOf(rs.getString(6)));
+            }
+            case "ALUMNO" -> {
+                u = new Alumno(rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),TipoUsuario.valueOf(rs.getString(6)));
+            }
+            case "DISENADOR_DE_RUTAS" -> {
+                u = new DisennadorRuta(rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),TipoUsuario.valueOf(rs.getString(6)));
+            }
+            case "PROFESOR" -> {
+                u = new Profesor(rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),TipoUsuario.valueOf(rs.getString(6)));
+            }
+            case "ADMIN" -> {
+                u = new Administrador(rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),TipoUsuario.valueOf(rs.getString(6)));
+            }
+            default -> {
+                System.out.println("Error: tipo de usuario no soportado");
+            }
+        }
+        return u;
     }
 
     public void agregarValoracion(Valoracion v) {
@@ -560,9 +582,9 @@ public class metodosDB {
 
     public static TipoUsuario verificaUsuario(String email) {
         String sql = "SELECT rol FROM usuarios WHERE correo = ?";
+
         TipoUsuario rol = TipoUsuario.ADMIN;
         try (Connection conn = AccesoBaseDatos.getInstance().getConn(); PreparedStatement ps = conn.prepareStatement(sql)) {
-
             ps.setString(1, email);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
@@ -584,6 +606,7 @@ public class metodosDB {
         return rol;
     }
 
+
     private PuntoInteres crearPuntoInteres(final ResultSet rs) throws SQLException {
         return new PuntoInteres(
                 rs.getDouble("latitud"),
@@ -592,6 +615,31 @@ public class metodosDB {
                 TipoPInteres.valueOf(rs.getString("tipo")),
                 rs.getString("caracteristicasEsp")
         );
+    }
+
+
+    public static int idUsuario(String email) {
+        String sql = "SELECT id_usuario FROM usuarios WHERE correo = ?";
+        int id=1;
+        try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
+            ps.setString(1, email);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    int idrs = rs.getInt("id_usuario");
+                    try {
+                        id = idrs;
+                        System.out.println("Id del usuario: " + id);
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Id no reconocido en la base de datos: " + idrs);
+                    }
+                } else {
+                    System.out.println("Usuario no encontrado con ese id.");
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al acceder a la base de datos: " + e.getMessage());
+        }
+        return id;
     }
 
     // ============================================================== ENUMS ===================================================
