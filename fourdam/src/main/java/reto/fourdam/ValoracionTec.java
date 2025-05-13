@@ -19,8 +19,8 @@ public class ValoracionTec {
     private String dificultad;
     private String equipoRecomendado;
 
-    public ValoracionTec(int idValoracionTecnica,Usuario usuario, Ruta ruta, LocalDate fecha, String dificultad, String equipoRecomendado) {
-        this.idValoracionTecnica=idValoracionTecnica;
+    public ValoracionTec(Usuario usuario, Ruta ruta, LocalDate fecha, String dificultad, String equipoRecomendado) {
+    
         this.usuario = usuario;
         this.ruta = ruta;
         this.fecha = fecha;

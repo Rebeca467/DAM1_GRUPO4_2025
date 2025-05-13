@@ -569,7 +569,6 @@ public class metodosDB {
 
         if (usuario != null && ruta != null) {
             return new ValoracionTec(
-                    rs.getInt("idValoracionTecnica"),
                     usuario,
                     ruta,
                     rs.getDate("fecha").toLocalDate(),
