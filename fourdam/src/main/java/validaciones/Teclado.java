@@ -12,6 +12,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
@@ -158,4 +159,13 @@ public class Teclado {
         }
         return ordenado;
     }
+    
+    // Método para validar el correo electrónico
+    public static boolean validarCorreo(String correo) {
+        String regex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+        Pattern pattern = Pattern.compile(regex);
+        return pattern.matcher(correo).matches();
+    }
+    
+    
 }
