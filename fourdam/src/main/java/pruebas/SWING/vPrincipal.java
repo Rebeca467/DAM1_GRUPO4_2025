@@ -16,6 +16,7 @@ import javax.swing.JFrame;
 import reto.fourdam.AccesoBaseDatos;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import reto.fourdam.Resenna;
 import reto.fourdam.Administrador;
 import reto.fourdam.Alumno;
 import reto.fourdam.DisennadorRuta;
@@ -81,17 +82,12 @@ public class vPrincipal extends javax.swing.JFrame {
         txtInteresCult = new javax.swing.JTextPane();
         VerInfoRutas = new javax.swing.JDialog();
         ReseñaRuta = new javax.swing.JDialog();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel49 = new javax.swing.JLabel();
-        jLabel50 = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
-        txtNombreURes = new javax.swing.JTextField();
-        txtNombreRRes = new javax.swing.JTextField();
-        txtFechaReseña = new javax.swing.JFormattedTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtComentario = new javax.swing.JTextArea();
         btnEnviarReseña = new javax.swing.JButton();
         btnSalirReseña = new javax.swing.JButton();
+        jLabel65 = new javax.swing.JLabel();
         ValoracionTec = new javax.swing.JDialog();
         jLabel59 = new javax.swing.JLabel();
         jLabel60 = new javax.swing.JLabel();
@@ -338,16 +334,7 @@ public class vPrincipal extends javax.swing.JFrame {
         ReseñaRuta.setResizable(false);
         ReseñaRuta.setSize(new java.awt.Dimension(400, 450));
 
-        jLabel4.setText("Nombre usuario");
-
-        jLabel49.setText("Nombre ruta");
-
-        jLabel50.setText("Fecha");
-
         jLabel51.setText("Comentario");
-
-        txtFechaReseña.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
-        txtFechaReseña.setActionCommand("null");
 
         txtComentario.setColumns(20);
         txtComentario.setRows(5);
@@ -362,6 +349,8 @@ public class vPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jLabel65.setText("¡HAZ TU RESEÑA SOBRE LA RUTA!");
+
         javax.swing.GroupLayout ReseñaRutaLayout = new javax.swing.GroupLayout(ReseñaRuta.getContentPane());
         ReseñaRuta.getContentPane().setLayout(ReseñaRutaLayout);
         ReseñaRutaLayout.setHorizontalGroup(
@@ -369,47 +358,32 @@ public class vPrincipal extends javax.swing.JFrame {
             .addGroup(ReseñaRutaLayout.createSequentialGroup()
                 .addGroup(ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ReseñaRutaLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel49)
-                            .addComponent(jLabel50)
-                            .addComponent(jLabel51))
-                        .addGap(18, 18, 18)
-                        .addGroup(ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtNombreURes)
-                                .addComponent(txtNombreRRes, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-                                .addComponent(txtFechaReseña))))
-                    .addGroup(ReseñaRutaLayout.createSequentialGroup()
                         .addGap(153, 153, 153)
                         .addComponent(btnEnviarReseña, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ReseñaRutaLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btnSalirReseña)))
-                .addContainerGap(99, Short.MAX_VALUE))
+                        .addComponent(btnSalirReseña))
+                    .addGroup(ReseñaRutaLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel51)
+                        .addGap(41, 41, 41)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(95, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ReseñaRutaLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel65)
+                .addGap(135, 135, 135))
         );
         ReseñaRutaLayout.setVerticalGroup(
             ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ReseñaRutaLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtNombreURes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel49)
-                    .addComponent(txtNombreRRes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel50)
-                    .addComponent(txtFechaReseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                .addGap(49, 49, 49)
+                .addComponent(jLabel65)
+                .addGap(72, 72, 72)
                 .addGroup(ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel51)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(82, 82, 82)
                 .addComponent(btnEnviarReseña, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addComponent(btnSalirReseña)
@@ -1489,7 +1463,6 @@ public class vPrincipal extends javax.swing.JFrame {
 
     private void btnValorarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValorarMouseClicked
 
-
         int filaSeleccionada = tblRutas.getSelectedRow();
         //todo el metodo hay que revisarlo
 
@@ -1769,7 +1742,6 @@ public class vPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
@@ -1779,9 +1751,7 @@ public class vPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
-    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
@@ -1837,7 +1807,6 @@ public class vPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txtFamiliar1;
     private javax.swing.JFormattedTextField txtFecha;
     private javax.swing.JFormattedTextField txtFecha1;
-    private javax.swing.JFormattedTextField txtFechaReseña;
     private javax.swing.JTextField txtIdValTec;
     private javax.swing.JTextPane txtInteresCult;
     private javax.swing.JTextField txtMediaValoraciones;
@@ -1845,11 +1814,9 @@ public class vPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextPane txtNomRuta;
     private javax.swing.JTextField txtNomUVal;
     private javax.swing.JTextPane txtNomUsu;
-    private javax.swing.JTextField txtNombreRRes;
     private javax.swing.JTextField txtNombreRVal;
     private javax.swing.JTextField txtNombreRuta;
     private javax.swing.JTextField txtNombreRuta1;
-    private javax.swing.JTextField txtNombreURes;
     private javax.swing.JTextField txtPFinal;
     private javax.swing.JTextField txtPFinal1;
     private javax.swing.JTextField txtPInicial;
@@ -1931,13 +1898,15 @@ public class vPrincipal extends javax.swing.JFrame {
         cmbEstado.setModel(modelo);
     }
 
-    private void seleccionarIdRuta() {
+    private Ruta seleccionarIdRuta() {
+        Ruta ruta = null;
         int filaSeleccionada = tblRutas.getSelectedRow();
 
         if (filaSeleccionada != -1) {
             int idRuta = Integer.parseInt(tblRutas.getValueAt(filaSeleccionada, 0).toString());
-            Ruta ruta = metodos.rutaPorId(idRuta);
+             ruta = metodos.rutaPorId(idRuta);
         }
+        return ruta;
     }
 
     private void guardarValTec() {
@@ -1983,7 +1952,14 @@ public class vPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error de formato numérico. Revisa ID o fecha.");
         }
     }
-
+    private void guardarResenna(){
+        Usuario u = metodos.usuPorId(metodosDB.idUsuario(txtCorreo.getText()));
+        Ruta ruta = seleccionarIdRuta();
+        String comentario = txtComentario.getText();
+        
+        metodos.agregarResenna(new Resenna(comentario,LocalDate.now(),ruta, u));
+        
+    }
     /*private void activarBotones(){
         if(metodosDB.verificaUsuario(txtCorreo.getText()).equals("ADMINISTRADOR")){
             btnModificarRuta.setVisible(true);
