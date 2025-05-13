@@ -32,7 +32,6 @@ import java.util.logging.Logger;
  * @author DAM106
  */
 public class Fichero {
-
     /**
      * Convierte una ruta a formato CSV.
      *
