@@ -11,38 +11,42 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
+CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
 USE `mydb` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Usuarios`
+-- Table `mydb`.`actividades`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Usuarios` (
+CREATE TABLE IF NOT EXISTS `mydb`.`actividades` (
+  `idActividades` INT NOT NULL AUTO_INCREMENT,
+  `nombre_actividad` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idActividades`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`usuarios`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`usuarios` (
   `id_usuario` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
   `apellidos` VARCHAR(45) NOT NULL,
   `correo` VARCHAR(45) NOT NULL,
   `contraseña` VARCHAR(45) NOT NULL,
-  `rol` ENUM('DESARROLLADOR', 'ADMIISTRADOR', 'PROFESADOR', 'ALUMNO', 'INVITADO') NOT NULL,
+  `rol` ENUM('DISEÑADOR', 'ADMINISTRADOR', 'PROFESOR', 'ALUMNO', 'INVITADO') NOT NULL,
   PRIMARY KEY (`id_usuario`),
   UNIQUE INDEX `correo_UNIQUE` (`correo` ASC) VISIBLE)
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Actividades`
+-- Table `mydb`.`rutas`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Actividades` (
-  `idActividades` INT NOT NULL AUTO_INCREMENT,
-  `nombre_actividad` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idActividades`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`Rutas`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Rutas` (
+CREATE TABLE IF NOT EXISTS `mydb`.`rutas` (
   `id_ruta` INT NOT NULL AUTO_INCREMENT,
   `id_usuario` INT NOT NULL,
   `idActividades` INT NOT NULL,
@@ -62,37 +66,35 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Rutas` (
   `url` TEXT NOT NULL,
   `familiar` TINYINT NOT NULL,
   `temporada` ENUM('PRIMAVERA', 'VERANO', 'OTOÑO', 'INVIERNO', 'SIEMPRE') NOT NULL,
-  `indicaciones` TINYINT NULL,
+  `indicaciones` TINYINT NULL DEFAULT NULL,
   `terreno` TINYINT NOT NULL,
-  `esfuerzo` TINYINT NULL,
-  `riesgo` TINYINT NULL,
-  `zona` VARCHAR(45) NULL,
-  `recomendaciones` TEXT NULL,
-  `clasificacion` ENUM('CIRCULAR', 'LINEAL') NULL,
-  `nombre_inicial` VARCHAR(45) NULL,
+  `esfuerzo` TINYINT NULL DEFAULT NULL,
+  `riesgo` TINYINT NULL DEFAULT NULL,
+  `zona` VARCHAR(45) NULL DEFAULT NULL,
+  `recomendaciones` TEXT NULL DEFAULT NULL,
+  `clasificacion` ENUM('CIRCULAR', 'LINEAL') NULL DEFAULT NULL,
+  `nombre_inicial` VARCHAR(45) NULL DEFAULT NULL,
   `nombre_final` VARCHAR(45) NOT NULL,
   `media_valoraciones` INT NOT NULL,
   `duracion` DOUBLE NOT NULL,
   PRIMARY KEY (`id_ruta`),
   INDEX `fk_Rutas_Usuarios1_idx` (`id_usuario` ASC) VISIBLE,
   INDEX `fk_Rutas_Actividades1_idx` (`idActividades` ASC) VISIBLE,
-  CONSTRAINT `fk_Rutas_Usuarios1`
-    FOREIGN KEY (`id_usuario`)
-    REFERENCES `mydb`.`Usuarios` (`id_usuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_Rutas_Actividades1`
     FOREIGN KEY (`idActividades`)
-    REFERENCES `mydb`.`Actividades` (`idActividades`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    REFERENCES `mydb`.`actividades` (`idActividades`),
+  CONSTRAINT `fk_Rutas_Usuarios1`
+    FOREIGN KEY (`id_usuario`)
+    REFERENCES `mydb`.`usuarios` (`id_usuario`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Calendario`
+-- Table `mydb`.`calendario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Calendario` (
+CREATE TABLE IF NOT EXISTS `mydb`.`calendario` (
   `idCalendario` INT NOT NULL AUTO_INCREMENT,
   `id_usuario` INT NOT NULL,
   `id_ruta` INT NOT NULL,
@@ -102,73 +104,21 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Calendario` (
   PRIMARY KEY (`idCalendario`, `id_ruta`),
   INDEX `fk_Calendario_Usuarios1_idx` (`id_usuario` ASC) VISIBLE,
   INDEX `fk_Calendario_Rutas1_idx` (`id_ruta` ASC) VISIBLE,
-  CONSTRAINT `fk_Calendario_Usuarios1`
-    FOREIGN KEY (`id_usuario`)
-    REFERENCES `mydb`.`Usuarios` (`id_usuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_Calendario_Rutas1`
     FOREIGN KEY (`id_ruta`)
-    REFERENCES `mydb`.`Rutas` (`id_ruta`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`Valoraciones`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Valoraciones` (
-  `idValoraciones` INT NOT NULL AUTO_INCREMENT,
-  `id_usuario` INT NOT NULL,
-  `id_ruta` INT NOT NULL,
-  `fecha` DATE NOT NULL,
-  `dificultad` TINYINT NOT NULL,
-  `belleza` TINYINT NOT NULL,
-  `interés` TINYINT NOT NULL,
-  PRIMARY KEY (`idValoraciones`, `id_ruta`),
-  INDEX `fk_Valoraciones_Usuarios1_idx` (`id_usuario` ASC) VISIBLE,
-  UNIQUE INDEX `id_usuario_UNIQUE` (`id_usuario` ASC) VISIBLE,
-  INDEX `fk_Valoraciones_Rutas1_idx` (`id_ruta` ASC) VISIBLE,
-  UNIQUE INDEX `Rutas_id_rutas_UNIQUE` (`id_ruta` ASC) VISIBLE,
-  CONSTRAINT `fk_Valoraciones_Usuarios1`
+    REFERENCES `mydb`.`rutas` (`id_ruta`),
+  CONSTRAINT `fk_Calendario_Usuarios1`
     FOREIGN KEY (`id_usuario`)
-    REFERENCES `mydb`.`Usuarios` (`id_usuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Valoraciones_Rutas1`
-    FOREIGN KEY (`id_ruta`)
-    REFERENCES `mydb`.`Rutas` (`id_ruta`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    REFERENCES `mydb`.`usuarios` (`id_usuario`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Puntos_peligro`
+-- Table `mydb`.`puntos_interes`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Puntos_peligro` (
-  `idPuntos_peligro` INT NOT NULL AUTO_INCREMENT,
-  `id_ruta` INT NOT NULL,
-  `descripcion` TEXT NOT NULL,
-  `km` DOUBLE NOT NULL,
-  `imagen` VARCHAR(45) NOT NULL,
-  `longitud` DOUBLE NOT NULL,
-  `latitud` DOUBLE NOT NULL,
-  PRIMARY KEY (`idPuntos_peligro`),
-  INDEX `fk_Puntos_peligro_Rutas1_idx` (`id_ruta` ASC) VISIBLE,
-  CONSTRAINT `fk_Puntos_peligro_Rutas1`
-    FOREIGN KEY (`id_ruta`)
-    REFERENCES `mydb`.`Rutas` (`id_ruta`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`Puntos_interes`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Puntos_interes` (
+CREATE TABLE IF NOT EXISTS `mydb`.`puntos_interes` (
   `idPuntos_interes` INT NOT NULL AUTO_INCREMENT,
   `id_ruta` INT NOT NULL,
   `nombre` VARCHAR(45) NOT NULL,
@@ -181,42 +131,61 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Puntos_interes` (
   INDEX `fk_Puntos_interes_Rutas1_idx` (`id_ruta` ASC) VISIBLE,
   CONSTRAINT `fk_Puntos_interes_Rutas1`
     FOREIGN KEY (`id_ruta`)
-    REFERENCES `mydb`.`Rutas` (`id_ruta`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    REFERENCES `mydb`.`rutas` (`id_ruta`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Fotos`
+-- Table `mydb`.`puntos_peligro`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Fotos` (
+CREATE TABLE IF NOT EXISTS `mydb`.`puntos_peligro` (
+  `idPuntos_peligro` INT NOT NULL AUTO_INCREMENT,
+  `id_ruta` INT NOT NULL,
+  `descripcion` TEXT NOT NULL,
+  `km` DOUBLE NOT NULL,
+  `imagen` VARCHAR(45) NOT NULL,
+  `longitud` DOUBLE NOT NULL,
+  `latitud` DOUBLE NOT NULL,
+  PRIMARY KEY (`idPuntos_peligro`),
+  INDEX `fk_Puntos_peligro_Rutas1_idx` (`id_ruta` ASC) VISIBLE,
+  CONSTRAINT `fk_Puntos_peligro_Rutas1`
+    FOREIGN KEY (`id_ruta`)
+    REFERENCES `mydb`.`rutas` (`id_ruta`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`fotos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`fotos` (
   `idFotos` INT NOT NULL AUTO_INCREMENT,
   `idPuntos_interes` INT NOT NULL,
   `idPuntos_peligro` INT NOT NULL,
   `URL` TEXT NOT NULL,
-  `descripcion` TEXT NULL,
+  `descripcion` TEXT NULL DEFAULT NULL,
   PRIMARY KEY (`idFotos`, `idPuntos_interes`, `idPuntos_peligro`),
   INDEX `fk_Fotos_Puntos_interes1_idx` (`idPuntos_interes` ASC) VISIBLE,
   INDEX `fk_Fotos_Puntos_peligro1_idx` (`idPuntos_peligro` ASC) VISIBLE,
   CONSTRAINT `fk_Fotos_Puntos_interes1`
     FOREIGN KEY (`idPuntos_interes`)
-    REFERENCES `mydb`.`Puntos_interes` (`idPuntos_interes`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    REFERENCES `mydb`.`puntos_interes` (`idPuntos_interes`),
   CONSTRAINT `fk_Fotos_Puntos_peligro1`
     FOREIGN KEY (`idPuntos_peligro`)
-    REFERENCES `mydb`.`Puntos_peligro` (`idPuntos_peligro`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    REFERENCES `mydb`.`puntos_peligro` (`idPuntos_peligro`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Reseña`
+-- Table `mydb`.`reseña`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Reseña` (
-  `idReseña` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `mydb`.`reseña` (
+  `idReseña` INT NOT NULL AUTO_INCREMENT,
   `comentario` VARCHAR(45) NOT NULL,
   `fecha` DATE NOT NULL,
   `id_ruta` INT NOT NULL,
@@ -226,22 +195,47 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Reseña` (
   INDEX `fk_Reseña_Usuarios1_idx` (`id_usuario` ASC) VISIBLE,
   CONSTRAINT `fk_Reseña_Rutas1`
     FOREIGN KEY (`id_ruta`)
-    REFERENCES `mydb`.`Rutas` (`id_ruta`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    REFERENCES `mydb`.`rutas` (`id_ruta`),
   CONSTRAINT `fk_Reseña_Usuarios1`
     FOREIGN KEY (`id_usuario`)
-    REFERENCES `mydb`.`Usuarios` (`id_usuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    REFERENCES `mydb`.`usuarios` (`id_usuario`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`ValoracionTecnica`
+-- Table `mydb`.`valoraciones`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`ValoracionTecnica` (
-  `idValoracionTecnica` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `mydb`.`valoraciones` (
+  `idValoraciones` INT NOT NULL AUTO_INCREMENT,
+  `id_usuario` INT NOT NULL,
+  `id_ruta` INT NOT NULL,
+  `fecha` DATE NOT NULL,
+  `dificultad` TINYINT NOT NULL,
+  `belleza` TINYINT NOT NULL,
+  `interés` TINYINT NOT NULL,
+  PRIMARY KEY (`idValoraciones`, `id_ruta`),
+  UNIQUE INDEX `id_usuario_UNIQUE` (`id_usuario` ASC) VISIBLE,
+  UNIQUE INDEX `Rutas_id_rutas_UNIQUE` (`id_ruta` ASC) VISIBLE,
+  INDEX `fk_Valoraciones_Usuarios1_idx` (`id_usuario` ASC) VISIBLE,
+  INDEX `fk_Valoraciones_Rutas1_idx` (`id_ruta` ASC) VISIBLE,
+  CONSTRAINT `fk_Valoraciones_Rutas1`
+    FOREIGN KEY (`id_ruta`)
+    REFERENCES `mydb`.`rutas` (`id_ruta`),
+  CONSTRAINT `fk_Valoraciones_Usuarios1`
+    FOREIGN KEY (`id_usuario`)
+    REFERENCES `mydb`.`usuarios` (`id_usuario`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`valoraciontecnica`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`valoraciontecnica` (
+  `idValoracionTecnica` INT NOT NULL AUTO_INCREMENT,
   `recomendaciones` VARCHAR(45) NOT NULL,
   `dificultad` VARCHAR(45) NOT NULL,
   `fecha` DATE NOT NULL,
@@ -252,15 +246,13 @@ CREATE TABLE IF NOT EXISTS `mydb`.`ValoracionTecnica` (
   INDEX `fk_ValoracionTecnica_Usuarios1_idx` (`id_usuario` ASC) VISIBLE,
   CONSTRAINT `fk_ValoracionTecnica_Rutas1`
     FOREIGN KEY (`id_ruta`)
-    REFERENCES `mydb`.`Rutas` (`id_ruta`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    REFERENCES `mydb`.`rutas` (`id_ruta`),
   CONSTRAINT `fk_ValoracionTecnica_Usuarios1`
     FOREIGN KEY (`id_usuario`)
-    REFERENCES `mydb`.`Usuarios` (`id_usuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    REFERENCES `mydb`.`usuarios` (`id_usuario`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

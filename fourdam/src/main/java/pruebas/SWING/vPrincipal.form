@@ -204,24 +204,6 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel49" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel50" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel51" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jScrollPane3" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtNombreURes" max="32767" attributes="0"/>
-                                  <Component id="txtNombreRRes" pref="182" max="32767" attributes="0"/>
-                                  <Component id="txtFechaReseña" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
                           <Component id="btnEnviarReseña" min="-2" pref="115" max="-2" attributes="0"/>
@@ -230,24 +212,26 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnSalirReseña" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                          <Component id="jLabel51" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                          <Component id="jScrollPane3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-<<<<<<< Updated upstream
-                  <EmptySpace pref="99" max="32767" attributes="0"/>
-=======
                   <EmptySpace pref="95" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="jLabel66" min="-2" max="-2" attributes="0"/>
+
+                  <Component id="jLabel65" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
->>>>>>> Stashed changes
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-<<<<<<< Updated upstream
                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -264,16 +248,14 @@
                       <Component id="txtFechaReseña" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-=======
                   <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                  <Component id="jLabel66" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel65" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
->>>>>>> Stashed changes
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel51" min="-2" max="-2" attributes="0"/>
                       <Component id="jScrollPane3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
                   <Component id="btnEnviarReseña" min="-2" pref="35" max="-2" attributes="0"/>
                   <EmptySpace pref="57" max="32767" attributes="0"/>
                   <Component id="btnSalirReseña" min="-2" max="-2" attributes="0"/>
@@ -283,36 +265,9 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Nombre usuario"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel49">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Nombre ruta"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel50">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Fecha"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel51">
           <Properties>
             <Property name="text" type="java.lang.String" value="Comentario"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtNombreURes">
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtNombreRRes">
-        </Component>
-        <Component class="javax.swing.JFormattedTextField" name="txtFechaRese&#xf1;a">
-          <Properties>
-            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-              <Format format="dd/MM/yyyy" subtype="-1" type="1"/>
-            </Property>
-            <Property name="actionCommand" type="java.lang.String" value="null"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane3">
@@ -343,17 +298,11 @@
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSalirRese&#xf1;aMouseClicked"/>
           </Events>
         </Component>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
-        <Component class="javax.swing.JLabel" name="jLabel66">
+        <Component class="javax.swing.JLabel" name="jLabel65">
           <Properties>
             <Property name="text" type="java.lang.String" value="&#xa1;HAZ TU RESE&#xd1;A SOBRE LA RUTA!"/>
           </Properties>
         </Component>
->>>>>>> Stashed changes
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDialog" name="ValoracionTec">
@@ -582,7 +531,6 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-<<<<<<< Updated upstream
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -600,25 +548,33 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
-=======
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="256" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
->>>>>>> Stashed changes
                           <Component id="btnInvitado" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                           <Component id="btnSignin" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="txtContraseña" min="-2" pref="213" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="txtCorreo" min="-2" pref="215" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="590" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="213" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtCorreo" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -628,12 +584,12 @@
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtContraseña" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="187" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnInvitado" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnSignin" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -726,7 +682,7 @@
                       </Group>
                       <Component id="btnDescargaF" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="206" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
