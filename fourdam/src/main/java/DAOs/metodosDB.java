@@ -444,7 +444,31 @@ public class metodosDB {
         }
         return rol;
     }
-
+    public static int idUsuario(String email) {
+        String sql = "SELECT id_usuario FROM usuarios WHERE correo = ?";
+        int id=1;
+        try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
+ 
+            ps.setString(1, email);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    int idrs = rs.getInt("id_usuario");
+                    try {
+                        id = idrs;
+                        System.out.println("Id del usuario: " + id);
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Id no reconocido en la base de datos: " + idrs);
+                    }
+                } else {
+                    System.out.println("Usuario no encontrado con ese id.");
+                }
+            }
+ 
+        } catch (SQLException e) {
+            System.out.println("Error al acceder a la base de datos: " + e.getMessage());
+        }
+        return id;
+    }
     // ============================================================== ENUMS ===================================================
     public static ArrayList<String> Clasificacion() {
         ArrayList<String> lista = new ArrayList<>();

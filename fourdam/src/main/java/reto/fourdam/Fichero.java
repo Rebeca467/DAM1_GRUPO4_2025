@@ -32,7 +32,7 @@ import java.util.logging.Logger;
  * @author DAM106
  */
 public class Fichero {
-    public static String rutaToCsv(Ruta ruta) {
+  /*  public static String rutaToCsv(Ruta ruta) {
 
         String linea = "";
         linea += ruta.getNombre() + ";"
@@ -50,7 +50,6 @@ public class Fichero {
                 + ruta.getIndicaciones() + ";"
                 + ruta.getTipoActividad() + ";"
                 + ruta.getTemporada() + ";"
-                + ruta.isAccesibilidad() + ";"
                 + ruta.isFamiliar() + ";"
                 + ruta.getUrl() + ";"
                 + ruta.getEstado() + ";"
@@ -216,5 +215,5 @@ public class Fichero {
         }
 
         return ruta;
-    }
+    }*/
 }
