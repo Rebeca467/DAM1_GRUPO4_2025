@@ -630,6 +630,7 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSigninMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSigninActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCorreo">
@@ -717,7 +718,7 @@
             <Property name="text" type="java.lang.String" value="CREAR RUTA"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnCreaRutaMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCreaRutaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnVerRuta">
@@ -1327,7 +1328,7 @@
             <Property name="text" type="java.lang.String" value="MODIFICAR"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnModificarRutaMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModificarRutaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnVerInfoRuta">
@@ -1335,7 +1336,7 @@
             <Property name="text" type="java.lang.String" value="VER INFO"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnVerInfoRutaMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerInfoRutaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnEliminarRuta">
@@ -1354,6 +1355,7 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnValorarRutaMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnValorarRutaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnRese&#xf1;arRuta">
@@ -1361,7 +1363,7 @@
             <Property name="text" type="java.lang.String" value="RESE&#xd1;AR"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnRese&#xf1;arRutaMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRese&#xf1;arRutaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnValoracionTecRuta">
@@ -1369,7 +1371,7 @@
             <Property name="text" type="java.lang.String" value="VALORACION TEC"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnValoracionTecRutaMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnValoracionTecRutaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnSalirVerR">

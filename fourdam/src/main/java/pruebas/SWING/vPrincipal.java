@@ -6,6 +6,7 @@ package pruebas.SWING;
 
 import java.sql.Connection;
 import DAOs.metodosDB;
+import ENUMs.TipoUsuario;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -15,6 +16,10 @@ import javax.swing.JFrame;
 import reto.fourdam.AccesoBaseDatos;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import reto.fourdam.Administrador;
+import reto.fourdam.Alumno;
+import reto.fourdam.DisennadorRuta;
+import reto.fourdam.Profesor;
 import reto.fourdam.Ruta;
 import reto.fourdam.Usuario;
 import reto.fourdam.Valoracion;
@@ -540,6 +545,11 @@ public class vPrincipal extends javax.swing.JFrame {
                 btnSigninMouseClicked(evt);
             }
         });
+        btnSignin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSigninActionPerformed(evt);
+            }
+        });
 
         txtCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -595,9 +605,9 @@ public class vPrincipal extends javax.swing.JFrame {
         Menu.setPreferredSize(new java.awt.Dimension(100, 100));
 
         btnCreaRuta.setText("CREAR RUTA");
-        btnCreaRuta.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCreaRutaMouseClicked(evt);
+        btnCreaRuta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreaRutaActionPerformed(evt);
             }
         });
 
@@ -941,16 +951,16 @@ public class vPrincipal extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblRutas);
 
         btnModificarRuta.setText("MODIFICAR");
-        btnModificarRuta.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnModificarRutaMouseClicked(evt);
+        btnModificarRuta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarRutaActionPerformed(evt);
             }
         });
 
         btnVerInfoRuta.setText("VER INFO");
-        btnVerInfoRuta.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnVerInfoRutaMouseClicked(evt);
+        btnVerInfoRuta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerInfoRutaActionPerformed(evt);
             }
         });
 
@@ -964,18 +974,23 @@ public class vPrincipal extends javax.swing.JFrame {
                 btnValorarRutaMouseClicked(evt);
             }
         });
+        btnValorarRuta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValorarRutaActionPerformed(evt);
+            }
+        });
 
         btnReseñarRuta.setText("RESEÑAR");
-        btnReseñarRuta.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnReseñarRutaMouseClicked(evt);
+        btnReseñarRuta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReseñarRutaActionPerformed(evt);
             }
         });
 
         btnValoracionTecRuta.setText("VALORACION TEC");
-        btnValoracionTecRuta.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnValoracionTecRutaMouseClicked(evt);
+        btnValoracionTecRuta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValoracionTecRutaActionPerformed(evt);
             }
         });
 
@@ -1330,6 +1345,7 @@ public class vPrincipal extends javax.swing.JFrame {
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
+        activarBotones();
     }//GEN-LAST:event_btnInvitadoMouseClicked
 
     private void btnSigninMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSigninMouseClicked
@@ -1343,20 +1359,10 @@ public class vPrincipal extends javax.swing.JFrame {
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
-        metodosDB.verificaUsuario(txtCorreo.getText());
+        //metodosDB.verificaUsuario(txtCorreo.getText());
+        metodosDB.idUsuario(txtCorreo.getText());
+        activarBotones();
     }//GEN-LAST:event_btnSigninMouseClicked
-
-    private void btnModificarRutaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarRutaMouseClicked
-        LogIn.setVisible(false);
-        Menu.setVisible(false);
-        CreaRutas.setVisible(false);
-        VerRutas.setVisible(false);
-        ModificarRutas.setVisible(true);
-        ReseñaRuta.setVisible(false);
-        ValoracionTec.setVisible(false);
-        ValorarRuta.setVisible(false);
-        VerInfoRutas.setVisible(false);
-    }//GEN-LAST:event_btnModificarRutaMouseClicked
 
     private void btnVerRutaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerRutaMouseClicked
         cargaTablaRutas();
@@ -1372,35 +1378,6 @@ public class vPrincipal extends javax.swing.JFrame {
         DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnVerRutaMouseClicked
 
-    private void btnCreaRutaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCreaRutaMouseClicked
-        cargaCmbEstado();
-        cargaCmbTemporada();
-        cargaCmbClasificacion();
-        LogIn.setVisible(false);
-        Menu.setVisible(false);
-        CreaRutas.setVisible(true);
-        VerRutas.setVisible(false);
-        ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
-        ValoracionTec.setVisible(false);
-        ValorarRuta.setVisible(false);
-        VerInfoRutas.setVisible(false);
-        DescargaFichas.setVisible(false);
-    }//GEN-LAST:event_btnCreaRutaMouseClicked
-
-    private void btnVerInfoRutaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerInfoRutaMouseClicked
-        LogIn.setVisible(false);
-        Menu.setVisible(false);
-        CreaRutas.setVisible(false);
-        VerRutas.setVisible(true);
-        ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
-        ValoracionTec.setVisible(false);
-        ValorarRuta.setVisible(false);
-        VerInfoRutas.setVisible(true);
-        DescargaFichas.setVisible(false);
-    }//GEN-LAST:event_btnVerInfoRutaMouseClicked
-
     private void btnValorarRutaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValorarRutaMouseClicked
         LogIn.setVisible(false);
         Menu.setVisible(false);
@@ -1413,32 +1390,6 @@ public class vPrincipal extends javax.swing.JFrame {
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnValorarRutaMouseClicked
-
-    private void btnReseñarRutaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReseñarRutaMouseClicked
-        LogIn.setVisible(false);
-        Menu.setVisible(false);
-        CreaRutas.setVisible(false);
-        VerRutas.setVisible(true);
-        ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(true);
-        ValoracionTec.setVisible(false);
-        ValorarRuta.setVisible(false);
-        VerInfoRutas.setVisible(false);
-        DescargaFichas.setVisible(false);
-    }//GEN-LAST:event_btnReseñarRutaMouseClicked
-
-    private void btnValoracionTecRutaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValoracionTecRutaMouseClicked
-        LogIn.setVisible(false);
-        Menu.setVisible(false);
-        CreaRutas.setVisible(false);
-        VerRutas.setVisible(true);
-        ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
-        ValoracionTec.setVisible(true);
-        ValorarRuta.setVisible(false);
-        VerInfoRutas.setVisible(false);
-        DescargaFichas.setVisible(false);
-    }//GEN-LAST:event_btnValoracionTecRutaMouseClicked
 
     private void btnSalirReseñaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirReseñaMouseClicked
         LogIn.setVisible(false);
@@ -1467,16 +1418,7 @@ public class vPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirVTMouseClicked
 
     private void btnSalirModificarRMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirModificarRMouseClicked
-        LogIn.setVisible(false);
-        Menu.setVisible(false);
-        CreaRutas.setVisible(false);
-        VerRutas.setVisible(true);
-        ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
-        ValoracionTec.setVisible(false);
-        ValorarRuta.setVisible(false);
-        VerInfoRutas.setVisible(false);
-        DescargaFichas.setVisible(false);
+
     }//GEN-LAST:event_btnSalirModificarRMouseClicked
 
     private void btnSalirVerRMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirVerRMouseClicked
@@ -1507,7 +1449,7 @@ public class vPrincipal extends javax.swing.JFrame {
 
     private void btnValorarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValorarMouseClicked
 
-        int filaSeleccionada = jTable1.getSelectedRow();
+        // int filaSeleccionada = jTable1.getSelectedRow();
         //todo el metodo hay que revisarlo
 
         /*if (filaSeleccionada == -1) {
@@ -1578,6 +1520,103 @@ public class vPrincipal extends javax.swing.JFrame {
     private void btnEnviarValTecMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEnviarValTecMouseClicked
         guardarValTec();
     }//GEN-LAST:event_btnEnviarValTecMouseClicked
+
+    private void btnSigninActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSigninActionPerformed
+        LogIn.setVisible(false);
+        Menu.setVisible(true);
+        CreaRutas.setVisible(false);
+        VerRutas.setVisible(false);
+        ModificarRutas.setVisible(false);
+        ReseñaRuta.setVisible(false);
+        ValoracionTec.setVisible(false);
+        ValorarRuta.setVisible(false);
+        VerInfoRutas.setVisible(false);
+        DescargaFichas.setVisible(false);
+        //metodosDB.verificaUsuario(txtCorreo.getText());
+        metodosDB.idUsuario(txtCorreo.getText());
+        activarBotones();
+    }//GEN-LAST:event_btnSigninActionPerformed
+
+    private void btnModificarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarRutaActionPerformed
+        LogIn.setVisible(false);
+        Menu.setVisible(false);
+        CreaRutas.setVisible(false);
+        VerRutas.setVisible(true);
+        ModificarRutas.setVisible(false);
+        ReseñaRuta.setVisible(false);
+        ValoracionTec.setVisible(false);
+        ValorarRuta.setVisible(false);
+        VerInfoRutas.setVisible(false);
+        DescargaFichas.setVisible(false);
+    }//GEN-LAST:event_btnModificarRutaActionPerformed
+
+    private void btnVerInfoRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerInfoRutaActionPerformed
+        LogIn.setVisible(false);
+        Menu.setVisible(false);
+        CreaRutas.setVisible(false);
+        VerRutas.setVisible(true);
+        ModificarRutas.setVisible(false);
+        ReseñaRuta.setVisible(false);
+        ValoracionTec.setVisible(false);
+        ValorarRuta.setVisible(false);
+        VerInfoRutas.setVisible(true);
+        DescargaFichas.setVisible(false);
+    }//GEN-LAST:event_btnVerInfoRutaActionPerformed
+
+    private void btnReseñarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReseñarRutaActionPerformed
+        LogIn.setVisible(false);
+        Menu.setVisible(false);
+        CreaRutas.setVisible(false);
+        VerRutas.setVisible(true);
+        ModificarRutas.setVisible(false);
+        ReseñaRuta.setVisible(true);
+        ValoracionTec.setVisible(false);
+        ValorarRuta.setVisible(false);
+        VerInfoRutas.setVisible(false);
+        DescargaFichas.setVisible(false);
+    }//GEN-LAST:event_btnReseñarRutaActionPerformed
+
+    private void btnValoracionTecRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValoracionTecRutaActionPerformed
+        LogIn.setVisible(false);
+        Menu.setVisible(false);
+        CreaRutas.setVisible(false);
+        VerRutas.setVisible(true);
+        ModificarRutas.setVisible(false);
+        ReseñaRuta.setVisible(false);
+        ValoracionTec.setVisible(true);
+        ValorarRuta.setVisible(false);
+        VerInfoRutas.setVisible(false);
+        DescargaFichas.setVisible(false);
+    }//GEN-LAST:event_btnValoracionTecRutaActionPerformed
+
+    private void btnCreaRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreaRutaActionPerformed
+        cargaCmbEstado();
+        cargaCmbTemporada();
+        cargaCmbClasificacion();
+        LogIn.setVisible(false);
+        Menu.setVisible(false);
+        CreaRutas.setVisible(true);
+        VerRutas.setVisible(false);
+        ModificarRutas.setVisible(false);
+        ReseñaRuta.setVisible(false);
+        ValoracionTec.setVisible(false);
+        ValorarRuta.setVisible(false);
+        VerInfoRutas.setVisible(false);
+        DescargaFichas.setVisible(false);
+    }//GEN-LAST:event_btnCreaRutaActionPerformed
+
+    private void btnValorarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValorarRutaActionPerformed
+        LogIn.setVisible(false);
+        Menu.setVisible(false);
+        CreaRutas.setVisible(false);
+        VerRutas.setVisible(true);
+        ModificarRutas.setVisible(false);
+        ReseñaRuta.setVisible(false);
+        ValoracionTec.setVisible(false);
+        ValorarRuta.setVisible(true);
+        VerInfoRutas.setVisible(false);
+        DescargaFichas.setVisible(false);
+    }//GEN-LAST:event_btnValorarRutaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1795,13 +1834,14 @@ public class vPrincipal extends javax.swing.JFrame {
     ) {
         Usuario usuario = metodos.usuPorId(idUsuario);
         Ruta ruta = metodos.rutaPorId(idRuta);
-
+        Valoracion valoracion = null;
         if (usuario != null && ruta != null) {
-            return new Valoracion(usuario, ruta, fecha, dificultad, belleza, interes);
+            new Valoracion(usuario, ruta, fecha, dificultad, belleza, interes);
         } else {
             System.out.println("Usuario o ruta no encontrados.");
             return null;
         }
+        return valoracion;
     }
 
     private void cargaTablaRutas() {
@@ -1856,8 +1896,8 @@ public class vPrincipal extends javax.swing.JFrame {
             Ruta ruta = metodos.rutaPorId(idRuta);
         }
     }
-    
-    private void guardarValTec(){
+
+    private void guardarValTec() {
         try {
             int id = Integer.parseInt(txtIdValTec.getText());
             int idUsuario = Integer.parseInt(txtNomUVal.getText());
@@ -1867,12 +1907,12 @@ public class vPrincipal extends javax.swing.JFrame {
             String recomendaciones = txtRecomendaciones.getText();
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            LocalDate fecha;
+            LocalDate fecha = LocalDate.now();
             try {
                 fecha = LocalDate.parse(fechaStr, formatter);
             } catch (DateTimeParseException e) {
                 JOptionPane.showMessageDialog(null, "La fecha debe tener el formato dd/MM/yyyy.");
-                return;
+
             }
 
             Usuario usuario = metodos.usuPorId(idUsuario);
@@ -1880,12 +1920,12 @@ public class vPrincipal extends javax.swing.JFrame {
 
             if (usuario == null) {
                 JOptionPane.showMessageDialog(null, "Usuario no encontrado.");
-                return;
+
             }
 
             if (ruta == null) {
                 JOptionPane.showMessageDialog(null, "Ruta no encontrada.");
-                return;
+
             }
 
             ValoracionTec valoracion = new ValoracionTec(id, usuario, ruta, fecha, dificultad, recomendaciones);
@@ -1900,10 +1940,73 @@ public class vPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error de formato numérico. Revisa ID o fecha.");
         }
     }
-    
-    private void activarBotones(){
-        if(metodosDB.verificaUsuario(txtCorreo.getText()).equals("ADMIISTRADOR")){
-            btnModificar.setEnabled(true);
+
+    /*private void activarBotones(){
+        if(metodosDB.verificaUsuario(txtCorreo.getText()).equals("ADMINISTRADOR")){
+            btnModificarRuta.setVisible(true);
+            btnEliminarRuta.setVisible(true);
+            btnVerInfoRuta.setVisible(true);
+            btnValorarRuta.setVisible(true);
+            btnReseñarRuta.setVisible(true);
+            btnValidarRuta.setVisible(true);
+            btnValoracionTecRuta.setVisible(true);
+            btnCrearRuta.setVisible(true);
+            btnDescargaF.setVisible(true);
+            btnVerRuta.setVisible(true);
+        } else if ("PROFESOR".equals(metodosDB.verificaUsuario(txtCorreo.getText()))){
+            btnModificarRuta.setVisible(false);
+            btnEliminarRuta.setVisible(false);
+            btnVerInfoRuta.setVisible(true);
+            btnValorarRuta.setVisible(true);
+            btnReseñarRuta.setVisible(true);
+            btnValidarRuta.setVisible(true);
+            btnValoracionTecRuta.setVisible(true);
+            btnCrearRuta.setVisible(true);
+            btnDescargaF.setVisible(true);
+            btnVerRuta.setVisible(true);
+        } else if ("DESARROLLADOR".equals(metodosDB.verificaUsuario(txtCorreo.getText()))){
+            btnModificarRuta.setVisible(false);
+            btnEliminarRuta.setVisible(false);
+            btnVerInfoRuta.setVisible(true);
+            btnValorarRuta.setVisible(true);
+            btnReseñarRuta.setVisible(true);
+            btnValidarRuta.setVisible(false);
+            btnValoracionTecRuta.setVisible(true);
+            btnCrearRuta.setVisible(true);
+            btnDescargaF.setVisible(true);
+            btnVerRuta.setVisible(true);
+        } else if ("ALUMNO".equals(metodosDB.verificaUsuario(txtCorreo.getText()))){
+            btnModificarRuta.setVisible(false);
+            btnEliminarRuta.setVisible(false);
+            btnVerInfoRuta.setVisible(true);
+            btnValorarRuta.setVisible(true);
+            btnReseñarRuta.setVisible(true);
+            btnValidarRuta.setVisible(false);
+            btnValoracionTecRuta.setVisible(false);
+            btnCrearRuta.setVisible(true);
+            btnDescargaF.setVisible(false);
+            btnVerRuta.setVisible(true);
+        } 
+    }*/
+    private void activarBotones() {
+        // Obtener el tipo de usuario a partir del correo
+        //TipoUsuario tipoUsuario = metodosDB.verificaUsuario(txtCorreo.getText());
+        Usuario u = metodosDB.usuPorId(metodosDB.idUsuario(txtCorreo.getText()));
+        // Desactivar todos los botones por defecto
+        btnModificarRuta.setEnabled(false);
+        btnEliminarRuta.setEnabled(false);
+        btnVerInfoRuta.setEnabled(false);
+        btnValorarRuta.setEnabled(false);
+        btnReseñarRuta.setEnabled(false);
+        btnValidarRuta.setEnabled(false);
+        btnValoracionTecRuta.setEnabled(false);
+        btnCrearRuta.setEnabled(false);
+        btnDescargaF.setEnabled(false);
+        btnVerRuta.setEnabled(false);
+
+        // Comparación usando equals y if
+        if (u instanceof Administrador) {
+            btnModificarRuta.setEnabled(true);
             btnEliminarRuta.setEnabled(true);
             btnVerInfoRuta.setEnabled(true);
             btnValorarRuta.setEnabled(true);
@@ -1913,9 +2016,8 @@ public class vPrincipal extends javax.swing.JFrame {
             btnCrearRuta.setEnabled(true);
             btnDescargaF.setEnabled(true);
             btnVerRuta.setEnabled(true);
-        } else if (metodosDB.verificaUsuario(txtCorreo.getText()).equals("PROFESADOR")){
-            btnModificar.setEnabled(false);
-            btnEliminarRuta.setEnabled(false);
+        } else if (u instanceof Profesor) {
+
             btnVerInfoRuta.setEnabled(true);
             btnValorarRuta.setEnabled(true);
             btnReseñarRuta.setEnabled(true);
@@ -1924,39 +2026,27 @@ public class vPrincipal extends javax.swing.JFrame {
             btnCrearRuta.setEnabled(true);
             btnDescargaF.setEnabled(true);
             btnVerRuta.setEnabled(true);
-        } else if (metodosDB.verificaUsuario(txtCorreo.getText()).equals("DESARROLLADOR")){
-            btnModificar.setEnabled(false);
-            btnEliminarRuta.setEnabled(false);
+        } else if (u instanceof DisennadorRuta) {
+            // El DESARROLLADOR tiene un acceso limitado
             btnVerInfoRuta.setEnabled(true);
             btnValorarRuta.setEnabled(true);
             btnReseñarRuta.setEnabled(true);
-            btnValidarRuta.setEnabled(false);
             btnValoracionTecRuta.setEnabled(true);
             btnCrearRuta.setEnabled(true);
             btnDescargaF.setEnabled(true);
             btnVerRuta.setEnabled(true);
-        } else if (metodosDB.verificaUsuario(txtCorreo.getText()).equals("ALUMNO")){
-            btnModificar.setEnabled(false);
-            btnEliminarRuta.setEnabled(false);
+        } else if (u instanceof Alumno) {
+            // El ALUMNO tiene el acceso más limitado
             btnVerInfoRuta.setEnabled(true);
             btnValorarRuta.setEnabled(true);
             btnReseñarRuta.setEnabled(true);
-            btnValidarRuta.setEnabled(false);
-            btnValoracionTecRuta.setEnabled(false);
             btnCrearRuta.setEnabled(true);
             btnDescargaF.setEnabled(false);
             btnVerRuta.setEnabled(true);
-        } else if (metodosDB.verificaUsuario(txtCorreo.getText()).equals("ALUMNO")){
-            btnModificar.setEnabled(false);
-            btnEliminarRuta.setEnabled(false);
-            btnVerInfoRuta.setEnabled(true);
-            btnValorarRuta.setEnabled(false);
-            btnReseñarRuta.setEnabled(true);
-            btnValidarRuta.setEnabled(false);
-            btnValoracionTecRuta.setEnabled(false);
-            btnCrearRuta.setEnabled(false);
-            btnDescargaF.setEnabled(false);
-            btnVerRuta.setEnabled(false);
+        } else {
+            // Si no se encuentra un tipo válido, desactivar todos los botones
+            JOptionPane.showMessageDialog(null, "Tipo de usuario no reconocido." + u.getClass());
         }
     }
+
 }
