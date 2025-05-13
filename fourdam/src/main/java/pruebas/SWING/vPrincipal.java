@@ -1506,11 +1506,9 @@ public class vPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirCrearRMouseClicked
 
     private void btnValorarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValorarMouseClicked
-        //int filaSeleccionada = jTable1.getSelectedRow();
-<<<<<<< Updated upstream
-=======
+
+        int filaSeleccionada = jTable1.getSelectedRow();
         //todo el metodo hay que revisarlo
->>>>>>> Stashed changes
 
         /*if (filaSeleccionada == -1) {
             JOptionPane.showMessageDialog(this, "Por favor, seleccione una ruta para valorar", "Información", JOptionPane.INFORMATION_MESSAGE);
