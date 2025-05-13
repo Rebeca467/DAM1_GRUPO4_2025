@@ -34,6 +34,7 @@ public class vPrincipal extends javax.swing.JFrame {
      */
     public vPrincipal() {
         initComponents();
+        this.setLocationRelativeTo(null);
         LogIn.setVisible(true);
         Menu.setVisible(false);
         CreaRutas.setVisible(false);
@@ -553,29 +554,27 @@ public class vPrincipal extends javax.swing.JFrame {
         LogIn.setLayout(LogInLayout);
         LogInLayout.setHorizontalGroup(
             LogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LogInLayout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addGroup(LogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(LogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(LogInLayout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(LogInLayout.createSequentialGroup()
-                            .addComponent(jLabel1)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LogInLayout.createSequentialGroup()
+                .addContainerGap(256, Short.MAX_VALUE)
+                .addGroup(LogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(LogInLayout.createSequentialGroup()
-                        .addGap(77, 77, 77)
                         .addComponent(btnInvitado)
                         .addGap(64, 64, 64)
-                        .addComponent(btnSignin)))
-                .addContainerGap(590, Short.MAX_VALUE))
+                        .addComponent(btnSignin))
+                    .addGroup(LogInLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(LogInLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(213, 213, 213))
         );
         LogInLayout.setVerticalGroup(
             LogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LogInLayout.createSequentialGroup()
-                .addGap(93, 93, 93)
+                .addGap(102, 102, 102)
                 .addGroup(LogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -583,11 +582,11 @@ public class vPrincipal extends javax.swing.JFrame {
                 .addGroup(LogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 187, Short.MAX_VALUE)
                 .addGroup(LogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInvitado)
                     .addComponent(btnSignin))
-                .addGap(102, 102, 102))
+                .addGap(93, 93, 93))
         );
 
         getContentPane().add(LogIn, "card2");
@@ -633,7 +632,7 @@ public class vPrincipal extends javax.swing.JFrame {
                                 .addComponent(jLabel3)
                                 .addGap(34, 34, 34))))
                     .addComponent(btnDescargaF))
-                .addContainerGap(206, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1361,27 +1360,32 @@ public class vPrincipal extends javax.swing.JFrame {
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
+        System.out.println("El usuario tiene el rol: INVITADO");
     }//GEN-LAST:event_btnInvitadoMouseClicked
 
     private void btnSigninMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSigninMouseClicked
-
-        metodosDB.verificaUsuario(txtCorreo.getText());
         if (!Teclado.validarCorreo(txtCorreo.getText())) {
-            JOptionPane.showMessageDialog(null, "El correo o contraseña no son validos", "Aviso", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "El formato de correo o contraseña no es correcto", "Aviso", JOptionPane.WARNING_MESSAGE);
         } else {
+            if (metodosDB.verificaUsuario(txtCorreo.getText()) == null) {
+                JOptionPane.showMessageDialog(null, "El usuario no existe", "Aviso", JOptionPane.WARNING_MESSAGE);
+            } else {
 
-            LogIn.setVisible(false);
-            Menu.setVisible(true);
-            CreaRutas.setVisible(false);
-            VerRutas.setVisible(false);
-            ModificarRutas.setVisible(false);
-            ReseñaRuta.setVisible(false);
-            ValoracionTec.setVisible(false);
-            ValorarRuta.setVisible(false);
-            VerInfoRutas.setVisible(false);
-            DescargaFichas.setVisible(false);
+                LogIn.setVisible(false);
+                Menu.setVisible(true);
+                CreaRutas.setVisible(false);
+                VerRutas.setVisible(false);
+                ModificarRutas.setVisible(false);
+                ReseñaRuta.setVisible(false);
+                ValoracionTec.setVisible(false);
+                ValorarRuta.setVisible(false);
+                VerInfoRutas.setVisible(false);
+                DescargaFichas.setVisible(false);
 
+            }
         }
+
+
     }//GEN-LAST:event_btnSigninMouseClicked
 
     private void btnModificarRutaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarRutaMouseClicked
