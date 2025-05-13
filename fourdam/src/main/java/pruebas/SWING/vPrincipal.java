@@ -1416,6 +1416,7 @@ public class vPrincipal extends javax.swing.JFrame {
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
+        
     }//GEN-LAST:event_btnVerRutaMouseClicked
 
     private void btnValorarRutaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValorarRutaMouseClicked
