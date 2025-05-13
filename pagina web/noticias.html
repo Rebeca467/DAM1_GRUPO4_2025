@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novedades - Rutas al Aire Libre</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>Rutas al Aire Libre</h1>
+            </div>
+            <div class="header-actions">
+                <button class="btn premium-btn"><i class="fas fa-crown"></i> Pásate a Premium</button>
+                <button class="btn login-btn"><i class="fas fa-sign-in-alt"></i> Iniciar sesión</button>
+                <button class="btn register-btn"><i class="fas fa-user-plus"></i> Regístrate</button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="rutas.html"><i class="fas fa-hiking"></i> Rutas</a></li>
+                <li><a href="noticias.html" class="active"><i class="fas fa-newspaper"></i> Novedades</a></li>
+                <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+            </ul>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar rutas...">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container news-page">
+        <div class="news-header">
+            <h1><i class="fas fa-newspaper"></i> Rutas Montaña Asturias</h1>
+            <p>Descubre las mejores rutas de montaña en Asturias</p>
+        </div>
+
+        <div class="news-tabs">
+            <button class="tab-btn active" data-tab="custom">Vista personalizada</button>
+            <button class="tab-btn" data-tab="original">Vista original</button>
+        </div>
+
+        <div class="tab-content" id="customTab">
+            <div class="news-filters">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">Todas</button>
+                    <button class="filter-btn" data-filter="search" data-term="picos">Picos de Europa</button>
+                    <button class="filter-btn" data-filter="search" data-term="lagos">Lagos</button>
+                    <button class="filter-btn" data-filter="search" data-term="ruta circular">Rutas Circulares</button>
+                </div>
+                <div class="news-sort">
+                    <label for="sortNews">Ordenar por:</label>
+                    <select id="sortNews">
+                        <option value="recent">Más recientes</option>
+                        <option value="oldest">Más antiguas</option>
+                        <option value="title">Título</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="news-grid" id="newsContainer">
+                <div class="news-loading">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Cargando rutas desde Rutas Montaña Asturias...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content hidden" id="originalTab">
+            <div class="original-feed-container">
+                <div class="original-feed-info">
+                    <h3><i class="fas fa-rss"></i> Feed original de Rutas Montaña Asturias</h3>
+                    <p>A continuación se muestra el feed original de Rutas Montaña Asturias en un iframe.</p>
+                </div>
+                
+                <div class="original-feed-frame">
+                    <iframe id="originalFeedFrame" src="about:blank" width="100%" height="800" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="news-subscribe">
+            <div class="subscribe-card">
+                <div class="subscribe-content">
+                    <h3><i class="fas fa-envelope-open-text"></i> Suscríbete a nuestro boletín</h3>
+                    <p>Recibe las últimas actualizaciones de rutas y eventos directamente en tu correo electrónico.</p>
+                </div>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Tu correo electrónico" required>
+                    <button type="submit" class="btn btn-primary">Suscribirse</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Rutas al Aire Libre</h3>
+                <p>Tu compañero perfecto para descubrir las mejores rutas de senderismo en España.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces rápidos</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="rutas.html">Rutas</a></li>
+                    <li><a href="noticias.html">Novedades</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Recursos</h4>
+                <ul>
+                    <li><a href="#">Guías de senderismo</a></li>
+                    <li><a href="#">Equipo recomendado</a></li>
+                    <li><a href="#">Consejos de seguridad</a></li>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <ul class="contact-info">
+                    <li><i class="fas fa-envelope"></i> info@rutasalaire.com</li>
+                    <li><i class="fas fa-phone"></i> +34 912 345 678</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Madrid, España</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Rutas al Aire Libre. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const mainNav = document.querySelector('.main-nav');
+
+            mobileMenuToggle.addEventListener('click', function() {
+                mainNav.classList.toggle('active');
+                this.querySelector('i').classList.toggle('fa-bars');
+                this.querySelector('i').classList.toggle('fa-times');
+            });
+
+            // Cargar noticias
+            loadAsturiasNews();
+
+            // Filtros de noticias
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Quitar clase active de todos los botones
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Añadir clase active al botón clickeado
+                    this.classList.add('active');
+                    
+                    // Aplicar filtro
+                    const filter = this.getAttribute('data-filter');
+                    const searchTerm = this.getAttribute('data-term') || '';
+                    
+                    document.getElementById('newsContainer').innerHTML = `
+                        <div class="news-loading">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p>Filtrando rutas...</p>
+                        </div>
+                    `;
+                    
+                    // Recargar con el filtro aplicado
+                    setTimeout(() => loadAsturiasNews(filter, searchTerm), 500);
+                });
+            });
+
+            // Ordenar noticias
+            document.getElementById('sortNews').addEventListener('change', function() {
+                const sortValue = this.value;
+                
+                document.getElementById('newsContainer').innerHTML = `
+                    <div class="news-loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Ordenando rutas...</p>
+                    </div>
+                `;
+                
+                // Obtener el filtro activo
+                const activeFilter = document.querySelector('.filter-btn.active');
+                const filter = activeFilter.getAttribute('data-filter');
+                const searchTerm = activeFilter.getAttribute('data-term') || '';
+                
+                // Recargar con el orden aplicado
+                setTimeout(() => loadAsturiasNews(filter, searchTerm, sortValue), 500);
+            });
+
+            // Cambio de tabs
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Quitar clase active de todos los botones
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    // Añadir clase active al botón clickeado
+                    this.classList.add('active');
+                    
+                    // Mostrar el contenido correspondiente
+                    const tabId = this.getAttribute('data-tab');
+                    tabContents.forEach(content => {
+                        content.classList.add('hidden');
+                    });
+                    document.getElementById(tabId + 'Tab').classList.remove('hidden');
+                    
+                    // Si es la pestaña original, cargar el iframe
+                    if (tabId === 'original') {
+                        loadOriginalFeed();
+                    }
+                });
+            });
+        });
+
+        // Función para cargar noticias desde el feed de Rutas Montaña Asturias
+        function loadAsturiasNews(filter = 'all', searchTerm = '', sort = 'recent') {
+            const newsContainer = document.getElementById('newsContainer');
+            
+            // URL del feed de Rutas Montaña Asturias
+            const feedUrl = 'http://www.rutasmontanaasturias.com/feeds/posts/default';
+            
+            // Usamos un servicio proxy para evitar problemas de CORS
+            const proxyUrl = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(feedUrl);
+            
+            fetch(proxyUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error al cargar el feed');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Limpiar el contenedor
+                    newsContainer.innerHTML = '';
+                    
+                    // Verificar si hay items
+                    if (!data.items || data.items.length === 0) {
+                        newsContainer.innerHTML = `
+                            <div class="news-empty">
+                                <i class="fas fa-info-circle"></i>
+                                <p>No se encontraron entradas en el feed.</p>
+                            </div>
+                        `;
+                        return;
+                    }
+                    
+                    // Filtrar items si es necesario
+                    let filteredItems = data.items;
+                    
+                    if (filter === 'search' && searchTerm) {
+                        filteredItems = data.items.filter(item => {
+                            // Buscar en título y contenido
+                            const title = item.title.toLowerCase();
+                            const content = item.content.toLowerCase();
+                            const term = searchTerm.toLowerCase();
+                            return title.includes(term) || content.includes(term);
+                        });
+                    }
+                    
+                    // Ordenar según el criterio seleccionado
+                    if (sort === 'recent') {
+                        filteredItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+                    } else if (sort === 'oldest') {
+                        filteredItems.sort((a, b) => new Date(a.pubDate) - new Date(b.pubDate));
+                    } else if (sort === 'title') {
+                        filteredItems.sort((a, b) => a.title.localeCompare(b.title));
+                    }
+                    
+                    // Si no hay elementos después del filtrado, mostrar mensaje
+                    if (filteredItems.length === 0) {
+                        newsContainer.innerHTML = `
+                            <div class="news-empty">
+                                <i class="fas fa-filter"></i>
+                                <p>No hay rutas que coincidan con el filtro seleccionado.</p>
+                            </div>
+                        `;
+                        return;
+                    }
+                    
+                    // Crear elementos para cada item del feed
+                    filteredItems.forEach(item => {
+                        // Extraer la primera imagen del contenido si existe
+                        let thumbnail = '';
+                        const imgMatch = item.content.match(/<img[^>]+src="([^">]+)"/);
+                        if (imgMatch && imgMatch[1]) {
+                            thumbnail = imgMatch[1];
+                        }
+                        
+                        // Formatear fecha
+                        const date = new Date(item.pubDate);
+                        const formattedDate = date.toLocaleDateString('es-ES', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                        });
+                        
+                        // Extraer un resumen del contenido (eliminar HTML y limitar caracteres)
+                        const tempDiv = document.createElement('div');
+                        tempDiv.innerHTML = item.content;
+                        const textContent = tempDiv.textContent || tempDiv.innerText || '';
+                        const description = textContent.trim().substring(0, 200) + '...';
+                        
+                        // Crear elemento de noticia
+                        const newsItem = document.createElement('div');
+                        newsItem.className = 'news-item';
+                        
+                        newsItem.innerHTML = `
+                            <div class="news-image">
+                                ${thumbnail ? `<img src="${thumbnail}" alt="${item.title}">` : `<img src="/imagenes/ruta${Math.floor(Math.random() * 9) + 1}.jfif" alt="${item.title}">`}
+                                <div class="news-category routes">
+                                    <i class="fas fa-hiking"></i>
+                                    <span>Ruta Asturias</span>
+                                </div>
+                            </div>
+                            <div class="news-content">
+                                <div class="news-date">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>${formattedDate}</span>
+                                </div>
+                                <h3 class="news-title">${item.title}</h3>
+                                <p class="news-description">${description}</p>
+                                <a href="${item.link}" class="news-link" target="_blank">Leer más <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        `;
+                        
+                        newsContainer.appendChild(newsItem);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error al cargar el feed:', error);
+                    newsContainer.innerHTML = `
+                        <div class="news-error">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <p>No se pudo cargar el feed de Rutas Montaña Asturias. Inténtalo de nuevo más tarde.</p>
+                            <p class="feed-error-details">Error: ${error.message}</p>
+                        </div>
+                    `;
+                });
+        }
+
+        // Función para cargar el feed original en un iframe
+        function loadOriginalFeed() {
+            const iframe = document.getElementById('originalFeedFrame');
+            
+            // Crear una página HTML que muestre el feed
+            const feedUrl = 'http://www.rutasmontanaasturias.com/feeds/posts/default';
+            
+            // Debido a las restricciones de CORS, no podemos cargar directamente el feed XML
+            // En su lugar, redirigimos al sitio original
+            iframe.src = 'http://www.rutasmontanaasturias.com';
+            
+            // Alternativa: mostrar un mensaje con enlace al feed original
+            iframe.addEventListener('load', function() {
+                if (iframe.contentDocument.body.innerHTML.includes('refused to connect')) {
+                    iframe.contentDocument.body.innerHTML = `
+                        <div style="padding: 20px; text-align: center; font-family: Arial, sans-serif;">
+                            <h2>No se puede mostrar el feed original debido a restricciones de seguridad</h2>
+                            <p>Puedes visitar el sitio original haciendo clic en el siguiente enlace:</p>
+                            <a href="http://www.rutasmontanaasturias.com" target="_blank" style="display: inline-block; padding: 10px 20px; background-color: #4caf50; color: white; text-decoration: none; border-radius: 4px; margin-top: 10px;">Visitar Rutas Montaña Asturias</a>
+                        </div>
+                    `;
+                }
+            });
+        }
+    </script>
+</body>
+</html>

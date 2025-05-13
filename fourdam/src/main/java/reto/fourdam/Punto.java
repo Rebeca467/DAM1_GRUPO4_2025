@@ -17,7 +17,7 @@ public class Punto {
     private double elevacion;
     private LocalDateTime tiempo;
 
-    public Punto(double latitud, double longitud, double elevacion, LocalDateTime tiempo, String imagen) {
+    public Punto(double latitud, double longitud, String imagen) {
         this.latitud = latitud;
         this.longitud = longitud;
         this.elevacion = elevacion;

@@ -84,6 +84,7 @@ public class Fichero {
                     System.out.println("Cabecera incompleta. Se esperaban al menos 22 campos.");
                     return null;
                 }
+
                 if (!waypoints.isEmpty()) {
                     ruta.setPunto_ini(waypoints.get(0));
                     ruta.setPunto_fin(waypoints.get(waypoints.size() - 1));
@@ -125,6 +126,7 @@ public class Fichero {
                                 System.out.println("Usuario no encontrado en la base de datos: " + email);
                                 return null;
                             }
+
                         }
                     } catch (SQLException ex) {
                         System.out.println("Error al consultar usuario: " + ex.getMessage());
@@ -197,9 +199,13 @@ public class Fichero {
                     }
                 }
 
+
                 if (!waypoints.isEmpty()) {
                     ruta.setPunto_ini(waypoints.get(0));
                     ruta.setPunto_fin(waypoints.get(waypoints.size() - 1));
+                    PuntoInteres punto = new PuntoInteres(lat, lon, elev, tiempo, "imagen.jpg", tipo, nombre);
+                    waypoints.add(punto);
+
                 }
 
             }

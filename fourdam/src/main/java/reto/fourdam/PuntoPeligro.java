@@ -16,8 +16,8 @@ public class PuntoPeligro extends Punto {
     private int nivelgravedad;
     private String justificacion;
 
-    public PuntoPeligro(double latitud, double longitud, double elevacion, LocalDateTime tiempo, String imagen, int km, int nivelgravedad, String justificacion) {
-        super(latitud, longitud, elevacion, tiempo, imagen);
+    public PuntoPeligro(double latitud, double longitud, String imagen, int km, int nivelgravedad, String justificacion) {
+        super(latitud, longitud, imagen);
         this.km = km;
         this.nivelgravedad = nivelgravedad;
         this.justificacion = justificacion;
