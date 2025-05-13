@@ -225,7 +225,21 @@ public class metodosDB {
     }
 
     public Ruta rutaPorId(int id) {
-        return null;
+        Ruta ruta = null;
+        String sql = "SELECT * FROM rutas WHERE id_ruta=?";
+        try (PreparedStatement stmt = getConnection().prepareStatement(sql);) {
+            stmt.setInt(1, id);
+            try (ResultSet rs = stmt.executeQuery();) {
+                if (rs.next()) {
+                    ruta = crearRuta(rs);
+                }
+            }
+
+        } catch (SQLException ex) {
+            // errores
+            JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage());
+        }
+        return ruta;
     }
 
     public Usuario usuPorId(int id) {
@@ -409,9 +423,9 @@ public class metodosDB {
         return null;
     }
 
-    public static void verificaUsuario(String email) {
+    public static TipoUsuario verificaUsuario(String email) {
         String sql = "SELECT rol FROM usuarios WHERE correo = ?";
-
+        TipoUsuario rol=TipoUsuario.ADMIN;
         try (Connection conn = AccesoBaseDatos.getInstance().getConn(); PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, email);
@@ -419,7 +433,7 @@ public class metodosDB {
                 if (rs.next()) {
                     String rolStr = rs.getString("rol").toUpperCase();
                     try {
-                        TipoUsuario rol = TipoUsuario.valueOf(rolStr);
+                        rol = TipoUsuario.valueOf(rolStr);
                         System.out.println("El usuario tiene el rol: " + rol);
                     } catch (IllegalArgumentException e) {
                         System.out.println("Rol no reconocido en la base de datos: " + rolStr);
@@ -432,6 +446,7 @@ public class metodosDB {
         } catch (SQLException e) {
             System.out.println("Error al acceder a la base de datos: " + e.getMessage());
         }
+        return rol;
     }
 
     // ============================================================== ENUMS ===================================================

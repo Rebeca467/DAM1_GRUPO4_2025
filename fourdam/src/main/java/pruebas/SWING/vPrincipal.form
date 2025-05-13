@@ -352,27 +352,30 @@
                               <Component id="jScrollPane5" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                                  <Component id="btnValTec" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnEnviarValTec" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jLabel59" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtNomUVal" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel60" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel62" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel61" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel59" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel54" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel60" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel62" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel61" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtNombreRVal" alignment="0" pref="142" max="32767" attributes="0"/>
-                                  <Component id="FechaVal" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtDificultadVal" alignment="0" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="FechaVal" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtDificultadVal" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="txtNomUVal" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtIdValTec" max="32767" attributes="0"/>
+                                      <Component id="txtNombreRVal" alignment="0" pref="142" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel64" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -384,12 +387,18 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel59" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtNomUVal" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="19" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel54" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel64" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtIdValTec" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel59" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNomUVal" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel61" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtNombreRVal" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -410,8 +419,8 @@
                       <Component id="jScrollPane5" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                  <Component id="btnValTec" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="38" max="32767" attributes="0"/>
+                  <Component id="btnEnviarValTec" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnSalirVT" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               </Group>
@@ -421,7 +430,7 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel59">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Nombre usuario"/>
+            <Property name="text" type="java.lang.String" value="ID usuario"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel60">
@@ -431,7 +440,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel61">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Nombre ruta"/>
+            <Property name="text" type="java.lang.String" value="ID ruta"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel62">
@@ -472,10 +481,13 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtNomUVal">
         </Component>
-        <Component class="javax.swing.JButton" name="btnValTec">
+        <Component class="javax.swing.JButton" name="btnEnviarValTec">
           <Properties>
             <Property name="text" type="java.lang.String" value="ENVIAR"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnEnviarValTecMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnSalirVT">
           <Properties>
@@ -484,6 +496,15 @@
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSalirVTMouseClicked"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel54">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="ID "/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel64">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtIdValTec">
         </Component>
       </SubComponents>
     </Container>
@@ -670,14 +691,14 @@
                       </Group>
                       <Component id="btnDescargaF" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="334" max="32767" attributes="0"/>
+                  <EmptySpace pref="165" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="177" max="32767" attributes="0"/>
+                  <EmptySpace pref="40" max="32767" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnCreaRuta" min="-2" max="-2" attributes="0"/>

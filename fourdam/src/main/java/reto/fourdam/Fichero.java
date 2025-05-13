@@ -31,7 +31,11 @@ import java.time.format.DateTimeFormatter;
  */
 public class Fichero {
 
+<<<<<<< Updated upstream
     /*public static String rutaToCsv(Ruta ruta) {
+=======
+   /* public static String rutaToCsv(Ruta ruta) {
+>>>>>>> Stashed changes
         String linea = "";
         linea += ruta.getNombre() + ";"
                 + ruta.getAutor().getNombre() + ";"
@@ -209,5 +213,8 @@ public class Fichero {
 
         return ruta;
     }*/
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 }
