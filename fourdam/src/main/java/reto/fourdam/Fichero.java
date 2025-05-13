@@ -39,7 +39,7 @@ public class Fichero {
      * @param ruta Objeto Ruta a convertir.
      * @return String en formato CSV.
      */
-    public static String rutaToCsv(Ruta ruta) {
+    /*public static String rutaToCsv(Ruta ruta) {
         String linea = ruta.getNombre() + ";"
                 + ruta.getAutor().getNombre() + ";"
                 + ruta.getAutor().getEmail() + ";"
@@ -83,7 +83,7 @@ public class Fichero {
      * @param file Archivo CSV a leer.
      * @return Objeto Ruta generado a partir del archivo.
      */
-    public static Ruta csvToRuta(File file) {
+    /*public static Ruta csvToRuta(File file) {
         Ruta ruta = new Ruta();
         List<PuntoInteres> waypoints = new ArrayList<>();
 
@@ -218,5 +218,5 @@ public class Fichero {
         }
         return ruta;
 
-    }
+    }*/
 }
