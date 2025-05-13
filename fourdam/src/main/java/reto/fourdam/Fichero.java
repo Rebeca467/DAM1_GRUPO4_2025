@@ -32,6 +32,7 @@ import java.util.logging.Logger;
  * @author DAM106
  */
 public class Fichero {
+
     /**
      * Convierte una ruta a formato CSV.
      *
@@ -204,6 +205,9 @@ public class Fichero {
                 if (!waypoints.isEmpty()) {
                     ruta.setPunto_ini(waypoints.get(0));
                     ruta.setPunto_fin(waypoints.get(waypoints.size() - 1));
+                    PuntoInteres punto = new PuntoInteres(lat, lon, "imagen.jpg", tipo, nombre);
+                    waypoints.add(punto);
+
                 }
 
                 
@@ -213,5 +217,6 @@ public class Fichero {
             return null;
         }
         return ruta;
+
     }
 }
