@@ -92,6 +92,10 @@ public class vPrincipal extends javax.swing.JFrame {
         btnEnviarReseña = new javax.swing.JButton();
         btnSalirReseña = new javax.swing.JButton();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+        jLabel66 = new javax.swing.JLabel();
+>>>>>>> Stashed changes
 =======
         jLabel66 = new javax.swing.JLabel();
 >>>>>>> Stashed changes
@@ -366,7 +370,10 @@ public class vPrincipal extends javax.swing.JFrame {
         });
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
         jLabel66.setText("¡HAZ TU RESEÑA SOBRE LA RUTA!");
 
 >>>>>>> Stashed changes
@@ -1987,6 +1994,25 @@ public class vPrincipal extends javax.swing.JFrame {
         modelo.addAll(lista);
         cmbClasificacion1.setModel(modelo);
     }
+<<<<<<< Updated upstream
+=======
+
+    private void cargaCmbTemporada1() {
+        ArrayList<String> lista = metodosDB.Temporada();
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        modelo.removeAllElements();
+        modelo.addAll(lista);
+        cmbTemporada1.setModel(modelo);
+    }
+
+    private void cargaCmbEstado1() {
+        ArrayList<String> lista = metodosDB.Estado();
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
+        modelo.removeAllElements();
+        modelo.addAll(lista);
+        cmbEstado1.setModel(modelo);
+    }
+>>>>>>> Stashed changes
 
     private void cargaCmbTemporada1() {
         ArrayList<String> lista = metodosDB.Temporada();

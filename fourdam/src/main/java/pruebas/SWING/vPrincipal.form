@@ -344,7 +344,10 @@
           </Events>
         </Component>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
         <Component class="javax.swing.JLabel" name="jLabel66">
           <Properties>
             <Property name="text" type="java.lang.String" value="&#xa1;HAZ TU RESE&#xd1;A SOBRE LA RUTA!"/>
