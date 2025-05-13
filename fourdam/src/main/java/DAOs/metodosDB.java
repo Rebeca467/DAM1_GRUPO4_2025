@@ -3,6 +3,7 @@ package DAOs;
 import ENUMs.ClasificacionRuta;
 import ENUMs.Estado;
 import ENUMs.Temporada;
+import ENUMs.TipoPInteres;
 import ENUMs.TipoUsuario;
 import java.sql.Connection;
 import java.sql.Date;
@@ -10,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -17,6 +19,8 @@ import javax.swing.JOptionPane;
 import reto.fourdam.AccesoBaseDatos;
 import reto.fourdam.Actividad;
 import reto.fourdam.Punto;
+import reto.fourdam.PuntoInteres;
+import reto.fourdam.PuntoPeligro;
 import reto.fourdam.Resenna;
 import reto.fourdam.Ruta;
 import reto.fourdam.SWING.Calendario;
@@ -40,7 +44,7 @@ public class metodosDB {
 
     public ArrayList<Ruta> listarRutas() {
         ArrayList<Ruta> rutas = new ArrayList<>();
-        try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT id_ruta, id_usuario, nombre, fecha, latitud_inicial, longitud_inicial, latitud_final, longitud_final, distancia, desnivel, desnivel_positivo, desnivel_negativo, altitud_minima, altitud_maxima, estado, url, familiar, temporada, indicaciones, terreno, esfuerzo, riesgo, zona, recomendaciones, clasificacion, nombre_inicial, nombre_final, media_valoraciones, duracion FROM rutas;");) {
+        try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT id_ruta, id_usuario, nombre, fecha, latitud_inicial, longitud_inicial, latitud_final, longitud_final, distancia, desnivel, desnivel_positivo, desnivel_negativo, altitud_minima, altitud_maxima, estado, url, familiar, temporada, indicaciones, terreno, esfuerzo, riesgo, zona, recomendaciones, clasificacion, nombre_inicial, nombre_final, media_valoraciones, duracion FROM rutas");) {
             while (rs.next()) {
                 Ruta ruta = crearRuta(rs);
                 rutas.add(ruta);
@@ -58,9 +62,21 @@ public class metodosDB {
     // este metodo tiene la consulta igual que listar rutas
     public List<Punto> listarPuntos() {
         List<Punto> puntos = new ArrayList<>();
-        try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT id_ruta, id_usuario, nombre, fecha, latitud_inicial, longitud_inicial, latitud_final, longitud_final, distancia, desnivel, desnivel_positivo, desnivel_negativo, altitud_minima, altitud_maxima, estado, url, familiar, temporada, indicaciones, terreno, esfuerzo, riesgo, zona, recomendaciones, clasificacion, nombre_inicial, nombre_final, media_valoraciones FROM rutas;");) {
+        try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT idPuntos_interes, id_ruta, nombre, tipo, caracteristicas, url, longitud, latitud FROM puntos_interes");) {
             while (rs.next()) {
-                Punto punto = crearPunto(rs);
+                PuntoInteres punto = crearPuntoInteres(rs);
+                puntos.add(punto);
+            }
+
+        } catch (SQLException ex) {
+            // errores
+            JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage());
+        }
+        try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT idPuntos_peligro, id_ruta, descripcion, km, imagen, longitud, latitud FROM puntos_peligro");) {
+            while (rs.next()) {
+                PuntoPeligro punto = crearPuntoPeligro(rs);
                 puntos.add(punto);
             }
 
@@ -76,7 +92,7 @@ public class metodosDB {
     // este metodo tiene la consulta igual que listar rutas
     public List<Valoracion> listarValoraciones() {
         List<Valoracion> valoraciones = new ArrayList<>();
-        try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT id_rutas, id_usuario, nombre, fecha, latitud_inicial, longitud_inicial, latitud_final, longitud_final, distancia, desnivel, desnivel_positivo, desnivel_negativo, altitud_minima, altitud_maxima, estado, url, familiar, temporada, indicaciones, terreno, esfuerzo, riesgo, zona, recomendaciones, clasificacion, nombre_inicial, nombre_final, media_valoraciones FROM rutas;");) {
+        try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT idValoraciones, id_usuario, id_ruta, fecha, dificultad, belleza, interés FROM valoraciones")) {
             while (rs.next()) {
                 Valoracion valoracion = crearValoracion(rs);
                 valoraciones.add(valoracion);
@@ -94,7 +110,7 @@ public class metodosDB {
     // este metodo tiene la consulta igual que listar rutas
     public List<Resenna> listarResaennas() {
         List<Resenna> resennas = new ArrayList<>();
-        try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT id_rutas, id_usuario, nombre, fecha, latitud_inicial, longitud_inicial, latitud_final, longitud_final, distancia, desnivel, desnivel_positivo, desnivel_negativo, altitud_minima, altitud_maxima, estado, url, familiar, temporada, indicaciones, terreno, esfuerzo, riesgo, zona, recomendaciones, clasificacion, nombre_inicial, nombre_final, media_valoraciones FROM rutas;");) {
+        try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT idReseña, comentario, fecha, id_ruta, id_usuario FROM reseñas");) {
             while (rs.next()) {
                 Resenna resenna = crearResenna(rs);
                 resennas.add(resenna);
@@ -226,7 +242,7 @@ public class metodosDB {
 
     public Ruta rutaPorId(int id) {
         Ruta ruta = null;
-        String sql = "SELECT * FROM rutas WHERE id_ruta=?";
+        String sql = "SELECT id_ruta, id_usuario, nombre, fecha, latitud_inicial, longitud_inicial, latitud_final, longitud_final, distancia, desnivel, desnivel_positivo, desnivel_negativo, altitud_minima, altitud_maxima, estado, url, familiar, temporada, indicaciones, terreno, esfuerzo, riesgo, zona, recomendaciones, clasificacion, nombre_inicial, nombre_final, media_valoraciones, duracion FROM rutas WHERE id_ruta=?";
         try (PreparedStatement stmt = getConnection().prepareStatement(sql);) {
             stmt.setInt(1, id);
             try (ResultSet rs = stmt.executeQuery();) {
@@ -240,6 +256,46 @@ public class metodosDB {
             JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage());
         }
         return ruta;
+    }
+
+    public PuntoInteres pInteresPorCoordenadas(double longitud, double latitud) {
+        PuntoInteres punto = null;
+        String sql = "SELECT idPuntos_interes, id_ruta, nombre, tipo, caracteristicas, url, longitud, latitud FROM puntos_interes WHERE longitud=? AND latitud=?";
+        try (PreparedStatement stmt = getConnection().prepareStatement(sql);) {
+            stmt.setDouble(1, longitud);
+            stmt.setDouble(2, latitud);
+            try (ResultSet rs = stmt.executeQuery();) {
+                if (rs.next()) {
+                    punto = crearPuntoInteres(rs);
+                }
+            }
+
+        } catch (SQLException ex) {
+            // errores
+            JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage());
+        }
+        return punto;
+
+    }
+
+    public PuntoPeligro pPeligroPorCoordenadas(double longitud, double latitud) {
+        PuntoPeligro punto = null;
+        String sql = "SELECT idPuntos_peligro, id_ruta, descripcion, km, imagen, longitud, latitud FROM puntos_peligro WHERE longitud=? AND latitud=?";
+        try (PreparedStatement stmt = getConnection().prepareStatement(sql);) {
+            stmt.setDouble(1, longitud);
+            stmt.setDouble(2, latitud);
+            try (ResultSet rs = stmt.executeQuery();) {
+                if (rs.next()) {
+                    punto = crearPuntoPeligro(rs);
+                }
+            }
+
+        } catch (SQLException ex) {
+            // errores
+            JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage());
+        }
+        return punto;
+
     }
 
     public Usuario usuPorId(int id) {
@@ -265,16 +321,11 @@ public class metodosDB {
         return null;
     }
 
-    public void eliminarRuta() {
-    }
-
-    public boolean eliminarResenna(int k, Resenna r) {
+    public boolean eliminarRuta(int k, Ruta r) {
         boolean exito = false;
         int resultado = -1;
         String sql = "delete reseñas where idReseña=?;";
-        Connection con = AccesoBaseDatos.getInstance().getConn();
-        try {
-            PreparedStatement ps = con.prepareStatement(sql);
+        try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
             ps.setInt(1, k);
             resultado = ps.executeUpdate();
             if (resultado == 1) {
@@ -288,12 +339,97 @@ public class metodosDB {
         return exito;
     }
 
-    public void modificarRuta() {
+    public boolean eliminarResenna(int k, Resenna r) {
+        boolean exito = false;
+        int resultado = -1;
+        String sql = "delete reseñas where idReseña=?;";
+        try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
+            ps.setInt(1, k);
+            resultado = ps.executeUpdate();
+            if (resultado == 1) {
+                exito = true;
+            } else {
+                JOptionPane.showMessageDialog(null, "ERROR: ");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage());
+        }
+        return exito;
+    }
+
+    public void modificarRuta(int k, Ruta r) {
+
+        String sql = "update rutas set nombre=?, fecha=?,"
+
+                + "distancia=?, estado=?, url=?, familiar=?, "
+
+                + "temporada=?, indicaciones=?, terreno=?, esfuerzo=?, riesgo=?, zona=?, recomendaciones=?, clasificacion=?,"
+
+                + "media_valoracion=?, duracion=? where id_ruta=?;";
+
+        try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
+            ps.setString(1, r.getNombre());
+            ps.setDate(2, Date.valueOf(LocalDate.now()));
+            ps.setDouble(3, r.getDuracion());
+            ps.setObject(4, r.getEstado());
+            ps.setString(5, r.getUrl());
+            ps.setBoolean(6, r.isFamiliar());
+            ps.setObject(7,r.getTemporada());
+            ps.setInt(8, r.getIndicaciones());
+            ps.setInt(9, r.getTipoTerreno());
+            ps.setInt(10, r.getNivelEsfuerzo());
+            ps.setInt(11, r.getNivelRiesgo());
+            ps.setString(12, r.getZonaGeografica());
+            ps.setString(13, r.getRecomendaciones());
+            ps.setObject(14, r.getClasificacion());
+            ps.setInt(15, r.getMediaValoracion()); 
+            ps.setDouble(16, r.getDuracion());
+            int resultado = ps.executeUpdate();
+            if (resultado == 1) {
+                JOptionPane.showMessageDialog(null, "Se ha actualizado correctamente el taller");
+            } else {
+                JOptionPane.showMessageDialog(null, "ERROR: no se ha modificado");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
+        }
+ 
+        
 
     }
 
-    public void modificarPunto() {
+    public void modificarPuntoInteres(double latitud, double longitud, String imagen, TipoPInteres tipo, String caracteristicasEsp) {
+        String sql = "UPDATE puntos_interes SET url = ?, tipo = ?, caracteristicas = ? WHERE longitud = ? AND latitud = ?";
+
+        try (PreparedStatement ps = getConnection().prepareStatement(sql);) {
+            ps.setString(1, imagen);
+            ps.setString(2, tipo.name());
+            ps.setString(3, caracteristicasEsp);
+            ps.setDouble(4, longitud);
+            ps.setDouble(5, latitud);
+            ps.executeUpdate();
+        }
+        catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
+            
+        }
     }
+
+    public void modificarPuntoPeligro(double latitud, double longitud, String imagen, int km, int nivelgravedad, String justificacion) {
+    String sql = "UPDATE puntos_peligro SET url = ?, km = ?, nivelgravedad = ?, descripcion = ? WHERE longitud = ? AND latitud = ?";
+
+    try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
+        ps.setString(1, imagen);
+        ps.setInt(2, km);
+        ps.setInt(3, nivelgravedad);
+        ps.setString(4, justificacion);
+        ps.setDouble(5, longitud);
+        ps.setDouble(6, latitud);
+        ps.executeUpdate();
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
+    }
+}
 
     private Ruta crearRuta(final ResultSet rs) throws SQLException {
         return new Ruta(
@@ -366,11 +502,14 @@ public class metodosDB {
     }
 
     //USAR EN 'CREARRUTA'
-    private Punto crearPunto(final ResultSet rs) throws SQLException {
-        return new Punto(
+    private PuntoPeligro crearPuntoPeligro(final ResultSet rs) throws SQLException {
+        return new PuntoPeligro(
                 rs.getDouble("latitud"),
                 rs.getDouble("longitud"),
-                rs.getString("imagen")
+                rs.getString("imagen"),
+                rs.getInt("km"),
+                rs.getInt("nivelgravedad"),
+                rs.getString("justificacion")
         );
     }
 
@@ -421,7 +560,7 @@ public class metodosDB {
 
     public static TipoUsuario verificaUsuario(String email) {
         String sql = "SELECT rol FROM usuarios WHERE correo = ?";
-        TipoUsuario rol=TipoUsuario.ADMIN;
+        TipoUsuario rol = TipoUsuario.ADMIN;
         try (Connection conn = AccesoBaseDatos.getInstance().getConn(); PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, email);
@@ -445,27 +584,39 @@ public class metodosDB {
         return rol;
     }
 
+    private PuntoInteres crearPuntoInteres(final ResultSet rs) throws SQLException {
+        return new PuntoInteres(
+                rs.getDouble("latitud"),
+                rs.getDouble("longitud"),
+                rs.getString("imagen"),
+                TipoPInteres.valueOf(rs.getString("tipo")),
+                rs.getString("caracteristicasEsp")
+        );
+    }
+
     // ============================================================== ENUMS ===================================================
     public static ArrayList<String> Clasificacion() {
         ArrayList<String> lista = new ArrayList<>();
         for (ClasificacionRuta c : ClasificacionRuta.values()) {
-            lista.add(c.name()); 
+            lista.add(c.name());
         }
         return lista;
     }
+
     public static ArrayList<String> Estado() {
         ArrayList<String> lista = new ArrayList<>();
         for (Estado e : Estado.values()) {
-            lista.add(e.name()); 
+            lista.add(e.name());
         }
         return lista;
     }
+
     public static ArrayList<String> Temporada() {
         ArrayList<String> lista = new ArrayList<>();
         for (Temporada t : Temporada.values()) {
-            lista.add(t.name()); 
+            lista.add(t.name());
         }
         return lista;
     }
-    
+
 }
