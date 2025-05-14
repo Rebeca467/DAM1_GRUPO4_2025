@@ -84,13 +84,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         txtNombreVerInfo = new javax.swing.JTextField();
         ReseñaRuta = new javax.swing.JDialog();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel49 = new javax.swing.JLabel();
-        jLabel50 = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
-        txtNombreURes = new javax.swing.JTextField();
-        txtNombreRRes = new javax.swing.JTextField();
-        txtFechaReseña = new javax.swing.JFormattedTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtComentario = new javax.swing.JTextArea();
         btnEnviarReseña = new javax.swing.JButton();
@@ -98,17 +92,11 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         btnVerReseñas = new javax.swing.JButton();
         ValoracionTec = new javax.swing.JDialog();
-        jLabel59 = new javax.swing.JLabel();
-        jLabel60 = new javax.swing.JLabel();
-        jLabel61 = new javax.swing.JLabel();
         jLabel62 = new javax.swing.JLabel();
         jLabel63 = new javax.swing.JLabel();
-        FechaVal = new javax.swing.JFormattedTextField();
         jScrollPane5 = new javax.swing.JScrollPane();
         txtRecomendacionesVal = new javax.swing.JTextArea();
         txtDificultadVal = new javax.swing.JTextField();
-        txtNombreRVal = new javax.swing.JTextField();
-        txtNomUVal = new javax.swing.JTextField();
         btnValTec = new javax.swing.JButton();
         btnSalirVT = new javax.swing.JButton();
         btnVTecnicas = new javax.swing.JButton();
@@ -375,22 +363,18 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         ReseñaRuta.setResizable(false);
         ReseñaRuta.setSize(new java.awt.Dimension(500, 500));
 
-        jLabel4.setText("Nombre usuario");
-
-        jLabel49.setText("Nombre ruta");
-
-        jLabel50.setText("Fecha");
-
         jLabel51.setText("Comentario");
-
-        txtFechaReseña.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
-        txtFechaReseña.setActionCommand("null");
 
         txtComentario.setColumns(20);
         txtComentario.setRows(5);
         jScrollPane3.setViewportView(txtComentario);
 
         btnEnviarReseña.setText("ENVIAR");
+        btnEnviarReseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnviarReseñaActionPerformed(evt);
+            }
+        });
 
         btnSalirReseña.setText("Salir");
         btnSalirReseña.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -424,18 +408,9 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                         .addComponent(btnSalirReseña))
                     .addGroup(ReseñaRutaLayout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addGroup(ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel49)
-                            .addComponent(jLabel50)
-                            .addComponent(jLabel51))
-                        .addGap(18, 18, 18)
-                        .addGroup(ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtNombreURes)
-                                .addComponent(txtNombreRRes)
-                                .addComponent(txtFechaReseña, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(jLabel51)
+                        .addGap(42, 42, 42)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(96, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ReseñaRutaLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -454,19 +429,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         ReseñaRutaLayout.setVerticalGroup(
             ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ReseñaRutaLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtNombreURes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel49)
-                    .addComponent(txtNombreRRes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel50)
-                    .addComponent(txtFechaReseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                .addGap(96, 96, 96)
                 .addGroup(ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel51)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -478,29 +441,26 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSalirReseña)
-                .addContainerGap())
+                .addGap(89, 89, 89))
         );
 
         ValoracionTec.setTitle("Valoración Tecnica");
         ValoracionTec.setSize(new java.awt.Dimension(500, 500));
 
-        jLabel59.setText("Nombre usuario");
-
-        jLabel60.setText("Fecha");
-
-        jLabel61.setText("Nombre ruta");
-
         jLabel62.setText("Dificultad");
 
         jLabel63.setText("Recomendaciones");
-
-        FechaVal.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
 
         txtRecomendacionesVal.setColumns(20);
         txtRecomendacionesVal.setRows(5);
         jScrollPane5.setViewportView(txtRecomendacionesVal);
 
         btnValTec.setText("ENVIAR");
+        btnValTec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValTecActionPerformed(evt);
+            }
+        });
 
         btnSalirVT.setText("Salir");
         btnSalirVT.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -521,51 +481,30 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         ValoracionTecLayout.setHorizontalGroup(
             ValoracionTecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ValoracionTecLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
                 .addGroup(ValoracionTecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSalirVT)
                     .addGroup(ValoracionTecLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(btnVTecnicas)
-                        .addGap(87, 87, 87)
-                        .addComponent(btnValTec))
-                    .addGroup(ValoracionTecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(ValoracionTecLayout.createSequentialGroup()
-                            .addComponent(jLabel59)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtNomUVal))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ValoracionTecLayout.createSequentialGroup()
-                            .addGroup(ValoracionTecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel60)
+                        .addGap(19, 19, 19)
+                        .addGroup(ValoracionTecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSalirVT)
+                            .addGroup(ValoracionTecLayout.createSequentialGroup()
                                 .addComponent(jLabel62)
-                                .addComponent(jLabel61))
-                            .addGap(25, 25, 25)
-                            .addGroup(ValoracionTecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtNombreRVal, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                                .addComponent(FechaVal)
-                                .addComponent(txtDificultadVal))))
+                                .addGap(41, 41, 41)
+                                .addComponent(txtDificultadVal, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ValoracionTecLayout.createSequentialGroup()
+                                .addComponent(jLabel63)
+                                .addGap(18, 18, 18)
+                                .addGroup(ValoracionTecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnVTecnicas)
+                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(ValoracionTecLayout.createSequentialGroup()
-                        .addComponent(jLabel63)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(111, Short.MAX_VALUE))
+                        .addGap(203, 203, 203)
+                        .addComponent(btnValTec)))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
         ValoracionTecLayout.setVerticalGroup(
             ValoracionTecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ValoracionTecLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(ValoracionTecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel59)
-                    .addComponent(txtNomUVal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(ValoracionTecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel61)
-                    .addComponent(txtNombreRVal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(ValoracionTecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel60)
-                    .addComponent(FechaVal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(66, 66, 66)
                 .addGroup(ValoracionTecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel62)
                     .addComponent(txtDificultadVal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -573,13 +512,13 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                 .addGroup(ValoracionTecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel63)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                .addGroup(ValoracionTecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnValTec)
-                    .addComponent(btnVTecnicas))
-                .addGap(32, 32, 32)
+                .addGap(35, 35, 35)
+                .addComponent(btnValTec)
+                .addGap(31, 31, 31)
+                .addComponent(btnVTecnicas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                 .addComponent(btnSalirVT)
-                .addGap(140, 140, 140))
+                .addGap(184, 184, 184))
         );
 
         ListadoReseñas.setSize(new java.awt.Dimension(600, 600));
@@ -1643,6 +1582,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         ReseñaRuta.setVisible(false);
         ValoracionTec.setVisible(false);
         ValorarRuta.setVisible(true);
+        ValorarRuta.setLocationRelativeTo(null);
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnValorarRutaActionPerformed
@@ -1654,6 +1594,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         VerRutas.setVisible(true);
         ModificarRutas.setVisible(false);
         ReseñaRuta.setVisible(true);
+        ReseñaRuta.setLocationRelativeTo(null);
         ValoracionTec.setVisible(false);
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
@@ -1668,6 +1609,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         ModificarRutas.setVisible(false);
         ReseñaRuta.setVisible(false);
         ValoracionTec.setVisible(true);
+        ValoracionTec.setLocationRelativeTo(null);
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
@@ -1683,9 +1625,11 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         ReseñaRuta.setVisible(false);
         ValoracionTec.setVisible(false);
         ValorarRuta.setVisible(true);
+        ValorarRuta.setLocationRelativeTo(null);
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
         ListadoValoraciones.setVisible(true);
+        ListadoValoraciones.setLocationRelativeTo(null);
         ListadoVTecnica.setVisible(false);
         ListadoReseñas.setVisible(false);
     }//GEN-LAST:event_btnVerValoracionesActionPerformed
@@ -1698,6 +1642,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         VerRutas.setVisible(true);
         ModificarRutas.setVisible(false);
         ReseñaRuta.setVisible(true);
+        ReseñaRuta.setLocationRelativeTo(null);
         ValoracionTec.setVisible(false);
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
@@ -1705,6 +1650,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         ListadoValoraciones.setVisible(false);
         ListadoVTecnica.setVisible(false);
         ListadoReseñas.setVisible(true);
+        ListadoReseñas.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnVerReseñasActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -1720,13 +1666,23 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         ModificarRutas.setVisible(false);
         ReseñaRuta.setVisible(false);
         ValoracionTec.setVisible(true);
+         ValoracionTec.setLocationRelativeTo(null);
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
         ListadoValoraciones.setVisible(false);
         ListadoVTecnica.setVisible(true);
+        ListadoVTecnica.setLocationRelativeTo(null);
         ListadoReseñas.setVisible(false);
     }//GEN-LAST:event_btnVTecnicasActionPerformed
+
+    private void btnEnviarReseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarReseñaActionPerformed
+        guardarResenna();
+    }//GEN-LAST:event_btnEnviarReseñaActionPerformed
+
+    private void btnValTecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValTecActionPerformed
+        guardarValTec();
+    }//GEN-LAST:event_btnValTecActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1766,7 +1722,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CreaRutas;
     private javax.swing.JPanel DescargaFichas;
-    private javax.swing.JFormattedTextField FechaVal;
     private javax.swing.JDialog ListadoReseñas;
     private javax.swing.JDialog ListadoVTecnica;
     private javax.swing.JDialog ListadoValoraciones;
@@ -1836,10 +1791,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
@@ -1848,10 +1800,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
-    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel60;
-    private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
@@ -1919,18 +1868,13 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private javax.swing.JTextField txtFamiliar2;
     private javax.swing.JFormattedTextField txtFecha;
     private javax.swing.JFormattedTextField txtFecha2;
-    private javax.swing.JFormattedTextField txtFechaReseña;
     private javax.swing.JTextPane txtInteresCult;
     private javax.swing.JTextField txtMediaValoraciones;
     private javax.swing.JTextField txtMediaValoraciones2;
     private javax.swing.JTextPane txtNomRuta;
-    private javax.swing.JTextField txtNomUVal;
     private javax.swing.JTextPane txtNomUsu;
-    private javax.swing.JTextField txtNombreRRes;
-    private javax.swing.JTextField txtNombreRVal;
     private javax.swing.JTextField txtNombreRuta;
     private javax.swing.JTextField txtNombreRuta2;
-    private javax.swing.JTextField txtNombreURes;
     private javax.swing.JTextField txtNombreVerInfo;
     private javax.swing.JTextField txtPFinal;
     private javax.swing.JTextField txtPFinal2;
@@ -2095,23 +2039,15 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
     private void guardarValTec() {
         try {
-            int idUsuario = Integer.parseInt(txtNomUVal.getText());
-            int idRuta = Integer.parseInt(txtNombreRVal.getText());
+            
             String fechaStr = txtFecha.getText();
             String dificultad = txtDificultad.getText();
             String recomendaciones = txtRecomendaciones.getText();
 
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            LocalDate fecha = LocalDate.now();
-            try {
-                fecha = LocalDate.parse(fechaStr, formatter);
-            } catch (DateTimeParseException e) {
-                JOptionPane.showMessageDialog(null, "La fecha debe tener el formato dd/MM/yyyy.");
+            
 
-            }
-
-            Usuario usuario = metodos.usuPorId(idUsuario);
-            Ruta ruta = metodos.rutaPorId(idRuta);
+            Usuario usuario = metodos.usuPorId(metodosDB.idUsuario(txtCorreo.getText()));
+            Ruta ruta = seleccionarIdRuta();
 
             if (usuario == null) {
                 JOptionPane.showMessageDialog(null, "Usuario no encontrado.");
@@ -2123,7 +2059,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
             }
 
-            ValoracionTec valoracion = new ValoracionTec(usuario, ruta, fecha, dificultad, recomendaciones);
+            ValoracionTec valoracion = new ValoracionTec(usuario, ruta, LocalDate.now(), dificultad, recomendaciones);
 
             if (metodos.agregarValoracionTecnica(valoracion)) {
                 JOptionPane.showMessageDialog(null, "Valoración técnica guardada correctamente.");
@@ -2135,7 +2071,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error de formato numérico. Revisa ID o fecha.");
         }
     }
-
+    // mirar
     private void guardarResenna() {
         Usuario u = metodos.usuPorId(metodosDB.idUsuario(txtCorreo.getText()));
         Ruta ruta = seleccionarIdRuta();

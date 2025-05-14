@@ -220,7 +220,7 @@ public class metodosDB {
     public boolean agregarValoracionTecnica(ValoracionTec v) {
         Connection con = AccesoBaseDatos.getInstance().getConn();
         boolean exito = false;
-        String sql = "insert into valoraciontetcnica (idValoracionTecnica, recomendaciones, dificultad, fecha, id_ruta, id_usuario)values(?,?,?,?,?,?);";
+        String sql = "insert into valoraciontecnica (idValoracionTecnica, recomendaciones, dificultad, fecha, id_ruta, id_usuario)values(?,?,?,?,?,?);";
         int salida = -1;
         try {
             PreparedStatement ps = con.prepareStatement(sql);
