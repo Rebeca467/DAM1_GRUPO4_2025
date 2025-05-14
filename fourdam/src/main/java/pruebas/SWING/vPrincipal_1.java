@@ -240,9 +240,9 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         ValorarRuta.setSize(new java.awt.Dimension(500, 500));
 
         btnValorar.setText("VALORAR");
-        btnValorar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnValorarMouseClicked(evt);
+        btnValorar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValorarActionPerformed(evt);
             }
         });
 
@@ -377,9 +377,9 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         });
 
         btnSalirReseña.setText("Salir");
-        btnSalirReseña.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnSalirReseñaMouseClicked(evt);
+        btnSalirReseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirReseñaActionPerformed(evt);
             }
         });
 
@@ -463,9 +463,9 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         });
 
         btnSalirVT.setText("Salir");
-        btnSalirVT.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnSalirVTMouseClicked(evt);
+        btnSalirVT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirVTActionPerformed(evt);
             }
         });
 
@@ -1038,9 +1038,9 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         });
 
         btnSalirVerR.setText("Salir");
-        btnSalirVerR.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnSalirVerRMouseClicked(evt);
+        btnSalirVerR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirVerRActionPerformed(evt);
             }
         });
 
@@ -1387,45 +1387,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoActionPerformed
 
-    private void btnSalirReseñaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirReseñaMouseClicked
-        LogIn.setVisible(false);
-        Menu.setVisible(false);
-        CreaRutas.setVisible(false);
-        VerRutas.setVisible(true);
-        ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
-        ValoracionTec.setVisible(false);
-        ValorarRuta.setVisible(false);
-        VerInfoRutas.setVisible(false);
-        DescargaFichas.setVisible(false);
-    }//GEN-LAST:event_btnSalirReseñaMouseClicked
-
-    private void btnSalirVTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirVTMouseClicked
-        LogIn.setVisible(false);
-        Menu.setVisible(false);
-        CreaRutas.setVisible(false);
-        VerRutas.setVisible(true);
-        ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
-        ValoracionTec.setVisible(false);
-        ValorarRuta.setVisible(false);
-        VerInfoRutas.setVisible(false);
-        DescargaFichas.setVisible(false);
-    }//GEN-LAST:event_btnSalirVTMouseClicked
-
-    private void btnSalirVerRMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirVerRMouseClicked
-        LogIn.setVisible(false);
-        Menu.setVisible(true);
-        CreaRutas.setVisible(false);
-        VerRutas.setVisible(false);
-        ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
-        ValoracionTec.setVisible(false);
-        ValorarRuta.setVisible(false);
-        VerInfoRutas.setVisible(false);
-        DescargaFichas.setVisible(false);
-    }//GEN-LAST:event_btnSalirVerRMouseClicked
-
     private void btnSalirCrearRMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirCrearRMouseClicked
         LogIn.setVisible(false);
         Menu.setVisible(true);
@@ -1438,38 +1399,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnSalirCrearRMouseClicked
-
-    private void btnValorarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValorarMouseClicked
-        //int filaSeleccionada = jTable1.getSelectedRow();
-
-        /*if (filaSeleccionada == -1) {
-            JOptionPane.showMessageDialog(this, "Por favor, seleccione una ruta para valorar", "Información", JOptionPane.INFORMATION_MESSAGE);
-            return;
-        }*/
-        try {
-            int idUsuario = Integer.parseInt(txtNomUsu.getText());
-            int idRuta = Integer.parseInt(txtNomRuta.getText());
-            LocalDate fecha = LocalDate.now();
-            int dificultad = Integer.parseInt(txtDificultad.toString());
-            int belleza = Integer.parseInt(txtBelleza.toString());
-            int interes = Integer.parseInt(txtInteresCult.toString());
-
-            Valoracion valoracion = crearValoracion(idUsuario, idRuta, fecha, dificultad, belleza, interes);
-
-            if (valoracion != null) {
-                metodos.agregarValoracion(valoracion);
-                JOptionPane.showMessageDialog(null, "Valoración creada correctamente.");
-            } else {
-                JOptionPane.showMessageDialog(null, "No se pudo crear la valoración (usuario o ruta inválidos).");
-            }
-
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Introduce valores válidos.");
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
-        }
-    }//GEN-LAST:event_btnValorarMouseClicked
 
     private void btnSalirCrearR1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirCrearR1MouseClicked
         // TODO add your handling code here:
@@ -1693,6 +1622,52 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private void btnValTecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValTecActionPerformed
         guardarValTec();
     }//GEN-LAST:event_btnValTecActionPerformed
+
+    private void btnSalirVerRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirVerRActionPerformed
+        // TODO add your handling code here:
+        LogIn.setVisible(false);
+        Menu.setVisible(true);
+        CreaRutas.setVisible(false);
+        VerRutas.setVisible(false);
+        ModificarRutas.setVisible(false);
+        ReseñaRuta.setVisible(false);
+        ValoracionTec.setVisible(false);
+        ValorarRuta.setVisible(false);
+        VerInfoRutas.setVisible(false);
+        DescargaFichas.setVisible(false);
+    }//GEN-LAST:event_btnSalirVerRActionPerformed
+
+    private void btnSalirReseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirReseñaActionPerformed
+        // TODO add your handling code here:
+        LogIn.setVisible(false);
+        Menu.setVisible(false);
+        CreaRutas.setVisible(false);
+        VerRutas.setVisible(true);
+        ModificarRutas.setVisible(false);
+        ReseñaRuta.setVisible(false);
+        ValoracionTec.setVisible(false);
+        ValorarRuta.setVisible(false);
+        VerInfoRutas.setVisible(false);
+        DescargaFichas.setVisible(false);
+    }//GEN-LAST:event_btnSalirReseñaActionPerformed
+
+    private void btnSalirVTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirVTActionPerformed
+        // TODO add your handling code here:
+        LogIn.setVisible(false);
+        Menu.setVisible(false);
+        CreaRutas.setVisible(false);
+        VerRutas.setVisible(true);
+        ModificarRutas.setVisible(false);
+        ReseñaRuta.setVisible(false);
+        ValoracionTec.setVisible(false);
+        ValorarRuta.setVisible(false);
+        VerInfoRutas.setVisible(false);
+        DescargaFichas.setVisible(false);
+    }//GEN-LAST:event_btnSalirVTActionPerformed
+
+    private void btnValorarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValorarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnValorarActionPerformed
 
     /**
      * @param args the command line arguments
