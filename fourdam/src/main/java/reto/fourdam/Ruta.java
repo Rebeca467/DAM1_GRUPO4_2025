@@ -4,7 +4,7 @@
  */
 package reto.fourdam;
 
-import ENUMs.ClasificacionRuta;
+import ENUMs.Clasificacion_Ruta;
 import ENUMs.Estado;
 import ENUMs.Temporada;
 import java.io.BufferedReader;
@@ -37,7 +37,7 @@ public class Ruta {
     private double desnivelNegativo;
     private double altMax;
     private double altMin;
-    private ClasificacionRuta clasificacion;
+    private Clasificacion_Ruta clasificacion;
     private int nivelRiesgo;
     private int nivelEsfuerzo;
     private int tipoTerreno;
@@ -59,7 +59,7 @@ public class Ruta {
     }
     // quito el id porque es autoincremental
 
-    public Ruta(int id, Usuario autor, String nombre, LocalDate fecha_creacion, Punto punto_ini, Punto punto_fin, double distanciaTotal, double desnivel, double desnivelPositivo, double desnivelNegativo, double altMax, double altMin, ClasificacionRuta clasificacion, int nivelRiesgo, int nivelEsfuerzo, int tipoTerreno, int indicaciones, Actividad tipoActividad, String temporada, boolean familiar, String url, Estado estado, String recomendaciones, String zonaGeografica, LinkedHashSet<Punto> puntosIntermedios, double duracion, int mediaValoracion) {
+    public Ruta(int id, Usuario autor, String nombre, LocalDate fecha_creacion, Punto punto_ini, Punto punto_fin, double distanciaTotal, double desnivel, double desnivelPositivo, double desnivelNegativo, double altMax, double altMin, Clasificacion_Ruta clasificacion, int nivelRiesgo, int nivelEsfuerzo, int tipoTerreno, int indicaciones, Actividad tipoActividad, String temporada, boolean familiar, String url, Estado estado, String recomendaciones, String zonaGeografica, LinkedHashSet<Punto> puntosIntermedios, double duracion, int mediaValoracion) {
         this.id = id;
         this.autor = autor;
         this.nombre = nombre;
@@ -89,7 +89,7 @@ public class Ruta {
         this.mediaValoracion = mediaValoracion;
     }
     
-    public Ruta(Usuario autor, String nombre, LocalDate fecha_creacion, Punto punto_ini, Punto punto_fin, double distanciaTotal, double desnivel, double desnivelPositivo, double desnivelNegativo, double altMax, double altMin, ClasificacionRuta clasificacion, int nivelRiesgo, int nivelEsfuerzo, int tipoTerreno, int indicaciones, Actividad tipoActividad, String temporada, boolean familiar, String url, Estado estado, String recomendaciones, String zonaGeografica, LinkedHashSet<Punto> puntosIntermedios, double duracion, int mediaValoracion) {
+    public Ruta(Usuario autor, String nombre, LocalDate fecha_creacion, Punto punto_ini, Punto punto_fin, double distanciaTotal, double desnivel, double desnivelPositivo, double desnivelNegativo, double altMax, double altMin, Clasificacion_Ruta clasificacion, int nivelRiesgo, int nivelEsfuerzo, int tipoTerreno, int indicaciones, Actividad tipoActividad, String temporada, boolean familiar, String url, Estado estado, String recomendaciones, String zonaGeografica, LinkedHashSet<Punto> puntosIntermedios, double duracion, int mediaValoracion) {
         this.autor = autor;
         this.nombre = nombre;
         this.fecha_creacion = fecha_creacion;
@@ -220,11 +220,11 @@ public class Ruta {
         this.altMin = altMin;
     }
 
-    public ClasificacionRuta getClasificacion() {
+    public Clasificacion_Ruta getClasificacion() {
         return clasificacion;
     }
 
-    public void setClasificacion(ClasificacionRuta clasificacion) {
+    public void setClasificacion(Clasificacion_Ruta clasificacion) {
         this.clasificacion = clasificacion;
     }
 

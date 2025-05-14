@@ -8,6 +8,6 @@ package ENUMs;
  *
  * @author DAM120
  */
-public enum ClasificacionRuta {
+public enum Clasificacion_Ruta {
     LINEAL,CIRCULAR
 }
