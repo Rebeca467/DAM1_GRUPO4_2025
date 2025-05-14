@@ -24,6 +24,7 @@ import javax.swing.JFrame;
 import reto.fourdam.AccesoBaseDatos;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 import reto.fourdam.Actividad;
 import reto.fourdam.Administrador;
 import reto.fourdam.Alumno;
@@ -1025,12 +1026,12 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                                 .addComponent(jLabel3)
                                 .addGap(34, 34, 34))))
                     .addComponent(btnDescargaF))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(279, Short.MAX_VALUE))
         );
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(59, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCreaRuta)
@@ -1861,6 +1862,8 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
     private void btnVerRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerRutaActionPerformed
         cargaTablaRutas();
+        // ancho columna
+        tblRutas.getColumnModel().getColumn(0).setPreferredWidth(0);
         LogIn.setVisible(false);
         Menu.setVisible(false);
         CreaRutas.setVisible(false);
@@ -1919,6 +1922,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                 //metodosDB.idUsuario(txtCorreo.getText());
                 user = metodos.usuPorId(metodosDB.idUsuario(txtCorreo.getText()));
                 activarBotones();
+
             }
         }
     }//GEN-LAST:event_btnSigninActionPerformed
@@ -1950,6 +1954,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         ValoracionTec.setVisible(false);
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(true);
+        VerInfoRutas.setLocationRelativeTo(null);
         DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnVerInfoRutaActionPerformed
 
@@ -2065,6 +2070,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
     private void btnEnviarReseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarReseñaActionPerformed
         guardarResenna();
+
     }//GEN-LAST:event_btnEnviarReseñaActionPerformed
 
     private void btnValTecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValTecActionPerformed
@@ -2441,9 +2447,15 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             modelo.addRow(linea);
         }
         tblRutas.setModel(modelo);
+        TableColumn columna = tblRutas.getColumnModel().getColumn(0);
+        columna.setMinWidth(0);
+        columna.setMaxWidth(0);
+        columna.setPreferredWidth(0);
+        columna.setResizable(false); 
     }
 
-    /* private void cargaTablaRutas() {
+
+        private void cargaTablaRutas() {
         String encabezados[] = {"id_ruta", "Autor", "nombre", "fecha", "latitud_inicial"};
         DefaultTableModel modelo = new DefaultTableModel(encabezados, 0);
         ArrayList<Ruta> lista = metodos.listarRutas();
@@ -2452,7 +2464,12 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             modelo.addRow(linea);
         }
         tblRutas.setModel(modelo);
-    }*/
+        TableColumn columna = tblRutas.getColumnModel().getColumn(0);
+        columna.setMinWidth(0);
+        columna.setMaxWidth(0);
+        columna.setPreferredWidth(0);
+        columna.setResizable(false); 
+  
     private void cargaTablaReseñas() {
         String encabezados[] = {"Autor", "Ruta", "Fecha", "Comentario"};
         DefaultTableModel modelo = new DefaultTableModel(encabezados, 0);
@@ -2524,7 +2541,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
         modelo.removeAllElements();
         modelo.addAll(lista);
-        cmbClasificacion.setModel(modelo);
+        cmbTemporada1.setModel(modelo);
     }
 
     private void cargaCmbEstado1() {
@@ -2537,7 +2554,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
     private Ruta seleccionarIdRuta() {
         int filaSeleccionada = tblRutas.getSelectedRow();
-
+        Ruta ruta = null;
         if (filaSeleccionada == -1) {
             JOptionPane.showMessageDialog(this, "Por favor, selecciona una fila de la tabla.", "Aviso", JOptionPane.WARNING_MESSAGE);
             return null;
@@ -2551,26 +2568,24 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             }
 
             int idRuta = Integer.parseInt(valorId.toString());
-            Ruta ruta = metodos.rutaPorId(idRuta);
+            ruta = metodos.rutaPorId(idRuta);
 
             if (ruta == null) {
                 JOptionPane.showMessageDialog(this, "No se encontró la ruta con ID: " + idRuta, "Error", JOptionPane.ERROR_MESSAGE);
             }
-
-            return ruta;
-
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, "El ID de la ruta no es un número válido.", "Error", JOptionPane.ERROR_MESSAGE);
-            return null;
+
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Ocurrió un error al obtener la ruta: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            ex.printStackTrace();
-            return null;
+
         }
+        return ruta;
     }
 
     private void guardarValTec() {
         try {
+
             
             String dificultad = txtDificultadVal.getText();
             String recomendaciones = txtRecomendacionesVal.getText();
@@ -2579,12 +2594,10 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
             if (user == null) {
                 JOptionPane.showMessageDialog(null, "Usuario no encontrado.");
-
             }
 
             if (ruta == null) {
                 JOptionPane.showMessageDialog(null, "Ruta no encontrada.");
-
             }
 
             ValoracionTec valoracion = new ValoracionTec(user, ruta, LocalDate.now(), dificultad, recomendaciones);
