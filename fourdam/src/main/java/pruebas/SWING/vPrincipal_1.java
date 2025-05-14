@@ -1972,12 +1972,14 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         ValorarRuta.setLocationRelativeTo(null);
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
+
         /*try{
             cargarInfoRuta(seleccionarIdRuta());
         }
         catch(MalformedURLException e){
             System.out.println("imagen no encontrada");
         }*/
+
 
     }//GEN-LAST:event_btnValorarRutaActionPerformed
 
@@ -2073,11 +2075,15 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private void btnEnviarReseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarReseñaActionPerformed
         guardarResenna();
 
+        limpiarFormularioReseña();
+
     }//GEN-LAST:event_btnEnviarReseñaActionPerformed
 
     private void btnValTecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValTecActionPerformed
         guardarValTec();
+        limpiarFormularioVTecnica();
     }//GEN-LAST:event_btnValTecActionPerformed
+
 
     private void btnCrearRuta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearRuta1ActionPerformed
 
@@ -2161,7 +2167,10 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         } catch (IllegalArgumentException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
+
+        limpiarFormularioCrearRuta();
     }//GEN-LAST:event_btnCrearRutaActionPerformed
+
 
     /**
      * @param args the command line argumentsoriolfs
@@ -2450,11 +2459,13 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             modelo.addRow(linea);
         }
         tblRutas.setModel(modelo);
+
         TableColumn columna = tblRutas.getColumnModel().getColumn(0);
         columna.setMinWidth(0);
         columna.setMaxWidth(0);
         columna.setPreferredWidth(0);
         columna.setResizable(false);
+
     }
 
     private void cargaTablaReseñas() {
@@ -2575,6 +2586,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
             String dificultad = txtDificultadVal.getText();
             String recomendaciones = txtRecomendacionesVal.getText();
+
 
             Ruta ruta = seleccionarIdRuta();
 
@@ -2702,6 +2714,39 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         txtMediaValoraciones2.setText(String.valueOf(ruta.getMediaValoracion()));
         cmbClasificacion1.setSelectedItem(ruta.getClasificacion().name()); // Usa el nombre del enum
         cmbEstado1.setSelectedItem(ruta.getEstado().name()); // Usa el nombre del enum
+    }
+
+    private void limpiarFormularioCrearRuta() {
+        txtNombreRuta.setText("");
+        txtFecha.setText("");
+        txtPiniLong.setText("");
+        txtPFinLong.setText("");
+        txtDistancia.setText("");
+        txtDesnivelPositivo.setText("");
+        txtDesnivelNegativo.setText("");
+        txtAltitudMax.setText("");
+        txtAltitudMin.setText("");
+        txtPiniLong.setText("");
+        txtPiniLat.setText("");
+        txtPFinLong.setText("");
+        txtPFinLat.setText("");
+        txtRiesgo.setText("");
+        txtTerreno.setText("");
+        txtEsfuerzo.setText("");
+        txtDuracion.setText("");
+        txtMediaValoraciones.setText("");
+        txtRecomendaciones.setText("");
+        txtUrl.setText("");
+        txtZona.setText("");
+    }
+    
+    private void limpiarFormularioReseña(){
+        txtComentario.setText("");
+    }
+    
+    private void limpiarFormularioVTecnica(){
+        txtDificultadVal.setText("");
+        txtRecomendaciones.setText("");
     }
 
     private void cargarInfoRuta(Ruta ruta) throws MalformedURLException {
