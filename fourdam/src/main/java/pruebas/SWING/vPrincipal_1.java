@@ -2555,7 +2555,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         cmbClasificacion1.setSelectedItem(ruta.getClasificacion().name()); // Usa el nombre del enum
         cmbEstado1.setSelectedItem(ruta.getEstado().name()); // Usa el nombre del enum
     }
-   /* private void cargarInfoRuta(Ruta ruta) throws MalformedURLException {
+   private void cargarInfoRuta(Ruta ruta) throws MalformedURLException {
         AutorRuta.setName(ruta.getAutor().getNombre()); // asumiendo que Usuario tiene getNombre()
         NombreRuta.setText(ruta.getNombre());
         FechaCreacionRuta.setText(ruta.getFecha_creacion().toString());
@@ -2564,7 +2564,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         cmbIndicacion2.setSelectedIndex(ruta.getIndicaciones() - 1); // asumiendo que indicaciones va de 1 a 5
         // Temporada es un Set, seleccionamos el primer elemento (si existe)
         if (!ruta.getTemporada().isEmpty()) {
-            String temporada = ruta.getTemporada().iterator().next();
+            String temporada = ruta.getTemporada();
             cmbTemporada1.setSelectedItem(temporada);
         }
         RecomendacionesRuta.setText(ruta.getRecomendaciones());
@@ -2582,6 +2582,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         UrlRuta.setIcon(new ImageIcon(new URL(ruta.getUrl())));   
         MediaValoracionesRuta.setText(String.valueOf(ruta.getMediaValoracion()));
         ClasificacionRuta.setText(ruta.getClasificacion().name()); // Usa el nombre del enum
-    }*/
+    }
 
 }
