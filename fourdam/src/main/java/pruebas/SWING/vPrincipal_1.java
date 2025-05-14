@@ -11,6 +11,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import reto.fourdam.AccesoBaseDatos;
 import javax.swing.JOptionPane;
@@ -78,7 +79,10 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         txtBelleza = new javax.swing.JTextPane();
         jScrollPane8 = new javax.swing.JScrollPane();
         txtInteresCult = new javax.swing.JTextPane();
+        btnVerValoraciones = new javax.swing.JButton();
         VerInfoRutas = new javax.swing.JDialog();
+        jLabel24 = new javax.swing.JLabel();
+        txtNombreVerInfo = new javax.swing.JTextField();
         ReseñaRuta = new javax.swing.JDialog();
         jLabel4 = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
@@ -91,6 +95,8 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         txtComentario = new javax.swing.JTextArea();
         btnEnviarReseña = new javax.swing.JButton();
         btnSalirReseña = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        btnVerReseñas = new javax.swing.JButton();
         ValoracionTec = new javax.swing.JDialog();
         jLabel59 = new javax.swing.JLabel();
         jLabel60 = new javax.swing.JLabel();
@@ -105,6 +111,16 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         txtNomUVal = new javax.swing.JTextField();
         btnValTec = new javax.swing.JButton();
         btnSalirVT = new javax.swing.JButton();
+        btnVTecnicas = new javax.swing.JButton();
+        ListadoReseñas = new javax.swing.JDialog();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        tblReseña = new javax.swing.JTable();
+        ListadoVTecnica = new javax.swing.JDialog();
+        a = new javax.swing.JScrollPane();
+        tblValTec = new javax.swing.JTable();
+        ListadoValoraciones = new javax.swing.JDialog();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        tblValoraciones = new javax.swing.JTable();
         LogIn = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -233,7 +249,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         ValorarRuta.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         ValorarRuta.setTitle("Valorar");
         ValorarRuta.setResizable(false);
-        ValorarRuta.setSize(new java.awt.Dimension(400, 450));
+        ValorarRuta.setSize(new java.awt.Dimension(500, 500));
 
         btnValorar.setText("VALORAR");
         btnValorar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -262,6 +278,13 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
         jScrollPane8.setViewportView(txtInteresCult);
 
+        btnVerValoraciones.setText("VER VALORACIONES");
+        btnVerValoraciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerValoracionesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ValorarRutaLayout = new javax.swing.GroupLayout(ValorarRuta.getContentPane());
         ValorarRuta.getContentPane().setLayout(ValorarRutaLayout);
         ValorarRutaLayout.setHorizontalGroup(
@@ -279,7 +302,8 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel56)
                     .addGroup(ValorarRutaLayout.createSequentialGroup()
-                        .addGap(134, 134, 134)
+                        .addComponent(btnVerValoraciones)
+                        .addGap(59, 59, 59)
                         .addComponent(btnValorar))
                     .addGroup(ValorarRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -289,7 +313,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                             .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel55))
-                .addContainerGap(310, Short.MAX_VALUE))
+                .addContainerGap(295, Short.MAX_VALUE))
         );
         ValorarRutaLayout.setVerticalGroup(
             ValorarRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -315,25 +339,41 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                     .addComponent(jLabel57)
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
-                .addComponent(btnValorar)
+                .addGroup(ValorarRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnValorar)
+                    .addComponent(btnVerValoraciones))
                 .addContainerGap(290, Short.MAX_VALUE))
         );
+
+        VerInfoRutas.setSize(new java.awt.Dimension(600, 600));
+
+        jLabel24.setText("NOMBRE");
 
         javax.swing.GroupLayout VerInfoRutasLayout = new javax.swing.GroupLayout(VerInfoRutas.getContentPane());
         VerInfoRutas.getContentPane().setLayout(VerInfoRutasLayout);
         VerInfoRutasLayout.setHorizontalGroup(
             VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(VerInfoRutasLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNombreVerInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(263, Short.MAX_VALUE))
         );
         VerInfoRutasLayout.setVerticalGroup(
             VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(VerInfoRutasLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24)
+                    .addComponent(txtNombreVerInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(386, Short.MAX_VALUE))
         );
 
         ReseñaRuta.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         ReseñaRuta.setTitle("Reseña");
         ReseñaRuta.setResizable(false);
-        ReseñaRuta.setSize(new java.awt.Dimension(400, 450));
+        ReseñaRuta.setSize(new java.awt.Dimension(500, 500));
 
         jLabel4.setText("Nombre usuario");
 
@@ -359,6 +399,20 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("ELIMINAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        btnVerReseñas.setText("VER RESEÑAS");
+        btnVerReseñas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerReseñasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ReseñaRutaLayout = new javax.swing.GroupLayout(ReseñaRuta.getContentPane());
         ReseñaRuta.getContentPane().setLayout(ReseñaRutaLayout);
         ReseñaRutaLayout.setHorizontalGroup(
@@ -366,7 +420,10 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             .addGroup(ReseñaRutaLayout.createSequentialGroup()
                 .addGroup(ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ReseñaRutaLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
+                        .addContainerGap()
+                        .addComponent(btnSalirReseña))
+                    .addGroup(ReseñaRutaLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
                         .addGroup(ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(jLabel49)
@@ -377,20 +434,27 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txtNombreURes)
-                                .addComponent(txtNombreRRes, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-                                .addComponent(txtFechaReseña))))
-                    .addGroup(ReseñaRutaLayout.createSequentialGroup()
-                        .addGap(153, 153, 153)
-                        .addComponent(btnEnviarReseña, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ReseñaRutaLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnSalirReseña)))
-                .addContainerGap(99, Short.MAX_VALUE))
+                                .addComponent(txtNombreRRes)
+                                .addComponent(txtFechaReseña, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(96, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ReseñaRutaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ReseñaRutaLayout.createSequentialGroup()
+                        .addGroup(ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ReseñaRutaLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(btnVerReseñas))
+                            .addComponent(btnEnviarReseña, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(166, 166, 166))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ReseñaRutaLayout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(187, 187, 187))))
         );
         ReseñaRutaLayout.setVerticalGroup(
             ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ReseñaRutaLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(18, 18, 18)
                 .addGroup(ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtNombreURes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -408,13 +472,17 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnEnviarReseña, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnVerReseñas)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSalirReseña)
                 .addContainerGap())
         );
 
         ValoracionTec.setTitle("Valoración Tecnica");
-        ValoracionTec.setSize(new java.awt.Dimension(400, 450));
+        ValoracionTec.setSize(new java.awt.Dimension(500, 500));
 
         jLabel59.setText("Nombre usuario");
 
@@ -441,6 +509,13 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             }
         });
 
+        btnVTecnicas.setText("VER VALORACIONES TECNICAS");
+        btnVTecnicas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVTecnicasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ValoracionTecLayout = new javax.swing.GroupLayout(ValoracionTec.getContentPane());
         ValoracionTec.getContentPane().setLayout(ValoracionTecLayout);
         ValoracionTecLayout.setHorizontalGroup(
@@ -450,13 +525,10 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                 .addGroup(ValoracionTecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnSalirVT)
                     .addGroup(ValoracionTecLayout.createSequentialGroup()
-                        .addComponent(jLabel63)
-                        .addGap(18, 18, 18)
-                        .addGroup(ValoracionTecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(ValoracionTecLayout.createSequentialGroup()
-                                .addGap(22, 22, 22)
-                                .addComponent(btnValTec))))
+                        .addGap(26, 26, 26)
+                        .addComponent(btnVTecnicas)
+                        .addGap(87, 87, 87)
+                        .addComponent(btnValTec))
                     .addGroup(ValoracionTecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(ValoracionTecLayout.createSequentialGroup()
                             .addComponent(jLabel59)
@@ -471,8 +543,12 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                             .addGroup(ValoracionTecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txtNombreRVal, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
                                 .addComponent(FechaVal)
-                                .addComponent(txtDificultadVal)))))
-                .addContainerGap(32, Short.MAX_VALUE))
+                                .addComponent(txtDificultadVal))))
+                    .addGroup(ValoracionTecLayout.createSequentialGroup()
+                        .addComponent(jLabel63)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
         ValoracionTecLayout.setVerticalGroup(
             ValoracionTecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -497,11 +573,76 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                 .addGroup(ValoracionTecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel63)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addComponent(btnValTec)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
+                .addGroup(ValoracionTecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnValTec)
+                    .addComponent(btnVTecnicas))
+                .addGap(32, 32, 32)
                 .addComponent(btnSalirVT)
-                .addGap(14, 14, 14))
+                .addGap(140, 140, 140))
+        );
+
+        ListadoReseñas.setSize(new java.awt.Dimension(600, 600));
+
+        jScrollPane9.setViewportView(tblReseña);
+
+        javax.swing.GroupLayout ListadoReseñasLayout = new javax.swing.GroupLayout(ListadoReseñas.getContentPane());
+        ListadoReseñas.getContentPane().setLayout(ListadoReseñasLayout);
+        ListadoReseñasLayout.setHorizontalGroup(
+            ListadoReseñasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ListadoReseñasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        ListadoReseñasLayout.setVerticalGroup(
+            ListadoReseñasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ListadoReseñasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        ListadoVTecnica.setSize(new java.awt.Dimension(600, 600));
+
+        a.setViewportView(tblValTec);
+
+        javax.swing.GroupLayout ListadoVTecnicaLayout = new javax.swing.GroupLayout(ListadoVTecnica.getContentPane());
+        ListadoVTecnica.getContentPane().setLayout(ListadoVTecnicaLayout);
+        ListadoVTecnicaLayout.setHorizontalGroup(
+            ListadoVTecnicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ListadoVTecnicaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(a, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        ListadoVTecnicaLayout.setVerticalGroup(
+            ListadoVTecnicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ListadoVTecnicaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(a, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        ListadoValoraciones.setSize(new java.awt.Dimension(600, 600));
+
+        jScrollPane10.setViewportView(tblValoraciones);
+
+        javax.swing.GroupLayout ListadoValoracionesLayout = new javax.swing.GroupLayout(ListadoValoraciones.getContentPane());
+        ListadoValoraciones.getContentPane().setLayout(ListadoValoracionesLayout);
+        ListadoValoracionesLayout.setHorizontalGroup(
+            ListadoValoracionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ListadoValoracionesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
+        );
+        ListadoValoracionesLayout.setVerticalGroup(
+            ListadoValoracionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ListadoValoracionesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -518,11 +659,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         jLabel2.setText("Contraseña");
 
         btnInvitado.setText("INVITADO");
-        btnInvitado.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnInvitadoMouseClicked(evt);
-            }
-        });
         btnInvitado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInvitadoActionPerformed(evt);
@@ -530,11 +666,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         });
 
         btnSignin.setText("SIGN IN");
-        btnSignin.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnSigninMouseClicked(evt);
-            }
-        });
         btnSignin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSigninActionPerformed(evt);
@@ -595,11 +726,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         Menu.setPreferredSize(new java.awt.Dimension(100, 100));
 
         btnCreaRuta.setText("CREAR RUTA");
-        btnCreaRuta.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCreaRutaMouseClicked(evt);
-            }
-        });
         btnCreaRuta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreaRutaActionPerformed(evt);
@@ -607,11 +733,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         });
 
         btnVerRuta.setText("VER RUTA");
-        btnVerRuta.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnVerRutaMouseClicked(evt);
-            }
-        });
         btnVerRuta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVerRutaActionPerformed(evt);
@@ -811,14 +932,11 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                                 .addComponent(jLabel52)
                                 .addGap(42, 42, 42)))
                         .addGroup(CreaRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtRiesgo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCrearRuta)
                             .addGroup(CreaRutasLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(CreaRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtRiesgo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnCrearRuta)
-                                    .addGroup(CreaRutasLayout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(6, 6, 6)
+                                .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(CreaRutasLayout.createSequentialGroup()
                                 .addGap(22, 22, 22)
                                 .addComponent(cmbClasificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -942,11 +1060,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblRutas);
 
         btnModificarRuta.setText("MODIFICAR");
-        btnModificarRuta.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnModificarRutaMouseClicked(evt);
-            }
-        });
         btnModificarRuta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModificarRutaActionPerformed(evt);
@@ -954,11 +1067,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         });
 
         btnVerInfoRuta.setText("VER INFO");
-        btnVerInfoRuta.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnVerInfoRutaMouseClicked(evt);
-            }
-        });
         btnVerInfoRuta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVerInfoRutaActionPerformed(evt);
@@ -970,11 +1078,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         btnValidarRuta.setText("VALIDAR");
 
         btnValorarRuta.setText("VALORAR");
-        btnValorarRuta.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnValorarRutaMouseClicked(evt);
-            }
-        });
         btnValorarRuta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnValorarRutaActionPerformed(evt);
@@ -982,11 +1085,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         });
 
         btnReseñarRuta.setText("RESEÑAR");
-        btnReseñarRuta.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnReseñarRutaMouseClicked(evt);
-            }
-        });
         btnReseñarRuta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReseñarRutaActionPerformed(evt);
@@ -994,11 +1092,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         });
 
         btnValoracionTecRuta.setText("VALORACION TEC");
-        btnValoracionTecRuta.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnValoracionTecRutaMouseClicked(evt);
-            }
-        });
         btnValoracionTecRuta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnValoracionTecRutaActionPerformed(evt);
@@ -1355,125 +1448,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoActionPerformed
 
-    private void btnInvitadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInvitadoMouseClicked
-        cargaTablaRutas();
-        LogIn.setVisible(false);
-        Menu.setVisible(false);
-        CreaRutas.setVisible(false);
-        VerRutas.setVisible(true);
-        ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
-        ValoracionTec.setVisible(false);
-        ValorarRuta.setVisible(false);
-        VerInfoRutas.setVisible(false);
-        DescargaFichas.setVisible(false);
-    }//GEN-LAST:event_btnInvitadoMouseClicked
-
-    private void btnSigninMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSigninMouseClicked
-        LogIn.setVisible(false);
-        Menu.setVisible(true);
-        CreaRutas.setVisible(false);
-        VerRutas.setVisible(false);
-        ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
-        ValoracionTec.setVisible(false);
-        ValorarRuta.setVisible(false);
-        VerInfoRutas.setVisible(false);
-        DescargaFichas.setVisible(false);
-        metodosDB.verificaUsuario(txtCorreo.getText());
-    }//GEN-LAST:event_btnSigninMouseClicked
-
-    private void btnModificarRutaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarRutaMouseClicked
-        LogIn.setVisible(false);
-        Menu.setVisible(false);
-        CreaRutas.setVisible(false);
-        VerRutas.setVisible(false);
-        ModificarRutas.setVisible(true);
-        ReseñaRuta.setVisible(false);
-        ValoracionTec.setVisible(false);
-        ValorarRuta.setVisible(false);
-        VerInfoRutas.setVisible(false);
-    }//GEN-LAST:event_btnModificarRutaMouseClicked
-
-    private void btnVerRutaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerRutaMouseClicked
-        cargaTablaRutas();
-        LogIn.setVisible(false);
-        Menu.setVisible(false);
-        CreaRutas.setVisible(false);
-        VerRutas.setVisible(true);
-        ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
-        ValoracionTec.setVisible(false);
-        ValorarRuta.setVisible(false);
-        VerInfoRutas.setVisible(false);
-        DescargaFichas.setVisible(false);
-    }//GEN-LAST:event_btnVerRutaMouseClicked
-
-    private void btnCreaRutaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCreaRutaMouseClicked
-        LogIn.setVisible(false);
-        Menu.setVisible(false);
-        CreaRutas.setVisible(true);
-        VerRutas.setVisible(false);
-        ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
-        ValoracionTec.setVisible(false);
-        ValorarRuta.setVisible(false);
-        VerInfoRutas.setVisible(false);
-        DescargaFichas.setVisible(false);
-    }//GEN-LAST:event_btnCreaRutaMouseClicked
-
-    private void btnVerInfoRutaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerInfoRutaMouseClicked
-        LogIn.setVisible(false);
-        Menu.setVisible(false);
-        CreaRutas.setVisible(false);
-        VerRutas.setVisible(true);
-        ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
-        ValoracionTec.setVisible(false);
-        ValorarRuta.setVisible(false);
-        VerInfoRutas.setVisible(true);
-        DescargaFichas.setVisible(false);
-    }//GEN-LAST:event_btnVerInfoRutaMouseClicked
-
-    private void btnValorarRutaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValorarRutaMouseClicked
-        LogIn.setVisible(false);
-        Menu.setVisible(false);
-        CreaRutas.setVisible(false);
-        VerRutas.setVisible(true);
-        ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
-        ValoracionTec.setVisible(false);
-        ValorarRuta.setVisible(true);
-        VerInfoRutas.setVisible(false);
-        DescargaFichas.setVisible(false);
-    }//GEN-LAST:event_btnValorarRutaMouseClicked
-
-    private void btnReseñarRutaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReseñarRutaMouseClicked
-        LogIn.setVisible(false);
-        Menu.setVisible(false);
-        CreaRutas.setVisible(false);
-        VerRutas.setVisible(true);
-        ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(true);
-        ValoracionTec.setVisible(false);
-        ValorarRuta.setVisible(false);
-        VerInfoRutas.setVisible(false);
-        DescargaFichas.setVisible(false);
-    }//GEN-LAST:event_btnReseñarRutaMouseClicked
-
-    private void btnValoracionTecRutaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValoracionTecRutaMouseClicked
-        LogIn.setVisible(false);
-        Menu.setVisible(false);
-        CreaRutas.setVisible(false);
-        VerRutas.setVisible(true);
-        ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
-        ValoracionTec.setVisible(true);
-        ValorarRuta.setVisible(false);
-        VerInfoRutas.setVisible(false);
-        DescargaFichas.setVisible(false);
-    }//GEN-LAST:event_btnValoracionTecRutaMouseClicked
-
     private void btnSalirReseñaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirReseñaMouseClicked
         LogIn.setVisible(false);
         Menu.setVisible(false);
@@ -1624,21 +1598,22 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                 ValorarRuta.setVisible(false);
                 VerInfoRutas.setVisible(false);
                 DescargaFichas.setVisible(false);
-                metodosDB.idUsuario(txtCorreo.getText());
+                //metodosDB.idUsuario(txtCorreo.getText());
                 activarBotones();
             }
         }
     }//GEN-LAST:event_btnSigninActionPerformed
 
     private void btnModificarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarRutaActionPerformed
+        cargarRutaEnFormulario(seleccionarIdRuta());
         cargaCmbEstado1();
         cargaCmbTemporada1();
         cargaCmbClasificacion1();
         LogIn.setVisible(false);
         Menu.setVisible(false);
         CreaRutas.setVisible(false);
-        VerRutas.setVisible(true);
-        ModificarRutas.setVisible(false);
+        VerRutas.setVisible(false);
+        ModificarRutas.setVisible(true);
         ReseñaRuta.setVisible(false);
         ValoracionTec.setVisible(false);
         ValorarRuta.setVisible(false);
@@ -1698,6 +1673,61 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnValoracionTecRutaActionPerformed
 
+    private void btnVerValoracionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerValoracionesActionPerformed
+        cargaTablaValoraciones();
+        LogIn.setVisible(false);
+        Menu.setVisible(false);
+        CreaRutas.setVisible(false);
+        VerRutas.setVisible(true);
+        ModificarRutas.setVisible(false);
+        ReseñaRuta.setVisible(false);
+        ValoracionTec.setVisible(false);
+        ValorarRuta.setVisible(true);
+        VerInfoRutas.setVisible(false);
+        DescargaFichas.setVisible(false);
+        ListadoValoraciones.setVisible(true);
+        ListadoVTecnica.setVisible(false);
+        ListadoReseñas.setVisible(false);
+    }//GEN-LAST:event_btnVerValoracionesActionPerformed
+
+    private void btnVerReseñasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerReseñasActionPerformed
+        cargaTablaReseñas();
+        LogIn.setVisible(false);
+        Menu.setVisible(false);
+        CreaRutas.setVisible(false);
+        VerRutas.setVisible(true);
+        ModificarRutas.setVisible(false);
+        ReseñaRuta.setVisible(true);
+        ValoracionTec.setVisible(false);
+        ValorarRuta.setVisible(false);
+        VerInfoRutas.setVisible(false);
+        DescargaFichas.setVisible(false);
+        ListadoValoraciones.setVisible(false);
+        ListadoVTecnica.setVisible(false);
+        ListadoReseñas.setVisible(true);
+    }//GEN-LAST:event_btnVerReseñasActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnVTecnicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVTecnicasActionPerformed
+        cargaTablaVTecnicas();
+        LogIn.setVisible(false);
+        Menu.setVisible(false);
+        CreaRutas.setVisible(false);
+        VerRutas.setVisible(true);
+        ModificarRutas.setVisible(false);
+        ReseñaRuta.setVisible(false);
+        ValoracionTec.setVisible(true);
+        ValorarRuta.setVisible(false);
+        VerInfoRutas.setVisible(false);
+        DescargaFichas.setVisible(false);
+        ListadoValoraciones.setVisible(false);
+        ListadoVTecnica.setVisible(true);
+        ListadoReseñas.setVisible(false);
+    }//GEN-LAST:event_btnVTecnicasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1737,6 +1767,9 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private javax.swing.JPanel CreaRutas;
     private javax.swing.JPanel DescargaFichas;
     private javax.swing.JFormattedTextField FechaVal;
+    private javax.swing.JDialog ListadoReseñas;
+    private javax.swing.JDialog ListadoVTecnica;
+    private javax.swing.JDialog ListadoValoraciones;
     private javax.swing.JPanel LogIn;
     private javax.swing.JPanel Menu;
     private javax.swing.JPanel ModificarRutas;
@@ -1745,6 +1778,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private javax.swing.JDialog ValorarRuta;
     private javax.swing.JDialog VerInfoRutas;
     private javax.swing.JPanel VerRutas;
+    private javax.swing.JScrollPane a;
     private javax.swing.JButton btnCreaRuta;
     private javax.swing.JButton btnCrearRuta;
     private javax.swing.JButton btnCrearRuta1;
@@ -1762,13 +1796,16 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private javax.swing.JButton btnSalirVT;
     private javax.swing.JButton btnSalirVerR;
     private javax.swing.JButton btnSignin;
+    private javax.swing.JButton btnVTecnicas;
     private javax.swing.JButton btnValTec;
     private javax.swing.JButton btnValidarRuta;
     private javax.swing.JButton btnValoracionTecRuta;
     private javax.swing.JButton btnValorar;
     private javax.swing.JButton btnValorarRuta;
     private javax.swing.JButton btnVerInfoRuta;
+    private javax.swing.JButton btnVerReseñas;
     private javax.swing.JButton btnVerRuta;
+    private javax.swing.JButton btnVerValoraciones;
     private javax.swing.JComboBox<String> cmbClasificacion;
     private javax.swing.JComboBox<String> cmbClasificacion1;
     private javax.swing.JComboBox<String> cmbEstado;
@@ -1777,6 +1814,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbIndicacion2;
     private javax.swing.JComboBox<String> cmbTemporada;
     private javax.swing.JComboBox<String> cmbTemporada1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1793,6 +1831,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
@@ -1841,6 +1880,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel85;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1848,7 +1888,11 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JTable tblReseña;
     private javax.swing.JTable tblRutas;
+    private javax.swing.JTable tblValTec;
+    private javax.swing.JTable tblValoraciones;
     private javax.swing.JTextField txtActividad;
     private javax.swing.JTextField txtActividad2;
     private javax.swing.JTextField txtAltitudMax;
@@ -1887,6 +1931,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private javax.swing.JTextField txtNombreRuta;
     private javax.swing.JTextField txtNombreRuta2;
     private javax.swing.JTextField txtNombreURes;
+    private javax.swing.JTextField txtNombreVerInfo;
     private javax.swing.JTextField txtPFinal;
     private javax.swing.JTextField txtPFinal2;
     private javax.swing.JTextField txtPInicial;
@@ -1924,16 +1969,48 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     }
 
     private void cargaTablaRutas() {
-        String encabezados[] = {"Autor, nombre, fecha, latitud_inicial"};
+        String encabezados[] = {"id_ruta", "Autor", "nombre", "fecha", "latitud_inicial"};
         DefaultTableModel modelo = new DefaultTableModel(encabezados, 0);
         ArrayList<Ruta> lista = metodos.listarRutas();
         for (Ruta r : lista) {
-            String linea[] = {r.getAutor().getNombre(), r.getNombre(), Teclado.localDateToString(r.getFecha_creacion()), String.valueOf(r.getPunto_ini().getLatitud())};
+            String linea[] = {String.valueOf(r.getId()), r.getAutor().getNombre(), r.getNombre(), Teclado.localDateToString(r.getFecha_creacion()), String.valueOf(r.getPunto_ini().getLatitud())};
             modelo.addRow(linea);
         }
         tblRutas.setModel(modelo);
     }
 
+    private void cargaTablaReseñas() {
+        String encabezados[] = {"Autor", "Ruta", "Fecha", "Comentario"};
+        DefaultTableModel modelo = new DefaultTableModel(encabezados, 0);
+        ArrayList<Resenna> lista = metodos.listarResennas();
+        for (Resenna r : lista) {
+            String linea[] = {r.getUsuario().getNombre(), r.getRuta().getNombre(), Teclado.localDateToString(r.getFecha()), r.getComentario()};
+            modelo.addRow(linea);
+        }
+        tblReseña.setModel(modelo);
+    }
+
+    private void cargaTablaValoraciones() {
+        String encabezados[] = {"Autor", "Ruta", "Fecha", "Dificultad","Belleza","Interés cultural"};
+        DefaultTableModel modelo = new DefaultTableModel(encabezados, 0);
+        ArrayList<Valoracion> lista = metodos.listarValoraciones();
+        for (Valoracion v : lista) {
+            String linea[] = {v.getUsuario().getNombre(), v.getRuta().getNombre(), Teclado.localDateToString(v.getFecha()), String.valueOf(v.getDificultad()), String.valueOf(v.getBelleza()),
+            String.valueOf(v.getInteresCultural())};
+            modelo.addRow(linea);
+        }
+        tblValoraciones.setModel(modelo);
+    }
+     private void cargaTablaVTecnicas() {
+        String encabezados[] = {"Autor", "Ruta", "Fecha", "Dificultad","Equipo recomendado"};
+        DefaultTableModel modelo = new DefaultTableModel(encabezados, 0);
+        ArrayList<ValoracionTec> lista = metodos.listarValoracionesTecnicas();
+        for (ValoracionTec v : lista) {
+            String linea[] = {v.getUsuario().getNombre(), v.getRuta().getNombre(), Teclado.localDateToString(v.getFecha()), v.getDificultad(), v.getEquipoRecomendado()};
+            modelo.addRow(linea);
+        }
+        tblValTec.setModel(modelo);
+    }
     private void cargaCmbClasificacion() {
         ArrayList<String> lista = metodosDB.Clasificacion();
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
@@ -1983,14 +2060,37 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     }
 
     private Ruta seleccionarIdRuta() {
-        Ruta ruta = null;
         int filaSeleccionada = tblRutas.getSelectedRow();
 
-        if (filaSeleccionada != -1) {
-            int idRuta = Integer.parseInt(tblRutas.getValueAt(filaSeleccionada, 0).toString());
-            ruta = metodos.rutaPorId(idRuta);
+        if (filaSeleccionada == -1) {
+            JOptionPane.showMessageDialog(this, "Por favor, selecciona una fila de la tabla.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return null;
         }
-        return ruta;
+
+        try {
+            Object valorId = tblRutas.getValueAt(filaSeleccionada, 0);
+            if (valorId == null) {
+                JOptionPane.showMessageDialog(this, "La fila seleccionada no contiene un ID válido.", "Error", JOptionPane.ERROR_MESSAGE);
+                return null;
+            }
+
+            int idRuta = Integer.parseInt(valorId.toString());
+            Ruta ruta = metodos.rutaPorId(idRuta);
+
+            if (ruta == null) {
+                JOptionPane.showMessageDialog(this, "No se encontró la ruta con ID: " + idRuta, "Error", JOptionPane.ERROR_MESSAGE);
+            }
+
+            return ruta;
+
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "El ID de la ruta no es un número válido.", "Error", JOptionPane.ERROR_MESSAGE);
+            return null;
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Ocurrió un error al obtener la ruta: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            ex.printStackTrace();
+            return null;
+        }
     }
 
     private void guardarValTec() {
@@ -2046,8 +2146,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     }
 
     private void activarBotones() {
-        // Obtener el tipo de usuario a partir del correo
-        //TipoUsuario tipoUsuario = metodosDB.verificaUsuario(txtCorreo.getText());
         Usuario u = metodosDB.usuPorId(metodosDB.idUsuario(txtCorreo.getText()));
         // Desactivar todos los botones por defecto
         btnModificarRuta.setEnabled(false);
@@ -2060,8 +2158,8 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         btnCrearRuta.setEnabled(false);
         btnDescargaF.setEnabled(false);
         btnVerRuta.setEnabled(false);
+        btnSalirVerR.setEnabled(false);
 
-        // Comparación usando equals y if
         if (u instanceof Administrador) {
             btnModificarRuta.setEnabled(true);
             btnEliminarRuta.setEnabled(true);
@@ -2073,8 +2171,10 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             btnCrearRuta.setEnabled(true);
             btnDescargaF.setEnabled(true);
             btnVerRuta.setEnabled(true);
+            btnSalirVerR.setEnabled(true);
 
         } else if (u instanceof Profesor) {
+            btnModificarRuta.setEnabled(true);
             btnVerInfoRuta.setEnabled(true);
             btnValorarRuta.setEnabled(true);
             btnReseñarRuta.setEnabled(true);
@@ -2083,9 +2183,9 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             btnCrearRuta.setEnabled(true);
             btnDescargaF.setEnabled(true);
             btnVerRuta.setEnabled(true);
+            btnSalirVerR.setEnabled(true);
 
         } else if (u instanceof DisennadorRuta) {
-            // El DESARROLLADOR tiene un acceso limitado
             btnVerInfoRuta.setEnabled(true);
             btnValorarRuta.setEnabled(true);
             btnReseñarRuta.setEnabled(true);
@@ -2093,6 +2193,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             btnCrearRuta.setEnabled(true);
             btnDescargaF.setEnabled(true);
             btnVerRuta.setEnabled(true);
+            btnSalirVerR.setEnabled(true);
 
         } else if (u instanceof Alumno) {
             // El ALUMNO tiene el acceso más limitado
@@ -2102,9 +2203,42 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             btnCrearRuta.setEnabled(true);
             btnDescargaF.setEnabled(false);
             btnVerRuta.setEnabled(true);
+            btnSalirVerR.setEnabled(true);
+
         } else {
             // Si no se encuentra un tipo válido, desactivar todos los botones
             JOptionPane.showMessageDialog(null, "Tipo de usuario no reconocido." + u.getClass());
         }
     }
+
+    private void cargarRutaEnFormulario(Ruta ruta) {
+        txtAutor2.setText(ruta.getAutor().getNombre()); // asumiendo que Usuario tiene getNombre()
+        txtNombreRuta2.setText(ruta.getNombre());
+        txtFecha2.setText(ruta.getFecha_creacion().toString());
+        txtPInicial2.setText(ruta.getPunto_ini().toString()); // asumiendo que Punto tiene getNombre()
+        txtPFinal2.setText(ruta.getPunto_fin().toString());
+        cmbIndicacion2.setSelectedIndex(ruta.getIndicaciones() - 1); // asumiendo que indicaciones va de 1 a 5
+        // Temporada es un Set, seleccionamos el primer elemento (si existe)
+        if (!ruta.getTemporada().isEmpty()) {
+            String temporada = ruta.getTemporada().iterator().next();
+            cmbTemporada1.setSelectedItem(temporada);
+        }
+        txtRecomendaciones2.setText(ruta.getRecomendaciones());
+        txtDistancia2.setText(String.valueOf(ruta.getDistanciaTotal()));
+        txtDuracion2.setText(String.valueOf(ruta.getDuracion()));
+        txtZona2.setText(ruta.getZonaGeografica());
+        txtAltitudMax2.setText(String.valueOf(ruta.getAltMax()));
+        txtAltitudMin2.setText(String.valueOf(ruta.getAltMin()));
+        txtActividad2.setText(ruta.getTipoActividad().getNombre()); // suponiendo que Actividad tiene getNombre()
+        txtDesnivelNegativo2.setText(String.valueOf(ruta.getDesnivelNegativo()));
+        txtFamiliar2.setText(ruta.isFamiliar() ? "Sí" : "No");
+        txtDesnivelPositivo2.setText(String.valueOf(ruta.getDesnivelPositivo()));
+        txtRiesgo2.setText(String.valueOf(ruta.getNivelRiesgo()));
+        txtTerreno2.setText(String.valueOf(ruta.getTipoTerreno()));
+        txtUrl2.setText(ruta.getUrl());
+        txtMediaValoraciones2.setText(String.valueOf(ruta.getMediaValoracion()));
+        cmbClasificacion1.setSelectedItem(ruta.getClasificacion().name()); // Usa el nombre del enum
+        cmbEstado1.setSelectedItem(ruta.getEstado().name()); // Usa el nombre del enum
+    }
+
 }
