@@ -41,6 +41,7 @@ import validaciones.Validaciones;
 public class vPrincipal_1 extends javax.swing.JFrame {
 
     private metodosDB metodos = new metodosDB();
+    private Usuario user;
 
     /**
      * Creates new form vPrincipal
@@ -500,13 +501,12 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                         .addGroup(ValoracionTecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnSalirVT)
                             .addGroup(ValoracionTecLayout.createSequentialGroup()
-                                .addComponent(jLabel62)
-                                .addGap(41, 41, 41)
-                                .addComponent(txtDificultadVal, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(ValoracionTecLayout.createSequentialGroup()
-                                .addComponent(jLabel63)
+                                .addGroup(ValoracionTecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel63)
+                                    .addComponent(jLabel62))
                                 .addGap(18, 18, 18)
                                 .addGroup(ValoracionTecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtDificultadVal, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnVTecnicas)
                                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(ValoracionTecLayout.createSequentialGroup()
@@ -517,10 +517,10 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         ValoracionTecLayout.setVerticalGroup(
             ValoracionTecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ValoracionTecLayout.createSequentialGroup()
-                .addGap(66, 66, 66)
+                .addGap(69, 69, 69)
                 .addGroup(ValoracionTecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel62)
-                    .addComponent(txtDificultadVal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDificultadVal, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(ValoracionTecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel63)
@@ -529,7 +529,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                 .addComponent(btnValTec)
                 .addGap(31, 31, 31)
                 .addComponent(btnVTecnicas)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addComponent(btnSalirVT)
                 .addGap(184, 184, 184))
         );
@@ -796,9 +796,9 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         });
 
         btnSalirCrearR.setText("Salir");
-        btnSalirCrearR.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnSalirCrearRMouseClicked(evt);
+        btnSalirCrearR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirCrearRActionPerformed(evt);
             }
         });
 
@@ -1120,9 +1120,9 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         });
 
         btnSalirVerR.setText("Salir");
-        btnSalirVerR.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnSalirVerRMouseClicked(evt);
+        btnSalirVerR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirVerRActionPerformed(evt);
             }
         });
 
@@ -1239,9 +1239,9 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         });
 
         btnSalirCrearR1.setText("Salir");
-        btnSalirCrearR1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnSalirCrearR1MouseClicked(evt);
+        btnSalirCrearR1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirCrearR1ActionPerformed(evt);
             }
         });
 
@@ -1500,32 +1500,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnSalirVTMouseClicked
 
-    private void btnSalirVerRMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirVerRMouseClicked
-        LogIn.setVisible(false);
-        Menu.setVisible(true);
-        CreaRutas.setVisible(false);
-        VerRutas.setVisible(false);
-        ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
-        ValoracionTec.setVisible(false);
-        ValorarRuta.setVisible(false);
-        VerInfoRutas.setVisible(false);
-        DescargaFichas.setVisible(false);
-    }//GEN-LAST:event_btnSalirVerRMouseClicked
-
-    private void btnSalirCrearRMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirCrearRMouseClicked
-        LogIn.setVisible(false);
-        Menu.setVisible(true);
-        CreaRutas.setVisible(false);
-        VerRutas.setVisible(false);
-        ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
-        ValoracionTec.setVisible(false);
-        ValorarRuta.setVisible(false);
-        VerInfoRutas.setVisible(false);
-        DescargaFichas.setVisible(false);
-    }//GEN-LAST:event_btnSalirCrearRMouseClicked
-
     private void btnValorarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValorarMouseClicked
         //int filaSeleccionada = jTable1.getSelectedRow();
 
@@ -1557,10 +1531,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
         }
     }//GEN-LAST:event_btnValorarMouseClicked
-
-    private void btnSalirCrearR1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirCrearR1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSalirCrearR1MouseClicked
 
     private void btnCreaRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreaRutaActionPerformed
         cargaCmbEstado();
@@ -1636,6 +1606,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                 VerInfoRutas.setVisible(false);
                 DescargaFichas.setVisible(false);
                 //metodosDB.idUsuario(txtCorreo.getText());
+                user = metodos.usuPorId(metodosDB.idUsuario(txtCorreo.getText()));
                 activarBotones();
             }
         }
@@ -1786,6 +1757,38 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnCrearRuta1ActionPerformed
 
+    private void btnSalirCrearR1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirCrearR1ActionPerformed
+        // TODO add your handling code here:
+        LogIn.setVisible(false);
+        Menu.setVisible(false);
+        CreaRutas.setVisible(false);
+        VerRutas.setVisible(true);
+        ModificarRutas.setVisible(false);
+        ReseñaRuta.setVisible(false);
+        ValoracionTec.setVisible(false);
+        ValorarRuta.setVisible(false);
+        VerInfoRutas.setVisible(false);
+        DescargaFichas.setVisible(false);
+    }//GEN-LAST:event_btnSalirCrearR1ActionPerformed
+
+    private void btnSalirCrearRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirCrearRActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSalirCrearRActionPerformed
+
+    private void btnSalirVerRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirVerRActionPerformed
+        // TODO add your handling code here:
+        LogIn.setVisible(false);
+        Menu.setVisible(true);
+        CreaRutas.setVisible(false);
+        VerRutas.setVisible(false);
+        ModificarRutas.setVisible(false);
+        ReseñaRuta.setVisible(false);
+        ValoracionTec.setVisible(false);
+        ValorarRuta.setVisible(false);
+        VerInfoRutas.setVisible(false);
+        DescargaFichas.setVisible(false);
+    }//GEN-LAST:event_btnSalirVerRActionPerformed
+  
     private void btnCrearRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearRutaActionPerformed
         //CON ESTO TIENES EL USUARIO QUE HA INICIADO SESION
         int userId = metodosDB.idUsuario(txtCorreo.getText());
@@ -2207,15 +2210,13 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
     private void guardarValTec() {
         try {
+            
+            String dificultad = txtDificultadVal.getText();
+            String recomendaciones = txtRecomendacionesVal.getText();
 
-            String fechaStr = txtFecha.getText();
-            String dificultad = txtDificultad.getText();
-            String recomendaciones = txtRecomendaciones.getText();
-
-            Usuario usuario = metodos.usuPorId(metodosDB.idUsuario(txtCorreo.getText()));
             Ruta ruta = seleccionarIdRuta();
 
-            if (usuario == null) {
+            if (user == null) {
                 JOptionPane.showMessageDialog(null, "Usuario no encontrado.");
 
             }
@@ -2225,7 +2226,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
             }
 
-            ValoracionTec valoracion = new ValoracionTec(usuario, ruta, LocalDate.now(), dificultad, recomendaciones);
+            ValoracionTec valoracion = new ValoracionTec(user, ruta, LocalDate.now(), dificultad, recomendaciones);
 
             if (metodos.agregarValoracionTecnica(valoracion)) {
                 JOptionPane.showMessageDialog(null, "Valoración técnica guardada correctamente.");
@@ -2240,11 +2241,10 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
     // mirar
     private void guardarResenna() {
-        Usuario u = metodos.usuPorId(metodosDB.idUsuario(txtCorreo.getText()));
         Ruta ruta = seleccionarIdRuta();
         String comentario = txtComentario.getText();
 
-        metodos.agregarResenna(new Resenna(comentario, LocalDate.now(), ruta, u));
+        metodos.agregarResenna(new Resenna(comentario, LocalDate.now(), ruta, user));
 
     }
 
