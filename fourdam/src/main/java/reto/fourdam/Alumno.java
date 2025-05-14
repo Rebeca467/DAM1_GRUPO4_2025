@@ -18,7 +18,8 @@ public class Alumno extends Usuario{
         super(nombre, apellidos, email, cnna, rol);
     }
 
-    public Alumno() {
+    public Alumno(int id, String nombre, String apellidos, String email, String cnna, TipoUsuario rol) {
+        super(id, nombre, apellidos, email, cnna, rol);
     }
     // -------------------------------- MIRAR ---------------------------
     /*@Override

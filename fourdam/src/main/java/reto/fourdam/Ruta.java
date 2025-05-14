@@ -4,7 +4,7 @@
  */
 package reto.fourdam;
 
-import ENUMs.ClasificacionRuta;
+import ENUMs.Clasificacion_Ruta;
 import ENUMs.Estado;
 import ENUMs.Temporada;
 import java.io.BufferedReader;
@@ -37,13 +37,13 @@ public class Ruta {
     private double desnivelNegativo;
     private double altMax;
     private double altMin;
-    private ClasificacionRuta clasificacion;
+    private Clasificacion_Ruta clasificacion;
     private int nivelRiesgo;
     private int nivelEsfuerzo;
     private int tipoTerreno;
     private int indicaciones;
     private Actividad tipoActividad;
-    private Set<String> temporada;
+    private String temporada;
     //private boolean accesibilidad;
     private boolean familiar;
     private String url;
@@ -59,7 +59,8 @@ public class Ruta {
     }
     // quito el id porque es autoincremental
 
-    public Ruta(Usuario autor, String nombre, LocalDate fecha_creacion, Punto punto_ini, Punto punto_fin, double distanciaTotal, double desnivel, double desnivelPositivo, double desnivelNegativo, double altMax, double altMin, ClasificacionRuta clasificacion, int nivelRiesgo, int nivelEsfuerzo, int tipoTerreno, int indicaciones, Actividad tipoActividad, Set<String> temporada, /*boolean accesibilidad,*/ boolean familiar, String url, Estado estado, String recomendaciones, String zonaGeografica, LinkedHashSet<Punto> puntosIntermedios, double duracion, int mediaValoracion) {
+    public Ruta(int id, Usuario autor, String nombre, LocalDate fecha_creacion, Punto punto_ini, Punto punto_fin, double distanciaTotal, double desnivel, double desnivelPositivo, double desnivelNegativo, double altMax, double altMin, Clasificacion_Ruta clasificacion, int nivelRiesgo, int nivelEsfuerzo, int tipoTerreno, int indicaciones, Actividad tipoActividad, String temporada, boolean familiar, String url, Estado estado, String recomendaciones, String zonaGeografica, LinkedHashSet<Punto> puntosIntermedios, double duracion, int mediaValoracion) {
+        this.id = id;
         this.autor = autor;
         this.nombre = nombre;
         this.fecha_creacion = fecha_creacion;
@@ -78,7 +79,6 @@ public class Ruta {
         this.indicaciones = indicaciones;
         this.tipoActividad = tipoActividad;
         this.temporada = temporada;
-        //this.accesibilidad = accesibilidad;
         this.familiar = familiar;
         this.url = url;
         this.estado = estado;
@@ -88,8 +88,35 @@ public class Ruta {
         this.duracion = duracion;
         this.mediaValoracion = mediaValoracion;
     }
-
     
+    public Ruta(Usuario autor, String nombre, LocalDate fecha_creacion, Punto punto_ini, Punto punto_fin, double distanciaTotal, double desnivel, double desnivelPositivo, double desnivelNegativo, double altMax, double altMin, Clasificacion_Ruta clasificacion, int nivelRiesgo, int nivelEsfuerzo, int tipoTerreno, int indicaciones, Actividad tipoActividad, String temporada, boolean familiar, String url, Estado estado, String recomendaciones, String zonaGeografica, LinkedHashSet<Punto> puntosIntermedios, double duracion, int mediaValoracion) {
+        this.autor = autor;
+        this.nombre = nombre;
+        this.fecha_creacion = fecha_creacion;
+        this.punto_ini = punto_ini;
+        this.punto_fin = punto_fin;
+        this.distanciaTotal = distanciaTotal;
+        this.desnivel = desnivel;
+        this.desnivelPositivo = desnivelPositivo;
+        this.desnivelNegativo = desnivelNegativo;
+        this.altMax = altMax;
+        this.altMin = altMin;
+        this.clasificacion = clasificacion;
+        this.nivelRiesgo = nivelRiesgo;
+        this.nivelEsfuerzo = nivelEsfuerzo;
+        this.tipoTerreno = tipoTerreno;
+        this.indicaciones = indicaciones;
+        this.tipoActividad = tipoActividad;
+        this.temporada = temporada;
+        this.familiar = familiar;
+        this.url = url;
+        this.estado = estado;
+        this.recomendaciones = recomendaciones;
+        this.zonaGeografica = zonaGeografica;
+        this.puntosIntermedios = puntosIntermedios;
+        this.duracion = duracion;
+        this.mediaValoracion = mediaValoracion;
+    }   
 
    
     
@@ -120,6 +147,7 @@ public class Ruta {
         this.nombre = nombre;
     }
 
+    
     public LocalDate getFecha_creacion() {
         return fecha_creacion;
     }
@@ -192,11 +220,11 @@ public class Ruta {
         this.altMin = altMin;
     }
 
-    public ClasificacionRuta getClasificacion() {
+    public Clasificacion_Ruta getClasificacion() {
         return clasificacion;
     }
 
-    public void setClasificacion(ClasificacionRuta clasificacion) {
+    public void setClasificacion(Clasificacion_Ruta clasificacion) {
         this.clasificacion = clasificacion;
     }
 
@@ -240,11 +268,11 @@ public class Ruta {
         this.tipoActividad = tipoActividad;
     }
 
-    public Set<String> getTemporada() {
+    public String getTemporada() {
         return temporada;
     }
 
-    public void setTemporada(Set<String> temporada) {
+    public void setTemporada(String temporada) {
         this.temporada = temporada;
     }
 

@@ -16,9 +16,10 @@ public class Administrador extends Profesor {
         super(nombre, apellidos, email, cnna, rol);
     }
 
-    public Administrador() {
+    public Administrador(int id, String nombre, String apellidos, String email, String cnna, TipoUsuario rol) {
+        super(id, nombre, apellidos, email, cnna, rol);
     }
-    
+
     /*@Override
     public Resenna resennar(Ruta ruta){
         return super.resennar(ruta);

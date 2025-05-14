@@ -18,9 +18,10 @@ public class DisennadorRuta extends Alumno {
         super(nombre, apellidos, email, cnna, rol);
     }
 
-    public DisennadorRuta() {
+    public DisennadorRuta(int id, String nombre, String apellidos, String email, String cnna, TipoUsuario rol) {
+        super(id, nombre, apellidos, email, cnna, rol);
     }
-     
+ 
     /*@Override
     public Resenna resennar(Ruta ruta){
         return super.resennar(ruta);

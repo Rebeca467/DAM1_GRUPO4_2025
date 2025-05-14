@@ -16,7 +16,8 @@ public class Profesor extends DisennadorRuta {
         super(nombre, apellidos, email, cnna, rol);
     }
 
-    public Profesor() {
+    public Profesor(int id, String nombre, String apellidos, String email, String cnna, TipoUsuario rol) {
+        super(id, nombre, apellidos, email, cnna, rol);
     }
     /*
     @Override
