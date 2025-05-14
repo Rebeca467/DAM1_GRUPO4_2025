@@ -152,35 +152,38 @@ public class metodosDB {
     public void agregarRuta(Ruta r) {
        
         boolean exito = false;
-        String sql = "insert into ruta (id_usuario, nombre, fecha, latitud_inicial, longitud_inicial, latitud_final, longitud_final, distancia, desnivel, desnivel_positivo, desnivel_negativo, altitud_minima, altitud_maxima, estado, url, familiar, temporada, indicaciones, terreno, esfuerzo, riesgo, zona, recomendaciones, clasificacion, nombre_inicial, nombre_final, media_valoraciones)values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "insert into rutas (id_usuario,idActividades,nombre,fecha,latitud_inicial,longitud_inicial,latitud_final,longitud_final,distancia,desnivel,desnivel_positivo,desnivel_negativo,altitud_minima,altitud_maxima,estado,url,familiar,temporada,indicaciones,terreno,esfuerzo,riesgo,zona,recomendaciones,clasificacion,nombre_inicial,nombre_final,media_valoraciones,duracion)values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         int salida = -1;
         try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
-            ps.setString(2, r.getNombre());      // nombre
-            ps.setDate(3, Date.valueOf(r.getFecha_creacion())); // fecha
-            ps.setDouble(4, r.getPunto_ini().getLatitud());     // latitud_inicial
-            ps.setDouble(5, r.getPunto_ini().getLongitud());    // longitud_inicial
-            ps.setDouble(6, r.getPunto_fin().getLatitud());     // latitud_final
-            ps.setDouble(7, r.getPunto_fin().getLongitud());    // longitud_final
-            ps.setDouble(8, r.getDistanciaTotal());             // distancia
-            ps.setDouble(9, r.getDesnivel());                   // desnivel total
-            ps.setDouble(10, r.getDesnivelPositivo());                  // desnivel_positivo (ajústalo si tienes valor separado)
-            ps.setDouble(11, r.getDesnivelNegativo());                  // desnivel_negativo (ídem)
-            ps.setDouble(12, r.getAltMin());                    // altitud_minima
-            ps.setDouble(13, r.getAltMax());                    // altitud_maxima
-            ps.setString(14, r.getEstado().toString());         // estado
-            ps.setString(15, r.getUrl());                       // url
-            ps.setBoolean(16, r.isFamiliar());
-            ps.setObject(17, r.getTemporada());
-            ps.setInt(18, r.getIndicaciones());                 // indicaciones
-            ps.setInt(19, r.getTipoTerreno());                  // terreno
-            ps.setInt(20, r.getNivelEsfuerzo());                // esfuerzo
-            ps.setInt(21, r.getNivelRiesgo());                  // riesgo
-            ps.setString(22, r.getZonaGeografica());            // zona
-            ps.setString(23, r.getRecomendaciones());            // zona
-            ps.setString(24, r.getClasificacion().name());            // zona
-            ps.setString(25, null);            // zona
-            ps.setString(26, null);
-            ps.setObject(27, r.getMediaValoracion());
+            ps.setInt(1, r.getAutor().getId());                             // id_usuario
+            ps.setInt(2, r.getTipoActividad().getId());                          // idActividades
+            ps.setString(3, r.getNombre());                                 // nombre
+            ps.setDate(4, Date.valueOf(r.getFecha_creacion()));            // fecha
+            ps.setDouble(5, r.getPunto_ini().getLatitud());                // latitud_inicial
+            ps.setDouble(6, r.getPunto_ini().getLongitud());               // longitud_inicial
+            ps.setDouble(7, r.getPunto_fin().getLatitud());                // latitud_final
+            ps.setDouble(8, r.getPunto_fin().getLongitud());               // longitud_final
+            ps.setDouble(9, r.getDistanciaTotal());                         // distancia
+            ps.setDouble(10, r.getDesnivel());                              // desnivel
+            ps.setDouble(11, r.getDesnivelPositivo());                     // desnivel_positivo
+            ps.setDouble(12, r.getDesnivelNegativo());                     // desnivel_negativo
+            ps.setDouble(13, r.getAltMin());                               // altitud_minima
+            ps.setDouble(14, r.getAltMax());                               // altitud_maxima
+            ps.setString(15, r.getEstado().toString());                    // estado
+            ps.setString(16, r.getUrl());                                  // url
+            ps.setBoolean(17, r.isFamiliar());                              // familiar
+            ps.setObject(18, r.getTemporada());                            // temporada
+            ps.setInt(19, r.getIndicaciones());                             // indicaciones
+            ps.setInt(20, r.getTipoTerreno());                              // terreno
+            ps.setInt(21, r.getNivelEsfuerzo());                            // esfuerzo
+            ps.setInt(22, r.getNivelRiesgo());                              // riesgo
+            ps.setString(23, r.getZonaGeografica());                        // zona
+            ps.setString(24, r.getRecomendaciones());                       // recomendaciones
+            ps.setString(25, r.getClasificacion().name());                 // clasificacion
+            ps.setString(26, null);                                        // nombre_inicial
+            ps.setString(27, null);                                        // nombre_final
+            ps.setObject(28, r.getMediaValoracion());                       // media_valoraciones
+            ps.setDouble(29, r.getDuracion());                              // duracion
             salida = ps.executeUpdate();
             if (salida != 1) {
                 throw new Exception(" No se ha insertado/modificado un solo registro");
@@ -199,6 +202,7 @@ public class metodosDB {
         int salida = -1;
         try {
             PreparedStatement ps = getConnection().prepareStatement(sql);            
+
             ps.setString(1, r.getComentario());
             ps.setDate(2, Date.valueOf(r.getFecha()));
             ps.setInt(3, r.getRuta().getId());
@@ -208,6 +212,7 @@ public class metodosDB {
                 throw new Exception(" No se ha insertado un solo registro");
             } else {
                 exito=true;
+
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
@@ -223,6 +228,7 @@ public class metodosDB {
         int salida = -1;
         try {
             PreparedStatement ps = getConnection().prepareStatement(sql);
+
             ps.setString(1, v.getEquipoRecomendado());
             ps.setString(2, v.getDificultad());
             ps.setDate(3, Date.valueOf(v.getFecha()));
@@ -230,7 +236,9 @@ public class metodosDB {
             ps.setInt(5, v.getUsuario().getId());
             salida = ps.executeUpdate();
             if (salida != 1) {
-                throw new Exception(" No se ha insertado/modificado un solo registro");
+                throw new Exception(" No se ha insertado un solo registro");
+            } else {
+                exito = true;
             }
             else {
                 exito=true;
@@ -264,9 +272,6 @@ public class metodosDB {
         }
         return ruta;
     }
-    
-   
-
 
     public PuntoInteres pInteresPorCoordenadas(double longitud, double latitud) {
         PuntoInteres punto = null;
@@ -308,8 +313,6 @@ public class metodosDB {
 
     }
 
-    
-
     public static Usuario usuPorId(int id) {
         Usuario usuario = null;
         String sql = "SELECT id_usuario,nombre,apellidos,correo,contraseña,rol FROM usuarios WHERE id_usuario=?";
@@ -327,8 +330,6 @@ public class metodosDB {
         }
         return usuario;
     }
-    
-    
 
     public boolean eliminarRuta(int k, Ruta r) {
         boolean exito = false;
@@ -369,11 +370,8 @@ public class metodosDB {
     public void modificarRuta(int k, Ruta r) {
 
         String sql = "update rutas set nombre=?, fecha=?,"
-
                 + "distancia=?, estado=?, url=?, familiar=?, "
-
                 + "temporada=?, indicaciones=?, terreno=?, esfuerzo=?, riesgo=?, zona=?, recomendaciones=?, clasificacion=?,"
-
                 + "media_valoracion=?, duracion=? where id_ruta=?;";
 
         try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
@@ -383,7 +381,7 @@ public class metodosDB {
             ps.setObject(4, r.getEstado());
             ps.setString(5, r.getUrl());
             ps.setBoolean(6, r.isFamiliar());
-            ps.setObject(7,r.getTemporada());
+            ps.setObject(7, r.getTemporada());
             ps.setInt(8, r.getIndicaciones());
             ps.setInt(9, r.getTipoTerreno());
             ps.setInt(10, r.getNivelEsfuerzo());
@@ -391,7 +389,7 @@ public class metodosDB {
             ps.setString(12, r.getZonaGeografica());
             ps.setString(13, r.getRecomendaciones());
             ps.setObject(14, r.getClasificacion());
-            ps.setInt(15, r.getMediaValoracion()); 
+            ps.setInt(15, r.getMediaValoracion());
             ps.setDouble(16, r.getDuracion());
             int resultado = ps.executeUpdate();
             if (resultado == 1) {
@@ -402,8 +400,6 @@ public class metodosDB {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
         }
- 
-        
 
     }
 
@@ -417,28 +413,27 @@ public class metodosDB {
             ps.setDouble(4, longitud);
             ps.setDouble(5, latitud);
             ps.executeUpdate();
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
-            
+
         }
     }
 
     public void modificarPuntoPeligro(double latitud, double longitud, String imagen, int km, int nivelgravedad, String justificacion) {
-    String sql = "UPDATE puntos_peligro SET url = ?, km = ?, nivelgravedad = ?, descripcion = ? WHERE longitud = ? AND latitud = ?";
+        String sql = "UPDATE puntos_peligro SET url = ?, km = ?, nivelgravedad = ?, descripcion = ? WHERE longitud = ? AND latitud = ?";
 
-    try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
-        ps.setString(1, imagen);
-        ps.setInt(2, km);
-        ps.setInt(3, nivelgravedad);
-        ps.setString(4, justificacion);
-        ps.setDouble(5, longitud);
-        ps.setDouble(6, latitud);
-        ps.executeUpdate();
-    } catch (SQLException e) {
-        JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
+        try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
+            ps.setString(1, imagen);
+            ps.setInt(2, km);
+            ps.setInt(3, nivelgravedad);
+            ps.setString(4, justificacion);
+            ps.setDouble(5, longitud);
+            ps.setDouble(6, latitud);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
+        }
     }
-}
 
     private Ruta crearRuta(final ResultSet rs) throws SQLException {
         return new Ruta(
@@ -467,7 +462,7 @@ public class metodosDB {
                 new Actividad(
                         rs.getString("nombre")
                 ),
-                Set.of(rs.getString("temporada").split(",")),
+                rs.getString("temporada"),
                 rs.getBoolean("familiar"),
                 rs.getString("url"),
                 Estado.valueOf(rs.getString("estado")),
@@ -482,21 +477,21 @@ public class metodosDB {
     // si hay numeros es porque se pueden pedir datos por index
     private static Usuario crearUsuario(final ResultSet rs) throws SQLException {
         Usuario u = null;
-        switch(verificaUsuario(rs.getString(4)).toString()){
-            case "INVITADO" -> {
-                u = new Usuario(rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),TipoUsuario.valueOf(rs.getString(6)));
-            }
+
+        switch (verificaUsuario(rs.getString(4), rs.getString(5)).toString()) {
             case "ALUMNO" -> {
-                u = new Alumno(rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),TipoUsuario.valueOf(rs.getString(6)));
+                u = new Alumno(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), TipoUsuario.valueOf(rs.getString(6)));
             }
             case "DISEÑADOR" -> {
-                u = new DisennadorRuta(rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),TipoUsuario.valueOf(rs.getString(6)));
+                u = new DisennadorRuta(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), TipoUsuario.valueOf(rs.getString(6)));
             }
             case "PROFESOR" -> {
-                u = new Profesor(rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),TipoUsuario.valueOf(rs.getString(6)));
+                u = new Profesor(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), TipoUsuario.valueOf(rs.getString(6)));
             }
             case "ADMINISTRADOR" -> {
+
                 u = new Administrador(rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),TipoUsuario.valueOf(rs.getString(6)));
+
             }
             default -> {
                 System.out.println("Error: tipo de usuario no soportado");
@@ -583,12 +578,13 @@ public class metodosDB {
         return null;
     }
 
-    public static TipoUsuario verificaUsuario(String email) {
-        String sql = "SELECT rol FROM usuarios WHERE correo = ?";
+    public static TipoUsuario verificaUsuario(String email, String password) {
+        String sql = "SELECT rol FROM usuarios WHERE correo = ? AND contraseña = ?";
 
         TipoUsuario rol = null;
-        try ( PreparedStatement ps = getConnection().prepareStatement(sql)) {
+        try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
             ps.setString(1, email);
+            ps.setString(2, password);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     String rolStr = rs.getString("rol").toUpperCase();
@@ -609,7 +605,6 @@ public class metodosDB {
         return rol;
     }
 
-
     private PuntoInteres crearPuntoInteres(final ResultSet rs) throws SQLException {
         return new PuntoInteres(
                 rs.getDouble("latitud"),
@@ -620,10 +615,9 @@ public class metodosDB {
         );
     }
 
-
     public static int idUsuario(String email) {
         String sql = "SELECT id_usuario FROM usuarios WHERE correo = ?";
-        int id=1;
+        int id = 1;
         try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
             ps.setString(1, email);
             try (ResultSet rs = ps.executeQuery()) {
