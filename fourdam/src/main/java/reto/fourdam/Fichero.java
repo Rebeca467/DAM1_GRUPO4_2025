@@ -1,6 +1,6 @@
 package reto.fourdam;
 
-import ENUMs.ClasificacionRuta;
+import ENUMs.Clasificacion_Ruta;
 import ENUMs.TipoPInteres;
 import ENUMs.TipoUsuario;
 import ENUMs.Estado;

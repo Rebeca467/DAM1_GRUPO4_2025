@@ -1,6 +1,6 @@
 package DAOs;
 
-import ENUMs.ClasificacionRuta;
+import ENUMs.Clasificacion_Ruta;
 import ENUMs.Estado;
 import ENUMs.Temporada;
 import ENUMs.TipoPInteres;
@@ -237,9 +237,7 @@ public class metodosDB {
             salida = ps.executeUpdate();
             if (salida != 1) {
                 throw new Exception(" No se ha insertado un solo registro");
-            } else {
-                exito = true;
-            }
+            } 
             else {
                 exito=true;
             }
@@ -454,7 +452,7 @@ public class metodosDB {
                 rs.getDouble("desnivel_negativo"),
                 rs.getDouble("altitud_maxima"),
                 rs.getDouble("altitud_minima"),
-                ClasificacionRuta.valueOf(rs.getString("clasificacion")),
+                Clasificacion_Ruta.valueOf(rs.getString("clasificacion")),
                 rs.getInt("riesgo"),
                 rs.getInt("esfuerzo"),
                 rs.getInt("terreno"),
@@ -642,7 +640,7 @@ public class metodosDB {
     // ============================================================== ENUMS ===================================================
     public static ArrayList<String> Clasificacion() {
         ArrayList<String> lista = new ArrayList<>();
-        for (ClasificacionRuta c : ClasificacionRuta.values()) {
+        for (Clasificacion_Ruta c : Clasificacion_Ruta.values()) {
             lista.add(c.name());
         }
         return lista;
