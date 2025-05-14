@@ -5,7 +5,7 @@
 package reto.fourdam;
 
 import java.sql.Connection;
-import pruebas.SWING.vPrincipal;
+import pruebas.SWING.vPrincipal_1;
 
 /**
  *
@@ -14,7 +14,7 @@ import pruebas.SWING.vPrincipal;
 public class Fourdam {
 
     public static void main(String[] args) {
-        new vPrincipal().setVisible(true);
+        new vPrincipal_1().setVisible(true);
         Connection conn = AccesoBaseDatos.getInstance().getConn();
         
     }

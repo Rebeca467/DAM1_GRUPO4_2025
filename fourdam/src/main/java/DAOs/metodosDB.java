@@ -93,8 +93,8 @@ public class metodosDB {
     }
 
     // este metodo tiene la consulta igual que listar rutas
-    public List<Valoracion> listarValoraciones() {
-        List<Valoracion> valoraciones = new ArrayList<>();
+    public ArrayList<Valoracion> listarValoraciones() {
+        ArrayList<Valoracion> valoraciones = new ArrayList<>();
         try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT idValoraciones, id_usuario, id_ruta, fecha, dificultad, belleza, interés FROM valoraciones")) {
             while (rs.next()) {
                 Valoracion valoracion = crearValoracion(rs);
@@ -111,9 +111,9 @@ public class metodosDB {
     }
 
     // este metodo tiene la consulta igual que listar rutas
-    public List<Resenna> listarResaennas() {
-        List<Resenna> resennas = new ArrayList<>();
-        try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT idReseña, comentario, fecha, id_ruta, id_usuario FROM reseñas");) {
+    public ArrayList<Resenna> listarResennas() {
+        ArrayList<Resenna> resennas = new ArrayList<>();
+        try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT idReseña, comentario, fecha, id_ruta, id_usuario FROM reseña");) {
             while (rs.next()) {
                 Resenna resenna = crearResenna(rs);
                 resennas.add(resenna);
@@ -131,10 +131,10 @@ public class metodosDB {
 
     // este metodo tiene la consulta igual que listar rutas
     //PREGUNTAR
-    public List<ValoracionTec> listarValoracionesTecnicas() {
+    public ArrayList<ValoracionTec> listarValoracionesTecnicas() {
 
-        List<ValoracionTec> valoracionesTecnicas = new ArrayList<>();
-        try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT id_rutas, id_usuario, nombre, fecha, latitud_inicial, longitud_inicial, latitud_final, longitud_final, distancia, desnivel, desnivel_positivo, desnivel_negativo, altitud_minima, altitud_maxima, estado, url, familiar, temporada, indicaciones, terreno, esfuerzo, riesgo, zona, recomendaciones, clasificacion, nombre_inicial, nombre_final, media_valoraciones FROM rutas;");) {
+        ArrayList<ValoracionTec> valoracionesTecnicas = new ArrayList<>();
+        try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT id_ruta, id_usuario, fecha, recomendaciones, dificultad from valoraciontecnica");) {
             while (rs.next()) {
                 ValoracionTec valoracionTec = crearValoracionTecnica(rs);
                 valoracionesTecnicas.add(valoracionTec);
@@ -546,7 +546,7 @@ public class metodosDB {
                     rs.getDate("fecha").toLocalDate(),
                     rs.getInt("dificultad"),
                     rs.getInt("belleza"),
-                    rs.getInt("interes")
+                    rs.getInt("interés")
             );
         }
         return null;
@@ -582,15 +582,15 @@ public class metodosDB {
     public static TipoUsuario verificaUsuario(String email) {
         String sql = "SELECT rol FROM usuarios WHERE correo = ?";
 
-        TipoUsuario rol = TipoUsuario.ADMIN;
-        try (Connection conn = AccesoBaseDatos.getInstance().getConn(); PreparedStatement ps = conn.prepareStatement(sql)) {
+        TipoUsuario rol = TipoUsuario.ADMINISTRADOR;
+        try ( PreparedStatement ps = getConnection().prepareStatement(sql)) {
             ps.setString(1, email);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     String rolStr = rs.getString("rol").toUpperCase();
                     try {
                         rol = TipoUsuario.valueOf(rolStr);
-                        System.out.println("El usuario tiene el rol: " + rol);
+
                     } catch (IllegalArgumentException e) {
                         System.out.println("Rol no reconocido en la base de datos: " + rolStr);
                     }
