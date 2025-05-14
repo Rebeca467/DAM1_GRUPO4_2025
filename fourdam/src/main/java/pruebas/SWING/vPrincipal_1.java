@@ -1158,6 +1158,11 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         btnCsv1.setText("CREAR CON CSV");
 
         btnCrearRuta1.setText("CREAR RUTA");
+        btnCrearRuta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearRuta1ActionPerformed(evt);
+            }
+        });
 
         btnSalirCrearR1.setText("Salir");
         btnSalirCrearR1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1514,7 +1519,17 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVerRutaActionPerformed
 
     private void btnInvitadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvitadoActionPerformed
-        activarBotones();
+        btnModificarRuta.setEnabled(false);
+        btnEliminarRuta.setEnabled(false);
+        btnVerInfoRuta.setEnabled(true);
+        btnValorarRuta.setEnabled(false);
+        btnReseñarRuta.setEnabled(true);
+        btnValidarRuta.setEnabled(false);
+        btnValoracionTecRuta.setEnabled(false);
+        btnCrearRuta.setEnabled(false);
+        btnDescargaF.setEnabled(false);
+        btnVerRuta.setEnabled(false);
+        btnSalirVerR.setEnabled(false);
         cargaTablaRutas();
         LogIn.setVisible(false);
         Menu.setVisible(false);
@@ -1691,6 +1706,10 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private void btnValTecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValTecActionPerformed
         guardarValTec();
     }//GEN-LAST:event_btnValTecActionPerformed
+
+    private void btnCrearRuta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearRuta1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCrearRuta1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1930,6 +1949,17 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         }
         tblRutas.setModel(modelo);
     }
+    
+    /* private void cargaTablaRutas() {
+        String encabezados[] = {"id_ruta", "Autor", "nombre", "fecha", "latitud_inicial"};
+        DefaultTableModel modelo = new DefaultTableModel(encabezados, 0);
+        ArrayList<Ruta> lista = metodos.listarRutas();
+        for (Ruta r : lista) {
+            String linea[] = {String.valueOf(metodos.rutaId(r.getId())), r.getAutor().getNombre(), r.getNombre(), Teclado.localDateToString(r.getFecha_creacion()), String.valueOf(r.getPunto_ini().getLatitud())};
+            modelo.addRow(linea);
+        }
+        tblRutas.setModel(modelo);
+    }*/
 
     private void cargaTablaReseñas() {
         String encabezados[] = {"Autor", "Ruta", "Fecha", "Comentario"};

@@ -1938,6 +1938,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="CREAR RUTA"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCrearRuta1ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnSalirCrearR1">
           <Properties>

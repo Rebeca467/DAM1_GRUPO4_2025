@@ -10,4 +10,5 @@ package ENUMs;
  */
 public enum TipoUsuario {
     PROFESOR,DISEÑADOR,ADMINISTRADOR,ALUMNO,INVITADO
+
 }

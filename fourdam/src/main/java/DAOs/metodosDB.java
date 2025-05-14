@@ -49,7 +49,7 @@ public class metodosDB {
         ArrayList<Ruta> rutas = new ArrayList<>();
         try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT id_ruta, id_usuario, nombre, fecha, latitud_inicial, longitud_inicial, latitud_final, longitud_final, distancia, desnivel, desnivel_positivo, desnivel_negativo, altitud_minima, altitud_maxima, estado, url, familiar, temporada, indicaciones, terreno, esfuerzo, riesgo, zona, recomendaciones, clasificacion, nombre_inicial, nombre_final, media_valoraciones, duracion FROM rutas");) {
             while (rs.next()) {
-                Ruta ruta = crearRuta(rs);
+                Ruta ruta = rutaPorId(rs.getInt("id_ruta"));
                 rutas.add(ruta);
             }
 
@@ -260,6 +260,8 @@ public class metodosDB {
         }
         return ruta;
     }
+    
+   
 
 
     public PuntoInteres pInteresPorCoordenadas(double longitud, double latitud) {
@@ -321,11 +323,8 @@ public class metodosDB {
         }
         return usuario;
     }
-
-    //PENSE QUE SI LA RUTA GUARDA EN AUTOR EL CORREO DEL USUARIO SOLO NECESITARIAMOS ESTE METODO
-    public Usuario usuPorCorreo(String correo) {
-        return null;
-    }
+    
+    
 
     public boolean eliminarRuta(int k, Ruta r) {
         boolean exito = false;
@@ -439,6 +438,7 @@ public class metodosDB {
 
     private Ruta crearRuta(final ResultSet rs) throws SQLException {
         return new Ruta(
+                rs.getInt("id_ruta"),
                 usuPorId(rs.getInt("id_usuario")),
                 rs.getString("nombre"),
                 rs.getDate("fecha").toLocalDate(),
@@ -582,7 +582,7 @@ public class metodosDB {
     public static TipoUsuario verificaUsuario(String email) {
         String sql = "SELECT rol FROM usuarios WHERE correo = ?";
 
-        TipoUsuario rol = TipoUsuario.ADMINISTRADOR;
+        TipoUsuario rol = null;
         try ( PreparedStatement ps = getConnection().prepareStatement(sql)) {
             ps.setString(1, email);
             try (ResultSet rs = ps.executeQuery()) {

@@ -59,7 +59,8 @@ public class Ruta {
     }
     // quito el id porque es autoincremental
 
-    public Ruta(Usuario autor, String nombre, LocalDate fecha_creacion, Punto punto_ini, Punto punto_fin, double distanciaTotal, double desnivel, double desnivelPositivo, double desnivelNegativo, double altMax, double altMin, ClasificacionRuta clasificacion, int nivelRiesgo, int nivelEsfuerzo, int tipoTerreno, int indicaciones, Actividad tipoActividad, Set<String> temporada, /*boolean accesibilidad,*/ boolean familiar, String url, Estado estado, String recomendaciones, String zonaGeografica, LinkedHashSet<Punto> puntosIntermedios, double duracion, int mediaValoracion) {
+    public Ruta(int id, Usuario autor, String nombre, LocalDate fecha_creacion, Punto punto_ini, Punto punto_fin, double distanciaTotal, double desnivel, double desnivelPositivo, double desnivelNegativo, double altMax, double altMin, ClasificacionRuta clasificacion, int nivelRiesgo, int nivelEsfuerzo, int tipoTerreno, int indicaciones, Actividad tipoActividad, Set<String> temporada, boolean familiar, String url, Estado estado, String recomendaciones, String zonaGeografica, LinkedHashSet<Punto> puntosIntermedios, double duracion, int mediaValoracion) {
+        this.id = id;
         this.autor = autor;
         this.nombre = nombre;
         this.fecha_creacion = fecha_creacion;
@@ -78,7 +79,6 @@ public class Ruta {
         this.indicaciones = indicaciones;
         this.tipoActividad = tipoActividad;
         this.temporada = temporada;
-        //this.accesibilidad = accesibilidad;
         this.familiar = familiar;
         this.url = url;
         this.estado = estado;
@@ -88,8 +88,35 @@ public class Ruta {
         this.duracion = duracion;
         this.mediaValoracion = mediaValoracion;
     }
-
     
+    public Ruta(Usuario autor, String nombre, LocalDate fecha_creacion, Punto punto_ini, Punto punto_fin, double distanciaTotal, double desnivel, double desnivelPositivo, double desnivelNegativo, double altMax, double altMin, ClasificacionRuta clasificacion, int nivelRiesgo, int nivelEsfuerzo, int tipoTerreno, int indicaciones, Actividad tipoActividad, Set<String> temporada, boolean familiar, String url, Estado estado, String recomendaciones, String zonaGeografica, LinkedHashSet<Punto> puntosIntermedios, double duracion, int mediaValoracion) {
+        this.autor = autor;
+        this.nombre = nombre;
+        this.fecha_creacion = fecha_creacion;
+        this.punto_ini = punto_ini;
+        this.punto_fin = punto_fin;
+        this.distanciaTotal = distanciaTotal;
+        this.desnivel = desnivel;
+        this.desnivelPositivo = desnivelPositivo;
+        this.desnivelNegativo = desnivelNegativo;
+        this.altMax = altMax;
+        this.altMin = altMin;
+        this.clasificacion = clasificacion;
+        this.nivelRiesgo = nivelRiesgo;
+        this.nivelEsfuerzo = nivelEsfuerzo;
+        this.tipoTerreno = tipoTerreno;
+        this.indicaciones = indicaciones;
+        this.tipoActividad = tipoActividad;
+        this.temporada = temporada;
+        this.familiar = familiar;
+        this.url = url;
+        this.estado = estado;
+        this.recomendaciones = recomendaciones;
+        this.zonaGeografica = zonaGeografica;
+        this.puntosIntermedios = puntosIntermedios;
+        this.duracion = duracion;
+        this.mediaValoracion = mediaValoracion;
+    }   
 
    
     
