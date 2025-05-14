@@ -582,7 +582,7 @@ public class metodosDB {
     public static TipoUsuario verificaUsuario(String email) {
         String sql = "SELECT rol FROM usuarios WHERE correo = ?";
 
-        TipoUsuario rol = TipoUsuario.ADMINISTRADOR;
+        TipoUsuario rol = null;
         try ( PreparedStatement ps = getConnection().prepareStatement(sql)) {
             ps.setString(1, email);
             try (ResultSet rs = ps.executeQuery()) {
