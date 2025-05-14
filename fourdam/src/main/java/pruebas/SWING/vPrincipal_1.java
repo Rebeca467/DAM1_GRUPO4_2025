@@ -16,6 +16,7 @@ import javax.swing.JFrame;
 import reto.fourdam.AccesoBaseDatos;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 import reto.fourdam.Administrador;
 import reto.fourdam.Alumno;
 import reto.fourdam.DisennadorRuta;
@@ -701,12 +702,12 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                                 .addComponent(jLabel3)
                                 .addGap(34, 34, 34))))
                     .addComponent(btnDescargaF))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(279, Short.MAX_VALUE))
         );
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(59, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCreaRuta)
@@ -1506,6 +1507,8 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
     private void btnVerRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerRutaActionPerformed
         cargaTablaRutas();
+        // ancho columna
+        tblRutas.getColumnModel().getColumn(0).setPreferredWidth(0);
         LogIn.setVisible(false);
         Menu.setVisible(false);
         CreaRutas.setVisible(false);
@@ -1562,6 +1565,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                 DescargaFichas.setVisible(false);
                 //metodosDB.idUsuario(txtCorreo.getText());
                 activarBotones();
+
             }
         }
     }//GEN-LAST:event_btnSigninActionPerformed
@@ -1593,6 +1597,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         ValoracionTec.setVisible(false);
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(true);
+        VerInfoRutas.setLocationRelativeTo(null);
         DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnVerInfoRutaActionPerformed
 
@@ -1689,7 +1694,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         ModificarRutas.setVisible(false);
         ReseñaRuta.setVisible(false);
         ValoracionTec.setVisible(true);
-         ValoracionTec.setLocationRelativeTo(null);
+        ValoracionTec.setLocationRelativeTo(null);
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
@@ -1701,6 +1706,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
     private void btnEnviarReseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarReseñaActionPerformed
         guardarResenna();
+
     }//GEN-LAST:event_btnEnviarReseñaActionPerformed
 
     private void btnValTecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValTecActionPerformed
@@ -1948,18 +1954,12 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             modelo.addRow(linea);
         }
         tblRutas.setModel(modelo);
+        TableColumn columna = tblRutas.getColumnModel().getColumn(0);
+        columna.setMinWidth(0);
+        columna.setMaxWidth(0);
+        columna.setPreferredWidth(0);
+        columna.setResizable(false); 
     }
-    
-    /* private void cargaTablaRutas() {
-        String encabezados[] = {"id_ruta", "Autor", "nombre", "fecha", "latitud_inicial"};
-        DefaultTableModel modelo = new DefaultTableModel(encabezados, 0);
-        ArrayList<Ruta> lista = metodos.listarRutas();
-        for (Ruta r : lista) {
-            String linea[] = {String.valueOf(metodos.rutaId(r.getId())), r.getAutor().getNombre(), r.getNombre(), Teclado.localDateToString(r.getFecha_creacion()), String.valueOf(r.getPunto_ini().getLatitud())};
-            modelo.addRow(linea);
-        }
-        tblRutas.setModel(modelo);
-    }*/
 
     private void cargaTablaReseñas() {
         String encabezados[] = {"Autor", "Ruta", "Fecha", "Comentario"};
@@ -1973,18 +1973,19 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     }
 
     private void cargaTablaValoraciones() {
-        String encabezados[] = {"Autor", "Ruta", "Fecha", "Dificultad","Belleza","Interés cultural"};
+        String encabezados[] = {"Autor", "Ruta", "Fecha", "Dificultad", "Belleza", "Interés cultural"};
         DefaultTableModel modelo = new DefaultTableModel(encabezados, 0);
         ArrayList<Valoracion> lista = metodos.listarValoraciones();
         for (Valoracion v : lista) {
             String linea[] = {v.getUsuario().getNombre(), v.getRuta().getNombre(), Teclado.localDateToString(v.getFecha()), String.valueOf(v.getDificultad()), String.valueOf(v.getBelleza()),
-            String.valueOf(v.getInteresCultural())};
+                String.valueOf(v.getInteresCultural())};
             modelo.addRow(linea);
         }
         tblValoraciones.setModel(modelo);
     }
-     private void cargaTablaVTecnicas() {
-        String encabezados[] = {"Autor", "Ruta", "Fecha", "Dificultad","Equipo recomendado"};
+
+    private void cargaTablaVTecnicas() {
+        String encabezados[] = {"Autor", "Ruta", "Fecha", "Dificultad", "Equipo recomendado"};
         DefaultTableModel modelo = new DefaultTableModel(encabezados, 0);
         ArrayList<ValoracionTec> lista = metodos.listarValoracionesTecnicas();
         for (ValoracionTec v : lista) {
@@ -1993,6 +1994,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         }
         tblValTec.setModel(modelo);
     }
+
     private void cargaCmbClasificacion() {
         ArrayList<String> lista = metodosDB.Clasificacion();
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
@@ -2030,7 +2032,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
         modelo.removeAllElements();
         modelo.addAll(lista);
-        cmbClasificacion.setModel(modelo);
+        cmbTemporada1.setModel(modelo);
     }
 
     private void cargaCmbEstado1() {
@@ -2043,7 +2045,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
     private Ruta seleccionarIdRuta() {
         int filaSeleccionada = tblRutas.getSelectedRow();
-
+        Ruta ruta = null;
         if (filaSeleccionada == -1) {
             JOptionPane.showMessageDialog(this, "Por favor, selecciona una fila de la tabla.", "Aviso", JOptionPane.WARNING_MESSAGE);
             return null;
@@ -2057,44 +2059,36 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             }
 
             int idRuta = Integer.parseInt(valorId.toString());
-            Ruta ruta = metodos.rutaPorId(idRuta);
+            ruta = metodos.rutaPorId(idRuta);
 
             if (ruta == null) {
                 JOptionPane.showMessageDialog(this, "No se encontró la ruta con ID: " + idRuta, "Error", JOptionPane.ERROR_MESSAGE);
             }
-
-            return ruta;
-
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, "El ID de la ruta no es un número válido.", "Error", JOptionPane.ERROR_MESSAGE);
-            return null;
+
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Ocurrió un error al obtener la ruta: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            ex.printStackTrace();
-            return null;
+
         }
+        return ruta;
     }
 
     private void guardarValTec() {
         try {
-            
-            String fechaStr = txtFecha.getText();
+
             String dificultad = txtDificultad.getText();
             String recomendaciones = txtRecomendaciones.getText();
-
-            
 
             Usuario usuario = metodos.usuPorId(metodosDB.idUsuario(txtCorreo.getText()));
             Ruta ruta = seleccionarIdRuta();
 
             if (usuario == null) {
                 JOptionPane.showMessageDialog(null, "Usuario no encontrado.");
-
             }
 
             if (ruta == null) {
                 JOptionPane.showMessageDialog(null, "Ruta no encontrada.");
-
             }
 
             ValoracionTec valoracion = new ValoracionTec(usuario, ruta, LocalDate.now(), dificultad, recomendaciones);
@@ -2109,6 +2103,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error de formato numérico. Revisa ID o fecha.");
         }
     }
+
     // mirar
     private void guardarResenna() {
         Usuario u = metodos.usuPorId(metodosDB.idUsuario(txtCorreo.getText()));

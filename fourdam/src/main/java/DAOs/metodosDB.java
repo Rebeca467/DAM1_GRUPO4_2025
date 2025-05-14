@@ -150,7 +150,7 @@ public class metodosDB {
     }
 
     public void agregarRuta(Ruta r) {
-        Connection con = AccesoBaseDatos.getInstance().getConn();
+       
         boolean exito = false;
         String sql = "insert into ruta (id_usuario, nombre, fecha, latitud_inicial, longitud_inicial, latitud_final, longitud_final, distancia, desnivel, desnivel_positivo, desnivel_negativo, altitud_minima, altitud_maxima, estado, url, familiar, temporada, indicaciones, terreno, esfuerzo, riesgo, zona, recomendaciones, clasificacion, nombre_inicial, nombre_final, media_valoraciones)values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         int salida = -1;
@@ -194,20 +194,20 @@ public class metodosDB {
     }
 
     public boolean agregarResenna(Resenna r) {
-        Connection con = AccesoBaseDatos.getInstance().getConn();
         boolean exito = false;
-        String sql = "insert into reseña (idReseña, comentario, fecha, id_ruta, id_usuario)values(?,?,?,?,?);";
+        String sql = "insert into reseña (comentario, fecha, id_ruta, id_usuario)values(?,?,?,?);";
         int salida = -1;
         try {
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, r.getIdResenna());
-            ps.setString(2, r.getComentario());
-            ps.setDate(3, Date.valueOf(r.getFecha()));
-            ps.setInt(4, r.getRuta().getId());
-            ps.setInt(5, r.getUsuario().getId());
+            PreparedStatement ps = getConnection().prepareStatement(sql);            
+            ps.setString(1, r.getComentario());
+            ps.setDate(2, Date.valueOf(r.getFecha()));
+            ps.setInt(3, r.getRuta().getId());
+            ps.setInt(4, r.getUsuario().getId());
             salida = ps.executeUpdate();
             if (salida != 1) {
-                throw new Exception(" No se ha insertado/modificado un solo registro");
+                throw new Exception(" No se ha insertado un solo registro");
+            } else {
+                exito=true;
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
@@ -218,24 +218,28 @@ public class metodosDB {
     }
 
     public boolean agregarValoracionTecnica(ValoracionTec v) {
-        Connection con = AccesoBaseDatos.getInstance().getConn();
         boolean exito = false;
-        String sql = "insert into valoraciontecnica (idValoracionTecnica, recomendaciones, dificultad, fecha, id_ruta, id_usuario)values(?,?,?,?,?,?);";
+        String sql = "insert into valoraciontecnica (recomendaciones, dificultad, fecha, id_ruta, id_usuario)values(?,?,?,?,?);";
         int salida = -1;
         try {
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, v.getIdValoracionTecnica());
-            ps.setString(2, v.getEquipoRecomendado());
-            ps.setString(3, v.getDificultad());
-            ps.setDate(4, Date.valueOf(v.getFecha()));
-            ps.setInt(5, v.getRuta().getId());
-            ps.setInt(6, v.getUsuario().getId());
+            PreparedStatement ps = getConnection().prepareStatement(sql);
+            ps.setString(1, v.getEquipoRecomendado());
+            ps.setString(2, v.getDificultad());
+            ps.setDate(3, Date.valueOf(v.getFecha()));
+            ps.setInt(4, v.getRuta().getId());
+            ps.setInt(5, v.getUsuario().getId());
             salida = ps.executeUpdate();
             if (salida != 1) {
                 throw new Exception(" No se ha insertado/modificado un solo registro");
             }
+            else {
+                exito=true;
+            }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
+            
+            JOptionPane.showMessageDialog(null, v.getUsuario().getId());
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
         }
@@ -491,7 +495,7 @@ public class metodosDB {
             case "PROFESOR" -> {
                 u = new Profesor(rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),TipoUsuario.valueOf(rs.getString(6)));
             }
-            case "ADMIN" -> {
+            case "ADMINISTRADOR" -> {
                 u = new Administrador(rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),TipoUsuario.valueOf(rs.getString(6)));
             }
             default -> {
