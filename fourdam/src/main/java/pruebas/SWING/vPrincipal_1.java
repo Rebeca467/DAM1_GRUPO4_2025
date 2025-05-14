@@ -701,12 +701,12 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                                 .addComponent(jLabel3)
                                 .addGap(34, 34, 34))))
                     .addComponent(btnDescargaF))
-                .addContainerGap(325, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createSequentialGroup()
-                .addContainerGap(75, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCreaRuta)
@@ -996,6 +996,14 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
         VerRutas.setBorder(javax.swing.BorderFactory.createTitledBorder("VER RUTAS"));
 
+        tblRutas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
         jScrollPane1.setViewportView(tblRutas);
 
         btnModificarRuta.setText("MODIFICAR");
@@ -1050,7 +1058,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             VerRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(VerRutasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 666, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(VerRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnReseñarRuta)
@@ -1150,6 +1158,11 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         btnCsv1.setText("CREAR CON CSV");
 
         btnCrearRuta1.setText("CREAR RUTA");
+        btnCrearRuta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearRuta1ActionPerformed(evt);
+            }
+        });
 
         btnSalirCrearR1.setText("Salir");
         btnSalirCrearR1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1370,7 +1383,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         DescargaFichas.setLayout(DescargaFichasLayout);
         DescargaFichasLayout.setHorizontalGroup(
             DescargaFichasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 888, Short.MAX_VALUE)
+            .addGap(0, 939, Short.MAX_VALUE)
         );
         DescargaFichasLayout.setVerticalGroup(
             DescargaFichasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1669,6 +1682,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnValorarActionPerformed
 
+
     /**
      * @param args the command line arguments
      */
@@ -1907,6 +1921,17 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         }
         tblRutas.setModel(modelo);
     }
+    
+    /* private void cargaTablaRutas() {
+        String encabezados[] = {"id_ruta", "Autor", "nombre", "fecha", "latitud_inicial"};
+        DefaultTableModel modelo = new DefaultTableModel(encabezados, 0);
+        ArrayList<Ruta> lista = metodos.listarRutas();
+        for (Ruta r : lista) {
+            String linea[] = {String.valueOf(metodos.rutaId(r.getId())), r.getAutor().getNombre(), r.getNombre(), Teclado.localDateToString(r.getFecha_creacion()), String.valueOf(r.getPunto_ini().getLatitud())};
+            modelo.addRow(linea);
+        }
+        tblRutas.setModel(modelo);
+    }*/
 
     private void cargaTablaReseñas() {
         String encabezados[] = {"Autor", "Ruta", "Fecha", "Comentario"};
