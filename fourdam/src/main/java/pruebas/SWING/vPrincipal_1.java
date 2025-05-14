@@ -1506,7 +1506,17 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVerRutaActionPerformed
 
     private void btnInvitadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvitadoActionPerformed
-        activarBotones();
+        btnModificarRuta.setEnabled(false);
+        btnEliminarRuta.setEnabled(false);
+        btnVerInfoRuta.setEnabled(true);
+        btnValorarRuta.setEnabled(false);
+        btnReseñarRuta.setEnabled(true);
+        btnValidarRuta.setEnabled(false);
+        btnValoracionTecRuta.setEnabled(false);
+        btnCrearRuta.setEnabled(false);
+        btnDescargaF.setEnabled(false);
+        btnVerRuta.setEnabled(false);
+        btnSalirVerR.setEnabled(false);
         cargaTablaRutas();
         LogIn.setVisible(false);
         Menu.setVisible(false);
