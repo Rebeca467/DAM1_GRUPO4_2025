@@ -1821,12 +1821,12 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         ValorarRuta.setLocationRelativeTo(null);
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
-        try{
+        /*try{
             cargarInfoRuta(seleccionarIdRuta());
         }
         catch(MalformedURLException e){
             System.out.println("imagen no encontrada");
-        }
+        }*/
         
     }//GEN-LAST:event_btnValorarRutaActionPerformed
 
@@ -2001,7 +2001,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             String temporada = String.valueOf(cmbTemporada.getSelectedItem());
 
             // Crear la ruta
-            metodos.agregarRuta(new Ruta(autor, nombreRuta, LocalDate.now(), new Punto(longPIni, latPIni, ""), new Punto(longPFin, latPFin, ""), distancia, desnivelPos + desnivelNeg,
+            metodos.agregarRuta(new Ruta(user, nombreRuta, LocalDate.now(), new Punto(longPIni, latPIni, ""), new Punto(longPFin, latPFin, ""), distancia, desnivelPos + desnivelNeg,
                     desnivelPos, desnivelNeg, altMax, altMin, clasificacion, riesgo, esfuerzo, terreno, cmbIndicacion.getSelectedIndex(),
                     new Actividad(txtActividad.getText()), temporada, chkFamiliar.isSelected(), txtUrl.getText(), estado,
                     txtRecomendaciones.getText(), txtZona.getText(), null, duracion, Validaciones.stringToInt("media de valoraciones", txtMediaValoraciones.getText())));

@@ -150,7 +150,7 @@ public class metodosDB {
     }
 
     public void agregarRuta(Ruta r) {
-       
+
         boolean exito = false;
         String sql = "insert into rutas (id_usuario,idActividades,nombre,fecha,latitud_inicial,longitud_inicial,latitud_final,longitud_final,distancia,desnivel,desnivel_positivo,desnivel_negativo,altitud_minima,altitud_maxima,estado,url,familiar,temporada,indicaciones,terreno,esfuerzo,riesgo,zona,recomendaciones,clasificacion,nombre_inicial,nombre_final,media_valoraciones,duracion)values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         int salida = -1;
@@ -201,7 +201,7 @@ public class metodosDB {
         String sql = "insert into reseña (comentario, fecha, id_ruta, id_usuario)values(?,?,?,?);";
         int salida = -1;
         try {
-            PreparedStatement ps = getConnection().prepareStatement(sql);            
+            PreparedStatement ps = getConnection().prepareStatement(sql);
 
             ps.setString(1, r.getComentario());
             ps.setDate(2, Date.valueOf(r.getFecha()));
@@ -211,7 +211,7 @@ public class metodosDB {
             if (salida != 1) {
                 throw new Exception(" No se ha insertado un solo registro");
             } else {
-                exito=true;
+                exito = true;
 
             }
         } catch (SQLException e) {
@@ -237,15 +237,14 @@ public class metodosDB {
             salida = ps.executeUpdate();
             if (salida != 1) {
                 throw new Exception(" No se ha insertado un solo registro");
-            } 
-            else {
-                exito=true;
+            } else {
+                exito = true;
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
-            
+
             JOptionPane.showMessageDialog(null, v.getUsuario().getId());
-            
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
         }
@@ -478,17 +477,17 @@ public class metodosDB {
 
         switch (verificaUsuario(rs.getString(4), rs.getString(5)).toString()) {
             case "ALUMNO" -> {
-                u = new Alumno(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), TipoUsuario.valueOf(rs.getString(6)));
+                u = new Alumno(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), TipoUsuario.valueOf(rs.getString(6)));
             }
             case "DISEÑADOR" -> {
-                u = new DisennadorRuta(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), TipoUsuario.valueOf(rs.getString(6)));
+                u = new DisennadorRuta(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), TipoUsuario.valueOf(rs.getString(6)));
             }
             case "PROFESOR" -> {
-                u = new Profesor(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), TipoUsuario.valueOf(rs.getString(6)));
+                u = new Profesor(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), TipoUsuario.valueOf(rs.getString(6)));
             }
             case "ADMINISTRADOR" -> {
 
-                u = new Administrador(rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),TipoUsuario.valueOf(rs.getString(6)));
+                u = new Administrador(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), TipoUsuario.valueOf(rs.getString(6)));
 
             }
             default -> {
