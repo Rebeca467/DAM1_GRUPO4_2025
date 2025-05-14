@@ -150,50 +150,156 @@ public class metodosDB {
     }
 
     public void agregarRuta(Ruta r) {
+        Connection conn = null;
+        PreparedStatement checkUserPs = null;
+        PreparedStatement checkActPs = null;
+        PreparedStatement insertActPs = null;
+        PreparedStatement insertRutaPs = null;
+        ResultSet userRs = null;
+        ResultSet actRs = null;
+        ResultSet generatedKeys = null;
 
-        boolean exito = false;
-        String sql = "insert into rutas (id_usuario,idActividades,nombre,fecha,latitud_inicial,longitud_inicial,latitud_final,longitud_final,distancia,desnivel,desnivel_positivo,desnivel_negativo,altitud_minima,altitud_maxima,estado,url,familiar,temporada,indicaciones,terreno,esfuerzo,riesgo,zona,recomendaciones,clasificacion,nombre_inicial,nombre_final,media_valoraciones,duracion)values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        int salida = -1;
-        try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
-            ps.setInt(1, r.getAutor().getId());                             // id_usuario
-            ps.setInt(2, r.getTipoActividad().getId());                          // idActividades
-            ps.setString(3, r.getNombre());                                 // nombre
-            ps.setDate(4, Date.valueOf(r.getFecha_creacion()));            // fecha
-            ps.setDouble(5, r.getPunto_ini().getLatitud());                // latitud_inicial
-            ps.setDouble(6, r.getPunto_ini().getLongitud());               // longitud_inicial
-            ps.setDouble(7, r.getPunto_fin().getLatitud());                // latitud_final
-            ps.setDouble(8, r.getPunto_fin().getLongitud());               // longitud_final
-            ps.setDouble(9, r.getDistanciaTotal());                         // distancia
-            ps.setDouble(10, r.getDesnivel());                              // desnivel
-            ps.setDouble(11, r.getDesnivelPositivo());                     // desnivel_positivo
-            ps.setDouble(12, r.getDesnivelNegativo());                     // desnivel_negativo
-            ps.setDouble(13, r.getAltMin());                               // altitud_minima
-            ps.setDouble(14, r.getAltMax());                               // altitud_maxima
-            ps.setString(15, r.getEstado().toString());                    // estado
-            ps.setString(16, r.getUrl());                                  // url
-            ps.setBoolean(17, r.isFamiliar());                              // familiar
-            ps.setObject(18, r.getTemporada());                            // temporada
-            ps.setInt(19, r.getIndicaciones());                             // indicaciones
-            ps.setInt(20, r.getTipoTerreno());                              // terreno
-            ps.setInt(21, r.getNivelEsfuerzo());                            // esfuerzo
-            ps.setInt(22, r.getNivelRiesgo());                              // riesgo
-            ps.setString(23, r.getZonaGeografica());                        // zona
-            ps.setString(24, r.getRecomendaciones());                       // recomendaciones
-            ps.setString(25, r.getClasificacion().name());                 // clasificacion
-            ps.setString(26, null);                                        // nombre_inicial
-            ps.setString(27, null);                                        // nombre_final
-            ps.setObject(28, r.getMediaValoracion());                       // media_valoraciones
-            ps.setDouble(29, r.getDuracion());                              // duracion
-            salida = ps.executeUpdate();
-            if (salida != 1) {
-                throw new Exception(" No se ha insertado/modificado un solo registro");
+        try {
+            conn = getConnection();
+            // Iniciar transacción
+            conn.setAutoCommit(false);
+
+            // Verificar si el usuario existe
+            String checkUserSql = "SELECT id_usuario FROM usuarios WHERE id_usuario = ?";
+            checkUserPs = conn.prepareStatement(checkUserSql);
+            checkUserPs.setInt(1, r.getAutor().getId());
+            userRs = checkUserPs.executeQuery();
+
+
+            // Verificar si la actividad existe
+            int actividadId;
+            String checkActividadSql = "SELECT idActividades FROM actividades WHERE nombre_actividad = ?";
+            checkActPs = conn.prepareStatement(checkActividadSql);
+            checkActPs.setString(1, r.getTipoActividad().getNombre());
+            actRs = checkActPs.executeQuery();
+
+            if (actRs.next()) {
+                actividadId = actRs.getInt("idActividades");
+                System.out.println("Actividad encontrada con ID: " + actividadId);
+            } else {
+                // La actividad no existe, crearla
+                String insertActSql = "INSERT INTO actividades (nombre_actividad) VALUES (?)";
+                insertActPs = conn.prepareStatement(insertActSql, Statement.RETURN_GENERATED_KEYS);
+                insertActPs.setString(1, r.getTipoActividad().getNombre());
+                insertActPs.executeUpdate();
+                generatedKeys = insertActPs.getGeneratedKeys();
+
+                if (generatedKeys.next()) {
+                    actividadId = generatedKeys.getInt(1);
+                    System.out.println("Actividad creada con ID: " + actividadId);
+                } else {
+                    throw new SQLException("No se pudo obtener el ID de la actividad creada");
+                }
             }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
-        }
 
+            // Insertar la ruta
+            String sql = "INSERT INTO rutas (id_usuario, idActividades, nombre, fecha, latitud_inicial, longitud_inicial, "
+                    + "latitud_final, longitud_final, distancia, desnivel, desnivel_positivo, desnivel_negativo, "
+                    + "altitud_minima, altitud_maxima, estado, url, familiar, temporada, indicaciones, terreno, "
+                    + "esfuerzo, riesgo, zona, recomendaciones, clasificacion, nombre_inicial, nombre_final, "
+                    + "media_valoraciones, duracion) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+            insertRutaPs = conn.prepareStatement(sql);
+            insertRutaPs.setInt(1, r.getAutor().getId());                      // id_usuario
+            insertRutaPs.setInt(2, actividadId);                               // idActividades
+            insertRutaPs.setString(3, r.getNombre());                          // nombre
+            insertRutaPs.setDate(4, Date.valueOf(r.getFecha_creacion()));      // fecha
+            insertRutaPs.setDouble(5, r.getPunto_ini().getLatitud());          // latitud_inicial
+            insertRutaPs.setDouble(6, r.getPunto_ini().getLongitud());         // longitud_inicial
+            insertRutaPs.setDouble(7, r.getPunto_fin().getLatitud());          // latitud_final
+            insertRutaPs.setDouble(8, r.getPunto_fin().getLongitud());         // longitud_final
+            insertRutaPs.setDouble(9, r.getDistanciaTotal());                  // distancia
+            insertRutaPs.setDouble(10, r.getDesnivel());                       // desnivel
+            insertRutaPs.setDouble(11, r.getDesnivelPositivo());               // desnivel_positivo
+            insertRutaPs.setDouble(12, r.getDesnivelNegativo());               // desnivel_negativo
+            insertRutaPs.setDouble(13, r.getAltMin());                         // altitud_minima
+            insertRutaPs.setDouble(14, r.getAltMax());                         // altitud_maxima
+            insertRutaPs.setString(15, r.getEstado().toString());              // estado
+            insertRutaPs.setString(16, r.getUrl());                            // url
+            insertRutaPs.setBoolean(17, r.isFamiliar());                       // familiar
+            insertRutaPs.setString(18, r.getTemporada());                      // temporada
+            insertRutaPs.setInt(19, r.getIndicaciones());                      // indicaciones
+            insertRutaPs.setInt(20, r.getTipoTerreno());                       // terreno
+            insertRutaPs.setInt(21, r.getNivelEsfuerzo());                     // esfuerzo
+            insertRutaPs.setInt(22, r.getNivelRiesgo());                       // riesgo
+            insertRutaPs.setString(23, r.getZonaGeografica());                 // zona
+            insertRutaPs.setString(24, r.getRecomendaciones());                // recomendaciones
+            insertRutaPs.setString(25, r.getClasificacion().name());           // clasificacion
+            insertRutaPs.setString(26, "Inicio");                              // nombre_inicial (no puede ser null)
+            insertRutaPs.setString(27, "Fin");                                 // nombre_final (no puede ser null)
+            insertRutaPs.setInt(28, r.getMediaValoracion());                   // media_valoraciones
+            insertRutaPs.setDouble(29, r.getDuracion());                       // duracion
+
+            int salida = insertRutaPs.executeUpdate();
+
+            // Confirmar la transacción si todo salió bien
+            conn.commit();
+
+            if (salida == 1) {
+                JOptionPane.showMessageDialog(null, "Ruta creada correctamente");
+            } else {
+                JOptionPane.showMessageDialog(null, "No se ha insertado la ruta correctamente");
+            }
+
+        } catch (SQLException e) {
+            // Revertir la transacción en caso de error
+            try {
+                if (conn != null) {
+                    conn.rollback();
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            JOptionPane.showMessageDialog(null, "ERROR SQL al insertar ruta: " + e.getMessage());
+            e.printStackTrace();
+        } catch (Exception e) {
+            // Revertir la transacción en caso de error
+            try {
+                if (conn != null) {
+                    conn.rollback();
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+            JOptionPane.showMessageDialog(null, "ERROR general: " + e.getMessage());
+            e.printStackTrace();
+        } finally {
+            // Cerrar todos los recursos
+            try {
+                if (generatedKeys != null) {
+                    generatedKeys.close();
+                }
+                if (actRs != null) {
+                    actRs.close();
+                }
+                if (userRs != null) {
+                    userRs.close();
+                }
+                if (insertRutaPs != null) {
+                    insertRutaPs.close();
+                }
+                if (insertActPs != null) {
+                    insertActPs.close();
+                }
+                if (checkActPs != null) {
+                    checkActPs.close();
+                }
+                if (checkUserPs != null) {
+                    checkUserPs.close();
+                }
+                if (conn != null) {
+                    conn.setAutoCommit(true);
+                    // No cerramos la conexión aquí porque es compartida
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public boolean agregarResenna(Resenna r) {
@@ -477,17 +583,17 @@ public class metodosDB {
 
         switch (verificaUsuario(rs.getString(4), rs.getString(5)).toString()) {
             case "ALUMNO" -> {
-                u = new Alumno(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), TipoUsuario.valueOf(rs.getString(6)));
+                u = new Alumno(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), TipoUsuario.valueOf(rs.getString(6)));
             }
             case "DISEÑADOR" -> {
-                u = new DisennadorRuta(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), TipoUsuario.valueOf(rs.getString(6)));
+                u = new DisennadorRuta(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), TipoUsuario.valueOf(rs.getString(6)));
             }
             case "PROFESOR" -> {
-                u = new Profesor(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), TipoUsuario.valueOf(rs.getString(6)));
+                u = new Profesor(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), TipoUsuario.valueOf(rs.getString(6)));
             }
             case "ADMINISTRADOR" -> {
 
-                u = new Administrador(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), TipoUsuario.valueOf(rs.getString(6)));
+                u = new Administrador(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), TipoUsuario.valueOf(rs.getString(6)));
 
             }
             default -> {
