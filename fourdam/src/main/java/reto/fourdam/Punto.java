@@ -20,8 +20,6 @@ public class Punto {
     public Punto(double latitud, double longitud, String imagen) {
         this.latitud = latitud;
         this.longitud = longitud;
-        this.elevacion = elevacion;
-        this.tiempo = tiempo;
         this.imagen = imagen;
     }
 

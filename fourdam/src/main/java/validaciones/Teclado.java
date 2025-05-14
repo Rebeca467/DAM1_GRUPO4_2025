@@ -81,7 +81,7 @@ public class Teclado {
         }
         return num;
     }
-
+    
     public static String localDateToString(LocalDate fecha) {
         String fechaString = "";
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -158,13 +158,6 @@ public class Teclado {
             posicionAnterior = posicionActual;
         }
         return ordenado;
-    }
-    
-    // Método para validar el correo electrónico
-    public static boolean validarCorreo(String correo) {
-        String regex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
-        Pattern pattern = Pattern.compile(regex);
-        return pattern.matcher(correo).matches();
     }
     
     
