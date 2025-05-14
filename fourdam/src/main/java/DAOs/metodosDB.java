@@ -485,7 +485,7 @@ public class metodosDB {
             case "ALUMNO" -> {
                 u = new Alumno(rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),TipoUsuario.valueOf(rs.getString(6)));
             }
-            case "DISENADOR_DE_RUTAS" -> {
+            case "DISEÑADOR" -> {
                 u = new DisennadorRuta(rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),TipoUsuario.valueOf(rs.getString(6)));
             }
             case "PROFESOR" -> {
