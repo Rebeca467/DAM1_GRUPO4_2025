@@ -1585,6 +1585,16 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         ValorarRuta.setLocationRelativeTo(null);
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
+<<<<<<< Updated upstream
+=======
+        /*try{
+            cargarInfoRuta(seleccionarIdRuta());
+        }
+        catch(MalformedURLException e){
+            System.out.println("imagen no encontrada");
+        }*/
+
+>>>>>>> Stashed changes
     }//GEN-LAST:event_btnValorarRutaActionPerformed
 
     private void btnReseñarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReseñarRutaActionPerformed
@@ -1678,12 +1688,105 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
     private void btnEnviarReseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarReseñaActionPerformed
         guardarResenna();
+<<<<<<< Updated upstream
+=======
+        limpiarFormularioReseña();
+>>>>>>> Stashed changes
     }//GEN-LAST:event_btnEnviarReseñaActionPerformed
 
     private void btnValTecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValTecActionPerformed
         guardarValTec();
+        limpiarFormularioVTecnica();
     }//GEN-LAST:event_btnValTecActionPerformed
 
+<<<<<<< Updated upstream
+=======
+    private void btnCrearRuta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearRuta1ActionPerformed
+
+    }//GEN-LAST:event_btnCrearRuta1ActionPerformed
+
+    private void btnSalirCrearR1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirCrearR1ActionPerformed
+        // TODO add your handling code here:
+        LogIn.setVisible(false);
+        Menu.setVisible(false);
+        CreaRutas.setVisible(false);
+        VerRutas.setVisible(true);
+        ModificarRutas.setVisible(false);
+        ReseñaRuta.setVisible(false);
+        ValoracionTec.setVisible(false);
+        ValorarRuta.setVisible(false);
+        VerInfoRutas.setVisible(false);
+        DescargaFichas.setVisible(false);
+    }//GEN-LAST:event_btnSalirCrearR1ActionPerformed
+
+    private void btnSalirCrearRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirCrearRActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSalirCrearRActionPerformed
+
+    private void btnSalirVerRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirVerRActionPerformed
+        // TODO add your handling code here:
+        LogIn.setVisible(false);
+        Menu.setVisible(true);
+        CreaRutas.setVisible(false);
+        VerRutas.setVisible(false);
+        ModificarRutas.setVisible(false);
+        ReseñaRuta.setVisible(false);
+        ValoracionTec.setVisible(false);
+        ValorarRuta.setVisible(false);
+        VerInfoRutas.setVisible(false);
+        DescargaFichas.setVisible(false);
+    }//GEN-LAST:event_btnSalirVerRActionPerformed
+
+    private void btnCrearRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearRutaActionPerformed
+        //CON ESTO TIENES EL USUARIO QUE HA INICIADO SESION
+        int userId = metodosDB.idUsuario(txtCorreo.getText());
+        Usuario autor = metodosDB.usuPorId(userId);
+
+        String nombreRuta = txtNombreRuta.getText();
+        String fechaTexto = txtFecha.getText();
+        String puntoInicial = txtPiniLong.getText();
+        String puntoFinal = txtPFinLong.getText();
+
+        try {
+
+            double distancia = Validaciones.stringToDouble("distancia", txtDistancia.getText());
+            double desnivelPos = Validaciones.stringToDouble("desnivel positivo", txtDesnivelPositivo.getText());
+            double desnivelNeg = Validaciones.stringToDouble("desnivel negativo", txtDesnivelNegativo.getText());
+            double altMax = Validaciones.stringToDouble("altitud máxima", txtAltitudMax.getText());
+            double altMin = Validaciones.stringToDouble("altitud mínima", txtAltitudMin.getText());
+
+            double longPIni = Validaciones.stringToDouble("longitud de punto inicial", txtPiniLong.getText());
+            double latPIni = Validaciones.stringToDouble("latitud de punto inicial", txtPiniLat.getText());
+
+            double longPFin = Validaciones.stringToDouble("longitud de punto final", txtPFinLong.getText());
+            double latPFin = Validaciones.stringToDouble("latitud de punto final", txtPFinLat.getText());
+
+            int riesgo = Validaciones.stringToInt("nivel de riesgo", txtRiesgo.getText());
+            int terreno = Validaciones.stringToInt("terreno", txtTerreno.getText());
+            int esfuerzo = Validaciones.stringToInt("nivel de esfuerzo", txtEsfuerzo.getText());
+            double duracion = Validaciones.stringToDouble("duracion", txtDuracion.getText());
+            int mediaValoracionex = Validaciones.stringToInt("media de valoraciones", txtMediaValoraciones.getText());
+            String clasificacionTexto = (String) cmbClasificacion.getSelectedItem();
+            Clasificacion_Ruta clasificacion = Clasificacion_Ruta.valueOf(clasificacionTexto);
+            String estadoTexto = (String) cmbEstado.getSelectedItem();
+            Estado estado = Estado.valueOf(estadoTexto);
+            String temp = String.valueOf(cmbTemporada.getSelectedItem());
+            String temporada = String.valueOf(cmbTemporada.getSelectedItem());
+
+            // Crear la ruta
+            metodos.agregarRuta(new Ruta(user, nombreRuta, LocalDate.now(), new Punto(longPIni, latPIni, ""), new Punto(longPFin, latPFin, ""), distancia, desnivelPos + desnivelNeg,
+                    desnivelPos, desnivelNeg, altMax, altMin, clasificacion, riesgo, esfuerzo, terreno, cmbIndicacion.getSelectedIndex(),
+                    new Actividad(txtActividad.getText()), temporada, chkFamiliar.isSelected(), txtUrl.getText(), estado,
+                    txtRecomendaciones.getText(), txtZona.getText(), null, duracion, Validaciones.stringToInt("media de valoraciones", txtMediaValoraciones.getText())));
+        } catch (DateTimeParseException e) {
+            JOptionPane.showMessageDialog(null, "La fecha ingresada no es válida. Use el formato dd/MM/yyyy", "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (IllegalArgumentException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        limpiarFormularioCrearRuta();
+    }//GEN-LAST:event_btnCrearRutaActionPerformed
+
+>>>>>>> Stashed changes
     /**
      * @param args the command line arguments
      */
@@ -1921,6 +2024,14 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             modelo.addRow(linea);
         }
         tblRutas.setModel(modelo);
+<<<<<<< Updated upstream
+=======
+        TableColumn columna = tblRutas.getColumnModel().getColumn(0);
+        columna.setMinWidth(0);
+        columna.setMaxWidth(0);
+        columna.setPreferredWidth(0);
+        columna.setResizable(false);
+>>>>>>> Stashed changes
     }
 
     private void cargaTablaReseñas() {
@@ -2044,7 +2155,12 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             String dificultad = txtDificultad.getText();
             String recomendaciones = txtRecomendaciones.getText();
 
+<<<<<<< Updated upstream
             
+=======
+            String dificultad = txtDificultadVal.getText();
+            String recomendaciones = txtRecomendacionesVal.getText();
+>>>>>>> Stashed changes
 
             Usuario usuario = metodos.usuPorId(metodosDB.idUsuario(txtCorreo.getText()));
             Ruta ruta = seleccionarIdRuta();
@@ -2175,6 +2291,71 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         txtMediaValoraciones2.setText(String.valueOf(ruta.getMediaValoracion()));
         cmbClasificacion1.setSelectedItem(ruta.getClasificacion().name()); // Usa el nombre del enum
         cmbEstado1.setSelectedItem(ruta.getEstado().name()); // Usa el nombre del enum
+    }
+<<<<<<< Updated upstream
+=======
+
+    /* private void cargarInfoRuta(Ruta ruta) throws MalformedURLException {
+        AutorRuta.setName(ruta.getAutor().getNombre()); // asumiendo que Usuario tiene getNombre()
+        NombreRuta.setText(ruta.getNombre());
+        FechaCreacionRuta.setText(ruta.getFecha_creacion().toString());
+        PuntoInicialNombreRuta.setText(String.valueOf(ruta.getPunto_ini().getLatitud())+", "+String.valueOf(ruta.getPunto_ini().getLongitud())); // asumiendo que Punto tiene getNombre()
+        PuntoFinalNombreRuta.setText(String.valueOf(ruta.getPunto_fin().getLatitud())+", "+String.valueOf(ruta.getPunto_fin().getLongitud()));
+        cmbIndicacion2.setSelectedIndex(ruta.getIndicaciones() - 1); // asumiendo que indicaciones va de 1 a 5
+        // Temporada es un Set, seleccionamos el primer elemento (si existe)
+        if (!ruta.getTemporada().isEmpty()) {
+            String temporada = ruta.getTemporada().iterator().next();
+            cmbTemporada1.setSelectedItem(temporada);
+        }
+        RecomendacionesRuta.setText(ruta.getRecomendaciones());
+        DistanciaRuta.setText(String.valueOf(ruta.getDistanciaTotal()));
+        DuracionRuta.setText(String.valueOf(ruta.getDuracion()));
+        ZonaGeograficaRuta.setText(ruta.getZonaGeografica());
+        AltitudMaximaRuta.setText(String.valueOf(ruta.getAltMax()));
+        AltitudMinimaRuta.setText(String.valueOf(ruta.getAltMin()));
+        ActividadNombreRuta.setText(ruta.getTipoActividad().getNombre()); // suponiendo que Actividad tiene getNombre()
+        DesnivelNegativoRuta.setText(String.valueOf(ruta.getDesnivelNegativo()));
+        FamiliarRuta.setText(ruta.isFamiliar() ? "Sí" : "No");
+        DesnivelPositivoRuta.setText(String.valueOf(ruta.getDesnivelPositivo()));
+        RiesgoRuta.setText(String.valueOf(ruta.getNivelRiesgo()));
+        TerrenoRuta.setText(String.valueOf(ruta.getTipoTerreno()));
+        UrlRuta.setIcon(new ImageIcon(new URL(ruta.getUrl())));   
+        MediaValoracionesRuta.setText(String.valueOf(ruta.getMediaValoracion()));
+        ClasificacionRuta.setText(ruta.getClasificacion().name()); // Usa el nombre del enum
+    }*/
+>>>>>>> Stashed changes
+
+    private void limpiarFormularioCrearRuta() {
+        txtNombreRuta.setText("");
+        txtFecha.setText("");
+        txtPiniLong.setText("");
+        txtPFinLong.setText("");
+        txtDistancia.setText("");
+        txtDesnivelPositivo.setText("");
+        txtDesnivelNegativo.setText("");
+        txtAltitudMax.setText("");
+        txtAltitudMin.setText("");
+        txtPiniLong.setText("");
+        txtPiniLat.setText("");
+        txtPFinLong.setText("");
+        txtPFinLat.setText("");
+        txtRiesgo.setText("");
+        txtTerreno.setText("");
+        txtEsfuerzo.setText("");
+        txtDuracion.setText("");
+        txtMediaValoraciones.setText("");
+        txtRecomendaciones.setText("");
+        txtUrl.setText("");
+        txtZona.setText("");
+    }
+    
+    private void limpiarFormularioReseña(){
+        txtComentario.setText("");
+    }
+    
+    private void limpiarFormularioVTecnica(){
+        txtDificultadVal.setText("");
+        txtRecomendaciones.setText("");
     }
 
 }
