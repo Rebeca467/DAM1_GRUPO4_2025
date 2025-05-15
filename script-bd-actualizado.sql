@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`actividades` (
   `nombre_actividad` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idActividades`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 4
+AUTO_INCREMENT = 5
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`usuarios` (
   PRIMARY KEY (`id_usuario`),
   UNIQUE INDEX `correo_UNIQUE` (`correo` ASC) VISIBLE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
+AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`rutas` (
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 33
+AUTO_INCREMENT = 34
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -228,8 +228,6 @@ CREATE TABLE IF NOT EXISTS `mydb`.`valoraciones` (
   `belleza` TINYINT NOT NULL,
   `interés` TINYINT NOT NULL,
   PRIMARY KEY (`idValoraciones`, `id_ruta`),
-  UNIQUE INDEX `id_usuario_UNIQUE` (`id_usuario` ASC) VISIBLE,
-  UNIQUE INDEX `Rutas_id_rutas_UNIQUE` (`id_ruta` ASC) VISIBLE,
   INDEX `fk_Valoraciones_Usuarios1_idx` (`id_usuario` ASC) VISIBLE,
   INDEX `fk_Valoraciones_Rutas1_idx` (`id_ruta` ASC) VISIBLE,
   CONSTRAINT `fk_Valoraciones_Rutas1`
@@ -241,6 +239,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`valoraciones` (
     FOREIGN KEY (`id_usuario`)
     REFERENCES `mydb`.`usuarios` (`id_usuario`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
