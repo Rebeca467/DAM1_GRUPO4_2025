@@ -152,6 +152,26 @@ public class metodosDB {
         }
         return valoraciones;
     }
+    
+    
+    public String getEquipoRecomendadoPorRuta(int idRuta) {
+        String equipo = "";
+        String sql = "SELECT recomendaciones FROM valoraciontecnica WHERE id_ruta = ? LIMIT 1";
+
+        try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
+            stmt.setInt(1, idRuta);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                equipo = rs.getString("recomendaciones");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return equipo;
+    }
+    
 
     /**
      * Lista todas las resennas almacenadas en la base de datos.

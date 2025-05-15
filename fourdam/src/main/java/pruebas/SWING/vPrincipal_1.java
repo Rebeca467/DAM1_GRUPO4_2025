@@ -29,6 +29,7 @@ import reto.fourdam.Actividad;
 import reto.fourdam.Administrador;
 import reto.fourdam.Alumno;
 import reto.fourdam.DisennadorRuta;
+import reto.fourdam.Fichero;
 import reto.fourdam.Profesor;
 import reto.fourdam.Punto;
 import reto.fourdam.Resenna;
@@ -239,6 +240,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         btnValoracionTecRuta = new javax.swing.JButton();
         btnSalirVerR = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
+        btnDescargarFicha = new javax.swing.JButton();
         ModificarRutas = new javax.swing.JPanel();
         jLabel54 = new javax.swing.JLabel();
         jLabel64 = new javax.swing.JLabel();
@@ -1408,13 +1410,20 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             }
         });
 
+        btnDescargarFicha.setText("DESCARGAR FICHAS");
+        btnDescargarFicha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDescargarFichaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout VerRutasLayout = new javax.swing.GroupLayout(VerRutas);
         VerRutas.setLayout(VerRutasLayout);
         VerRutasLayout.setHorizontalGroup(
             VerRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(VerRutasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 637, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)
                 .addGroup(VerRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(VerRutasLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -1427,7 +1436,8 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                                     .addComponent(btnVerInfoRuta)
                                     .addComponent(btnValidarRuta)
                                     .addComponent(btnValorarRuta)
-                                    .addComponent(btnValoracionTecRuta))
+                                    .addComponent(btnValoracionTecRuta)
+                                    .addComponent(btnDescargarFicha))
                                 .addGap(144, 144, 144))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VerRutasLayout.createSequentialGroup()
                                 .addComponent(btnRegistrar)
@@ -1455,6 +1465,8 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                         .addComponent(btnReseñarRuta)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnValoracionTecRuta)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnDescargarFicha)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnRegistrar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -2108,7 +2120,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private void btnValorarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValorarMouseClicked
 
     }//GEN-LAST:event_btnValorarMouseClicked
-    
+
     private void btnCreaRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreaRutaActionPerformed
         cargaCmbEstado();
         cargaCmbTemporada();
@@ -2124,7 +2136,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnCreaRutaActionPerformed
-    
+
     private void btnVerRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerRutaActionPerformed
         cargaTablaRutas();
         tblRutas.getColumnModel().getColumn(0).setPreferredWidth(0);
@@ -2139,7 +2151,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnVerRutaActionPerformed
-    
+
     private void btnInvitadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvitadoActionPerformed
         btnModificarRuta.setEnabled(false);
         btnEliminarRuta.setEnabled(false);
@@ -2164,7 +2176,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);    }//GEN-LAST:event_btnInvitadoActionPerformed
-    
+
     private void btnSigninActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSigninActionPerformed
         String contraseña = String.valueOf(txtContraseña.getPassword());
         if (!Validaciones.validarCorreo(txtCorreo.getText())) {
@@ -2192,7 +2204,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         }
         limpiarFormularioSignIn();
     }//GEN-LAST:event_btnSigninActionPerformed
-    
+
     private void btnModificarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarRutaActionPerformed
         cargarRutaEnFormulario(seleccionarIdRuta());
         cargaCmbEstado1();
@@ -2209,7 +2221,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnModificarRutaActionPerformed
-    
+
     private void btnVerInfoRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerInfoRutaActionPerformed
         try {
             cargarInfoRuta(seleccionarIdRuta());
@@ -2228,7 +2240,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_btnVerInfoRutaActionPerformed
-    
+
     private void btnValorarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValorarRutaActionPerformed
         LogIn.setVisible(false);
         Menu.setVisible(false);
@@ -2263,7 +2275,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnReseñarRutaActionPerformed
-  
+
     private void btnValoracionTecRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValoracionTecRutaActionPerformed
         LogIn.setVisible(false);
         Menu.setVisible(false);
@@ -2296,7 +2308,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         ListadoVTecnica.setVisible(false);
         ListadoResennas.setVisible(false);
     }//GEN-LAST:event_btnVerValoracionesActionPerformed
- 
+
     private void btnVerReseñasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerReseñasActionPerformed
         cargaTablaResennas();
         LogIn.setVisible(false);
@@ -2481,6 +2493,86 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         DescargaFichas.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnDescargaFActionPerformed
 
+    private void btnDescargarFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescargarFichaActionPerformed
+        if (user != null) {
+            // Obtener la ruta seleccionada
+            Ruta rutaSeleccionada = seleccionarIdRuta();
+
+            if (rutaSeleccionada == null) {
+                JOptionPane.showMessageDialog(this, "Por favor, selecciona una ruta primero.",
+                        "Aviso", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+// Opciones para el diálogo
+            String[] opciones = {"Ficha de Seguridad", "Ficha de Usuario", "Ficha de Organización", "Cancelar"};
+
+            int seleccion = JOptionPane.showOptionDialog(
+                    this,
+                    "Selecciona el tipo de ficha que deseas descargar:",
+                    "Descargar Ficha",
+                    JOptionPane.DEFAULT_OPTION,
+                    JOptionPane.QUESTION_MESSAGE,
+                    null,
+                    opciones,
+                    opciones[0]
+            );
+
+            switch (seleccion) {
+                case 0 -> { // Ficha de Seguridad
+                    String dificultad = "Dificultad general: " + rutaSeleccionada.getNivelEsfuerzo();
+                    //String peligros = rutaSeleccionada.getDescripcionPuntosPeligro(); 
+                    String peligros = "No hay puntos de peligro de momento...";
+                    String recomendaciones = metodos.getEquipoRecomendadoPorRuta(rutaSeleccionada.getId());
+
+                    Fichero.generarFichaSeguridad(dificultad, peligros, recomendaciones);
+                    JOptionPane.showMessageDialog(this, "Ficha de seguridad generada correctamente.",
+                            "Información", JOptionPane.INFORMATION_MESSAGE);
+                }
+
+                case 1 -> { // Ficha de Usuario
+                    String datosGenerales = "Ruta: " + rutaSeleccionada.getNombre()
+                            + " | Fecha: " + rutaSeleccionada.getFecha_creacion()
+                            + " | Duración: " + rutaSeleccionada.getDuracion();
+
+                    String perfil = "Perfil del recorrido: " + rutaSeleccionada.getClasificacion()
+                            + ", Terreno: " + rutaSeleccionada.getTipoTerreno();
+
+                    //String recomendaciones = rutaSeleccionada.getRecomendacionesGenerales();
+                    String recomendaciones = "";
+
+                    Fichero.generarFichaUsuario(datosGenerales, perfil, recomendaciones);
+                    JOptionPane.showMessageDialog(this, "Ficha de usuario generada correctamente.",
+                            "Información", JOptionPane.INFORMATION_MESSAGE);
+                }
+
+                case 2 -> { // Ficha de Organización
+                    String datosBasicos = "Ruta: " + rutaSeleccionada.getNombre()
+                            + " | Creador: " + rutaSeleccionada.getAutor()
+                            + " | Zona: " + rutaSeleccionada.getZonaGeografica();
+
+                    String altitud = "Altitud mínima: " + rutaSeleccionada.getAltMax()
+                            + " m | Altitud máxima: " + rutaSeleccionada.getAltMin() + " m";
+
+                    String tipo = String.valueOf(rutaSeleccionada.getClasificacion());
+                    String opinion = metodos.getEquipoRecomendadoPorRuta(rutaSeleccionada.getId());
+                    String nivelEducativo = getNivelEducativoRecomendado(rutaSeleccionada);
+
+                    Fichero.generarFichaOrganizacion(datosBasicos, altitud, tipo, opinion, nivelEducativo);
+                    JOptionPane.showMessageDialog(this, "Ficha de organización generada correctamente.",
+                            "Información", JOptionPane.INFORMATION_MESSAGE);
+
+                }
+
+                default -> {
+                    /* Cancelado */ }
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "No hay usuario activo para generar la ficha.",
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnDescargarFichaActionPerformed
+
     /**
      * @param args the command line argumentsoriolfs
      */
@@ -2565,6 +2657,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private javax.swing.JButton btnCsv1;
     private javax.swing.JButton btnCsv2;
     private javax.swing.JButton btnDescargaF;
+    private javax.swing.JButton btnDescargarFicha;
     private javax.swing.JButton btnEliminarReseña;
     private javax.swing.JButton btnEliminarRuta;
     private javax.swing.JButton btnEnviarReseña;
@@ -2789,6 +2882,26 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 // ============================================================ NUESTROS METODOS =========================================================
 
+    public String getNivelEducativoRecomendado(Ruta r) {
+        int esfuerzo = r.getNivelEsfuerzo();
+        int riesgo = r.getNivelRiesgo();
+
+        int nivel = Math.max(esfuerzo, riesgo);
+
+        return switch (nivel) {
+            case 1, 2 ->
+                "Primaria";
+            case 3 ->
+                "Educación Secundaria Obligatoria (ESO)";
+            case 4 ->
+                "Bachillerato";
+            case 5 ->
+                "Ciclos Formativos / Adultos";
+            default ->
+                "Sin especificar";
+        };
+    }
+
     public Valoracion crearValoracion(
             int idUsuario,
             int idRuta,
@@ -2990,13 +3103,13 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         metodos.agregarResenna(new Resenna(comentario, LocalDate.now(), ruta, user));
 
     }
-    
+
     private void guardarValoracion() {
         Ruta ruta = seleccionarIdRuta();
         int dificultad = Validaciones.stringToInt("interes", txtDificultad.getText());
         int belleza = Validaciones.stringToInt("interes", txtBelleza.getText());
         int interes = Validaciones.stringToInt("interes", txtInteresCult.getText());
-        metodos.agregarValoracion(new Valoracion(user,ruta,LocalDate.now(),dificultad,belleza,interes));
+        metodos.agregarValoracion(new Valoracion(user, ruta, LocalDate.now(), dificultad, belleza, interes));
     }
 
     private void activarBotones() {
@@ -3125,14 +3238,14 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         txtDificultadVal.setText("");
         txtRecomendaciones.setText("");
     }
-    
+
     private void limpiarFormularioValoracion() {
         txtDificultad.setText("");
         txtBelleza.setText("");
         txtInteresCult.setText("");
     }
-    
-    private void limpiarFormularioSignIn(){
+
+    private void limpiarFormularioSignIn() {
         txtCorreo.setText("");
         txtContraseña.setText("");
     }

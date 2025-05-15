@@ -1,0 +1,6 @@
+=== FICHA DE ORGANIZACIÓN ===
+Datos básicos: Ruta: Ruta de Montaña | Creador: Usuario{nombre=Oriol, apellidos=Fernandez, email=oriolfs@gmail.com} | Zona: Sierra
+Altitud: Altitud mínima: 600.0 m | Altitud máxima: 100.0 m
+Tipo de ruta: LINEAL
+Opinión técnica: 
+Nivel educativo recomendado: Bachillerato

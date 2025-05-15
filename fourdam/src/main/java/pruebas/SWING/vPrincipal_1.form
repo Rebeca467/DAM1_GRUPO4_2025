@@ -1333,7 +1333,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="44" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
@@ -1768,7 +1768,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" pref="637" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="622" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -1782,6 +1782,7 @@
                                       <Component id="btnValidarRuta" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnValorarRuta" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnValoracionTecRuta" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnDescargarFicha" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
                               </Group>
@@ -1818,6 +1819,8 @@
                           <Component id="btnReseñarRuta" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btnValoracionTecRuta" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="btnDescargarFicha" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="btnRegistrar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -1923,6 +1926,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistrarActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnDescargarFicha">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="DESCARGAR FICHAS"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDescargarFichaActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
