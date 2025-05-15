@@ -115,7 +115,9 @@ Solo accesible por admin para mantener integridad del contenido público.
 ## XSLT 
 [Ver XSLT para generación de CSV](./xslt-csv.xslt)
 
-> La hoja de estilo XSLT define la transformación de un documento XML a formato CSV, especificando plantillas y reglas para recorrer y convertir los nodos del XML en registros delimitados por comas.
+[Ver XSLT para generación de HTML](./rss-to-xml-xslt)
+
+> La hoja de estilo XSLT define la transformación de un documento XML a formato CSV aparte de la deficinicion de un XSLT para la transformacion de un RSS a HTML, especificando plantillas y reglas para recorrer y convertir los nodos del XML en registros delimitados por comas.
 
 ## Infografía Seguridad Social
 [Ver Infografias](./info-seguridad-social.pdf)
@@ -140,4 +142,28 @@ npm install
 ```
 
 ## Uso
-Aun se esta trabajando en la aplicacion...
+>En esta sección se describen las instrucciones para utilizar la aplicación, así como ejemplos de uso y consideraciones importantes.
+
+### Requisitos Previos
+>Antes de utilizar la aplicación, asegúrate de tener instaladas las siguientes herramientas:
+-Node.js: La aplicación está construida sobre Node.js, por lo que es necesario tenerlo instalado en tu sistema.
+-Base de Datos: Asegúrate de que la base de datos esté configurada y corriendo según el script proporcionado.
+
+### Funcionalidades Principales
+> Una vez que la aplicación esté en funcionamiento, podrás acceder a las siguientes funcionalidades:
+-Crear Rutas: Los usuarios pueden crear nuevas rutas manualmente o mediante la carga de archivos CSV.
+-Validar Rutas: Los administradores pueden revisar y validar rutas pendientes.
+-Valorar Rutas: Todos los usuarios registrados pueden valorar las rutas en función de diferentes criterios.
+-Descargar Fichas Informativas: Los diseñadores, profesores y administradores pueden generar informes en formato texto.
+-Eliminar Reseñas: Los administradores tienen la capacidad de eliminar reseñas inapropiadas.
+
+> Ejemplo de Uso
+Para crear una nueva ruta, sigue estos pasos:
+Accede a la sección "Crear Ruta".
+Introduce la información requerida o selecciona un archivo CSV.
+Haz clic en "Guardar" para almacenar la ruta.
+Consideraciones Importantes
+Validación de Datos: Asegúrate de que todos los datos ingresados sean correctos para evitar errores en la creación de rutas.
+Acceso a Funciones: Algunas funciones están restringidas a ciertos tipos de usuarios (por ejemplo, solo administradores pueden validar rutas).
+Soporte
+Si encuentras algún problema o tienes preguntas sobre el uso de la aplicación, no dudes en contactar a los desarrolladores a través de los canales de comunicación establecidos en el proyecto.

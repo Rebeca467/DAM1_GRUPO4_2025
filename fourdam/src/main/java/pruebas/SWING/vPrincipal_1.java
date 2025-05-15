@@ -245,6 +245,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         btnRegistrar = new javax.swing.JButton();
         descargarRuta = new javax.swing.JButton();
         cargarRuta = new javax.swing.JButton();
+        btnDescargarFicha = new javax.swing.JButton();
         ModificarRutas = new javax.swing.JPanel();
         jLabel54 = new javax.swing.JLabel();
         jLabel64 = new javax.swing.JLabel();
@@ -430,7 +431,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                 .addContainerGap(326, Short.MAX_VALUE))
         );
 
-        VerInfoRutas.setSize(new java.awt.Dimension(600, 600));
+        VerInfoRutas.setSize(new java.awt.Dimension(500,500));
 
         jLabel24.setText("NOMBRE");
 
@@ -568,6 +569,66 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             .addComponent(TERRENO)
             .addComponent(NombreRuta)
             .addGroup(VerInfoRutasLayout.createSequentialGroup()
+
+                .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(VerInfoRutasLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(UrlRuta)
+                            .addGroup(VerInfoRutasLayout.createSequentialGroup()
+                                .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel45)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel24)
+                                    .addComponent(jLabel43)
+                                    .addComponent(jLabel32)
+                                    .addComponent(jLabel34)
+                                    .addComponent(jLabel49)
+                                    .addComponent(jLabel36)
+                                    .addComponent(jLabel35)
+                                    .addComponent(jLabel37)
+                                    .addComponent(jLabel44)
+                                    .addComponent(jLabel33)
+                                    .addComponent(TERRENO1)
+                                    .addComponent(TERRENO)
+                                    .addComponent(jLabel41)
+                                    .addComponent(jLabel39)
+                                    .addComponent(jLabel38)
+                                    .addComponent(jLabel40)
+                                    .addComponent(jLabel47)
+                                    .addComponent(jLabel46)
+                                    .addComponent(jLabel50)
+                                    .addComponent(jLabel42))
+                                .addGap(30, 30, 30)
+                                .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(AutorRuta)
+                                    .addComponent(NombreRuta)
+                                    .addComponent(EsfuerzoRuta)
+                                    .addComponent(DistanciaRuta)
+                                    .addComponent(PuntoInicialNombreRuta)
+                                    .addComponent(PuntoFinalNombreRuta)
+                                    .addComponent(DuracionRuta)
+                                    .addComponent(FechaCreacionRuta)
+                                    .addComponent(RecomendacionesRuta)
+                                    .addComponent(TerrenoRuta)
+                                    .addComponent(FamiliarRuta)
+                                    .addComponent(RiesgoRuta)
+                                    .addComponent(ActividadNombreRuta)
+                                    .addComponent(MediaValoracionesRuta)
+                                    .addComponent(ZonaGeograficaRuta)
+                                    .addComponent(TemporadaRuta)
+                                    .addComponent(IndicacionesRuta)
+                                    .addComponent(AltitudMinimaRuta)
+                                    .addComponent(AltitudMaximaRuta)
+                                    .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(ClasificacionRuta)
+                                        .addComponent(DesnivelNegativoRuta)
+                                        .addComponent(DesnivelPositivoRuta)))))
+                        .addGap(450, 450, 450))
+                    .addGroup(VerInfoRutasLayout.createSequentialGroup()
+                        .addGap(602, 602, 602)
+                        .addComponent(jLabel48)))
+                .addContainerGap(271, Short.MAX_VALUE))
                 .addComponent(jLabel48)
                 .addGap(77, 77, 77)
                 .addComponent(jLabel46)
@@ -580,6 +641,100 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         VerInfoRutasLayout.setVerticalGroup(
             VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(VerInfoRutasLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel48)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(IndicacionesRuta)
+                    .addGroup(VerInfoRutasLayout.createSequentialGroup()
+                        .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel24)
+                            .addComponent(NombreRuta))
+                        .addGap(18, 18, 18)
+                        .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(AutorRuta))
+                        .addGap(18, 18, 18)
+                        .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel45)
+                            .addComponent(FechaCreacionRuta))
+                        .addGap(18, 18, 18)
+                        .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel43)
+                            .addComponent(ActividadNombreRuta))
+                        .addGap(18, 18, 18)
+                        .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel32)
+                            .addComponent(ClasificacionRuta))
+                        .addGap(18, 18, 18)
+                        .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel49)
+                            .addComponent(DesnivelPositivoRuta))
+                        .addGap(18, 18, 18)
+                        .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel34)
+                            .addComponent(DesnivelNegativoRuta))
+                        .addGap(22, 22, 22)
+                        .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel36)
+                            .addComponent(AltitudMaximaRuta))
+                        .addGap(18, 18, 18)
+                        .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel37)
+                            .addComponent(AltitudMinimaRuta))
+                        .addGap(18, 18, 18)
+                        .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel35)
+                            .addComponent(RiesgoRuta))
+                        .addGap(18, 18, 18)
+                        .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel33)
+                            .addComponent(FamiliarRuta))
+                        .addGap(18, 18, 18)
+                        .addComponent(TERRENO1)))
+                .addGap(18, 18, 18)
+                .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel44)
+                    .addComponent(ZonaGeograficaRuta))
+                .addGap(18, 18, 18)
+                .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PuntoInicialNombreRuta)
+                    .addComponent(jLabel42))
+                .addGap(18, 18, 18)
+                .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel40)
+                    .addComponent(PuntoFinalNombreRuta))
+                .addGap(18, 18, 18)
+                .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel39)
+                    .addComponent(EsfuerzoRuta))
+                .addGap(18, 18, 18)
+                .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel41)
+                    .addComponent(DistanciaRuta))
+                .addGap(18, 18, 18)
+                .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel38)
+                    .addComponent(TemporadaRuta))
+                .addGap(18, 18, 18)
+                .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TERRENO)
+                    .addComponent(TerrenoRuta))
+                .addGap(28, 28, 28)
+                .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel50)
+                    .addComponent(MediaValoracionesRuta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel46)
+                    .addComponent(DuracionRuta))
+                .addGap(18, 18, 18)
+                .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel47)
+                    .addComponent(RecomendacionesRuta))
+                .addGap(19, 19, 19)
+                .addComponent(UrlRuta)
+                .addGap(566, 566, 566))
                 .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(DesnivelNegativoRuta)
                     .addComponent(PuntoFinalNombreRuta)
@@ -945,7 +1100,11 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                 .addGroup(LogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 313, Short.MAX_VALUE)
+
                 .addGap(155, 155, 155)
+
                 .addGroup(LogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInvitado)
                     .addComponent(btnSignin))
@@ -1005,7 +1164,11 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createSequentialGroup()
+
+                .addContainerGap(233, Short.MAX_VALUE)
+
                 .addContainerGap(140, Short.MAX_VALUE)
+
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCreaRuta)
@@ -1427,6 +1590,13 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                 cargarRutaActionPerformed(evt);
             }
         });
+              
+        btnDescargarFicha.setText("DESCARGAR FICHAS");
+        btnDescargarFicha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDescargarFichaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout VerRutasLayout = new javax.swing.GroupLayout(VerRutas);
         VerRutas.setLayout(VerRutasLayout);
@@ -1434,7 +1604,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             VerRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(VerRutasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 637, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)
                 .addGroup(VerRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(VerRutasLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -1450,6 +1620,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                                     .addComponent(btnValoracionTecRuta)
                                     .addComponent(descargarRuta)
                                     .addComponent(cargarRuta))
+                                    .addComponent(btnDescargarFicha))
                                 .addGap(144, 144, 144))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VerRutasLayout.createSequentialGroup()
                                 .addComponent(btnRegistrar)
@@ -1477,6 +1648,8 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                         .addComponent(btnReseñarRuta)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnValoracionTecRuta)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnDescargarFicha)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(cargarRuta)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1971,6 +2144,11 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                 .addComponent(btnSalirCrearR2)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
+
+        DescargaFichasLayout.setVerticalGroup(
+            DescargaFichasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 616, Short.MAX_VALUE)
+
         CreaRutas1Layout.setVerticalGroup(
             CreaRutas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CreaRutas1Layout.createSequentialGroup()
@@ -2093,6 +2271,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSalirCrearR2)
                 .addGap(12, 12, 12))
+
         );
 
         getContentPane().add(CreaRutas1, "card4");
@@ -2134,7 +2313,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private void btnValorarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValorarMouseClicked
 
     }//GEN-LAST:event_btnValorarMouseClicked
-    
+
     private void btnCreaRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreaRutaActionPerformed
         cargaCmbEstado();
         cargaCmbTemporada();
@@ -2150,7 +2329,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnCreaRutaActionPerformed
-    
+
     private void btnVerRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerRutaActionPerformed
         cargaTablaRutas();
         tblRutas.getColumnModel().getColumn(0).setPreferredWidth(0);
@@ -2165,7 +2344,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnVerRutaActionPerformed
-    
+
     private void btnInvitadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvitadoActionPerformed
         btnModificarRuta.setEnabled(false);
         btnEliminarRuta.setEnabled(false);
@@ -2190,7 +2369,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);    }//GEN-LAST:event_btnInvitadoActionPerformed
-    
+
     private void btnSigninActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSigninActionPerformed
         String contraseña = String.valueOf(txtContraseña.getPassword());
         if (!Validaciones.validarCorreo(txtCorreo.getText())) {
@@ -2218,7 +2397,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         }
         limpiarFormularioSignIn();
     }//GEN-LAST:event_btnSigninActionPerformed
-    
+
     private void btnModificarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarRutaActionPerformed
         cargarRutaEnFormulario(seleccionarIdRuta());
         cargaCmbEstado1();
@@ -2235,7 +2414,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnModificarRutaActionPerformed
-    
+
     private void btnVerInfoRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerInfoRutaActionPerformed
         try {
             cargarInfoRuta(seleccionarIdRuta());
@@ -2254,7 +2433,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_btnVerInfoRutaActionPerformed
-    
+
     private void btnValorarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValorarRutaActionPerformed
         LogIn.setVisible(false);
         Menu.setVisible(false);
@@ -2289,7 +2468,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnReseñarRutaActionPerformed
-  
+
     private void btnValoracionTecRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValoracionTecRutaActionPerformed
         LogIn.setVisible(false);
         Menu.setVisible(false);
@@ -2322,7 +2501,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         ListadoVTecnica.setVisible(false);
         ListadoResennas.setVisible(false);
     }//GEN-LAST:event_btnVerValoracionesActionPerformed
- 
+
     private void btnVerReseñasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerReseñasActionPerformed
         cargaTablaResennas();
         LogIn.setVisible(false);
@@ -2519,6 +2698,85 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "La ruta se cargo correctamente");
         }
     }//GEN-LAST:event_cargarRutaActionPerformed
+    private void btnDescargarFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescargarFichaActionPerformed
+        if (user != null) {
+            // Obtener la ruta seleccionada
+            Ruta rutaSeleccionada = seleccionarIdRuta();
+
+            if (rutaSeleccionada == null) {
+                JOptionPane.showMessageDialog(this, "Por favor, selecciona una ruta primero.",
+                        "Aviso", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+// Opciones para el diálogo
+            String[] opciones = {"Ficha de Seguridad", "Ficha de Usuario", "Ficha de Organización", "Cancelar"};
+
+            int seleccion = JOptionPane.showOptionDialog(
+                    this,
+                    "Selecciona el tipo de ficha que deseas descargar:",
+                    "Descargar Ficha",
+                    JOptionPane.DEFAULT_OPTION,
+                    JOptionPane.QUESTION_MESSAGE,
+                    null,
+                    opciones,
+                    opciones[0]
+            );
+
+            switch (seleccion) {
+                case 0 -> { // Ficha de Seguridad
+                    String dificultad = "Dificultad general: " + rutaSeleccionada.getNivelEsfuerzo();
+                    //String peligros = rutaSeleccionada.getDescripcionPuntosPeligro(); 
+                    String peligros = "No hay puntos de peligro de momento...";
+                    String recomendaciones = metodos.getEquipoRecomendadoPorRuta(rutaSeleccionada.getId());
+
+                    Fichero.generarFichaSeguridad(dificultad, peligros, recomendaciones);
+                    JOptionPane.showMessageDialog(this, "Ficha de seguridad generada correctamente.",
+                            "Información", JOptionPane.INFORMATION_MESSAGE);
+                }
+
+                case 1 -> { // Ficha de Usuario
+                    String datosGenerales = "Ruta: " + rutaSeleccionada.getNombre()
+                            + " | Fecha: " + rutaSeleccionada.getFecha_creacion()
+                            + " | Duración: " + rutaSeleccionada.getDuracion();
+
+                    String perfil = "Perfil del recorrido: " + rutaSeleccionada.getClasificacion()
+                            + ", Terreno: " + rutaSeleccionada.getTipoTerreno();
+
+                    //String recomendaciones = rutaSeleccionada.getRecomendacionesGenerales();
+                    String recomendaciones = "";
+
+                    Fichero.generarFichaUsuario(datosGenerales, perfil, recomendaciones);
+                    JOptionPane.showMessageDialog(this, "Ficha de usuario generada correctamente.",
+                            "Información", JOptionPane.INFORMATION_MESSAGE);
+                }
+
+                case 2 -> { // Ficha de Organización
+                    String datosBasicos = "Ruta: " + rutaSeleccionada.getNombre()
+                            + " | Creador: " + rutaSeleccionada.getAutor()
+                            + " | Zona: " + rutaSeleccionada.getZonaGeografica();
+
+                    String altitud = "Altitud mínima: " + rutaSeleccionada.getAltMax()
+                            + " m | Altitud máxima: " + rutaSeleccionada.getAltMin() + " m";
+
+                    String tipo = String.valueOf(rutaSeleccionada.getClasificacion());
+                    String opinion = metodos.getEquipoRecomendadoPorRuta(rutaSeleccionada.getId());
+                    String nivelEducativo = getNivelEducativoRecomendado(rutaSeleccionada);
+
+                    Fichero.generarFichaOrganizacion(datosBasicos, altitud, tipo, opinion, nivelEducativo);
+                    JOptionPane.showMessageDialog(this, "Ficha de organización generada correctamente.",
+                            "Información", JOptionPane.INFORMATION_MESSAGE);
+
+                }
+
+                default -> {
+                    /* Cancelado */ }
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "No hay usuario activo para generar la ficha.",
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnDescargarFichaActionPerformed
 
     /**
      * @param args the command line argumentsoriolfs
@@ -2604,6 +2862,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private javax.swing.JButton btnCsv1;
     private javax.swing.JButton btnCsv2;
     private javax.swing.JButton btnDescargaF;
+    private javax.swing.JButton btnDescargarFicha;
     private javax.swing.JButton btnEliminarReseña;
     private javax.swing.JButton btnEliminarRuta;
     private javax.swing.JButton btnEnviarReseña;
@@ -2830,6 +3089,26 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 // ============================================================ NUESTROS METODOS =========================================================
 
+    public String getNivelEducativoRecomendado(Ruta r) {
+        int esfuerzo = r.getNivelEsfuerzo();
+        int riesgo = r.getNivelRiesgo();
+
+        int nivel = Math.max(esfuerzo, riesgo);
+
+        return switch (nivel) {
+            case 1, 2 ->
+                "Primaria";
+            case 3 ->
+                "Educación Secundaria Obligatoria (ESO)";
+            case 4 ->
+                "Bachillerato";
+            case 5 ->
+                "Ciclos Formativos / Adultos";
+            default ->
+                "Sin especificar";
+        };
+    }
+
     public Valoracion crearValoracion(
             int idUsuario,
             int idRuta,
@@ -3031,13 +3310,13 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         metodos.agregarResenna(new Resenna(comentario, LocalDate.now(), ruta, user));
 
     }
-    
+
     private void guardarValoracion() {
         Ruta ruta = seleccionarIdRuta();
         int dificultad = Validaciones.stringToInt("interes", txtDificultad.getText());
         int belleza = Validaciones.stringToInt("interes", txtBelleza.getText());
         int interes = Validaciones.stringToInt("interes", txtInteresCult.getText());
-        metodos.agregarValoracion(new Valoracion(user,ruta,LocalDate.now(),dificultad,belleza,interes));
+        metodos.agregarValoracion(new Valoracion(user, ruta, LocalDate.now(), dificultad, belleza, interes));
     }
 
     private void activarBotones() {
@@ -3166,14 +3445,14 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         txtDificultadVal.setText("");
         txtRecomendaciones.setText("");
     }
-    
+
     private void limpiarFormularioValoracion() {
         txtDificultad.setText("");
         txtBelleza.setText("");
         txtInteresCult.setText("");
     }
-    
-    private void limpiarFormularioSignIn(){
+
+    private void limpiarFormularioSignIn() {
         txtCorreo.setText("");
         txtContraseña.setText("");
     }
