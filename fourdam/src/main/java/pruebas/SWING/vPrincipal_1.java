@@ -246,6 +246,8 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         descargarRuta = new javax.swing.JButton();
         cargarRuta = new javax.swing.JButton();
         btnDescargarFicha = new javax.swing.JButton();
+        btnCargarRuta = new javax.swing.JButton();
+        btnDescargarRuta = new javax.swing.JButton();
         ModificarRutas = new javax.swing.JPanel();
         jLabel54 = new javax.swing.JLabel();
         jLabel64 = new javax.swing.JLabel();
@@ -1062,7 +1064,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                                 .addComponent(jLabel3)
                                 .addGap(34, 34, 34))))
                     .addComponent(btnDescargaF))
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(519, Short.MAX_VALUE))
         );
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1497,13 +1499,27 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             }
         });
 
+        btnCargarRuta.setText("CARGAR RUTA");
+        btnCargarRuta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCargarRutaActionPerformed(evt);
+            }
+        });
+
+        btnDescargarRuta.setText("DESCARGAR RUTA");
+        btnDescargarRuta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDescargarRutaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout VerRutasLayout = new javax.swing.GroupLayout(VerRutas);
         VerRutas.setLayout(VerRutasLayout);
         VerRutasLayout.setHorizontalGroup(
             VerRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(VerRutasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 622, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE)
                 .addGroup(VerRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(VerRutasLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -1517,9 +1533,9 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                                     .addComponent(btnValidarRuta)
                                     .addComponent(btnValorarRuta)
                                     .addComponent(btnValoracionTecRuta)
-                                    .addComponent(descargarRuta)
-                                    .addComponent(cargarRuta)
-                                    .addComponent(btnDescargarFicha))
+                                    .addComponent(btnDescargarFicha)
+                                    .addComponent(btnCargarRuta)
+                                    .addComponent(btnDescargarRuta))
                                 .addGap(144, 144, 144))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VerRutasLayout.createSequentialGroup()
                                 .addComponent(btnRegistrar)
@@ -1549,6 +1565,10 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                         .addComponent(btnValoracionTecRuta)
                         .addGap(18, 18, 18)
                         .addComponent(btnDescargarFicha)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnCargarRuta)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnDescargarRuta)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(cargarRuta)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -2480,6 +2500,21 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnDescargarFichaActionPerformed
 
+    private void btnCargarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarRutaActionPerformed
+        JFileChooser j = new JFileChooser(new File("CSV_rutas"));
+        j.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int result = j.showOpenDialog(null);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            metodos.agregarRuta(Fichero.csvToRuta(j.getSelectedFile()));
+            System.out.println("Archivo seleccionado: " + j.getSelectedFile().getAbsolutePath());
+            JOptionPane.showMessageDialog(this, "La ruta se cargo correctamente");
+        }
+    }//GEN-LAST:event_btnCargarRutaActionPerformed
+
+    private void btnDescargarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescargarRutaActionPerformed
+        Fichero.rutaToCsv(seleccionarIdRuta());
+    }//GEN-LAST:event_btnDescargarRutaActionPerformed
+
     /**
      * @param args the command line argumentsoriolfs
      */
@@ -2556,6 +2591,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private javax.swing.JPanel VerRutas;
     private javax.swing.JLabel ZonaGeograficaRuta;
     private javax.swing.JScrollPane a;
+    private javax.swing.JButton btnCargarRuta;
     private javax.swing.JButton btnCreaRuta;
     private javax.swing.JButton btnCrearRuta;
     private javax.swing.JButton btnCrearRuta1;
@@ -2565,6 +2601,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private javax.swing.JButton btnCsv2;
     private javax.swing.JButton btnDescargaF;
     private javax.swing.JButton btnDescargarFicha;
+    private javax.swing.JButton btnDescargarRuta;
     private javax.swing.JButton btnEliminarReseña;
     private javax.swing.JButton btnEliminarRuta;
     private javax.swing.JButton btnEnviarReseña;
