@@ -570,10 +570,10 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         UrlRuta.setText("IMAGEN");
         VerInfoRutas.getContentPane().add(UrlRuta, java.awt.BorderLayout.CENTER);
 
-        ReseñaRuta.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        ReseñaRuta.setTitle("Reseña");
-        ReseñaRuta.setResizable(false);
-        ReseñaRuta.setSize(new java.awt.Dimension(400, 400));
+        ResennaRuta.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        ResennaRuta.setTitle("Reseña");
+        ResennaRuta.setResizable(false);
+        ResennaRuta.setSize(new java.awt.Dimension(400, 400));
 
         jLabel51.setText("Comentario");
 
@@ -611,25 +611,25 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                     .addGroup(ResennaRutaLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnSalirReseña))
-                    .addGroup(ReseñaRutaLayout.createSequentialGroup()
+                    .addGroup(ResennaRutaLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jLabel51)
                         .addGap(42, 42, 42)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ReseñaRutaLayout.createSequentialGroup()
+                    .addGroup(ResennaRutaLayout.createSequentialGroup()
                         .addGap(162, 162, 162)
-                        .addGroup(ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(ReseñaRutaLayout.createSequentialGroup()
+                        .addGroup(ResennaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ResennaRutaLayout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(btnVerReseñas))
                             .addComponent(btnEnviarReseña, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(98, Short.MAX_VALUE))
         );
-        ReseñaRutaLayout.setVerticalGroup(
-            ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ReseñaRutaLayout.createSequentialGroup()
+        ResennaRutaLayout.setVerticalGroup(
+            ResennaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ResennaRutaLayout.createSequentialGroup()
                 .addGap(60, 60, 60)
-                .addGroup(ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ResennaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel51)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -717,8 +717,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                 .addGap(184, 184, 184))
         );
 
-
-        ListadoReseñas.setSize(new java.awt.Dimension(500, 500));
+        ListadoResennas.setSize(new java.awt.Dimension(500, 500));
 
         jScrollPane9.setViewportView(tblReseña);
 
@@ -729,15 +728,15 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout ListadoReseñasLayout = new javax.swing.GroupLayout(ListadoReseñas.getContentPane());
-        ListadoReseñas.getContentPane().setLayout(ListadoReseñasLayout);
-        ListadoReseñasLayout.setHorizontalGroup(
-            ListadoReseñasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ListadoReseñasLayout.createSequentialGroup()
+        javax.swing.GroupLayout ListadoResennasLayout = new javax.swing.GroupLayout(ListadoResennas.getContentPane());
+        ListadoResennas.getContentPane().setLayout(ListadoResennasLayout);
+        ListadoResennasLayout.setHorizontalGroup(
+            ListadoResennasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ListadoResennasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(ListadoReseñasLayout.createSequentialGroup()
+            .addGroup(ListadoResennasLayout.createSequentialGroup()
                 .addGap(175, 175, 175)
                 .addComponent(btnEliminarReseña)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -818,7 +817,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(950, 600));
         setResizable(false);
         getContentPane().setLayout(new java.awt.CardLayout());
 
@@ -2219,7 +2217,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             CreaRutas.setVisible(false);
             VerRutas.setVisible(true);
             ModificarRutas.setVisible(false);
-            ReseñaRuta.setVisible(false);
+            ResennaRuta.setVisible(false);
             ValoracionTec.setVisible(false);
             ValorarRuta.setVisible(false);
             VerInfoRutas.setVisible(true);
@@ -2335,7 +2333,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVerValoracionesActionPerformed
     /**
      * Maneja el evento de accion del boton para ver las reseñas de una ruta.
-     * invoca {@code cargaTablaReseñas()} y ajusta la visibilidad de las ventanas.
+     * invoca {@code cargaTablaResennas()} y ajusta la visibilidad de las ventanas.
      * Oculta todas las vistas excepto VerRutas, ResennaRuta y ListadoResennas.
      * Ajusta la posicion de la ventana ListadoResennas al centro de la
      * pantalla.
@@ -2538,7 +2536,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
     private void btnEliminarReseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarReseñaActionPerformed
         eliminarResSeleccionada();
-        cargaTablaReseñas();
+        cargaTablaResennas();
     }//GEN-LAST:event_btnEliminarReseñaActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
@@ -2547,7 +2545,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         CreaRutas.setVisible(false);
         VerRutas.setVisible(false);
         ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
+        ResennaRuta.setVisible(false);
         ValoracionTec.setVisible(false);
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
@@ -2573,7 +2571,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         CreaRutas.setVisible(false);
         VerRutas.setVisible(false);
         ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
+        ResennaRuta.setVisible(false);
         ValoracionTec.setVisible(false);
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
@@ -2952,7 +2950,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
      *
      * @author Rebeca Cabo Cianca
      */
-    private void cargaTablaReseñas() {
+    private void cargaTablaResennas() {
         String encabezados[] = {"", "Autor", "Ruta", "Fecha", "Comentario"};
         DefaultTableModel modelo = new DefaultTableModel(encabezados, 0);
         ArrayList<Resenna> lista = metodos.listarResennas();
