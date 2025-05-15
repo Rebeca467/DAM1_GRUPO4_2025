@@ -18,4 +18,20 @@
         <maven.compiler.target>22</maven.compiler.target>
         <exec.mainClass>reto.fourdam.Fourdam</exec.mainClass>
     </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.11.2</version>
+                <configuration>
+                    <failOnError>false</failOnError>
+                    <additionalOptions>
+                        <additionalOption>-source</additionalOption>
+                        <additionalOption>22</additionalOption>
+                    </additionalOptions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
