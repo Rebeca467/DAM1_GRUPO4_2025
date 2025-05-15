@@ -1034,23 +1034,27 @@ public class metodosDB {
      * @return El id del usuario, o 1 si no se encuentra.
      */
     public static int idUsuario(String email) {
-        String sql = "SELECT id_usuario FROM usuarios WHERE correo = ?";
-        int id = 1;
-        try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
-            ps.setString(1, email);
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    int idrs = rs.getInt("id_usuario");                    
-                        id = idrs;                    
-                } else {
-                     JOptionPane.showMessageDialog(null, "ERROR: Usuario no encontrado", "ERROR", JOptionPane.ERROR_MESSAGE);
-                }
+    String sql = "SELECT id_usuario FROM usuarios WHERE correo = ?";
+    int id = -1;
+    
+    try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
+        ps.setString(1, email);
+        try (ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                id = rs.getInt("id_usuario");
             }
-        } catch (SQLException e) {
-            System.out.println("Error al acceder a la base de datos: " + e.getMessage());
         }
-        return id;
+    } catch (SQLException e) {
+        System.out.println("Error al acceder a la base de datos: " + e.getMessage());
     }
+
+    if (id == -1) {
+        JOptionPane.showMessageDialog(null, "ERROR: Usuario no encontrado", "ERROR", JOptionPane.ERROR_MESSAGE);
+    }
+
+    return id;
+}
+
 
     // ============================================================== ENUMS ===================================================
     

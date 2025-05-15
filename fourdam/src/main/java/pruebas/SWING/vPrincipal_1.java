@@ -2186,7 +2186,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         btnDescargaF.setEnabled(false);
         btnVerRuta.setEnabled(false);
         btnSalirVerR.setEnabled(false);
-        btnRegistrar.setEnabled(false);
+        btnRegistrar.setEnabled(true);
         cargaTablaRutas();
         LogIn.setVisible(false);
         Menu.setVisible(false);
@@ -2549,8 +2549,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
      */
     private void btnCrearRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearRutaActionPerformed
         //CON ESTO TIENES EL USUARIO QUE HA INICIADO SESION
-        int userId = metodosDB.idUsuario(txtCorreo.getText());
-        Usuario autor = metodosDB.usuPorId(userId);
 
         String nombreRuta = txtNombreRuta.getText();
         String puntoInicial = txtPiniLong.getText();

@@ -179,6 +179,9 @@ public class Ruta {
         this.mediaValoracion = mediaValoracion;
     }   
 
+    public Ruta() {
+    }
+
    
     
 
