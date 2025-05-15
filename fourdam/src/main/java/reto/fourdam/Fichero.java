@@ -18,9 +18,13 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Clase para manejar la conversión de rutas a CSV y viceversa.
- *
- * @author DAM106
+ * Clase para manejar la conversion de rutas a CSV y viceversa.
+ * <p>
+ * Esta clase proporciona metodos para convertir una ruta a una cadena en formato CSV,
+ * asi como para generar un objeto Ruta a partir de un archivo CSV.
+ * </p>
+ * 
+ * @author Oriol Fernandez Saiz
  */
 public class Fichero {
 
@@ -74,7 +78,7 @@ public class Fichero {
      * @param file Archivo CSV a leer.
      * @return Objeto Ruta generado a partir del archivo.
      */
-    /*public static Ruta csvToRuta(File file) {
+    public static Ruta csvToRuta(File file) {
         Ruta ruta = new Ruta();
         List<PuntoInteres> waypoints = new ArrayList<>();
 
@@ -97,13 +101,13 @@ public class Fichero {
                 double desnivel = Double.parseDouble(parts[5]);
                 double altMax = Double.parseDouble(parts[6]);
                 double altMin = Double.parseDouble(parts[7]);
-                ClasificacionRuta clasificacion = ClasificacionRuta.valueOf(parts[8]);
+                Clasificacion_Ruta clasificacion = Clasificacion_Ruta.valueOf(parts[8]);
                 int nivelRiesgo = Integer.parseInt(parts[9]);
                 int nivelEsfuerzo = Integer.parseInt(parts[10]);
                 int tipoTerreno = Integer.parseInt(parts[11]);
                 int indicaciones = Integer.parseInt(parts[12]);
                 String nombreActividad = parts[13]; // Ahora es el nombre de la actividad
-                Set<String> temporada = Set.of(parts[14].split(","));
+                String temporada = parts[14];
                 boolean familiar = Boolean.parseBoolean(parts[15]);
                 String url = parts[16];
                 Estado estado = Estado.valueOf(parts[17]);
@@ -198,5 +202,5 @@ public class Fichero {
             return null;
         }
         return ruta;
-    }*/
+    }
 }

@@ -5,8 +5,10 @@
 package ENUMs;
 
 /**
+ * Enumerado que define los posibles estados de una ruta.
+ * Puede estar PENDIENTE o VALIDADA.
  *
- * @author DAM120
+ * @author Ciro Galan Vertiz
  */
 public enum Estado {
     PENDIENTE,VALIDADA

@@ -22,6 +22,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`actividades` (
   `nombre_actividad` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idActividades`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -39,6 +40,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`usuarios` (
   PRIMARY KEY (`id_usuario`),
   UNIQUE INDEX `correo_UNIQUE` (`correo` ASC) VISIBLE)
 ENGINE = InnoDB
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -65,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`rutas` (
   `estado` ENUM('PENDIENTE', 'VALIDADA') NOT NULL,
   `url` TEXT NOT NULL,
   `familiar` TINYINT NOT NULL,
-  `temporada` ENUM('PRIMAVERA', 'VERANO', 'OTOÑO', 'INVIERNO', 'SIEMPRE') NOT NULL,
+  `temporada` ENUM('PRIMAVERA', 'VERANO', 'OTOÑO', 'INVIERNO') NOT NULL,
   `indicaciones` TINYINT NULL DEFAULT NULL,
   `terreno` TINYINT NOT NULL,
   `esfuerzo` TINYINT NULL DEFAULT NULL,
@@ -74,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`rutas` (
   `recomendaciones` TEXT NULL DEFAULT NULL,
   `clasificacion` ENUM('CIRCULAR', 'LINEAL') NULL DEFAULT NULL,
   `nombre_inicial` VARCHAR(45) NULL DEFAULT NULL,
-  `nombre_final` VARCHAR(45) NOT NULL,
+  `nombre_final` VARCHAR(45) NULL DEFAULT NULL,
   `media_valoraciones` INT NOT NULL,
   `duracion` DOUBLE NOT NULL,
   PRIMARY KEY (`id_ruta`),
@@ -82,11 +84,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`rutas` (
   INDEX `fk_Rutas_Actividades1_idx` (`idActividades` ASC) VISIBLE,
   CONSTRAINT `fk_Rutas_Actividades1`
     FOREIGN KEY (`idActividades`)
-    REFERENCES `mydb`.`actividades` (`idActividades`),
+    REFERENCES `mydb`.`actividades` (`idActividades`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_Rutas_Usuarios1`
     FOREIGN KEY (`id_usuario`)
-    REFERENCES `mydb`.`usuarios` (`id_usuario`))
+    REFERENCES `mydb`.`usuarios` (`id_usuario`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -195,11 +202,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`reseña` (
   INDEX `fk_Reseña_Usuarios1_idx` (`id_usuario` ASC) VISIBLE,
   CONSTRAINT `fk_Reseña_Rutas1`
     FOREIGN KEY (`id_ruta`)
-    REFERENCES `mydb`.`rutas` (`id_ruta`),
+    REFERENCES `mydb`.`rutas` (`id_ruta`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_Reseña_Usuarios1`
     FOREIGN KEY (`id_usuario`)
-    REFERENCES `mydb`.`usuarios` (`id_usuario`))
+    REFERENCES `mydb`.`usuarios` (`id_usuario`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -216,17 +228,18 @@ CREATE TABLE IF NOT EXISTS `mydb`.`valoraciones` (
   `belleza` TINYINT NOT NULL,
   `interés` TINYINT NOT NULL,
   PRIMARY KEY (`idValoraciones`, `id_ruta`),
-  UNIQUE INDEX `id_usuario_UNIQUE` (`id_usuario` ASC) VISIBLE,
-  UNIQUE INDEX `Rutas_id_rutas_UNIQUE` (`id_ruta` ASC) VISIBLE,
   INDEX `fk_Valoraciones_Usuarios1_idx` (`id_usuario` ASC) VISIBLE,
   INDEX `fk_Valoraciones_Rutas1_idx` (`id_ruta` ASC) VISIBLE,
   CONSTRAINT `fk_Valoraciones_Rutas1`
     FOREIGN KEY (`id_ruta`)
-    REFERENCES `mydb`.`rutas` (`id_ruta`),
+    REFERENCES `mydb`.`rutas` (`id_ruta`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_Valoraciones_Usuarios1`
     FOREIGN KEY (`id_usuario`)
     REFERENCES `mydb`.`usuarios` (`id_usuario`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -246,11 +259,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`valoraciontecnica` (
   INDEX `fk_ValoracionTecnica_Usuarios1_idx` (`id_usuario` ASC) VISIBLE,
   CONSTRAINT `fk_ValoracionTecnica_Rutas1`
     FOREIGN KEY (`id_ruta`)
-    REFERENCES `mydb`.`rutas` (`id_ruta`),
+    REFERENCES `mydb`.`rutas` (`id_ruta`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_ValoracionTecnica_Usuarios1`
     FOREIGN KEY (`id_usuario`)
-    REFERENCES `mydb`.`usuarios` (`id_usuario`))
+    REFERENCES `mydb`.`usuarios` (`id_usuario`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
+AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 

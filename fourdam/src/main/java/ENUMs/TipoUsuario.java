@@ -5,10 +5,11 @@
 package ENUMs;
 
 /**
+ * Enumerado que define los diferentes tipos de rol que puede tener los usuarios.
+ * Incluye PROFESOR, DISENADOR, ADMINISTRADOR, ALUMNO e INVITADO.
  *
- * @author DAM120
+ * @author Ciro Galan Vertiz
  */
 public enum TipoUsuario {
     PROFESOR,DISEÑADOR,ADMINISTRADOR,ALUMNO,INVITADO
-
 }
