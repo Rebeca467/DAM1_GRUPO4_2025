@@ -431,144 +431,207 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                 .addContainerGap(326, Short.MAX_VALUE))
         );
 
-        Ruta ruta = seleccionarIdRuta();
         VerInfoRutas.setSize(new java.awt.Dimension(600, 600));
 
         jLabel24.setText("NOMBRE");
-        VerInfoRutas.getContentPane().add(jLabel24, java.awt.BorderLayout.CENTER);
 
         jLabel4.setText("USUARIO");
-        VerInfoRutas.getContentPane().add(jLabel4, java.awt.BorderLayout.PAGE_START);
 
         jLabel47.setText("RECOMENDACIONES");
-        VerInfoRutas.getContentPane().add(jLabel47, java.awt.BorderLayout.PAGE_END);
 
         RecomendacionesRuta.setText(null);
-        VerInfoRutas.getContentPane().add(RecomendacionesRuta, java.awt.BorderLayout.LINE_END);
-        VerInfoRutas.getContentPane().add(jLabel48, java.awt.BorderLayout.LINE_START);
 
         AutorRuta.setText(null);
-        VerInfoRutas.getContentPane().add(AutorRuta, java.awt.BorderLayout.CENTER);
 
         NombreRuta.setText("hola");
-        VerInfoRutas.getContentPane().add(NombreRuta, java.awt.BorderLayout.CENTER);
 
         jLabel49.setText("DESNIVEL POSITIVO");
-        VerInfoRutas.getContentPane().add(jLabel49, java.awt.BorderLayout.CENTER);
 
         jLabel33.setText("FAMILIAR");
-        VerInfoRutas.getContentPane().add(jLabel33, java.awt.BorderLayout.CENTER);
 
         jLabel34.setText("DESNIVEL NEGATIVO");
-        VerInfoRutas.getContentPane().add(jLabel34, java.awt.BorderLayout.CENTER);
 
         jLabel35.setText("RIESGO");
-        VerInfoRutas.getContentPane().add(jLabel35, java.awt.BorderLayout.CENTER);
 
         jLabel36.setText("ALTITUD MAXIMA");
-        VerInfoRutas.getContentPane().add(jLabel36, java.awt.BorderLayout.CENTER);
 
         jLabel37.setText("ALTITUD MINIMA");
-        VerInfoRutas.getContentPane().add(jLabel37, java.awt.BorderLayout.CENTER);
 
         TERRENO.setText("TERRENO");
-        VerInfoRutas.getContentPane().add(TERRENO, java.awt.BorderLayout.CENTER);
 
         jLabel38.setText("TEMPORADA");
-        VerInfoRutas.getContentPane().add(jLabel38, java.awt.BorderLayout.CENTER);
 
         jLabel39.setText("ESFUERZO");
-        VerInfoRutas.getContentPane().add(jLabel39, java.awt.BorderLayout.CENTER);
 
         jLabel40.setText("PUNTO FINAL");
-        VerInfoRutas.getContentPane().add(jLabel40, java.awt.BorderLayout.CENTER);
 
         jLabel41.setText("DISTANCIA");
-        VerInfoRutas.getContentPane().add(jLabel41, java.awt.BorderLayout.CENTER);
 
         jLabel42.setText("PUNTO INICIAL");
-        VerInfoRutas.getContentPane().add(jLabel42, java.awt.BorderLayout.CENTER);
 
         TERRENO1.setText("INDICACIONES");
-        VerInfoRutas.getContentPane().add(TERRENO1, java.awt.BorderLayout.CENTER);
 
         jLabel43.setText("ACTIVIDAD");
-        VerInfoRutas.getContentPane().add(jLabel43, java.awt.BorderLayout.CENTER);
 
         jLabel44.setText("ZONA");
-        VerInfoRutas.getContentPane().add(jLabel44, java.awt.BorderLayout.CENTER);
 
         jLabel50.setText("MEDIA DE VALORACIONES");
-        VerInfoRutas.getContentPane().add(jLabel50, java.awt.BorderLayout.CENTER);
 
         FechaCreacionRuta.setText(null);
-        VerInfoRutas.getContentPane().add(FechaCreacionRuta, java.awt.BorderLayout.CENTER);
 
         jLabel45.setText("FECHA DE CREACION");
-        VerInfoRutas.getContentPane().add(jLabel45, java.awt.BorderLayout.CENTER);
 
         DesnivelNegativoRuta.setText(null);
-        VerInfoRutas.getContentPane().add(DesnivelNegativoRuta, java.awt.BorderLayout.CENTER);
 
         DesnivelPositivoRuta.setText(null);
-        VerInfoRutas.getContentPane().add(DesnivelPositivoRuta, java.awt.BorderLayout.CENTER);
 
         ClasificacionRuta.setText(null);
-        VerInfoRutas.getContentPane().add(ClasificacionRuta, java.awt.BorderLayout.CENTER);
 
         TerrenoRuta.setText(null);
-        VerInfoRutas.getContentPane().add(TerrenoRuta, java.awt.BorderLayout.CENTER);
 
         AltitudMinimaRuta.setText(null);
-        VerInfoRutas.getContentPane().add(AltitudMinimaRuta, java.awt.BorderLayout.CENTER);
 
         AltitudMaximaRuta.setText(null);
-        VerInfoRutas.getContentPane().add(AltitudMaximaRuta, java.awt.BorderLayout.CENTER);
 
         FamiliarRuta.setText(null);
-        VerInfoRutas.getContentPane().add(FamiliarRuta, java.awt.BorderLayout.CENTER);
 
         RiesgoRuta.setText(null);
-        VerInfoRutas.getContentPane().add(RiesgoRuta, java.awt.BorderLayout.CENTER);
 
         ActividadNombreRuta.setText(null);
-        VerInfoRutas.getContentPane().add(ActividadNombreRuta, java.awt.BorderLayout.CENTER);
 
         MediaValoracionesRuta.setText(null);
-        VerInfoRutas.getContentPane().add(MediaValoracionesRuta, java.awt.BorderLayout.CENTER);
 
         ZonaGeograficaRuta.setText(null);
-        VerInfoRutas.getContentPane().add(ZonaGeograficaRuta, java.awt.BorderLayout.CENTER);
 
         TemporadaRuta.setText(null);
-        VerInfoRutas.getContentPane().add(TemporadaRuta, java.awt.BorderLayout.CENTER);
 
         IndicacionesRuta.setText(null);
-        VerInfoRutas.getContentPane().add(IndicacionesRuta, java.awt.BorderLayout.CENTER);
 
         EsfuerzoRuta.setText(null);
-        VerInfoRutas.getContentPane().add(EsfuerzoRuta, java.awt.BorderLayout.CENTER);
 
         DistanciaRuta.setText(null);
-        VerInfoRutas.getContentPane().add(DistanciaRuta, java.awt.BorderLayout.CENTER);
 
         jLabel32.setText("CLASIFICACION");
-        VerInfoRutas.getContentPane().add(jLabel32, java.awt.BorderLayout.CENTER);
 
         PuntoInicialNombreRuta.setText(null);
-        VerInfoRutas.getContentPane().add(PuntoInicialNombreRuta, java.awt.BorderLayout.CENTER);
 
         PuntoFinalNombreRuta.setText(null);
-        VerInfoRutas.getContentPane().add(PuntoFinalNombreRuta, java.awt.BorderLayout.CENTER);
 
         jLabel46.setText("DURACION");
-        VerInfoRutas.getContentPane().add(jLabel46, java.awt.BorderLayout.CENTER);
 
         DuracionRuta.setText(null);
-        VerInfoRutas.getContentPane().add(DuracionRuta, java.awt.BorderLayout.CENTER);
 
         UrlRuta.setText("IMAGEN");
-        VerInfoRutas.getContentPane().add(UrlRuta, java.awt.BorderLayout.CENTER);
+
+        javax.swing.GroupLayout VerInfoRutasLayout = new javax.swing.GroupLayout(VerInfoRutas.getContentPane());
+        VerInfoRutas.getContentPane().setLayout(VerInfoRutasLayout);
+        VerInfoRutasLayout.setHorizontalGroup(
+            VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(DesnivelNegativoRuta)
+            .addComponent(PuntoFinalNombreRuta)
+            .addComponent(PuntoInicialNombreRuta)
+            .addComponent(TerrenoRuta)
+            .addComponent(ActividadNombreRuta)
+            .addComponent(jLabel39)
+            .addComponent(ZonaGeograficaRuta)
+            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 827, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(IndicacionesRuta)
+            .addComponent(jLabel44)
+            .addComponent(AutorRuta)
+            .addComponent(DistanciaRuta)
+            .addComponent(jLabel38)
+            .addComponent(jLabel37)
+            .addComponent(jLabel40)
+            .addComponent(jLabel41)
+            .addComponent(jLabel45)
+            .addComponent(MediaValoracionesRuta)
+            .addComponent(TemporadaRuta)
+            .addComponent(jLabel32)
+            .addComponent(RiesgoRuta)
+            .addComponent(FamiliarRuta)
+            .addComponent(jLabel35)
+            .addComponent(jLabel24)
+            .addComponent(AltitudMinimaRuta)
+            .addComponent(jLabel43)
+            .addComponent(jLabel42)
+            .addComponent(FechaCreacionRuta)
+            .addComponent(AltitudMaximaRuta)
+            .addComponent(DesnivelPositivoRuta)
+            .addComponent(jLabel49)
+            .addComponent(EsfuerzoRuta)
+            .addComponent(ClasificacionRuta)
+            .addComponent(jLabel50)
+            .addComponent(TERRENO1)
+            .addComponent(jLabel34)
+            .addComponent(DuracionRuta)
+            .addComponent(jLabel36)
+            .addComponent(jLabel33)
+            .addComponent(TERRENO)
+            .addComponent(NombreRuta)
+            .addGroup(VerInfoRutasLayout.createSequentialGroup()
+                .addComponent(jLabel48)
+                .addGap(77, 77, 77)
+                .addComponent(jLabel46)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(UrlRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 757, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(RecomendacionesRuta))
+            .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 827, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        VerInfoRutasLayout.setVerticalGroup(
+            VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(VerInfoRutasLayout.createSequentialGroup()
+                .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(DesnivelNegativoRuta)
+                    .addComponent(PuntoFinalNombreRuta)
+                    .addComponent(PuntoInicialNombreRuta)
+                    .addComponent(TerrenoRuta)
+                    .addComponent(ActividadNombreRuta)
+                    .addComponent(jLabel39)
+                    .addComponent(ZonaGeograficaRuta)
+                    .addComponent(jLabel4)
+                    .addComponent(IndicacionesRuta)
+                    .addComponent(jLabel44)
+                    .addComponent(AutorRuta)
+                    .addComponent(DistanciaRuta)
+                    .addComponent(jLabel38)
+                    .addComponent(jLabel37)
+                    .addComponent(jLabel40)
+                    .addComponent(jLabel41)
+                    .addComponent(jLabel45)
+                    .addComponent(MediaValoracionesRuta)
+                    .addComponent(TemporadaRuta)
+                    .addComponent(jLabel32)
+                    .addComponent(RiesgoRuta)
+                    .addComponent(FamiliarRuta)
+                    .addComponent(jLabel35)
+                    .addComponent(jLabel24)
+                    .addComponent(AltitudMinimaRuta)
+                    .addComponent(jLabel43)
+                    .addComponent(jLabel42)
+                    .addComponent(FechaCreacionRuta)
+                    .addComponent(AltitudMaximaRuta)
+                    .addComponent(DesnivelPositivoRuta)
+                    .addComponent(jLabel49)
+                    .addComponent(EsfuerzoRuta)
+                    .addComponent(ClasificacionRuta)
+                    .addComponent(jLabel50)
+                    .addComponent(TERRENO1)
+                    .addComponent(jLabel34)
+                    .addComponent(DuracionRuta)
+                    .addComponent(jLabel36)
+                    .addComponent(jLabel33)
+                    .addComponent(TERRENO)
+                    .addComponent(NombreRuta))
+                .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(UrlRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(RecomendacionesRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(VerInfoRutasLayout.createSequentialGroup()
+                        .addGap(118, 118, 118)
+                        .addComponent(jLabel46)))
+                .addComponent(jLabel47))
+        );
 
         ResennaRuta.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         ResennaRuta.setTitle("Reseña");
