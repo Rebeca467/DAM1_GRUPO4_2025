@@ -36,15 +36,40 @@ import reto.fourdam.ValoracionTec;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 /**
+ * Clase metodosDB.
+ * <p>
+ * Esta clase contiene métodos para interactuar con la base de datos, permitiendo
+ * listar rutas, puntos, reseñas y valoraciones, así como agregar, modificar y eliminar
+ * registros. Emplea la conexion proporcionada por la clase AccesoBaseDatos y utiliza
+ * diversos metodos auxiliares para construir objetos a partir de ResultSet.
+ * </p>
  *
- * @author DAM120
+ * @author Rebeca Cabo Cianca
+ * @author Fabian Saiz Landeras
+ * @author Oriol Fernandez Saiz
+ * @author Ciro Galan Vertiz
  */
 public class metodosDB {
 
+    /**
+     * Obtiene la conexion a la base de datos.
+     *
+     * @return Objeto Connection obtenido de AccesoBaseDatos.
+     */
     private static Connection getConnection() {
         return AccesoBaseDatos.getInstance().getConn();
     }
 
+    /**
+     * Lista todas las rutas almacenadas en la base de datos.
+     * <p>
+     * Se ejecuta una consulta SQL para obtener los registros de rutas. Para
+     * cada registro se invoca el metodo {@code rutaPorId} para generar el objeto Ruta
+     * correspondiente.
+     * </p>
+     *
+     * @return ArrayList de objetos Ruta.
+     */
     public ArrayList<Ruta> listarRutas() {
         ArrayList<Ruta> rutas = new ArrayList<>();
         try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT id_ruta, id_usuario, nombre, fecha, latitud_inicial, longitud_inicial, latitud_final, longitud_final, distancia, desnivel, desnivel_positivo, desnivel_negativo, altitud_minima, altitud_maxima, estado, url, familiar, temporada, indicaciones, terreno, esfuerzo, riesgo, zona, recomendaciones, clasificacion, nombre_inicial, nombre_final, media_valoraciones, duracion FROM rutas");) {
@@ -62,7 +87,16 @@ public class metodosDB {
         return rutas;
     }
 
-    // este metodo tiene la consulta igual que listar rutas
+    /**
+     * Lista todos los puntos almacenados en la base de datos.
+     * <p>
+     * Se ejecutan dos consultas SQL: una para los puntos de interes y otra para
+     * los puntos de peligro. Para cada registro se invocan los metodos
+     * {@code crearPuntoInteres} o {@code crearPuntoPeligro}, segun corresponda.
+     * </p>
+     *
+     * @return Lista de objetos Punto.
+     */
     public List<Punto> listarPuntos() {
         List<Punto> puntos = new ArrayList<>();
         try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT idPuntos_interes, id_ruta, nombre, tipo, caracteristicas, url, longitud, latitud FROM puntos_interes");) {
@@ -92,7 +126,16 @@ public class metodosDB {
         return puntos;
     }
 
-    // este metodo tiene la consulta igual que listar rutas
+    /**
+     * Lista todas las valoraciones almacenadas en la base de datos.
+     * <p>
+     * Se ejecuta una consulta SQL para obtener los registros de valoraciones.
+     * Por cada registro se invoca el metodo {@code crearValoracion} para generar el
+     * objeto Valoracion.
+     * </p>
+     *
+     * @return ArrayList de objetos Valoracion.
+     */
     public ArrayList<Valoracion> listarValoraciones() {
         ArrayList<Valoracion> valoraciones = new ArrayList<>();
         try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT idValoraciones, id_usuario, id_ruta, fecha, dificultad, belleza, interés FROM valoraciones")) {
@@ -110,7 +153,16 @@ public class metodosDB {
         return valoraciones;
     }
 
-    // este metodo tiene la consulta igual que listar rutas
+    /**
+     * Lista todas las resennas almacenadas en la base de datos.
+     * <p>
+     * Se ejecuta una consulta SQL para obtener los registros de resennas y,
+     * para cada registro, se invoca el metodo {@code crearResenna(rs)} para generar
+     * el objeto Resenna correspondiente.
+     * </p>
+     *
+     * @return ArrayList de objetos Resenna.
+     */
     public ArrayList<Resenna> listarResennas() {
         ArrayList<Resenna> resennas = new ArrayList<>();
         try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT idReseña, comentario, fecha, id_ruta, id_usuario FROM reseña");) {
@@ -129,8 +181,16 @@ public class metodosDB {
 
     }
 
-    // este metodo tiene la consulta igual que listar rutas
-    //PREGUNTAR
+    /**
+     * Lista todas las valoraciones tecnicas almacenadas en la base de datos.
+     * <p>
+     * Se ejecuta una consulta SQL para obtener los registros de valoraciones
+     * tecnicas y, para cada registro, se invoca el metodo
+     * {@code crearValoracionTecnica(rs)} para generar el objeto ValoracionTec.
+     * </p>
+     *
+     * @return ArrayList de objetos ValoracionTec.
+     */
     public ArrayList<ValoracionTec> listarValoracionesTecnicas() {
 
         ArrayList<ValoracionTec> valoracionesTecnicas = new ArrayList<>();
@@ -149,6 +209,24 @@ public class metodosDB {
         return valoracionesTecnicas;
     }
 
+    /**
+     * Agrega una nueva ruta a la base de datos.
+     * <p>
+     * Este metodo procede con las siguientes acciones:
+     * <ol>
+     * <li>Inicia una transaccion y verifica si el usuario autor existe en la
+     * base de datos.</li>
+     * <li>Verifica si la actividad asociada a la ruta existe; de lo contrario,
+     * la crea.</li>
+     * <li>Inserta la ruta en la tabla 'rutas' utilizando un
+     * PreparedStatement.</li>
+     * <li>Confirma la transaccion si la insercion fue exitosa; en caso de
+     * error, revierte la transaccion.</li>
+     * </ol>
+     * </p>
+     *
+     * @param r Objeto Ruta que se desea agregar.
+     */
     public void agregarRuta(Ruta r) {
         Connection conn = null;
         PreparedStatement checkUserPs = null;
@@ -169,7 +247,6 @@ public class metodosDB {
             checkUserPs = conn.prepareStatement(checkUserSql);
             checkUserPs.setInt(1, r.getAutor().getId());
             userRs = checkUserPs.executeQuery();
-
 
             // Verificar si la actividad existe
             int actividadId;
@@ -302,6 +379,16 @@ public class metodosDB {
         }
     }
 
+    /**
+     * Agrega una nueva resenna a la base de datos.
+     * <p>
+     * Ejecuta una instruccion INSERT en la tabla "reseña" para insertar la
+     * reseña. Se espera que la operacion afecte a un solo registro.
+     * </p>
+     *
+     * @param r Objeto Resenna que se va a agregar.
+     * @return true si la insercion fue exitosa, false en caso contrario.
+     */
     public boolean agregarResenna(Resenna r) {
         boolean exito = false;
         String sql = "insert into reseña (comentario, fecha, id_ruta, id_usuario)values(?,?,?,?);";
@@ -328,6 +415,16 @@ public class metodosDB {
         return exito;
     }
 
+    /**
+     * Agrega una nueva valoracion tecnica a la base de datos.
+     * <p>
+     * Ejecuta una instruccion INSERT en la tabla "valoraciontecnica" para
+     * insertar la valoracion tecnica.
+     * </p>
+     *
+     * @param v Objeto ValoracionTec que se va a agregar.
+     * @return true si la insercion fue exitosa, false en caso contrario.
+     */
     public boolean agregarValoracionTecnica(ValoracionTec v) {
         boolean exito = false;
         String sql = "insert into valoraciontecnica (recomendaciones, dificultad, fecha, id_ruta, id_usuario)values(?,?,?,?,?);";
@@ -358,6 +455,17 @@ public class metodosDB {
 
     }
 
+    /**
+     * Obtiene una ruta de la base de datos por su ID.
+     * <p>
+     * Ejecuta una consulta SELECT en la tabla "rutas" usando el id
+     * proporcionado. Se invoca el metodo {@code crearRuta(rs)} para construir el
+     * objeto Ruta a partir de los datos obtenidos.
+     * </p>
+     *
+     * @param id El id de la ruta.
+     * @return Objeto Ruta que concuerda con el id, o null si no se encuentra.
+     */
     public Ruta rutaPorId(int id) {
         Ruta ruta = null;
         String sql = "SELECT id_ruta, id_usuario, nombre, fecha, latitud_inicial, longitud_inicial, latitud_final, longitud_final, distancia, desnivel, desnivel_positivo, desnivel_negativo, altitud_minima, altitud_maxima, estado, url, familiar, temporada, indicaciones, terreno, esfuerzo, riesgo, zona, recomendaciones, clasificacion, nombre_inicial, nombre_final, media_valoraciones, duracion FROM rutas WHERE id_ruta=?";
@@ -376,6 +484,18 @@ public class metodosDB {
         return ruta;
     }
 
+    /**
+     * Obtiene un punto de interes a partir de sus coordenadas.
+     * <p>
+     * Ejecuta una consulta SELECT en la tabla "puntos_interes" donde se
+     * comparan la longitud y latitud.
+     * </p>
+     *
+     * @param longitud La longitud del punto.
+     * @param latitud La latitud del punto.
+     * @return Objeto PuntoInteres que concuerda con las coordenadas, o null si
+     * no se encuentra.
+     */
     public PuntoInteres pInteresPorCoordenadas(double longitud, double latitud) {
         PuntoInteres punto = null;
         String sql = "SELECT idPuntos_interes, id_ruta, nombre, tipo, caracteristicas, url, longitud, latitud FROM puntos_interes WHERE longitud=? AND latitud=?";
@@ -396,6 +516,18 @@ public class metodosDB {
 
     }
 
+    /**
+     * Obtiene un punto de peligro a partir de sus coordenadas.
+     * <p>
+     * Ejecuta una consulta SELECT en la tabla "puntos_peligro" donde se
+     * comparan la longitud y latitud.
+     * </p>
+     *
+     * @param longitud La longitud del punto.
+     * @param latitud La latitud del punto.
+     * @return Objeto PuntoPeligro que concuerda con las coordenadas, o null si
+     * no se encuentra.
+     */
     public PuntoPeligro pPeligroPorCoordenadas(double longitud, double latitud) {
         PuntoPeligro punto = null;
         String sql = "SELECT idPuntos_peligro, id_ruta, descripcion, km, imagen, longitud, latitud FROM puntos_peligro WHERE longitud=? AND latitud=?";
@@ -416,6 +548,17 @@ public class metodosDB {
 
     }
 
+    /**
+     * Obtiene un usuario a partir de su id.
+     * <p>
+     * Ejecuta una consulta SELECT en la tabla "usuarios" donde se busca el
+     * usuario con el id especificado.
+     * </p>
+     *
+     * @param id El id del usuario.
+     * @return Objeto Usuario que concuerda con el id, o null si no se
+     * encuentra.
+     */
     public static Usuario usuPorId(int id) {
         Usuario usuario = null;
         String sql = "SELECT id_usuario,nombre,apellidos,correo,contraseña,rol FROM usuarios WHERE id_usuario=?";
@@ -434,6 +577,18 @@ public class metodosDB {
         return usuario;
     }
 
+    /**
+     * Elimina una resenna de la base de datos identificada por su id.
+     * <p>
+     * Ejecuta una instruccion DELETE en la tabla "reseñas" donde se elimina la
+     * reseña con el id proporcionado.
+     * </p>
+     *
+     * @param k El id de la resenna a eliminar.
+     * @param r Objeto Ruta del cual se elimina la resenna (parametro no
+     * utilizado).
+     * @return true si la eliminacion fue exitosa, false en caso contrario.
+     */
     public boolean eliminarRuta(int k, Ruta r) {
         boolean exito = false;
         int resultado = -1;
@@ -452,6 +607,17 @@ public class metodosDB {
         return exito;
     }
 
+    /**
+     * Elimina una reseña de la base de datos.
+     * <p>
+     * Ejecuta una instruccion DELETE en la tabla "reseñas" para eliminar la
+     * reseña que tenga el id especificado.
+     * </p>
+     *
+     * @param k El id de la resenna a eliminar.
+     * @param r Objeto Resenna (parametro no utilizado en la consulta).
+     * @return true si la eliminacion fue exitosa, false en caso contrario.
+     */
     public boolean eliminarResenna(int k, Resenna r) {
         boolean exito = false;
         int resultado = -1;
@@ -469,7 +635,16 @@ public class metodosDB {
         }
         return exito;
     }
-
+    /**
+     * Modifica una ruta en la base de datos.
+     * <p>
+     * Ejecuta una instruccion UPDATE en la tabla "rutas" para actualizar los
+     * datos de la ruta identificada por su id.
+     * </p>
+     *
+     * @param k El id de la ruta a modificar.
+     * @param r Objeto Ruta con los nuevos datos.
+     */
     public void modificarRuta(int k, Ruta r) {
 
         String sql = "update rutas set nombre=?, fecha=?,"
@@ -505,7 +680,20 @@ public class metodosDB {
         }
 
     }
-
+    /**
+     * Modifica un punto de interes en la base de datos.
+     * <p>
+     * Ejecuta una instruccion UPDATE en la tabla "puntos_interes", actualizando
+     * la url, el tipo y las caracteristicas del punto que se identifica por su
+     * longitud y latitud.
+     * </p>
+     *
+     * @param latitud La latitud del punto.
+     * @param longitud La longitud del punto.
+     * @param imagen La nueva url o ruta de la imagen.
+     * @param tipo El nuevo tipo de punto de interes.
+     * @param caracteristicasEsp Las nuevas caracteristicas especiales.
+     */
     public void modificarPuntoInteres(double latitud, double longitud, String imagen, TipoPInteres tipo, String caracteristicasEsp) {
         String sql = "UPDATE puntos_interes SET url = ?, tipo = ?, caracteristicas = ? WHERE longitud = ? AND latitud = ?";
 
@@ -521,7 +709,22 @@ public class metodosDB {
 
         }
     }
-
+    /**
+     * Modifica un punto de peligro en la base de datos.
+     * <p>
+     * Ejecuta una instruccion UPDATE en la tabla "puntos_peligro", actualizando
+     * la url, los kilometros, el nivel de gravedad y la descripcion
+     * (justificacion) del punto, identificandolo mediante su longitud y
+     * latitud.
+     * </p>
+     *
+     * @param latitud La latitud del punto.
+     * @param longitud La longitud del punto.
+     * @param imagen La nueva url o ruta de la imagen.
+     * @param km Los nuevos kilometros asociados.
+     * @param nivelgravedad El nuevo nivel de gravedad.
+     * @param justificacion La nueva justificacion o descripcion.
+     */
     public void modificarPuntoPeligro(double latitud, double longitud, String imagen, int km, int nivelgravedad, String justificacion) {
         String sql = "UPDATE puntos_peligro SET url = ?, km = ?, nivelgravedad = ?, descripcion = ? WHERE longitud = ? AND latitud = ?";
 
@@ -537,7 +740,17 @@ public class metodosDB {
             JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
         }
     }
-
+    /**
+     * Crea un objeto Ruta a partir de un ResultSet.
+     * <p>
+     * Extrae los datos de la consulta y construye una instancia de Ruta,
+     * utilizando tambien el metodo 'usuPorId' para obtener el usuario autor.
+     * </p>
+     *
+     * @param rs ResultSet que contiene los datos de la ruta.
+     * @return Objeto Ruta construido a partir de los datos.
+     * @throws SQLException Si ocurre un error en la extraccion de datos.
+     */
     private Ruta crearRuta(final ResultSet rs) throws SQLException {
         return new Ruta(
                 rs.getInt("id_ruta"),
@@ -577,7 +790,18 @@ public class metodosDB {
         );
     }
 
-    // si hay numeros es porque se pueden pedir datos por index
+    /**
+     * Crea un objeto Usuario a partir de un ResultSet.
+     * <p>
+     * Determina el tipo de usuario mediante el metodo 'verificaUsuario' y segun
+     * el valor, construye el objeto correspondiente (Alumno, DisennadorRuta,
+     * Profesor o Administrador).
+     * </p>
+     *
+     * @param rs ResultSet que contiene los datos del usuario.
+     * @return Objeto Usuario construido a partir de los datos.
+     * @throws SQLException Si ocurre un error en la extraccion de datos.
+     */
     private static Usuario crearUsuario(final ResultSet rs) throws SQLException {
         Usuario u = null;
 
@@ -602,7 +826,15 @@ public class metodosDB {
         }
         return u;
     }
-
+    /**
+     * Agrega una nueva valoracion a la base de datos.
+     * <p>
+     * Ejecuta una instruccion INSERT en la tabla "valoraciones" para insertar
+     * la valoracion. Se espera que la operacion afecte a un solo registro.
+     * </p>
+     *
+     * @param v Objeto Valoracion que se va a agregar.
+     */
     public void agregarValoracion(Valoracion v) {
 
         String sql = "insert into valoraciones(id_usuario,id_ruta,fecha,dificultad,belleza,interés) values (?,?,?,?,?,?);";
@@ -625,7 +857,18 @@ public class metodosDB {
         }
     }
 
-    //USAR EN 'CREARRUTA'
+    /**
+     * Crea un objeto PuntoPeligro a partir de un ResultSet.
+     * <p>
+     * Extrae los datos del ResultSet y construye una instancia de PuntoPeligro,
+     * utilizando los campos "latitud", "longitud", "imagen", "km",
+     * "nivelgravedad" y "justificacion".
+     * </p>
+     *
+     * @param rs ResultSet que contiene los datos del punto de peligro.
+     * @return Objeto PuntoPeligro construido a partir de los datos.
+     * @throws SQLException Si ocurre un error en la extraccion de datos.
+     */
     private PuntoPeligro crearPuntoPeligro(final ResultSet rs) throws SQLException {
         return new PuntoPeligro(
                 rs.getDouble("latitud"),
@@ -636,7 +879,18 @@ public class metodosDB {
                 rs.getString("justificacion")
         );
     }
-
+    /**
+     * Crea una objeto Valoracion a partir de un ResultSet.
+     * <p>
+     * Se obtiene el usuario y la ruta mediante los metodos usuPorId y
+     * rutaPorId, respectivamente.
+     * </p>
+     *
+     * @param rs ResultSet que contiene los datos de la valoracion.
+     * @return Objeto Valoracion construido a partir de los datos, o null si el
+     * usuario o la ruta son null.
+     * @throws SQLException Si ocurre un error en la extraccion de datos.
+     */
     public Valoracion crearValoracion(final ResultSet rs) throws SQLException {
         Usuario usuario = usuPorId(rs.getInt("id_usuario"));
         Ruta ruta = rutaPorId(rs.getInt("id_ruta"));
@@ -653,7 +907,17 @@ public class metodosDB {
         }
         return null;
     }
-
+    /**
+     * Crea un objeto Resenna a partir de un ResultSet.
+     * <p>
+     * Extrae el comentario, la fecha, y utiliza los metodos rutaPorId y
+     * usuPorId para obtener la ruta y el usuario asociados a la reseña.
+     * </p>
+     *
+     * @param rs ResultSet que contiene los datos de la resenna.
+     * @return Objeto Resenna construido a partir de los datos.
+     * @throws SQLException Si ocurre un error en la extraccion de datos.
+     */
     private Resenna crearResenna(final ResultSet rs) throws SQLException {
 
         return new Resenna(
@@ -664,7 +928,19 @@ public class metodosDB {
         );
 
     }
-
+    /**
+     * Crea un objeto ValoracionTec a partir de un ResultSet.
+     * <p>
+     * Obtiene el usuario y la ruta mediante los metodos usuPorId y rutaPorId.
+     * Posteriormente, extrae el campo "dificultad", "recomendaciones" y la
+     * fecha para construir el objeto.
+     * </p>
+     *
+     * @param rs ResultSet que contiene los datos de la valoracion tecnica.
+     * @return Objeto ValoracionTec construido a partir de los datos, o null si
+     * el usuario o la ruta son null.
+     * @throws SQLException Si ocurre un error en la extraccion de datos.
+     */
     private ValoracionTec crearValoracionTecnica(final ResultSet rs) throws SQLException {
         Usuario usuario = usuPorId(rs.getInt("id_usuario"));
         Ruta ruta = rutaPorId(rs.getInt("id_ruta"));
@@ -680,7 +956,18 @@ public class metodosDB {
         }
         return null;
     }
-
+    /**
+     * Verifica el rol de un usuario a partir de su correo y contrasena.
+     * <p>
+     * Ejecuta una consulta SELECT en la tabla "usuarios" y, si el usuario es
+     * encontrado, retorna su rol como un valor del enum TipoUsuario.
+     * </p>
+     *
+     * @param email El correo del usuario.
+     * @param password La contrasena del usuario.
+     * @return El TipoUsuario correspondiente, o null si no se encuentra o hay
+     * error.
+     */
     public static TipoUsuario verificaUsuario(String email, String password) {
         String sql = "SELECT rol FROM usuarios WHERE correo = ? AND contraseña = ?";
 
@@ -707,7 +994,18 @@ public class metodosDB {
         }
         return rol;
     }
-
+    /**
+     * Crea un objeto PuntoInteres a partir de un ResultSet.
+     * <p>
+     * Extrae los datos "latitud", "longitud", "imagen", "tipo" y
+     * "caracteristicasEsp" del ResultSet para construir una instancia de
+     * PuntoInteres.
+     * </p>
+     *
+     * @param rs ResultSet que contiene los datos del punto de interes.
+     * @return Objeto PuntoInteres construido a partir de los datos.
+     * @throws SQLException Si ocurre un error en la extraccion de datos.
+     */
     private PuntoInteres crearPuntoInteres(final ResultSet rs) throws SQLException {
         return new PuntoInteres(
                 rs.getDouble("latitud"),
@@ -717,7 +1015,16 @@ public class metodosDB {
                 rs.getString("caracteristicasEsp")
         );
     }
-
+    /**
+     * Obtiene el id de un usuario a partir de su correo electronico.
+     * <p>
+     * Ejecuta una consulta SELECT en la tabla "usuarios" para obtener el
+     * id_usuario y retorna dicho valor.
+     * </p>
+     *
+     * @param email El correo electronico del usuario.
+     * @return El id del usuario, o 1 si no se encuentra.
+     */
     public static int idUsuario(String email) {
         String sql = "SELECT id_usuario FROM usuarios WHERE correo = ?";
         int id = 1;
@@ -743,6 +1050,12 @@ public class metodosDB {
     }
 
     // ============================================================== ENUMS ===================================================
+    
+    /**
+     * Retorna una lista de cadenas con los valores del enum Clasificacion_Ruta.
+     *
+     * @return ArrayList con los nombres de las clasificaciones.
+     */
     public static ArrayList<String> Clasificacion() {
         ArrayList<String> lista = new ArrayList<>();
         for (Clasificacion_Ruta c : Clasificacion_Ruta.values()) {
@@ -751,6 +1064,11 @@ public class metodosDB {
         return lista;
     }
 
+    /**
+     * Retorna una lista de cadenas con los valores del enum Estado.
+     *
+     * @return ArrayList con los nombres de los estados.
+     */
     public static ArrayList<String> Estado() {
         ArrayList<String> lista = new ArrayList<>();
         for (Estado e : Estado.values()) {
@@ -758,7 +1076,11 @@ public class metodosDB {
         }
         return lista;
     }
-
+    /**
+     * Retorna una lista de cadenas con los valores del enum Temporada.
+     *
+     * @return ArrayList con los nombres de las temporadas.
+     */
     public static ArrayList<String> Temporada() {
         ArrayList<String> lista = new ArrayList<>();
         for (Temporada t : Temporada.values()) {
@@ -766,5 +1088,4 @@ public class metodosDB {
         }
         return lista;
     }
-
 }

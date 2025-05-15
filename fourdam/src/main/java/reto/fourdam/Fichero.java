@@ -18,9 +18,13 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Clase para manejar la conversión de rutas a CSV y viceversa.
- *
- * @author DAM106
+ * Clase para manejar la conversion de rutas a CSV y viceversa.
+ * <p>
+ * Esta clase proporciona metodos para convertir una ruta a una cadena en formato CSV,
+ * asi como para generar un objeto Ruta a partir de un archivo CSV.
+ * </p>
+ * 
+ * @author Oriol Fernandez Saiz
  */
 public class Fichero {
 

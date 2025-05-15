@@ -5,8 +5,10 @@
 package ENUMs;
 
 /**
+ * Enumerado que define las estaciones en las que puedes realizar rutas.
+ * Incluye VERANO, INVIERNO, OTONIO y PRIMAVERA.
  *
- * @author DAM120
+ * @author Ciro Galan Vertiz
  */
 public enum Temporada {
     VERANO,INVIERNO,OTONIO,PRIMAVERA

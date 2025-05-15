@@ -40,8 +40,14 @@ import validaciones.Teclado;
 import validaciones.Validaciones;
 
 /**
- *
- * @author DAM106
+ * Cuenta con un atributo metodosDB que crea una nueva instancia para utilizar los metodos
+ * de conexion que le permiten conectarse con la base de datos, y otro atributo Usuario
+ * en el que se almacena la informacion del usuario que inicia sesion en la aplicacion.
+ * 
+ * @author Rebeca Cabo Cianca
+ * @author Oriol Fernández Saiz
+ * @author Fabian Saiz Landeras
+ * @author Ciro Galan Vertiz
  */
 public class vPrincipal_1 extends javax.swing.JFrame {
 
@@ -58,7 +64,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         CreaRutas.setVisible(false);
         VerRutas.setVisible(false);
         ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
+        ResennaRuta.setVisible(false);
         ValoracionTec.setVisible(false);
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
@@ -140,7 +146,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         jLabel46 = new javax.swing.JLabel();
         DuracionRuta = new javax.swing.JLabel();
         UrlRuta = new javax.swing.JLabel();
-        ReseñaRuta = new javax.swing.JDialog();
+        ResennaRuta = new javax.swing.JDialog();
         jLabel51 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtComentario = new javax.swing.JTextArea();
@@ -157,7 +163,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         btnValTec = new javax.swing.JButton();
         btnSalirVT = new javax.swing.JButton();
         btnVTecnicas = new javax.swing.JButton();
-        ListadoReseñas = new javax.swing.JDialog();
+        ListadoResennas = new javax.swing.JDialog();
         jScrollPane9 = new javax.swing.JScrollPane();
         tblReseña = new javax.swing.JTable();
         ListadoVTecnica = new javax.swing.JDialog();
@@ -400,145 +406,145 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         VerInfoRutas.setSize(new java.awt.Dimension(600, 600));
 
         jLabel24.setText("NOMBRE");
-        VerInfoRutas.getContentPane().add(jLabel24);
+        VerInfoRutas.getContentPane().add(jLabel24, java.awt.BorderLayout.CENTER);
 
         jLabel4.setText("USUARIO");
-        VerInfoRutas.getContentPane().add(jLabel4);
+        VerInfoRutas.getContentPane().add(jLabel4, java.awt.BorderLayout.PAGE_START);
 
         jLabel47.setText("RECOMENDACIONES");
-        VerInfoRutas.getContentPane().add(jLabel47);
+        VerInfoRutas.getContentPane().add(jLabel47, java.awt.BorderLayout.PAGE_END);
 
         RecomendacionesRuta.setText(null);
-        VerInfoRutas.getContentPane().add(RecomendacionesRuta);
-        VerInfoRutas.getContentPane().add(jLabel48);
+        VerInfoRutas.getContentPane().add(RecomendacionesRuta, java.awt.BorderLayout.LINE_END);
+        VerInfoRutas.getContentPane().add(jLabel48, java.awt.BorderLayout.LINE_START);
 
         AutorRuta.setText(null);
-        VerInfoRutas.getContentPane().add(AutorRuta);
+        VerInfoRutas.getContentPane().add(AutorRuta, java.awt.BorderLayout.CENTER);
 
         NombreRuta.setText("hola");
-        VerInfoRutas.getContentPane().add(NombreRuta);
+        VerInfoRutas.getContentPane().add(NombreRuta, java.awt.BorderLayout.CENTER);
 
         jLabel49.setText("DESNIVEL POSITIVO");
-        VerInfoRutas.getContentPane().add(jLabel49);
+        VerInfoRutas.getContentPane().add(jLabel49, java.awt.BorderLayout.CENTER);
 
         jLabel33.setText("FAMILIAR");
-        VerInfoRutas.getContentPane().add(jLabel33);
+        VerInfoRutas.getContentPane().add(jLabel33, java.awt.BorderLayout.CENTER);
 
         jLabel34.setText("DESNIVEL NEGATIVO");
-        VerInfoRutas.getContentPane().add(jLabel34);
+        VerInfoRutas.getContentPane().add(jLabel34, java.awt.BorderLayout.CENTER);
 
         jLabel35.setText("RIESGO");
-        VerInfoRutas.getContentPane().add(jLabel35);
+        VerInfoRutas.getContentPane().add(jLabel35, java.awt.BorderLayout.CENTER);
 
         jLabel36.setText("ALTITUD MAXIMA");
-        VerInfoRutas.getContentPane().add(jLabel36);
+        VerInfoRutas.getContentPane().add(jLabel36, java.awt.BorderLayout.CENTER);
 
         jLabel37.setText("ALTITUD MINIMA");
-        VerInfoRutas.getContentPane().add(jLabel37);
+        VerInfoRutas.getContentPane().add(jLabel37, java.awt.BorderLayout.CENTER);
 
         TERRENO.setText("TERRENO");
-        VerInfoRutas.getContentPane().add(TERRENO);
+        VerInfoRutas.getContentPane().add(TERRENO, java.awt.BorderLayout.CENTER);
 
         jLabel38.setText("TEMPORADA");
-        VerInfoRutas.getContentPane().add(jLabel38);
+        VerInfoRutas.getContentPane().add(jLabel38, java.awt.BorderLayout.CENTER);
 
         jLabel39.setText("ESFUERZO");
-        VerInfoRutas.getContentPane().add(jLabel39);
+        VerInfoRutas.getContentPane().add(jLabel39, java.awt.BorderLayout.CENTER);
 
         jLabel40.setText("PUNTO FINAL");
-        VerInfoRutas.getContentPane().add(jLabel40);
+        VerInfoRutas.getContentPane().add(jLabel40, java.awt.BorderLayout.CENTER);
 
         jLabel41.setText("DISTANCIA");
-        VerInfoRutas.getContentPane().add(jLabel41);
+        VerInfoRutas.getContentPane().add(jLabel41, java.awt.BorderLayout.CENTER);
 
         jLabel42.setText("PUNTO INICIAL");
-        VerInfoRutas.getContentPane().add(jLabel42);
+        VerInfoRutas.getContentPane().add(jLabel42, java.awt.BorderLayout.CENTER);
 
         TERRENO1.setText("INDICACIONES");
-        VerInfoRutas.getContentPane().add(TERRENO1);
+        VerInfoRutas.getContentPane().add(TERRENO1, java.awt.BorderLayout.CENTER);
 
         jLabel43.setText("ACTIVIDAD");
-        VerInfoRutas.getContentPane().add(jLabel43);
+        VerInfoRutas.getContentPane().add(jLabel43, java.awt.BorderLayout.CENTER);
 
         jLabel44.setText("ZONA");
-        VerInfoRutas.getContentPane().add(jLabel44);
+        VerInfoRutas.getContentPane().add(jLabel44, java.awt.BorderLayout.CENTER);
 
         jLabel50.setText("MEDIA DE VALORACIONES");
-        VerInfoRutas.getContentPane().add(jLabel50);
+        VerInfoRutas.getContentPane().add(jLabel50, java.awt.BorderLayout.CENTER);
 
         FechaCreacionRuta.setText(null);
-        VerInfoRutas.getContentPane().add(FechaCreacionRuta);
+        VerInfoRutas.getContentPane().add(FechaCreacionRuta, java.awt.BorderLayout.CENTER);
 
         jLabel45.setText("FECHA DE CREACION");
-        VerInfoRutas.getContentPane().add(jLabel45);
+        VerInfoRutas.getContentPane().add(jLabel45, java.awt.BorderLayout.CENTER);
 
         DesnivelNegativoRuta.setText(null);
-        VerInfoRutas.getContentPane().add(DesnivelNegativoRuta);
+        VerInfoRutas.getContentPane().add(DesnivelNegativoRuta, java.awt.BorderLayout.CENTER);
 
         DesnivelPositivoRuta.setText(null);
-        VerInfoRutas.getContentPane().add(DesnivelPositivoRuta);
+        VerInfoRutas.getContentPane().add(DesnivelPositivoRuta, java.awt.BorderLayout.CENTER);
 
         ClasificacionRuta.setText(null);
-        VerInfoRutas.getContentPane().add(ClasificacionRuta);
+        VerInfoRutas.getContentPane().add(ClasificacionRuta, java.awt.BorderLayout.CENTER);
 
         TerrenoRuta.setText(null);
-        VerInfoRutas.getContentPane().add(TerrenoRuta);
+        VerInfoRutas.getContentPane().add(TerrenoRuta, java.awt.BorderLayout.CENTER);
 
         AltitudMinimaRuta.setText(null);
-        VerInfoRutas.getContentPane().add(AltitudMinimaRuta);
+        VerInfoRutas.getContentPane().add(AltitudMinimaRuta, java.awt.BorderLayout.CENTER);
 
         AltitudMaximaRuta.setText(null);
-        VerInfoRutas.getContentPane().add(AltitudMaximaRuta);
+        VerInfoRutas.getContentPane().add(AltitudMaximaRuta, java.awt.BorderLayout.CENTER);
 
         FamiliarRuta.setText(null);
-        VerInfoRutas.getContentPane().add(FamiliarRuta);
+        VerInfoRutas.getContentPane().add(FamiliarRuta, java.awt.BorderLayout.CENTER);
 
         RiesgoRuta.setText(null);
-        VerInfoRutas.getContentPane().add(RiesgoRuta);
+        VerInfoRutas.getContentPane().add(RiesgoRuta, java.awt.BorderLayout.CENTER);
 
         ActividadNombreRuta.setText(null);
-        VerInfoRutas.getContentPane().add(ActividadNombreRuta);
+        VerInfoRutas.getContentPane().add(ActividadNombreRuta, java.awt.BorderLayout.CENTER);
 
         MediaValoracionesRuta.setText(null);
-        VerInfoRutas.getContentPane().add(MediaValoracionesRuta);
+        VerInfoRutas.getContentPane().add(MediaValoracionesRuta, java.awt.BorderLayout.CENTER);
 
         ZonaGeograficaRuta.setText(null);
-        VerInfoRutas.getContentPane().add(ZonaGeograficaRuta);
+        VerInfoRutas.getContentPane().add(ZonaGeograficaRuta, java.awt.BorderLayout.CENTER);
 
         TemporadaRuta.setText(null);
-        VerInfoRutas.getContentPane().add(TemporadaRuta);
+        VerInfoRutas.getContentPane().add(TemporadaRuta, java.awt.BorderLayout.CENTER);
 
         IndicacionesRuta.setText(null);
-        VerInfoRutas.getContentPane().add(IndicacionesRuta);
+        VerInfoRutas.getContentPane().add(IndicacionesRuta, java.awt.BorderLayout.CENTER);
 
         EsfuerzoRuta.setText(null);
-        VerInfoRutas.getContentPane().add(EsfuerzoRuta);
+        VerInfoRutas.getContentPane().add(EsfuerzoRuta, java.awt.BorderLayout.CENTER);
 
         DistanciaRuta.setText(null);
-        VerInfoRutas.getContentPane().add(DistanciaRuta);
+        VerInfoRutas.getContentPane().add(DistanciaRuta, java.awt.BorderLayout.CENTER);
 
         jLabel32.setText("CLASIFICACION");
-        VerInfoRutas.getContentPane().add(jLabel32);
+        VerInfoRutas.getContentPane().add(jLabel32, java.awt.BorderLayout.CENTER);
 
         PuntoInicialNombreRuta.setText(null);
-        VerInfoRutas.getContentPane().add(PuntoInicialNombreRuta);
+        VerInfoRutas.getContentPane().add(PuntoInicialNombreRuta, java.awt.BorderLayout.CENTER);
 
         PuntoFinalNombreRuta.setText(null);
-        VerInfoRutas.getContentPane().add(PuntoFinalNombreRuta);
+        VerInfoRutas.getContentPane().add(PuntoFinalNombreRuta, java.awt.BorderLayout.CENTER);
 
         jLabel46.setText("DURACION");
-        VerInfoRutas.getContentPane().add(jLabel46);
+        VerInfoRutas.getContentPane().add(jLabel46, java.awt.BorderLayout.CENTER);
 
         DuracionRuta.setText(null);
-        VerInfoRutas.getContentPane().add(DuracionRuta);
+        VerInfoRutas.getContentPane().add(DuracionRuta, java.awt.BorderLayout.CENTER);
 
         UrlRuta.setText("jLabel47");
-        VerInfoRutas.getContentPane().add(UrlRuta);
+        VerInfoRutas.getContentPane().add(UrlRuta, java.awt.BorderLayout.CENTER);
 
-        ReseñaRuta.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        ReseñaRuta.setTitle("Reseña");
-        ReseñaRuta.setResizable(false);
-        ReseñaRuta.setSize(new java.awt.Dimension(500, 500));
+        ResennaRuta.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        ResennaRuta.setTitle("Reseña");
+        ResennaRuta.setResizable(false);
+        ResennaRuta.setSize(new java.awt.Dimension(500, 500));
 
         jLabel51.setText("Comentario");
 
@@ -574,40 +580,40 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout ReseñaRutaLayout = new javax.swing.GroupLayout(ReseñaRuta.getContentPane());
-        ReseñaRuta.getContentPane().setLayout(ReseñaRutaLayout);
-        ReseñaRutaLayout.setHorizontalGroup(
-            ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ReseñaRutaLayout.createSequentialGroup()
-                .addGroup(ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ReseñaRutaLayout.createSequentialGroup()
+        javax.swing.GroupLayout ResennaRutaLayout = new javax.swing.GroupLayout(ResennaRuta.getContentPane());
+        ResennaRuta.getContentPane().setLayout(ResennaRutaLayout);
+        ResennaRutaLayout.setHorizontalGroup(
+            ResennaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ResennaRutaLayout.createSequentialGroup()
+                .addGroup(ResennaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ResennaRutaLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnSalirReseña))
-                    .addGroup(ReseñaRutaLayout.createSequentialGroup()
+                    .addGroup(ResennaRutaLayout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(jLabel51)
                         .addGap(42, 42, 42)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(96, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ReseñaRutaLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ResennaRutaLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ReseñaRutaLayout.createSequentialGroup()
-                        .addGroup(ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(ReseñaRutaLayout.createSequentialGroup()
+                .addGroup(ResennaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ResennaRutaLayout.createSequentialGroup()
+                        .addGroup(ResennaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ResennaRutaLayout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(btnVerReseñas))
                             .addComponent(btnEnviarReseña, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(166, 166, 166))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ReseñaRutaLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ResennaRutaLayout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addGap(187, 187, 187))))
         );
-        ReseñaRutaLayout.setVerticalGroup(
-            ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ReseñaRutaLayout.createSequentialGroup()
+        ResennaRutaLayout.setVerticalGroup(
+            ResennaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ResennaRutaLayout.createSequentialGroup()
                 .addGap(96, 96, 96)
-                .addGroup(ReseñaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ResennaRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel51)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -697,22 +703,22 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                 .addGap(184, 184, 184))
         );
 
-        ListadoReseñas.setSize(new java.awt.Dimension(600, 600));
+        ListadoResennas.setSize(new java.awt.Dimension(600, 600));
 
         jScrollPane9.setViewportView(tblReseña);
 
-        javax.swing.GroupLayout ListadoReseñasLayout = new javax.swing.GroupLayout(ListadoReseñas.getContentPane());
-        ListadoReseñas.getContentPane().setLayout(ListadoReseñasLayout);
-        ListadoReseñasLayout.setHorizontalGroup(
-            ListadoReseñasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ListadoReseñasLayout.createSequentialGroup()
+        javax.swing.GroupLayout ListadoResennasLayout = new javax.swing.GroupLayout(ListadoResennas.getContentPane());
+        ListadoResennas.getContentPane().setLayout(ListadoResennasLayout);
+        ListadoResennasLayout.setHorizontalGroup(
+            ListadoResennasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ListadoResennasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        ListadoReseñasLayout.setVerticalGroup(
-            ListadoReseñasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ListadoReseñasLayout.createSequentialGroup()
+        ListadoResennasLayout.setVerticalGroup(
+            ListadoResennasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ListadoResennasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
                 .addContainerGap())
@@ -1108,7 +1114,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             .addGroup(CreaRutasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnSalirCrearR)
-                .addGap(0, 869, Short.MAX_VALUE))
+                .addGap(0, 812, Short.MAX_VALUE))
         );
         CreaRutasLayout.setVerticalGroup(
             CreaRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1643,7 +1649,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         CreaRutas.setVisible(false);
         VerRutas.setVisible(true);
         ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
+        ResennaRuta.setVisible(false);
         ValoracionTec.setVisible(false);
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
@@ -1656,7 +1662,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         CreaRutas.setVisible(false);
         VerRutas.setVisible(true);
         ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
+        ResennaRuta.setVisible(false);
         ValoracionTec.setVisible(false);
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
@@ -1694,7 +1700,17 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
         }
     }//GEN-LAST:event_btnValorarMouseClicked
-
+    /**
+     * Maneja el evento de accion del boton para crear una ruta. Carga los
+     * combos de estado {@code cargaCmbEstado()}, temporada
+     * {@code cargaCmbTemporada()} y clasificacion
+     * {@code cargaCmbClasificacion()}. Oculta todas las vistas excepto la de
+     * creacion de rutas.
+     *
+     * @param evt Objeto de evento de accion
+     * @author Rebeca Cabo Cianca
+     * @author Oriol Fernandez Saiz
+     */
     private void btnCreaRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreaRutaActionPerformed
         cargaCmbEstado();
         cargaCmbTemporada();
@@ -1704,29 +1720,45 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         CreaRutas.setVisible(true);
         VerRutas.setVisible(false);
         ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
+        ResennaRuta.setVisible(false);
         ValoracionTec.setVisible(false);
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnCreaRutaActionPerformed
-
+    /**
+     * Maneja el evento de accion del boton para ver una ruta. Carga la tabla de
+     * rutas {@code cargaTablaRutas()} y ajusta el ancho de la primera columna.
+     * Oculta todas las vistas excepto la de VerRutas.
+     *
+     * @param evt Objeto de evento de accion
+     * @author Rebeca Cabo Cianca
+     * @author Oriol Fernandez Saiz
+     */
     private void btnVerRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerRutaActionPerformed
         cargaTablaRutas();
-        // ancho columna
         tblRutas.getColumnModel().getColumn(0).setPreferredWidth(0);
         LogIn.setVisible(false);
         Menu.setVisible(false);
         CreaRutas.setVisible(false);
         VerRutas.setVisible(true);
         ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
+        ResennaRuta.setVisible(false);
         ValoracionTec.setVisible(false);
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnVerRutaActionPerformed
-
+    /**
+     * Maneja el evento de accion del boton para el modo invitado. Configura la
+     * accesibilidad de los botones segun el rol invitado. Oculta todas las
+     * vistas excepto la de VerRutas.
+     * Llama al metodo {@code cargaTablaRutas()}.
+     * 
+     * @param evt Objeto de evento de accion
+     * @author Rebeca Cabo Cianca
+     * @author Oriol Fernandez Saiz
+     */
     private void btnInvitadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvitadoActionPerformed
         btnModificarRuta.setEnabled(false);
         btnEliminarRuta.setEnabled(false);
@@ -1745,12 +1777,20 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         CreaRutas.setVisible(false);
         VerRutas.setVisible(true);
         ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
+        ResennaRuta.setVisible(false);
         ValoracionTec.setVisible(false);
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);    }//GEN-LAST:event_btnInvitadoActionPerformed
-
+    /**
+     * Maneja el evento de accion del boton para iniciar sesion. Valida el
+     * formato del correo y verifica la existencia del usuario. Si el usuario es
+     * valido, activa el menu y configura el entorno invocando el metodo {@code activarBotones()}.
+     *
+     * @param evt Objeto de evento de accion
+     * @author Rebeca Cabo Cianca
+     * @author Oriol Fernandez Saiz
+     */
     private void btnSigninActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSigninActionPerformed
         String contraseña = String.valueOf(txtContraseña.getPassword());
         if (!Validaciones.validarCorreo(txtCorreo.getText())) {
@@ -1765,7 +1805,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                 CreaRutas.setVisible(false);
                 VerRutas.setVisible(false);
                 ModificarRutas.setVisible(false);
-                ReseñaRuta.setVisible(false);
+                ResennaRuta.setVisible(false);
                 ValoracionTec.setVisible(false);
                 ValorarRuta.setVisible(false);
                 VerInfoRutas.setVisible(false);
@@ -1777,7 +1817,18 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnSigninActionPerformed
-
+    /**
+     * Maneja el evento de accion del boton para modificar una ruta. Carga la
+     * informacion de la ruta seleccionada en el formulario. Carga los combos de
+     * estado, temporada y clasificacion. invocando los metodos {@code cargarRutaEnFormulario(seleccionarIdRuta())},
+     * {@code cargaCmbEstado1()}, {@code argaCmbTemporada1()},
+     * {@code cargaCmbClasificacion1()} Oculta todas las vistas excepto la de
+     * ModificarRutas.
+     *
+     * @param evt Objeto de evento de accion
+     * @author Rebeca Cabo Cianca
+     * @author Oriol Fernandez Saiz
+     */
     private void btnModificarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarRutaActionPerformed
         cargarRutaEnFormulario(seleccionarIdRuta());
         cargaCmbEstado1();
@@ -1788,34 +1839,51 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         CreaRutas.setVisible(false);
         VerRutas.setVisible(false);
         ModificarRutas.setVisible(true);
-        ReseñaRuta.setVisible(false);
+        ResennaRuta.setVisible(false);
         ValoracionTec.setVisible(false);
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnModificarRutaActionPerformed
-
+    /**
+     * Maneja el evento de accion del boton para ver la informacion de una ruta.
+     * Oculta todas las vistas excepto VerRutas y VerInfoRutas. Ajusta la
+     * posicion de la ventana VerInfoRutas al centro de la pantalla.
+     *
+     * @param evt Objeto de evento de accion
+     * @author Rebeca Cabo Cianca
+     * @author Oriol Fernandez Saiz
+     */
     private void btnVerInfoRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerInfoRutaActionPerformed
         LogIn.setVisible(false);
         Menu.setVisible(false);
         CreaRutas.setVisible(false);
         VerRutas.setVisible(true);
         ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
+        ResennaRuta.setVisible(false);
         ValoracionTec.setVisible(false);
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(true);
         VerInfoRutas.setLocationRelativeTo(null);
         DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnVerInfoRutaActionPerformed
-
+    /**
+     * Maneja el evento de accion del boton para valorar una ruta. Oculta todas
+     * las vistas excepto VerRutas y ValorarRuta. Ajusta la posicion de la
+     * ventana ValorarRuta al centro de la pantalla. Intenta cargar la
+     * informacion de la ruta seleccionada, manejando posibles errores de URL.
+     *
+     * @param evt Objeto de evento de accion
+     * @author Rebeca Cabo Cianca
+     * @author Oriol Fernandez Saiz
+     */
     private void btnValorarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValorarRutaActionPerformed
         LogIn.setVisible(false);
         Menu.setVisible(false);
         CreaRutas.setVisible(false);
         VerRutas.setVisible(true);
         ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
+        ResennaRuta.setVisible(false);
         ValoracionTec.setVisible(false);
         ValorarRuta.setVisible(true);
         ValorarRuta.setLocationRelativeTo(null);
@@ -1827,37 +1895,63 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         catch(MalformedURLException e){
             System.out.println("imagen no encontrada");
         }*/
-        
-    }//GEN-LAST:event_btnValorarRutaActionPerformed
 
+    }//GEN-LAST:event_btnValorarRutaActionPerformed
+    /**
+     * Maneja el evento de accion del boton para resennar una ruta. Oculta todas
+     * las vistas excepto VerRutas y ResennaRuta. Ajusta la posicion de la
+     * ventana ResennaRuta al centro de la pantalla.
+     *
+     * @param evt Objeto de evento de accion
+     * @author Rebeca Cabo Cianca
+     * @author Oriol Fernandez Saiz
+     */
     private void btnReseñarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReseñarRutaActionPerformed
         LogIn.setVisible(false);
         Menu.setVisible(false);
         CreaRutas.setVisible(false);
         VerRutas.setVisible(true);
         ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(true);
-        ReseñaRuta.setLocationRelativeTo(null);
+        ResennaRuta.setVisible(true);
+        ResennaRuta.setLocationRelativeTo(null);
         ValoracionTec.setVisible(false);
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnReseñarRutaActionPerformed
-
+    /**
+     * Maneja el evento de accion del boton para realizar la valoracion tecnica
+     * de una ruta. Oculta todas las vistas excepto VerRutas y ValoracionTec.
+     * Ajusta la posicion de la ventana ValoracionTec al centro de la pantalla.
+     *
+     * @param evt Objeto de evento de accion
+     * @author Rebeca Cabo Cianca
+     * @author Oriol Fernandez Saiz
+     */
     private void btnValoracionTecRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValoracionTecRutaActionPerformed
         LogIn.setVisible(false);
         Menu.setVisible(false);
         CreaRutas.setVisible(false);
         VerRutas.setVisible(true);
         ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
+        ResennaRuta.setVisible(false);
         ValoracionTec.setVisible(true);
         ValoracionTec.setLocationRelativeTo(null);
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnValoracionTecRutaActionPerformed
-
+    /**
+     * Maneja el evento de accion del boton para ver las valoraciones de una
+     * ruta. invoca el metodo {@code cargaTablaValoraciones()} y ajusta la visibilidad de las
+     * ventanas. Oculta todas las vistas excepto VerRutas, ValorarRuta y
+     * ListadoValoraciones. Ajusta la posicion de la ventana ListadoValoraciones
+     * al centro de la pantalla.
+     *
+     * @param evt Objeto de evento de accion
+     * @author Rebeca Cabo Cianca
+     * @author Oriol Fernandez Saiz
+     */
     private void btnVerValoracionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerValoracionesActionPerformed
         cargaTablaValoraciones();
         LogIn.setVisible(false);
@@ -1865,7 +1959,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         CreaRutas.setVisible(false);
         VerRutas.setVisible(true);
         ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
+        ResennaRuta.setVisible(false);
         ValoracionTec.setVisible(false);
         ValorarRuta.setVisible(true);
         ValorarRuta.setLocationRelativeTo(null);
@@ -1874,32 +1968,53 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         ListadoValoraciones.setVisible(true);
         ListadoValoraciones.setLocationRelativeTo(null);
         ListadoVTecnica.setVisible(false);
-        ListadoReseñas.setVisible(false);
+        ListadoResennas.setVisible(false);
     }//GEN-LAST:event_btnVerValoracionesActionPerformed
-
+    /**
+     * Maneja el evento de accion del boton para ver las reseñas de una ruta.
+     * invoca {@code cargaTablaReseñas()} y ajusta la visibilidad de las ventanas.
+     * Oculta todas las vistas excepto VerRutas, ResennaRuta y ListadoResennas.
+     * Ajusta la posicion de la ventana ListadoResennas al centro de la
+     * pantalla.
+     *
+     * @param evt Objeto de evento de accion
+     * @author Rebeca Cabo Cianca
+     * @author Oriol Fernandez Saiz
+     */
     private void btnVerReseñasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerReseñasActionPerformed
-        cargaTablaReseñas();
+        cargaTablaResennas();
         LogIn.setVisible(false);
         Menu.setVisible(false);
         CreaRutas.setVisible(false);
         VerRutas.setVisible(true);
         ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(true);
-        ReseñaRuta.setLocationRelativeTo(null);
+        ResennaRuta.setVisible(true);
+        ResennaRuta.setLocationRelativeTo(null);
         ValoracionTec.setVisible(false);
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
         ListadoValoraciones.setVisible(false);
         ListadoVTecnica.setVisible(false);
-        ListadoReseñas.setVisible(true);
-        ListadoReseñas.setLocationRelativeTo(null);
+        ListadoResennas.setVisible(true);
+        ListadoResennas.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnVerReseñasActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    /**
+     * Maneja el evento de accion del boton para ver las valoraciones tecnicas
+     * de una ruta. Carga la tabla de valoraciones tecnicas invocando
+     * {@code cargaTablaVTecnicas()} y ajusta la visibilidad de las ventanas.
+     * Oculta todas las vistas excepto VerRutas, ValoracionTec y
+     * ListadoVTecnica. Ajusta la posicion de la ventana ListadoVTecnica al
+     * centro de la pantalla.
+     *
+     * @param evt Objeto de evento de accion
+     * @author Rebeca Cabo Cianca
+     * @author Oriol Fernandez Saiz
+     */
     private void btnVTecnicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVTecnicasActionPerformed
         cargaTablaVTecnicas();
         LogIn.setVisible(false);
@@ -1907,7 +2022,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         CreaRutas.setVisible(false);
         VerRutas.setVisible(true);
         ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
+        ResennaRuta.setVisible(false);
         ValoracionTec.setVisible(true);
         ValoracionTec.setLocationRelativeTo(null);
         ValorarRuta.setVisible(false);
@@ -1916,14 +2031,29 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         ListadoValoraciones.setVisible(false);
         ListadoVTecnica.setVisible(true);
         ListadoVTecnica.setLocationRelativeTo(null);
-        ListadoReseñas.setVisible(false);
+        ListadoResennas.setVisible(false);
     }//GEN-LAST:event_btnVTecnicasActionPerformed
-
+    /**
+     * Maneja el evento de accion del boton para enviar una resenna. Guarda la
+     * resenna en el sistema invocando {@code guardarResenna()}.
+     *
+     * @param evt Objeto de evento de accion
+     * @author Rebeca Cabo Cianca
+     * @author Oriol Fernandez Saiz
+     */
     private void btnEnviarReseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarReseñaActionPerformed
         guardarResenna();
 
     }//GEN-LAST:event_btnEnviarReseñaActionPerformed
-
+    /**
+     * Maneja el evento de accion del boton para guardar una valoracion tecnica.
+     * Llama al metodo {@code guardarValTec()} para almacenar la valoracion en el
+     * sistema.
+     *
+     * @param evt Objeto de evento de accion
+     * @author Rebeca Cabo Cianca
+     * @author Oriol Fernandez Saiz
+     */
     private void btnValTecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValTecActionPerformed
         guardarValTec();
     }//GEN-LAST:event_btnValTecActionPerformed
@@ -1931,7 +2061,14 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private void btnCrearRuta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearRuta1ActionPerformed
 
     }//GEN-LAST:event_btnCrearRuta1ActionPerformed
-
+    /**
+     * Maneja el evento de accion del boton para salir de la ventana de creacion
+     * de rutas. Oculta todas las vistas excepto VerRutas.
+     *
+     * @param evt Objeto de evento de accion
+     * @author Rebeca Cabo Cianca
+     * @author Oriol Fernandez Saiz
+     */
     private void btnSalirCrearR1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirCrearR1ActionPerformed
         // TODO add your handling code here:
         LogIn.setVisible(false);
@@ -1939,7 +2076,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         CreaRutas.setVisible(false);
         VerRutas.setVisible(true);
         ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
+        ResennaRuta.setVisible(false);
         ValoracionTec.setVisible(false);
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
@@ -1949,7 +2086,15 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private void btnSalirCrearRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirCrearRActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalirCrearRActionPerformed
-
+    /**
+     * Maneja el evento de accion del boton para salir de la ventana de
+     * visualizacion de rutas. Oculta todas las vistas excepto el menu
+     * principal.
+     *
+     * @param evt Objeto de evento de accion
+     * @author Rebeca Cabo Cianca
+     * @author Oriol Fernandez Saiz
+     */
     private void btnSalirVerRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirVerRActionPerformed
         // TODO add your handling code here:
         LogIn.setVisible(false);
@@ -1957,13 +2102,23 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         CreaRutas.setVisible(false);
         VerRutas.setVisible(false);
         ModificarRutas.setVisible(false);
-        ReseñaRuta.setVisible(false);
+        ResennaRuta.setVisible(false);
         ValoracionTec.setVisible(false);
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnSalirVerRActionPerformed
-  
+    /**
+     * Maneja el evento de accion del boton para crear una nueva ruta. Obtiene
+     * los datos ingresados por el usuario, valida las entradas y crea una
+     * instancia de Ruta con la informacion proporcionada. Almacena la ruta en
+     * la base de datos llamando al metodo agregarRuta de metodosDB. Maneja
+     * posibles errores de formato de fecha y argumentos invalidos.
+     *
+     * @param evt Objeto de evento de accion
+     * @author Rebeca Cabo Cianca
+     * @author Oriol Fernandez Saiz
+     */
     private void btnCrearRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearRutaActionPerformed
         //CON ESTO TIENES EL USUARIO QUE HA INICIADO SESION
         int userId = metodosDB.idUsuario(txtCorreo.getText());
@@ -2063,7 +2218,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private javax.swing.JLabel FamiliarRuta;
     private javax.swing.JLabel FechaCreacionRuta;
     private javax.swing.JLabel IndicacionesRuta;
-    private javax.swing.JDialog ListadoReseñas;
+    private javax.swing.JDialog ListadoResennas;
     private javax.swing.JDialog ListadoVTecnica;
     private javax.swing.JDialog ListadoValoraciones;
     private javax.swing.JPanel LogIn;
@@ -2074,7 +2229,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private javax.swing.JLabel PuntoFinalNombreRuta;
     private javax.swing.JLabel PuntoInicialNombreRuta;
     private javax.swing.JLabel RecomendacionesRuta;
-    private javax.swing.JDialog ReseñaRuta;
+    private javax.swing.JDialog ResennaRuta;
     private javax.swing.JLabel RiesgoRuta;
     private javax.swing.JLabel TERRENO;
     private javax.swing.JLabel TERRENO1;
@@ -2271,6 +2426,21 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private javax.swing.JTextField txtZona2;
     // End of variables declaration//GEN-END:variables
 // ============================================================ NUESTROS METODOS =========================================================
+    /**
+     * Crea una nueva instancia de Valoracion. Busca los objetos Usuario y Ruta
+     * a partir de sus respectivos IDs. Si ambos existen, genera la valoracion
+     * con la fecha y puntuaciones proporcionadas. Si el usuario o la ruta no
+     * son encontrados, devuelve null e imprime un mensaje de error.
+     *
+     * @param idUsuario ID del usuario que realiza la valoracion
+     * @param idRuta ID de la ruta que se va a valorar
+     * @param fecha Fecha de la valoracion
+     * @param dificultad Puntuacion de dificultad
+     * @param belleza Puntuacion de belleza
+     * @param interes Puntuacion de interes cultural
+     * @return Nueva instancia de Valoracion o null si hay error
+     * @author Rebeca Cabo Cianca
+     */
     public Valoracion crearValoracion(
             int idUsuario,
             int idRuta,
@@ -2281,15 +2451,23 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     ) {
         Usuario usuario = metodos.usuPorId(idUsuario);
         Ruta ruta = metodos.rutaPorId(idRuta);
-
+        Valoracion valoracion = null;
         if (usuario != null && ruta != null) {
-            return new Valoracion(usuario, ruta, fecha, dificultad, belleza, interes);
+            valoracion = new Valoracion(usuario, ruta, fecha, dificultad, belleza, interes);
         } else {
             System.out.println("Usuario o ruta no encontrados.");
-            return null;
         }
+        return valoracion;
     }
-
+    /**
+     * Guarda una valoracion tecnica en la base de datos. Obtiene los valores de
+     * dificultad y recomendaciones desde la interfaz grafica. Busca la ruta
+     * seleccionada y valida la existencia del usuario y la ruta. Si ambos
+     * existen, guarda la valoracion en la base de datos. Maneja errores de
+     * formato de numero en los campos ID o fecha.
+     *
+     * @author Rebeca Cabo Cianca
+     */
     private void cargaTablaRutas() {
         String encabezados[] = {"id_ruta", "Autor", "nombre", "fecha", "latitud_inicial"};
         DefaultTableModel modelo = new DefaultTableModel(encabezados, 0);
@@ -2303,12 +2481,15 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         columna.setMinWidth(0);
         columna.setMaxWidth(0);
         columna.setPreferredWidth(0);
-        columna.setResizable(false); 
+        columna.setResizable(false);
     }
-
-
-       
-    private void cargaTablaReseñas() {
+    /**
+     * Carga la tabla de reseñas con los datos obtenidos de la base de datos.
+     * Recupera la lista de reseñas y las agrega al modelo de la tabla.
+     *
+     * @author Rebeca Cabo Cianca
+     */
+    private void cargaTablaResennas() {
         String encabezados[] = {"Autor", "Ruta", "Fecha", "Comentario"};
         DefaultTableModel modelo = new DefaultTableModel(encabezados, 0);
         ArrayList<Resenna> lista = metodos.listarResennas();
@@ -2318,7 +2499,13 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         }
         tblReseña.setModel(modelo);
     }
-
+    /**
+     * Carga la tabla de valoraciones con los datos obtenidos de la base de
+     * datos. Recupera la lista de valoraciones y las agrega al modelo de la
+     * tabla.
+     *
+     * @author Rebeca Cabo Cianca
+     */
     private void cargaTablaValoraciones() {
         String encabezados[] = {"Autor", "Ruta", "Fecha", "Dificultad", "Belleza", "Interés cultural"};
         DefaultTableModel modelo = new DefaultTableModel(encabezados, 0);
@@ -2330,7 +2517,13 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         }
         tblValoraciones.setModel(modelo);
     }
-
+    /**
+     * Carga la tabla de valoraciones tecnicas con los datos obtenidos de la
+     * base de datos. Recupera la lista de valoraciones tecnicas y las agrega al
+     * modelo de la tabla.
+     *
+     * @author Rebeca Cabo Cianca
+     */
     private void cargaTablaVTecnicas() {
         String encabezados[] = {"Autor", "Ruta", "Fecha", "Dificultad", "Equipo recomendado"};
         DefaultTableModel modelo = new DefaultTableModel(encabezados, 0);
@@ -2341,7 +2534,12 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         }
         tblValTec.setModel(modelo);
     }
-
+    /**
+     * Carga el comboBox de clasificacion con las opciones obtenidas de la base de
+     * datos.
+     *
+     * @author Rebeca Cabo Cianca
+     */
     private void cargaCmbClasificacion() {
         ArrayList<String> lista = metodosDB.Clasificacion();
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
@@ -2349,7 +2547,12 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         modelo.addAll(lista);
         cmbClasificacion.setModel(modelo);
     }
-
+    /**
+     * Carga el comboBox de temporada con las opciones obtenidas de la base de
+     * datos.
+     *
+     * @author Rebeca Cabo Cianca
+     */
     private void cargaCmbTemporada() {
         ArrayList<String> lista = metodosDB.Temporada();
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
@@ -2357,7 +2560,11 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         modelo.addAll(lista);
         cmbTemporada.setModel(modelo);
     }
-
+    /**
+     * Carga el comboBox de estado con las opciones obtenidas de la base de datos.
+     *
+     * @author Rebeca Cabo Cianca
+     */
     private void cargaCmbEstado() {
         ArrayList<String> lista = metodosDB.Estado();
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
@@ -2365,7 +2572,11 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         modelo.addAll(lista);
         cmbEstado.setModel(modelo);
     }
-
+    /**
+     * Carga el comboBox de clasificacion en la seccion de modificacion de rutas.
+     *
+     * @author Rebeca Cabo Cianca
+     */
     private void cargaCmbClasificacion1() {
         ArrayList<String> lista = metodosDB.Clasificacion();
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
@@ -2373,7 +2584,11 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         modelo.addAll(lista);
         cmbClasificacion1.setModel(modelo);
     }
-
+    /**
+     * Carga el comboBox de temporada en la seccion de modificacion de rutas.
+     *
+     * @author Rebeca Cabo Cianca
+     */
     private void cargaCmbTemporada1() {
         ArrayList<String> lista = metodosDB.Temporada();
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
@@ -2381,7 +2596,11 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         modelo.addAll(lista);
         cmbTemporada1.setModel(modelo);
     }
-
+    /**
+     * Carga el comboBox de estado en la seccion de modificacion de rutas.
+     *
+     * @author Rebeca Cabo Cianca
+     */
     private void cargaCmbEstado1() {
         ArrayList<String> lista = metodosDB.Estado();
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
@@ -2389,7 +2608,15 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         modelo.addAll(lista);
         cmbEstado1.setModel(modelo);
     }
-
+    /**
+     * Obtiene la ruta seleccionada en la tabla de rutas. Verifica que haya una
+     * fila seleccionada y que el ID de la ruta sea valido. Busca la ruta en la
+     * base de datos y la devuelve. Muestra mensajes de error si la seleccion o
+     * el ID no son validos.
+     *
+     * @return Instancia de Ruta seleccionada o null si hay error
+     * @author Rebeca Cabo Cianca
+     */
     private Ruta seleccionarIdRuta() {
         int filaSeleccionada = tblRutas.getSelectedRow();
         Ruta ruta = null;
@@ -2420,11 +2647,17 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         }
         return ruta;
     }
-
+    /**
+     * Guarda una valoracion tecnica en la base de datos. Obtiene la ruta
+     * seleccionada y los valores ingresados por el usuario. Verifica que la
+     * ruta y el usuario existan antes de almacenar la valoracion. Muestra
+     * mensajes de error si hay problemas con el ID, la fecha o la seleccion.
+     *
+     * @author Rebeca Cabo Cianca
+     */
     private void guardarValTec() {
         try {
 
-            
             String dificultad = txtDificultadVal.getText();
             String recomendaciones = txtRecomendacionesVal.getText();
 
@@ -2451,7 +2684,13 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         }
     }
 
-    // mirar
+    /**
+     * Guarda una resenna en la base de datos. Obtiene la ruta seleccionada y el
+     * comentario ingresado por el usuario. Crea una nueva instancia de Resenna
+     * con la fecha actual y la almacena en la base de datos.
+     *
+     * @author Rebeca Cabo Cianca
+     */
     private void guardarResenna() {
         Ruta ruta = seleccionarIdRuta();
         String comentario = txtComentario.getText();
@@ -2459,7 +2698,16 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         metodos.agregarResenna(new Resenna(comentario, LocalDate.now(), ruta, user));
 
     }
-
+    /**
+     * Activa o desactiva los botones de la interfaz segun el tipo de usuario.
+     * Obtiene el usuario que ha iniciado sesion y ajusta los permisos de
+     * acceso. Si el usuario es Administrador, Profesor, DisennadorRuta o
+     * Alumno, se activan diferentes botones segun sus permisos. Si el tipo de
+     * usuario no es reconocido, muestra un mensaje de error.
+     *
+     * @author Rebeca Cabo Cianca
+     * @author Fabian Saiz Landeras
+     */
     private void activarBotones() {
         Usuario u = metodosDB.usuPorId(metodosDB.idUsuario(txtCorreo.getText()));
         // Desactivar todos los botones por defecto
@@ -2525,7 +2773,14 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Tipo de usuario no reconocido." + u.getClass());
         }
     }
-
+    /**
+     * Carga los datos de una ruta en el formulario de modificacion. Rellena los
+     * campos de la interfaz grafica con la informacion de la ruta seleccionada.
+     * Ajusta la seleccion de clasificacion, estado y temporada.
+     *
+     * @param ruta Ruta cuyos datos seran mostrados en el formulario
+     * @author Rebeca Cabo Cianca
+     */
     private void cargarRutaEnFormulario(Ruta ruta) {
         txtAutor2.setText(ruta.getAutor().getNombre()); // asumiendo que Usuario tiene getNombre()
         txtNombreRuta2.setText(ruta.getNombre());
@@ -2555,7 +2810,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         cmbClasificacion1.setSelectedItem(ruta.getClasificacion().name()); // Usa el nombre del enum
         cmbEstado1.setSelectedItem(ruta.getEstado().name()); // Usa el nombre del enum
     }
-   /* private void cargarInfoRuta(Ruta ruta) throws MalformedURLException {
+    /* private void cargarInfoRuta(Ruta ruta) throws MalformedURLException {
         AutorRuta.setName(ruta.getAutor().getNombre()); // asumiendo que Usuario tiene getNombre()
         NombreRuta.setText(ruta.getNombre());
         FechaCreacionRuta.setText(ruta.getFecha_creacion().toString());
