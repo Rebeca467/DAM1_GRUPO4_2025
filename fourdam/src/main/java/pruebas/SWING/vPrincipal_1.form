@@ -650,7 +650,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JDialog" name="Rese&#xf1;aRuta">
+    <Container class="javax.swing.JDialog" name="ResennaRuta">
       <Properties>
         <Property name="defaultCloseOperation" type="int" value="2"/>
         <Property name="title" type="java.lang.String" value="Rese&#xf1;a"/>
@@ -874,7 +874,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JDialog" name="ListadoRese&#xf1;as">
+    <Container class="javax.swing.JDialog" name="ListadoResennas">
       <Properties>
         <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[500, 500]"/>

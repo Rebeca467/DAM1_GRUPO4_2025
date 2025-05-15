@@ -5,8 +5,10 @@
 package ENUMs;
 
 /**
+ * Enumerado que define los tipos de clasificacion de una ruta.
+ * Puede ser LINEAL o CIRCULAR.
  *
- * @author DAM120
+ * @author Ciro Galan Vertiz
  */
 public enum Clasificacion_Ruta {
     LINEAL,CIRCULAR

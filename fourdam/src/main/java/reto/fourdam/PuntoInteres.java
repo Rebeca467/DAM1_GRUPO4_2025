@@ -8,35 +8,65 @@ import ENUMs.TipoPInteres;
 import java.time.LocalDateTime;
 
 /**
- *
- * @author DAM124
+ * Representa un punto de interes que extiende de Punto y agrega informacion adicional.
+ * <p>
+ * Esta clase incluye propiedades especificas como el tipo de punto de interes y sus 
+ * caracteristicas especiales.
+ * </p>
+ * 
+ * @author Fabian Saiz Landeras
  */
 public class PuntoInteres extends Punto {
 
     private TipoPInteres tipo;
     private String caracteristicasEsp;
-
+    /**
+     * Crea una nueva instancia de PuntoInteres con los parametros especificados.
+     *
+     * @param latitud la latitud del punto.
+     * @param longitud la longitud del punto.
+     * @param imagen la imagen asociada al punto.
+     * @param tipo el tipo de punto de interes.
+     * @param caracteristicasEsp las caracteristicas especiales del punto.
+     */
     public PuntoInteres(double latitud, double longitud, String imagen, TipoPInteres tipo, String caracteristicasEsp) {
         super(latitud, longitud, imagen);
         this.tipo = tipo;
         this.caracteristicasEsp = caracteristicasEsp;
     }
-
+/**
+     * Retorna la imagen asociada al punto de interes.
+     *
+     * @return la imagen.
+     */
     @Override
     public String getImagen() {
         return super.getImagen();
     }
 
+    /**
+     * Retorna la latitud del punto de interes.
+     *
+     * @return la latitud.
+     */
     @Override
     public double getLatitud() {
         return super.getLatitud();
     }
 
+    /**
+     * Retorna la longitud del punto de interes.
+     *
+     * @return la longitud.
+     */
     @Override
     public double getLongitud() {
         return super.getLongitud();
     }
 
+    /**
+     * @return una cadena que representa al punto de interes.
+     */
     @Override
     public String toString() {
         return "PuntoInteres{" + "tipo=" + tipo + ", caracteristicasEsp=" + caracteristicasEsp + '}';
