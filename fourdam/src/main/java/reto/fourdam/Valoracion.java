@@ -11,6 +11,7 @@ import java.time.LocalDate;
  * @author DAM124
  */
 public class Valoracion {
+    private int id;
     private Usuario usuario;
     private Ruta ruta;
     private LocalDate fecha;
@@ -27,6 +28,10 @@ public class Valoracion {
         this.interesCultural = interesCultural;
     }
 
+    public int getId() {
+        return id;
+    }
+    
     public Usuario getUsuario() {
         return usuario;
     }
