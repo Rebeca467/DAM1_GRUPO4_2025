@@ -583,8 +583,8 @@ public class metodosDB {
             ps.setInt(1, idResenna);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    crearResenna(rs);                   
-                }
+                    resenna = crearResenna(rs);                   
+                } 
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al consultar reseña: " + ex.getMessage());
@@ -637,7 +637,7 @@ public class metodosDB {
     public boolean eliminarResenna(int k) {
         boolean exito = false;
         int resultado = -1;
-        String sql = "delete reseña where idReseña=?;";
+        String sql = "delete from reseña where idReseña=?;";
         try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
             ps.setInt(1, k);
             resultado = ps.executeUpdate();
