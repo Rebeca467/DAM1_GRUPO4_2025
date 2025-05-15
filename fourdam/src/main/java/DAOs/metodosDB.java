@@ -38,10 +38,11 @@ import reto.fourdam.ValoracionTec;
 /**
  * Clase metodosDB.
  * <p>
- * Esta clase contiene métodos para interactuar con la base de datos, permitiendo
- * listar rutas, puntos, reseñas y valoraciones, así como agregar, modificar y eliminar
- * registros. Emplea la conexion proporcionada por la clase AccesoBaseDatos y utiliza
- * diversos metodos auxiliares para construir objetos a partir de ResultSet.
+ * Esta clase contiene métodos para interactuar con la base de datos,
+ * permitiendo listar rutas, puntos, reseñas y valoraciones, así como agregar,
+ * modificar y eliminar registros. Emplea la conexion proporcionada por la clase
+ * AccesoBaseDatos y utiliza diversos metodos auxiliares para construir objetos
+ * a partir de ResultSet.
  * </p>
  *
  * @author Rebeca Cabo Cianca
@@ -64,8 +65,8 @@ public class metodosDB {
      * Lista todas las rutas almacenadas en la base de datos.
      * <p>
      * Se ejecuta una consulta SQL para obtener los registros de rutas. Para
-     * cada registro se invoca el metodo {@code rutaPorId} para generar el objeto Ruta
-     * correspondiente.
+     * cada registro se invoca el metodo {@code rutaPorId} para generar el
+     * objeto Ruta correspondiente.
      * </p>
      *
      * @return ArrayList de objetos Ruta.
@@ -130,8 +131,8 @@ public class metodosDB {
      * Lista todas las valoraciones almacenadas en la base de datos.
      * <p>
      * Se ejecuta una consulta SQL para obtener los registros de valoraciones.
-     * Por cada registro se invoca el metodo {@code crearValoracion} para generar el
-     * objeto Valoracion.
+     * Por cada registro se invoca el metodo {@code crearValoracion} para
+     * generar el objeto Valoracion.
      * </p>
      *
      * @return ArrayList de objetos Valoracion.
@@ -157,8 +158,8 @@ public class metodosDB {
      * Lista todas las resennas almacenadas en la base de datos.
      * <p>
      * Se ejecuta una consulta SQL para obtener los registros de resennas y,
-     * para cada registro, se invoca el metodo {@code crearResenna(rs)} para generar
-     * el objeto Resenna correspondiente.
+     * para cada registro, se invoca el metodo {@code crearResenna(rs)} para
+     * generar el objeto Resenna correspondiente.
      * </p>
      *
      * @return ArrayList de objetos Resenna.
@@ -402,9 +403,9 @@ public class metodosDB {
             ps.setInt(4, r.getUsuario().getId());
             salida = ps.executeUpdate();
             if (salida == 1) {
-                exito = true;                
+                exito = true;
                 JOptionPane.showMessageDialog(null, "Reseña insertada");
-            }            
+            }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
         } catch (Exception e) {
@@ -457,8 +458,8 @@ public class metodosDB {
      * Obtiene una ruta de la base de datos por su ID.
      * <p>
      * Ejecuta una consulta SELECT en la tabla "rutas" usando el id
-     * proporcionado. Se invoca el metodo {@code crearRuta(rs)} para construir el
-     * objeto Ruta a partir de los datos obtenidos.
+     * proporcionado. Se invoca el metodo {@code crearRuta(rs)} para construir
+     * el objeto Ruta a partir de los datos obtenidos.
      * </p>
      *
      * @param id El id de la ruta.
@@ -583,7 +584,7 @@ public class metodosDB {
             ps.setInt(1, idResenna);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    crearResenna(rs);                   
+                    crearResenna(rs);
                 }
             }
         } catch (SQLException ex) {
@@ -592,6 +593,7 @@ public class metodosDB {
 
         return resenna;
     }
+
     /**
      * Elimina una resenna de la base de datos identificada por su id.
      * <p>
@@ -624,6 +626,7 @@ public class metodosDB {
 
         return exito;
     }
+
     /**
      * Elimina una reseña de la base de datos.
      * <p>
@@ -649,6 +652,7 @@ public class metodosDB {
         }
         return exito;
     }
+
     /**
      * Modifica una ruta en la base de datos.
      * <p>
@@ -694,6 +698,7 @@ public class metodosDB {
         }
 
     }
+
     /**
      * Modifica un punto de interes en la base de datos.
      * <p>
@@ -723,6 +728,7 @@ public class metodosDB {
 
         }
     }
+
     /**
      * Modifica un punto de peligro en la base de datos.
      * <p>
@@ -754,6 +760,7 @@ public class metodosDB {
             JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
         }
     }
+
     /**
      * Crea un objeto Ruta a partir de un ResultSet.
      * <p>
@@ -840,6 +847,7 @@ public class metodosDB {
         }
         return u;
     }
+
     /**
      * Agrega una nueva valoracion a la base de datos.
      * <p>
@@ -866,7 +874,7 @@ public class metodosDB {
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
-        } 
+        }
     }
 
     /**
@@ -891,6 +899,7 @@ public class metodosDB {
                 rs.getString("justificacion")
         );
     }
+
     /**
      * Crea una objeto Valoracion a partir de un ResultSet.
      * <p>
@@ -919,6 +928,7 @@ public class metodosDB {
         }
         return null;
     }
+
     /**
      * Crea un objeto Resenna a partir de un ResultSet.
      * <p>
@@ -941,6 +951,7 @@ public class metodosDB {
         );
 
     }
+
     /**
      * Crea un objeto ValoracionTec a partir de un ResultSet.
      * <p>
@@ -969,6 +980,7 @@ public class metodosDB {
         }
         return null;
     }
+
     /**
      * Verifica el rol de un usuario a partir de su correo y contrasena.
      * <p>
@@ -990,8 +1002,8 @@ public class metodosDB {
             ps.setString(2, password);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    String rolStr = rs.getString("rol").toUpperCase();                    
-                        rol = TipoUsuario.valueOf(rolStr);                    
+                    String rolStr = rs.getString("rol").toUpperCase();
+                    rol = TipoUsuario.valueOf(rolStr);
                 } else {
                     System.out.println("Usuario no encontrado con ese correo.");
                 }
@@ -1002,6 +1014,7 @@ public class metodosDB {
         }
         return rol;
     }
+
     /**
      * Crea un objeto PuntoInteres a partir de un ResultSet.
      * <p>
@@ -1023,6 +1036,7 @@ public class metodosDB {
                 rs.getString("caracteristicasEsp")
         );
     }
+
     /**
      * Obtiene el id de un usuario a partir de su correo electronico.
      * <p>
@@ -1035,25 +1049,27 @@ public class metodosDB {
      */
     public static int idUsuario(String email) {
         String sql = "SELECT id_usuario FROM usuarios WHERE correo = ?";
-        int id = 1;
+        int id = -1;
+
         try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
             ps.setString(1, email);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    int idrs = rs.getInt("id_usuario");                    
-                        id = idrs;                    
-                } else {
-                     JOptionPane.showMessageDialog(null, "ERROR: Usuario no encontrado", "ERROR", JOptionPane.ERROR_MESSAGE);
+                    id = rs.getInt("id_usuario");
                 }
             }
         } catch (SQLException e) {
             System.out.println("Error al acceder a la base de datos: " + e.getMessage());
         }
+
+        if (id == -1) {
+            JOptionPane.showMessageDialog(null, "ERROR: Usuario no encontrado", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+
         return id;
     }
 
     // ============================================================== ENUMS ===================================================
-    
     /**
      * Retorna una lista de cadenas con los valores del enum Clasificacion_Ruta.
      *
@@ -1079,6 +1095,7 @@ public class metodosDB {
         }
         return lista;
     }
+
     /**
      * Retorna una lista de cadenas con los valores del enum Temporada.
      *
