@@ -40,10 +40,6 @@ import validaciones.Teclado;
 import validaciones.Validaciones;
 
 /**
- * Cuenta con un atributo metodosDB que crea una nueva instancia para utilizar los metodos
- * de conexion que le permiten conectarse con la base de datos, y otro atributo Usuario
- * en el que se almacena la informacion del usuario que inicia sesion en la aplicacion.
- * 
  * @author Rebeca Cabo Cianca
  * @author Oriol Fernández Saiz
  * @author Fabian Saiz Landeras
@@ -54,9 +50,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private metodosDB metodos = new metodosDB();
     private Usuario user;
 
-    /**
-     * Creates new form vPrincipal
-     */
     public vPrincipal_1() {
         initComponents();
         LogIn.setVisible(true);
@@ -2052,17 +2045,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private void btnValorarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValorarMouseClicked
 
     }//GEN-LAST:event_btnValorarMouseClicked
-    /**
-     * Maneja el evento de accion del boton para crear una ruta. Carga los
-     * combos de estado {@code cargaCmbEstado()}, temporada
-     * {@code cargaCmbTemporada()} y clasificacion
-     * {@code cargaCmbClasificacion()}. Oculta todas las vistas excepto la de
-     * creacion de rutas.
-     *
-     * @param evt Objeto de evento de accion
-     * @author Rebeca Cabo Cianca
-     * @author Oriol Fernandez Saiz
-     */
+    
     private void btnCreaRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreaRutaActionPerformed
         cargaCmbEstado();
         cargaCmbTemporada();
@@ -2078,15 +2061,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnCreaRutaActionPerformed
-    /**
-     * Maneja el evento de accion del boton para ver una ruta. Carga la tabla de
-     * rutas {@code cargaTablaRutas()} y ajusta el ancho de la primera columna.
-     * Oculta todas las vistas excepto la de VerRutas.
-     *
-     * @param evt Objeto de evento de accion
-     * @author Rebeca Cabo Cianca
-     * @author Oriol Fernandez Saiz
-     */
+    
     private void btnVerRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerRutaActionPerformed
         cargaTablaRutas();
         tblRutas.getColumnModel().getColumn(0).setPreferredWidth(0);
@@ -2101,16 +2076,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnVerRutaActionPerformed
-    /**
-     * Maneja el evento de accion del boton para el modo invitado. Configura la
-     * accesibilidad de los botones segun el rol invitado. Oculta todas las
-     * vistas excepto la de VerRutas.
-     * Llama al metodo {@code cargaTablaRutas()}.
-     * 
-     * @param evt Objeto de evento de accion
-     * @author Rebeca Cabo Cianca
-     * @author Oriol Fernandez Saiz
-     */
+    
     private void btnInvitadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvitadoActionPerformed
         btnModificarRuta.setEnabled(false);
         btnEliminarRuta.setEnabled(false);
@@ -2135,15 +2101,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);    }//GEN-LAST:event_btnInvitadoActionPerformed
-    /**
-     * Maneja el evento de accion del boton para iniciar sesion. Valida el
-     * formato del correo y verifica la existencia del usuario. Si el usuario es
-     * valido, activa el menu y configura el entorno invocando el metodo {@code activarBotones()}.
-     *
-     * @param evt Objeto de evento de accion
-     * @author Rebeca Cabo Cianca
-     * @author Oriol Fernandez Saiz
-     */
+    
     private void btnSigninActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSigninActionPerformed
         String contraseña = String.valueOf(txtContraseña.getPassword());
         if (!Validaciones.validarCorreo(txtCorreo.getText())) {
@@ -2171,18 +2129,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         }
         limpiarFormularioSignIn();
     }//GEN-LAST:event_btnSigninActionPerformed
-    /**
-     * Maneja el evento de accion del boton para modificar una ruta. Carga la
-     * informacion de la ruta seleccionada en el formulario. Carga los combos de
-     * estado, temporada y clasificacion. invocando los metodos {@code cargarRutaEnFormulario(seleccionarIdRuta())},
-     * {@code cargaCmbEstado1()}, {@code argaCmbTemporada1()},
-     * {@code cargaCmbClasificacion1()} Oculta todas las vistas excepto la de
-     * ModificarRutas.
-     *
-     * @param evt Objeto de evento de accion
-     * @author Rebeca Cabo Cianca
-     * @author Oriol Fernandez Saiz
-     */
+    
     private void btnModificarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarRutaActionPerformed
         cargarRutaEnFormulario(seleccionarIdRuta());
         cargaCmbEstado1();
@@ -2199,16 +2146,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnModificarRutaActionPerformed
-    /**
-     * Maneja el evento de accion del boton para ver la informacion de una ruta.
-     * Oculta todas las vistas excepto VerRutas y VerInfoRutas. Ajusta la
-     * posicion de la ventana VerInfoRutas al centro de la pantalla.
-     *
-     * @param evt Objeto de evento de accion
-     * @author Rebeca Cabo Cianca
-     * @author Oriol Fernandez Saiz
-     * ////////////////////////
-     */
+    
     private void btnVerInfoRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerInfoRutaActionPerformed
         try {
             cargarInfoRuta(seleccionarIdRuta());
@@ -2227,16 +2165,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_btnVerInfoRutaActionPerformed
-    /**
-     * Maneja el evento de accion del boton para valorar una ruta. Oculta todas
-     * las vistas excepto VerRutas y ValorarRuta. Ajusta la posicion de la
-     * ventana ValorarRuta al centro de la pantalla. Intenta cargar la
-     * informacion de la ruta seleccionada, manejando posibles errores de URL.
-     *
-     * @param evt Objeto de evento de accion
-     * @author Rebeca Cabo Cianca
-     * @author Oriol Fernandez Saiz
-     */
+    
     private void btnValorarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValorarRutaActionPerformed
         LogIn.setVisible(false);
         Menu.setVisible(false);
@@ -2258,15 +2187,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         }*/
     }//GEN-LAST:event_btnValorarRutaActionPerformed
 
-    /**
-     * Maneja el evento de accion del boton para resennar una ruta. Oculta todas
-     * las vistas excepto VerRutas y ResennaRuta. Ajusta la posicion de la
-     * ventana ResennaRuta al centro de la pantalla.
-     *
-     * @param evt Objeto de evento de accion
-     * @author Rebeca Cabo Cianca
-     * @author Oriol Fernandez Saiz
-     */
     private void btnReseñarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReseñarRutaActionPerformed
         LogIn.setVisible(false);
         Menu.setVisible(false);
@@ -2280,15 +2200,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnReseñarRutaActionPerformed
-    /**
-     * Maneja el evento de accion del boton para realizar la valoracion tecnica
-     * de una ruta. Oculta todas las vistas excepto VerRutas y ValoracionTec.
-     * Ajusta la posicion de la ventana ValoracionTec al centro de la pantalla.
-     *
-     * @param evt Objeto de evento de accion
-     * @author Rebeca Cabo Cianca
-     * @author Oriol Fernandez Saiz
-     */
+  
     private void btnValoracionTecRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValoracionTecRutaActionPerformed
         LogIn.setVisible(false);
         Menu.setVisible(false);
@@ -2302,17 +2214,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnValoracionTecRutaActionPerformed
-    /**
-     * Maneja el evento de accion del boton para ver las valoraciones de una
-     * ruta. invoca el metodo {@code cargaTablaValoraciones()} y ajusta la visibilidad de las
-     * ventanas. Oculta todas las vistas excepto VerRutas, ValorarRuta y
-     * ListadoValoraciones. Ajusta la posicion de la ventana ListadoValoraciones
-     * al centro de la pantalla.
-     *
-     * @param evt Objeto de evento de accion
-     * @author Rebeca Cabo Cianca
-     * @author Oriol Fernandez Saiz
-     */
+
     private void btnVerValoracionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerValoracionesActionPerformed
         cargaTablaValoraciones();
         LogIn.setVisible(false);
@@ -2331,17 +2233,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         ListadoVTecnica.setVisible(false);
         ListadoResennas.setVisible(false);
     }//GEN-LAST:event_btnVerValoracionesActionPerformed
-    /**
-     * Maneja el evento de accion del boton para ver las reseñas de una ruta.
-     * invoca {@code cargaTablaResennas()} y ajusta la visibilidad de las ventanas.
-     * Oculta todas las vistas excepto VerRutas, ResennaRuta y ListadoResennas.
-     * Ajusta la posicion de la ventana ListadoResennas al centro de la
-     * pantalla.
-     *
-     * @param evt Objeto de evento de accion
-     * @author Rebeca Cabo Cianca
-     * @author Oriol Fernandez Saiz
-     */
+ 
     private void btnVerReseñasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerReseñasActionPerformed
         cargaTablaResennas();
         LogIn.setVisible(false);
@@ -2364,18 +2256,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-    /**
-     * Maneja el evento de accion del boton para ver las valoraciones tecnicas
-     * de una ruta. Carga la tabla de valoraciones tecnicas invocando
-     * {@code cargaTablaVTecnicas()} y ajusta la visibilidad de las ventanas.
-     * Oculta todas las vistas excepto VerRutas, ValoracionTec y
-     * ListadoVTecnica. Ajusta la posicion de la ventana ListadoVTecnica al
-     * centro de la pantalla.
-     *
-     * @param evt Objeto de evento de accion
-     * @author Rebeca Cabo Cianca
-     * @author Oriol Fernandez Saiz
-     */
+
     private void btnVTecnicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVTecnicasActionPerformed
         cargaTablaVTecnicas();
         LogIn.setVisible(false);
@@ -2394,29 +2275,14 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         ListadoVTecnica.setLocationRelativeTo(null);
         ListadoResennas.setVisible(false);
     }//GEN-LAST:event_btnVTecnicasActionPerformed
-    /**
-     * Maneja el evento de accion del boton para enviar una resenna. Guarda la
-     * resenna en el sistema invocando {@code guardarResenna()}.
-     *
-     * @param evt Objeto de evento de accion
-     * @author Rebeca Cabo Cianca
-     * @author Oriol Fernandez Saiz
-     */
+
     private void btnEnviarReseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarReseñaActionPerformed
         guardarResenna();
 
         limpiarFormularioReseña();
 
     }//GEN-LAST:event_btnEnviarReseñaActionPerformed
-    /**
-     * Maneja el evento de accion del boton para guardar una valoracion tecnica.
-     * Llama al metodo {@code guardarValTec()} para almacenar la valoracion en el
-     * sistema.
-     *
-     * @param evt Objeto de evento de accion
-     * @author Rebeca Cabo Cianca
-     * @author Oriol Fernandez Saiz
-     */
+
     private void btnValTecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValTecActionPerformed
         guardarValTec();
         limpiarFormularioVTecnica();
@@ -2426,14 +2292,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private void btnCrearRuta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearRuta1ActionPerformed
 
     }//GEN-LAST:event_btnCrearRuta1ActionPerformed
-    /**
-     * Maneja el evento de accion del boton para salir de la ventana de creacion
-     * de rutas. Oculta todas las vistas excepto VerRutas.
-     *
-     * @param evt Objeto de evento de accion
-     * @author Rebeca Cabo Cianca
-     * @author Oriol Fernandez Saiz
-     */
+
     private void btnSalirCrearR1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirCrearR1ActionPerformed
         // TODO add your handling code here:
         LogIn.setVisible(false);
@@ -2451,15 +2310,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private void btnSalirCrearRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirCrearRActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalirCrearRActionPerformed
-    /**
-     * Maneja el evento de accion del boton para salir de la ventana de
-     * visualizacion de rutas. Oculta todas las vistas excepto el menu
-     * principal.
-     *
-     * @param evt Objeto de evento de accion
-     * @author Rebeca Cabo Cianca
-     * @author Oriol Fernandez Saiz
-     */
+
     private void btnSalirVerRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirVerRActionPerformed
         // TODO add your handling code here:
         LogIn.setVisible(false);
@@ -2473,17 +2324,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnSalirVerRActionPerformed
-    /**
-     * Maneja el evento de accion del boton para crear una nueva ruta. Obtiene
-     * los datos ingresados por el usuario, valida las entradas y crea una
-     * instancia de Ruta con la informacion proporcionada. Almacena la ruta en
-     * la base de datos llamando al metodo agregarRuta de metodosDB. Maneja
-     * posibles errores de formato de fecha y argumentos invalidos.
-     *
-     * @param evt Objeto de evento de accion
-     * @author Rebeca Cabo Cianca
-     * @author Oriol Fernandez Saiz
-     */
+
     private void btnCrearRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearRutaActionPerformed
         //CON ESTO TIENES EL USUARIO QUE HA INICIADO SESION
         int userId = metodosDB.idUsuario(txtCorreo.getText());
@@ -2886,21 +2727,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private javax.swing.JTextField txtZona2;
     // End of variables declaration//GEN-END:variables
 // ============================================================ NUESTROS METODOS =========================================================
-    /**
-     * Crea una nueva instancia de Valoracion. Busca los objetos Usuario y Ruta
-     * a partir de sus respectivos IDs. Si ambos existen, genera la valoracion
-     * con la fecha y puntuaciones proporcionadas. Si el usuario o la ruta no
-     * son encontrados, devuelve null e imprime un mensaje de error.
-     *
-     * @param idUsuario ID del usuario que realiza la valoracion
-     * @param idRuta ID de la ruta que se va a valorar
-     * @param fecha Fecha de la valoracion
-     * @param dificultad Puntuacion de dificultad
-     * @param belleza Puntuacion de belleza
-     * @param interes Puntuacion de interes cultural
-     * @return Nueva instancia de Valoracion o null si hay error
-     * @author Rebeca Cabo Cianca
-     */
+
     public Valoracion crearValoracion(
             int idUsuario,
             int idRuta,
@@ -2919,15 +2746,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         }
         return valoracion;
     }
-    /**
-     * Guarda una valoracion tecnica en la base de datos. Obtiene los valores de
-     * dificultad y recomendaciones desde la interfaz grafica. Busca la ruta
-     * seleccionada y valida la existencia del usuario y la ruta. Si ambos
-     * existen, guarda la valoracion en la base de datos. Maneja errores de
-     * formato de numero en los campos ID o fecha.
-     *
-     * @author Rebeca Cabo Cianca
-     */
+
     private void cargaTablaRutas() {
         String encabezados[] = {"id_ruta", "Autor", "nombre", "fecha", "latitud_inicial"};
         DefaultTableModel modelo = new DefaultTableModel(encabezados, 0);
@@ -2944,12 +2763,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         columna.setPreferredWidth(0);
         columna.setResizable(false);
     }
-    /**
-     * Carga la tabla de reseñas con los datos obtenidos de la base de datos.
-     * Recupera la lista de reseñas y las agrega al modelo de la tabla.
-     *
-     * @author Rebeca Cabo Cianca
-     */
+
     private void cargaTablaResennas() {
         String encabezados[] = {"", "Autor", "Ruta", "Fecha", "Comentario"};
         DefaultTableModel modelo = new DefaultTableModel(encabezados, 0);
@@ -2965,13 +2779,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         columna.setPreferredWidth(0);
         columna.setResizable(false);
     }
-    /**
-     * Carga la tabla de valoraciones con los datos obtenidos de la base de
-     * datos. Recupera la lista de valoraciones y las agrega al modelo de la
-     * tabla.
-     *
-     * @author Rebeca Cabo Cianca
-     */
+
     private void cargaTablaValoraciones() {
         String encabezados[] = {"", "Autor", "Ruta", "Fecha", "Dificultad", "Belleza", "Interés cultural"};
         DefaultTableModel modelo = new DefaultTableModel(encabezados, 0);
@@ -2988,13 +2796,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         columna.setPreferredWidth(0);
         columna.setResizable(false);
     }
-    /**
-     * Carga la tabla de valoraciones tecnicas con los datos obtenidos de la
-     * base de datos. Recupera la lista de valoraciones tecnicas y las agrega al
-     * modelo de la tabla.
-     *
-     * @author Rebeca Cabo Cianca
-     */
+
     private void cargaTablaVTecnicas() {
         String encabezados[] = {"", "Autor", "Ruta", "Fecha", "Dificultad", "Equipo recomendado"};
         DefaultTableModel modelo = new DefaultTableModel(encabezados, 0);
@@ -3010,12 +2812,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         columna.setPreferredWidth(0);
         columna.setResizable(false);
     }
-    /**
-     * Carga el comboBox de clasificacion con las opciones obtenidas de la base de
-     * datos.
-     *
-     * @author Rebeca Cabo Cianca
-     */
+
     private void cargaCmbClasificacion() {
         ArrayList<String> lista = metodosDB.Clasificacion();
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
@@ -3023,12 +2820,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         modelo.addAll(lista);
         cmbClasificacion.setModel(modelo);
     }
-    /**
-     * Carga el comboBox de temporada con las opciones obtenidas de la base de
-     * datos.
-     *
-     * @author Rebeca Cabo Cianca
-     */
+
     private void cargaCmbTemporada() {
         ArrayList<String> lista = metodosDB.Temporada();
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
@@ -3036,11 +2828,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         modelo.addAll(lista);
         cmbTemporada.setModel(modelo);
     }
-    /**
-     * Carga el comboBox de estado con las opciones obtenidas de la base de datos.
-     *
-     * @author Rebeca Cabo Cianca
-     */
+
     private void cargaCmbEstado() {
         ArrayList<String> lista = metodosDB.Estado();
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
@@ -3048,11 +2836,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         modelo.addAll(lista);
         cmbEstado.setModel(modelo);
     }
-    /**
-     * Carga el comboBox de clasificacion en la seccion de modificacion de rutas.
-     *
-     * @author Rebeca Cabo Cianca
-     */
+
     private void cargaCmbClasificacion1() {
         ArrayList<String> lista = metodosDB.Clasificacion();
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
@@ -3060,11 +2844,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         modelo.addAll(lista);
         cmbClasificacion1.setModel(modelo);
     }
-    /**
-     * Carga el comboBox de temporada en la seccion de modificacion de rutas.
-     *
-     * @author Rebeca Cabo Cianca
-     */
+
     private void cargaCmbTemporada1() {
         ArrayList<String> lista = metodosDB.Temporada();
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
@@ -3072,11 +2852,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         modelo.addAll(lista);
         cmbTemporada1.setModel(modelo);
     }
-    /**
-     * Carga el comboBox de estado en la seccion de modificacion de rutas.
-     *
-     * @author Rebeca Cabo Cianca
-     */
+
     private void cargaCmbEstado1() {
         ArrayList<String> lista = metodosDB.Estado();
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
@@ -3084,15 +2860,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         modelo.addAll(lista);
         cmbEstado1.setModel(modelo);
     }
-    /**
-     * Obtiene la ruta seleccionada en la tabla de rutas. Verifica que haya una
-     * fila seleccionada y que el ID de la ruta sea valido. Busca la ruta en la
-     * base de datos y la devuelve. Muestra mensajes de error si la seleccion o
-     * el ID no son validos.
-     *
-     * @return Instancia de Ruta seleccionada o null si hay error
-     * @author Rebeca Cabo Cianca
-     */
+
     private Ruta seleccionarIdRuta() {
         int filaSeleccionada = tblRutas.getSelectedRow();
         Ruta ruta = null;
@@ -3124,14 +2892,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         }
         return ruta;
     }
-    /**
-     * Guarda una valoracion tecnica en la base de datos. Obtiene la ruta
-     * seleccionada y los valores ingresados por el usuario. Verifica que la
-     * ruta y el usuario existan antes de almacenar la valoracion. Muestra
-     * mensajes de error si hay problemas con el ID, la fecha o la seleccion.
-     *
-     * @author Rebeca Cabo Cianca
-     */
+
     private void guardarValTec() {
         try {
 
@@ -3160,13 +2921,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Error de formato numérico. Revisa ID o fecha.");
         }
     }
-    /**
-     * Guarda una resenna en la base de datos. Obtiene la ruta seleccionada y el
-     * comentario ingresado por el usuario. Crea una nueva instancia de Resenna
-     * con la fecha actual y la almacena en la base de datos.
-     *
-     * @author Rebeca Cabo Cianca
-     */
+
     private void guardarResenna() {
         Ruta ruta = seleccionarIdRuta();
         String comentario = txtComentario.getText();
@@ -3183,16 +2938,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         metodos.agregarValoracion(new Valoracion(user,ruta,LocalDate.now(),dificultad,belleza,interes));
     }
 
-    /**
-     * Activa o desactiva los botones de la interfaz segun el tipo de usuario.
-     * Obtiene el usuario que ha iniciado sesion y ajusta los permisos de
-     * acceso. Si el usuario es Administrador, Profesor, DisennadorRuta o
-     * Alumno, se activan diferentes botones segun sus permisos. Si el tipo de
-     * usuario no es reconocido, muestra un mensaje de error.
-     *
-     * @author Rebeca Cabo Cianca
-     * @author Fabian Saiz Landeras
-     */
     private void activarBotones() {
         Usuario u = metodosDB.usuPorId(metodosDB.idUsuario(txtCorreo.getText()));
         // Desactivar todos los botones por defecto
@@ -3258,14 +3003,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Tipo de usuario no reconocido." + u.getClass());
         }
     }
-    /**
-     * Carga los datos de una ruta en el formulario de modificacion. Rellena los
-     * campos de la interfaz grafica con la informacion de la ruta seleccionada.
-     * Ajusta la seleccion de clasificacion, estado y temporada.
-     *
-     * @param ruta Ruta cuyos datos seran mostrados en el formulario
-     * @author Rebeca Cabo Cianca
-     */
+
     private void cargarRutaEnFormulario(Ruta ruta) {
         txtAutor2.setText(ruta.getAutor().getNombre()); // asumiendo que Usuario tiene getNombre()
         txtNombreRuta2.setText(ruta.getNombre());
