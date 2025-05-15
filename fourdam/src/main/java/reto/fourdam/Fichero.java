@@ -7,6 +7,7 @@ import ENUMs.Estado;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,13 +21,16 @@ import java.util.Set;
 /**
  * Clase para manejar la conversion de rutas a CSV y viceversa.
  * <p>
- * Esta clase proporciona metodos para convertir una ruta a una cadena en formato CSV,
- * asi como para generar un objeto Ruta a partir de un archivo CSV.
+ * Esta clase proporciona metodos para convertir una ruta a una cadena en
+ * formato CSV, asi como para generar un objeto Ruta a partir de un archivo CSV.
  * </p>
- * 
+ *
  * @author Oriol Fernandez Saiz
  */
 public class Fichero {
+
+    private static final String rutaFichas = System.getProperty("user.home") + File.separator + "Documents" + File.separator + "FichasRutas";
+
 
     /**
      * Convierte una ruta a formato CSV.
@@ -91,7 +95,7 @@ public class Fichero {
                     System.out.println("Cabecera incompleta. Se esperaban al menos 22 campos.");
                     return null;
                 }
-                
+
                 // Parsear los datos de la ruta
                 String nombreRuta = parts[0];
                 String nombreAutor = parts[1];
@@ -173,7 +177,7 @@ public class Fichero {
                         double elevacion = Double.parseDouble(puntoParts[3]);
                         String tiempo = puntoParts[4];
                         String nombre = puntoParts[5];
-                        
+
                         TipoPInteres tipo = null;
                         try {
                             tipo = TipoPInteres.valueOf(tipoStr.toUpperCase());
@@ -202,5 +206,65 @@ public class Fichero {
             return null;
         }
         return ruta;
+    }
+
+    
+    // Método para asegurar que la carpeta FichasRutas existe
+    private static void asegurarCarpetaFichas() {
+        File carpeta = new File(rutaFichas);
+        if (!carpeta.exists()) {
+            carpeta.mkdirs(); // crea la carpeta si no existe
+        }
+    }
+    
+    
+    public static void generarFichaSeguridad(String dificultadGeneral, String puntosPeligro, String recomendaciones) {
+        asegurarCarpetaFichas();
+        String contenido = "=== FICHA DE SEGURIDAD ===\n"
+                + "Dificultad general: " + dificultadGeneral + "\n"
+                + "Puntos de peligro: " + puntosPeligro + "\n"
+                + "Recomendaciones: " + recomendaciones + "\n";
+
+        File archivo = new File(rutaFichas + File.separator + "ficha_seguridad.txt");
+        try (FileWriter writer = new FileWriter(archivo)) {
+            writer.write(contenido);
+            System.out.println("Ficha de seguridad generada en: " + archivo.getAbsolutePath());
+        } catch (IOException e) {
+            System.out.println("Error al crear la ficha de seguridad: " + e.getMessage());
+        }
+    }
+
+    public static void generarFichaUsuario(String datosGenerales, String perfilRecorrido, String recomendaciones) {
+        asegurarCarpetaFichas();
+        String contenido = "=== FICHA DE USUARIO ===\n"
+                + "Datos generales: " + datosGenerales + "\n"
+                + "Perfil del recorrido: " + perfilRecorrido + "\n"
+                + "Recomendaciones: " + recomendaciones + "\n";
+
+        File archivo = new File(rutaFichas + File.separator + "ficha_usuario.txt");
+        try (FileWriter writer = new FileWriter(archivo)) {
+            writer.write(contenido);
+            System.out.println("Ficha de usuario generada en: " + archivo.getAbsolutePath());
+        } catch (IOException e) {
+            System.out.println("Error al crear la ficha de usuario: " + e.getMessage());
+        }
+    }
+
+    public static void generarFichaOrganizacion(String datosBasicos, String altitud, String tipoRuta, String opinionTecnica, String nivelEducativo) {
+        asegurarCarpetaFichas();
+        String contenido = "=== FICHA DE ORGANIZACIÓN ===\n"
+                + "Datos básicos: " + datosBasicos + "\n"
+                + "Altitud: " + altitud + "\n"
+                + "Tipo de ruta: " + tipoRuta + "\n"
+                + "Opinión técnica: " + opinionTecnica + "\n"
+                + "Nivel educativo recomendado: " + nivelEducativo + "\n";
+
+        File archivo = new File(rutaFichas + File.separator + "ficha_organizacion.txt");
+        try (FileWriter writer = new FileWriter(archivo)) {
+            writer.write(contenido);
+            System.out.println("Ficha de organización generada en: " + archivo.getAbsolutePath());
+        } catch (IOException e) {
+            System.out.println("Error al crear la ficha de organización: " + e.getMessage());
+        }
     }
 }

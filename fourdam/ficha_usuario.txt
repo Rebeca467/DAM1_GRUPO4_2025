@@ -1,0 +1,4 @@
+=== FICHA DE USUARIO ===
+Datos generales: Ruta: Ruta de Montaña | Fecha: 2025-05-01 | Duración: 3.5
+Perfil del recorrido: Perfil del recorrido: LINEAL, Terreno: 3
+Recomendaciones: 
