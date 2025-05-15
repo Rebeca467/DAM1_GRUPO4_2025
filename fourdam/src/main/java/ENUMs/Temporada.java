@@ -11,5 +11,5 @@ package ENUMs;
  * @author Ciro Galan Vertiz
  */
 public enum Temporada {
-    VERANO,INVIERNO,OTONIO,PRIMAVERA
+    VERANO,INVIERNO,OTOÑO,PRIMAVERA
 }

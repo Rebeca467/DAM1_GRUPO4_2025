@@ -22,6 +22,7 @@ import java.time.LocalDate;
  * @author Fabian Saiz Landeras
  */
 public class Valoracion {
+    private int id;
     private Usuario usuario;
     private Ruta ruta;
     private LocalDate fecha;
@@ -46,7 +47,10 @@ public class Valoracion {
         this.belleza = belleza;
         this.interesCultural = interesCultural;
     }
-/**
+    public int getId() {
+        return id;
+    }
+    /**
      * Obtiene el usuario que realiza la evaluacion.
      *
      * @return el usuario.

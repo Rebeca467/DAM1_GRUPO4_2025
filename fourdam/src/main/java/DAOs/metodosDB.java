@@ -401,12 +401,10 @@ public class metodosDB {
             ps.setInt(3, r.getRuta().getId());
             ps.setInt(4, r.getUsuario().getId());
             salida = ps.executeUpdate();
-            if (salida != 1) {
-                throw new Exception(" No se ha insertado un solo registro");
-            } else {
-                exito = true;
-
-            }
+            if (salida == 1) {
+                exito = true;                
+                JOptionPane.showMessageDialog(null, "Reseña insertada");
+            }            
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
         } catch (Exception e) {
@@ -577,6 +575,23 @@ public class metodosDB {
         return usuario;
     }
 
+    public Resenna resennaPorId(int idResenna) {
+        Resenna resenna = null;
+        String sql = "SELECT idReseña, comentario, fecha, id_ruta, id_usuario FROM reseña WHERE idReseña = ?";
+
+        try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
+            ps.setInt(1, idResenna);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    crearResenna(rs);                   
+                }
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al consultar reseña: " + ex.getMessage());
+        }
+
+        return resenna;
+    }
     /**
      * Elimina una resenna de la base de datos identificada por su id.
      * <p>
@@ -589,24 +604,26 @@ public class metodosDB {
      * utilizado).
      * @return true si la eliminacion fue exitosa, false en caso contrario.
      */
-    public boolean eliminarRuta(int k, Ruta r) {
+    public boolean eliminarRuta(int idRuta) {
         boolean exito = false;
-        int resultado = -1;
-        String sql = "delete reseñas where idReseña=?;";
+        String sql = "DELETE FROM rutas WHERE id_ruta = ?";
+
         try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
-            ps.setInt(1, k);
-            resultado = ps.executeUpdate();
+            ps.setInt(1, idRuta);
+            int resultado = ps.executeUpdate();
+
             if (resultado == 1) {
                 exito = true;
             } else {
-                JOptionPane.showMessageDialog(null, "ERROR: ");
+                JOptionPane.showMessageDialog(null, "No se eliminó ninguna ruta. ID: " + idRuta);
             }
+
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error SQL al eliminar ruta: " + ex.getMessage());
         }
+
         return exito;
     }
-
     /**
      * Elimina una reseña de la base de datos.
      * <p>
@@ -615,20 +632,17 @@ public class metodosDB {
      * </p>
      *
      * @param k El id de la resenna a eliminar.
-     * @param r Objeto Resenna (parametro no utilizado en la consulta).
      * @return true si la eliminacion fue exitosa, false en caso contrario.
      */
-    public boolean eliminarResenna(int k, Resenna r) {
+    public boolean eliminarResenna(int k) {
         boolean exito = false;
         int resultado = -1;
-        String sql = "delete reseñas where idReseña=?;";
+        String sql = "delete reseña where idReseña=?;";
         try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
             ps.setInt(1, k);
             resultado = ps.executeUpdate();
             if (resultado == 1) {
                 exito = true;
-            } else {
-                JOptionPane.showMessageDialog(null, "ERROR: ");
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage());
@@ -847,14 +861,12 @@ public class metodosDB {
             ps.setInt(5, v.getBelleza());
             ps.setInt(6, v.getInteresCultural());
             salida = ps.executeUpdate();
-            if (salida != 1) {
-                throw new Exception(" No se ha insertado/modificado un solo registro");
+            if (salida == 1) {
+                JOptionPane.showMessageDialog(null, "Valoracion insertada");
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
-        }
+            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        } 
     }
 
     /**
@@ -921,6 +933,7 @@ public class metodosDB {
     private Resenna crearResenna(final ResultSet rs) throws SQLException {
 
         return new Resenna(
+                rs.getInt("idReseña"),
                 rs.getString("comentario"),
                 rs.getDate("fecha").toLocalDate(),
                 rutaPorId(rs.getInt("id_ruta")),
@@ -977,13 +990,8 @@ public class metodosDB {
             ps.setString(2, password);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    String rolStr = rs.getString("rol").toUpperCase();
-                    try {
-                        rol = TipoUsuario.valueOf(rolStr);
-
-                    } catch (IllegalArgumentException e) {
-                        System.out.println("Rol no reconocido en la base de datos: " + rolStr);
-                    }
+                    String rolStr = rs.getString("rol").toUpperCase();                    
+                        rol = TipoUsuario.valueOf(rolStr);                    
                 } else {
                     System.out.println("Usuario no encontrado con ese correo.");
                 }
@@ -1032,15 +1040,10 @@ public class metodosDB {
             ps.setString(1, email);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    int idrs = rs.getInt("id_usuario");
-                    try {
-                        id = idrs;
-                        System.out.println("Id del usuario: " + id);
-                    } catch (IllegalArgumentException e) {
-                        System.out.println("Id no reconocido en la base de datos: " + idrs);
-                    }
+                    int idrs = rs.getInt("id_usuario");                    
+                        id = idrs;                    
                 } else {
-                    System.out.println("Usuario no encontrado con ese id.");
+                     JOptionPane.showMessageDialog(null, "ERROR: Usuario no encontrado", "ERROR", JOptionPane.ERROR_MESSAGE);
                 }
             }
         } catch (SQLException e) {
