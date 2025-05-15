@@ -481,6 +481,8 @@ public class metodosDB {
         }
         return ruta;
     }
+    
+    
 
     /**
      * Obtiene un punto de interes a partir de sus coordenadas.

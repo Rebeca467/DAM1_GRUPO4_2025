@@ -668,50 +668,39 @@ public class Ruta {
     public void setMediaValoracion(int mediaValoracion) {
         this.mediaValoracion = mediaValoracion;
     }
-    
-    
-
-  
-
-    
-    
-    /*public File fichaSeguridad(){
-        String linea;
-        try (BufferedReader br = new BufferedReader(new FileReader(puntosIntermedios));) {
-            while ((linea = br.readLine()) != null) {
-                System.out.println(linea);
-            }
-        } catch (IOException ex) {
-            System.err.println(ex.toString());
-        }
-        File fichaSeg = new File("fichaSeguridad.txt");
-        String aux;
-        aux = Teclado.intervalos("Dificultad general",1,5);
-        
-        try (BufferedWriter br = new BufferedWriter(new FileWriter(fichero, true));) {
-            br.write(aux);
-            br.write(System.lineSeparator());
-        } catch (IOException ex) {
-            System.err.println(ex.toString());
-        }
-        return fichaSeg;
-    }
-    
-    public File fichaUsuario(){
-        
-    }
-    
-    public File fichaOrganizacion(){
-        
-    }*/
-    
     /**
      * @return una String que representa la ruta.
      */
     @Override
     public String toString() {
-        return "Ruta{" + "id=" + id + '}';
+        return "Ruta {\n"
+                + "  ID: " + id + ",\n"
+                + "  Autor: " + autor + ",\n"
+                + "  Nombre: " + nombre + ",\n"
+                + "  Fecha de creación: " + fecha_creacion + ",\n"
+                + "  Punto inicial: " + punto_ini + ",\n"
+                + "  Punto final: " + punto_fin + ",\n"
+                + "  Distancia total: " + distanciaTotal + " km,\n"
+                + "  Desnivel: " + desnivel + " m,\n"
+                + "  Desnivel positivo: " + desnivelPositivo + " m,\n"
+                + "  Desnivel negativo: " + desnivelNegativo + " m,\n"
+                + "  Altitud máxima: " + altMax + " m,\n"
+                + "  Altitud mínima: " + altMin + " m,\n"
+                + "  Clasificación: " + clasificacion + ",\n"
+                + "  Nivel de riesgo: " + nivelRiesgo + ",\n"
+                + "  Nivel de esfuerzo: " + nivelEsfuerzo + ",\n"
+                + "  Tipo de terreno: " + tipoTerreno + ",\n"
+                + "  Indicaciones: " + indicaciones + ",\n"
+                + "  Tipo de actividad: " + tipoActividad + ",\n"
+                + "  Temporada: " + temporada + ",\n"
+                + "  Familiar: " + familiar + ",\n"
+                + "  URL: " + url + ",\n"
+                + "  Estado: " + estado + ",\n"
+                + "  Recomendaciones: " + recomendaciones + ",\n"
+                + "  Zona geográfica: " + zonaGeografica + ",\n"
+                + "  Puntos intermedios: " + puntosIntermedios + ",\n"
+                + "  Duración: " + duracion + ",\n"
+                + "  Media de valoración: " + mediaValoracion + "\n"
+                + "}";
     }
-
-    
 }
