@@ -2260,7 +2260,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         }*/
     }//GEN-LAST:event_btnValorarRutaActionPerformed
 
-    }//GEN-LAST:event_btnValorarRutaActionPerformed
     /**
      * Maneja el evento de accion del boton para resennar una ruta. Oculta todas
      * las vistas excepto VerRutas y ResennaRuta. Ajusta la posicion de la
