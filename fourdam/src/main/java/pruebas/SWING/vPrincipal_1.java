@@ -11,6 +11,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import ENUMs.Clasificacion_Ruta;
 import ENUMs.Estado;
+import java.io.File;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -20,9 +21,11 @@ import java.util.Set;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import reto.fourdam.AccesoBaseDatos;
 import javax.swing.JOptionPane;
+import javax.swing.plaf.FileChooserUI;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import reto.fourdam.Actividad;
@@ -240,6 +243,8 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         btnValoracionTecRuta = new javax.swing.JButton();
         btnSalirVerR = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
+        descargarRuta = new javax.swing.JButton();
+        cargarRuta = new javax.swing.JButton();
         btnDescargarFicha = new javax.swing.JButton();
         ModificarRutas = new javax.swing.JPanel();
         jLabel54 = new javax.swing.JLabel();
@@ -1572,6 +1577,20 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             }
         });
 
+        descargarRuta.setText("Descargar Ruta");
+        descargarRuta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                descargarRutaActionPerformed(evt);
+            }
+        });
+
+        cargarRuta.setText("Cargar Ruta");
+        cargarRuta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cargarRutaActionPerformed(evt);
+            }
+        });
+              
         btnDescargarFicha.setText("DESCARGAR FICHAS");
         btnDescargarFicha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1599,6 +1618,8 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                                     .addComponent(btnValidarRuta)
                                     .addComponent(btnValorarRuta)
                                     .addComponent(btnValoracionTecRuta)
+                                    .addComponent(descargarRuta)
+                                    .addComponent(cargarRuta))
                                     .addComponent(btnDescargarFicha))
                                 .addGap(144, 144, 144))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VerRutasLayout.createSequentialGroup()
@@ -1630,6 +1651,10 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnDescargarFicha)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cargarRuta)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(descargarRuta)
+                        .addGap(75, 75, 75)
                         .addComponent(btnRegistrar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnSalirVerR))
@@ -2496,9 +2521,10 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         ListadoResennas.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnVerReseñasActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void descargarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descargarRutaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        Fichero.rutaToCsv(seleccionarIdRuta());
+    }//GEN-LAST:event_descargarRutaActionPerformed
 
     private void btnVTecnicasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVTecnicasActionPerformed
         cargaTablaVTecnicas();
@@ -2661,6 +2687,17 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         DescargaFichas.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnDescargaFActionPerformed
 
+    private void cargarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarRutaActionPerformed
+        // TODO add your handling code here:
+        JFileChooser j = new JFileChooser(new File("CSV_rutas"));
+        j.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int result = j.showOpenDialog(null);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            metodos.agregarRuta(Fichero.csvToRuta(j.getSelectedFile()));
+            System.out.println("Archivo seleccionado: " + j.getSelectedFile().getAbsolutePath());
+            JOptionPane.showMessageDialog(this, "La ruta se cargo correctamente");
+        }
+    }//GEN-LAST:event_cargarRutaActionPerformed
     private void btnDescargarFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescargarFichaActionPerformed
         if (user != null) {
             // Obtener la ruta seleccionada
@@ -2850,6 +2887,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private javax.swing.JButton btnVerReseñas;
     private javax.swing.JButton btnVerRuta;
     private javax.swing.JButton btnVerValoraciones;
+    private javax.swing.JButton cargarRuta;
     private javax.swing.JCheckBox chkFamiliar;
     private javax.swing.JCheckBox chkFamiliar1;
     private javax.swing.JComboBox<String> cmbClasificacion;
@@ -2866,6 +2904,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbTemporada2;
     private javax.swing.JComboBox<String> cmbTerreno;
     private javax.swing.JComboBox<String> cmbTerreno1;
+    private javax.swing.JButton descargarRuta;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

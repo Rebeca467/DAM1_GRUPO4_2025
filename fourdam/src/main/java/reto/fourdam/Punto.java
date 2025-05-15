@@ -85,6 +85,6 @@ public class Punto {
      */
     @Override
     public String toString() {
-        return "Punto{" + "latitud=" + latitud + ", longitud=" + longitud + '}';
+        return "Punto{" + "latitud=" + latitud + ", longitud=" + longitud + "imagen=" + imagen + '}';
     }
 }

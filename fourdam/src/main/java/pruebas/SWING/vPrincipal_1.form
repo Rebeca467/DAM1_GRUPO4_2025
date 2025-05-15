@@ -1976,6 +1976,8 @@
                                       <Component id="btnValidarRuta" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnValorarRuta" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnValoracionTecRuta" min="-2" max="-2" attributes="0"/>
+                                      <Component id="descargarRuta" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cargarRuta" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnDescargarFicha" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
@@ -2016,6 +2018,10 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnDescargarFicha" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
+                          <Component id="cargarRuta" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="descargarRuta" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                           <Component id="btnRegistrar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btnSalirVerR" min="-2" max="-2" attributes="0"/>
@@ -2122,6 +2128,20 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistrarActionPerformed"/>
           </Events>
         </Component>
+        <Component class="javax.swing.JButton" name="descargarRuta">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Descargar Ruta"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="descargarRutaActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="cargarRuta">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cargar Ruta"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cargarRutaActionPerformed"/>
         <Component class="javax.swing.JButton" name="btnDescargarFicha">
           <Properties>
             <Property name="text" type="java.lang.String" value="DESCARGAR FICHAS"/>
