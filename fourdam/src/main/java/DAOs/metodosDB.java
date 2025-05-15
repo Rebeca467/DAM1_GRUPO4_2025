@@ -313,12 +313,10 @@ public class metodosDB {
             ps.setInt(3, r.getRuta().getId());
             ps.setInt(4, r.getUsuario().getId());
             salida = ps.executeUpdate();
-            if (salida != 1) {
-                throw new Exception(" No se ha insertado un solo registro");
-            } else {
-                exito = true;
-
-            }
+            if (salida == 1) {
+                exito = true;                
+                JOptionPane.showMessageDialog(null, "Reseña insertada");
+            }            
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
         } catch (Exception e) {
@@ -633,14 +631,12 @@ public class metodosDB {
             ps.setInt(5, v.getBelleza());
             ps.setInt(6, v.getInteresCultural());
             salida = ps.executeUpdate();
-            if (salida != 1) {
-                throw new Exception(" No se ha insertado/modificado un solo registro");
+            if (salida == 1) {
+                JOptionPane.showMessageDialog(null, "Valoracion insertada");
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
-        }
+            JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        } 
     }
 
     //USAR EN 'CREARRUTA'
@@ -709,13 +705,8 @@ public class metodosDB {
             ps.setString(2, password);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    String rolStr = rs.getString("rol").toUpperCase();
-                    try {
-                        rol = TipoUsuario.valueOf(rolStr);
-
-                    } catch (IllegalArgumentException e) {
-                        System.out.println("Rol no reconocido en la base de datos: " + rolStr);
-                    }
+                    String rolStr = rs.getString("rol").toUpperCase();                    
+                        rol = TipoUsuario.valueOf(rolStr);                    
                 } else {
                     System.out.println("Usuario no encontrado con ese correo.");
                 }
@@ -744,15 +735,10 @@ public class metodosDB {
             ps.setString(1, email);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    int idrs = rs.getInt("id_usuario");
-                    try {
-                        id = idrs;
-                        System.out.println("Id del usuario: " + id);
-                    } catch (IllegalArgumentException e) {
-                        System.out.println("Id no reconocido en la base de datos: " + idrs);
-                    }
+                    int idrs = rs.getInt("id_usuario");                    
+                        id = idrs;                    
                 } else {
-                    System.out.println("Usuario no encontrado con ese id.");
+                     JOptionPane.showMessageDialog(null, "ERROR: Usuario no encontrado", "ERROR", JOptionPane.ERROR_MESSAGE);
                 }
             }
         } catch (SQLException e) {
