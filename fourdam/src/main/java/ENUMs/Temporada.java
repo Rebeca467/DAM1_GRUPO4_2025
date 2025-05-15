@@ -9,5 +9,5 @@ package ENUMs;
  * @author DAM120
  */
 public enum Temporada {
-    VERANO,INVIERNO,OTONIO,PRIMAVERA
+    VERANO,INVIERNO,OTOÑO,PRIMAVERA
 }

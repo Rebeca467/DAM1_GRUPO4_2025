@@ -24,8 +24,14 @@ public class Resenna {
         this.ruta = ruta;
         this.usuario = usuario;
     }
-   
 
+    public Resenna(int idResenna, String comentario, LocalDate fecha, Ruta ruta, Usuario usuario) {
+        this.idResenna = idResenna;
+        this.comentario = comentario;
+        this.fecha = fecha;
+        this.ruta = ruta;
+        this.usuario = usuario;
+    }       
    
 
     public int getIdResenna() {

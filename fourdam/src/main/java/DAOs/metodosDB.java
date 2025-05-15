@@ -170,7 +170,6 @@ public class metodosDB {
             checkUserPs.setInt(1, r.getAutor().getId());
             userRs = checkUserPs.executeQuery();
 
-
             // Verificar si la actividad existe
             int actividadId;
             String checkActividadSql = "SELECT idActividades FROM actividades WHERE nombre_actividad = ?";
@@ -434,35 +433,54 @@ public class metodosDB {
         return usuario;
     }
 
-    public boolean eliminarRuta(int k, Ruta r) {
-        boolean exito = false;
-        int resultado = -1;
-        String sql = "delete reseñas where idReseña=?;";
+    public Resenna resennaPorId(int idResenna) {
+        Resenna resenna = null;
+        String sql = "SELECT idReseña, comentario, fecha, id_ruta, id_usuario FROM reseña WHERE idReseña = ?";
+
         try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
-            ps.setInt(1, k);
-            resultado = ps.executeUpdate();
+            ps.setInt(1, idResenna);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    crearResenna(rs);                   
+                }
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al consultar reseña: " + ex.getMessage());
+        }
+
+        return resenna;
+    }
+
+    public boolean eliminarRuta(int idRuta) {
+        boolean exito = false;
+        String sql = "DELETE FROM rutas WHERE id_ruta = ?";
+
+        try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
+            ps.setInt(1, idRuta);
+            int resultado = ps.executeUpdate();
+
             if (resultado == 1) {
                 exito = true;
             } else {
-                JOptionPane.showMessageDialog(null, "ERROR: ");
+                JOptionPane.showMessageDialog(null, "No se eliminó ninguna ruta. ID: " + idRuta);
             }
+
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error SQL al eliminar ruta: " + ex.getMessage());
         }
+
         return exito;
     }
 
-    public boolean eliminarResenna(int k, Resenna r) {
+    public boolean eliminarResenna(int k) {
         boolean exito = false;
         int resultado = -1;
-        String sql = "delete reseñas where idReseña=?;";
+        String sql = "delete reseña where idReseña=?;";
         try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
             ps.setInt(1, k);
             resultado = ps.executeUpdate();
             if (resultado == 1) {
                 exito = true;
-            } else {
-                JOptionPane.showMessageDialog(null, "ERROR: ");
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage());
@@ -657,6 +675,7 @@ public class metodosDB {
     private Resenna crearResenna(final ResultSet rs) throws SQLException {
 
         return new Resenna(
+                rs.getInt("idReseña"),
                 rs.getString("comentario"),
                 rs.getDate("fecha").toLocalDate(),
                 rutaPorId(rs.getInt("id_ruta")),
