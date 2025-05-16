@@ -26,6 +26,17 @@ public class Actividad {
     public Actividad(String nombre) {
         this.nombre = nombre;
     }
+    
+    /**
+     * Crea una nueva instancia de {@code Actividad} con el nombre pasado por parametro.
+     *
+     * @param id el id de la actividad.
+     * @param nombre el nombre de la actividad.
+     */
+    public Actividad(int id,String nombre) {
+        this.id=id;
+        this.nombre = nombre;
+    }
     /**
      * @return el id de la actividad.
      */

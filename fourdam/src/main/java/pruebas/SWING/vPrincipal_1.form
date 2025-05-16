@@ -1850,38 +1850,36 @@
                           <Component id="cmbOrdenRuta" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="6" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnRegistrar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="btnCargarRuta" max="32767" attributes="0"/>
-                                          <Component id="btnReseñarRuta" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="btnEliminarRuta" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="btnModificarRuta" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="btnVerInfoRuta" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="btnValidarRuta" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="btnValorarRuta" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="btnValoracionTecRuta" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="btnDescargarFicha" alignment="1" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Component id="btnDescargarRuta" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <Component id="btnDescargarRuta" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
                                   <Component id="btnSalirVerR" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="btnCargarRuta" max="32767" attributes="0"/>
+                                      <Component id="btnReseñarRuta" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnEliminarRuta" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnModificarRuta" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnVerInfoRuta" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnValidarRuta" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnValorarRuta" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnValoracionTecRuta" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnDescargarFicha" alignment="1" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Component id="labelImagen" min="-2" pref="120" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -1898,12 +1896,20 @@
                           <Component id="btnEliminarRuta" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                           <Component id="btnVerInfoRuta" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnValidarRuta" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnValorarRuta" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnReseñarRuta" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="btnValidarRuta" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="btnValorarRuta" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="btnReseñarRuta" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                                  <Component id="labelImagen" min="-2" pref="103" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btnValoracionTecRuta" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -2078,6 +2084,8 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="labelImagen">
         </Component>
       </SubComponents>
     </Container>

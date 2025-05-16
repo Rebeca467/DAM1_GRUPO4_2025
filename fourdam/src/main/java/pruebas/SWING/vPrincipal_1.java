@@ -19,10 +19,12 @@ import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import reto.fourdam.AccesoBaseDatos;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
@@ -70,6 +72,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
         Connection conn = AccesoBaseDatos.getInstance().getConn();
+        SetImageLabel(labelImagen, "\"C:\\Users\\rebec\\OneDrive - Educantabria\\Escritorio\\montaña.jpg\"");
     }
 
     /**
@@ -258,6 +261,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         jLabel106 = new javax.swing.JLabel();
         txtFiltro3 = new javax.swing.JTextField();
         cmbOrdenRuta = new javax.swing.JComboBox<>();
+        labelImagen = new javax.swing.JLabel();
         ModificarRuta = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel53 = new javax.swing.JLabel();
@@ -1476,32 +1480,31 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                         .addComponent(txtFiltro3, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(176, 176, 176)
                         .addComponent(cmbOrdenRuta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(VerRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VerRutasLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnRegistrar)
                         .addGap(61, 61, 61))
                     .addGroup(VerRutasLayout.createSequentialGroup()
                         .addGroup(VerRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(VerRutasLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(VerRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(VerRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(btnCargarRuta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnReseñarRuta, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btnEliminarRuta, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btnModificarRuta, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btnVerInfoRuta, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btnValidarRuta, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btnValorarRuta, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btnValoracionTecRuta, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btnDescargarFicha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(btnDescargarRuta)))
+                            .addComponent(btnDescargarRuta)
                             .addGroup(VerRutasLayout.createSequentialGroup()
                                 .addGap(107, 107, 107)
-                                .addComponent(btnSalirVerR)))
-                        .addGap(123, 123, 123))))
+                                .addComponent(btnSalirVerR))
+                            .addGroup(VerRutasLayout.createSequentialGroup()
+                                .addGroup(VerRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(btnCargarRuta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnReseñarRuta, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnEliminarRuta, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnModificarRuta, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnVerInfoRuta, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnValidarRuta, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnValorarRuta, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnValoracionTecRuta, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnDescargarFicha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(20, 20, 20)
+                                .addComponent(labelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(22, 22, 22))))
         );
         VerRutasLayout.setVerticalGroup(
             VerRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1514,12 +1517,17 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                         .addComponent(btnEliminarRuta)
                         .addGap(21, 21, 21)
                         .addComponent(btnVerInfoRuta)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnValidarRuta)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnValorarRuta)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnReseñarRuta)
+                        .addGroup(VerRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(VerRutasLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(btnValidarRuta)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnValorarRuta)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnReseñarRuta))
+                            .addGroup(VerRutasLayout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addComponent(labelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnValoracionTecRuta)
                         .addGap(18, 18, 18)
@@ -2628,6 +2636,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JLabel labelImagen;
     private javax.swing.JTable tblReseña;
     private javax.swing.JTable tblRutas;
     private javax.swing.JTable tblValTec;
@@ -3190,6 +3199,13 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         TableRowSorter<DefaultTableModel> tr = new TableRowSorter<>(modeloActual);
         tblRutas.setRowSorter(tr);
         tr.setRowFilter(RowFilter.regexFilter("(?i)" + txt));
+    }
+    
+    private void SetImageLabel(JLabel name, String ruta){
+        ImageIcon imagen = new ImageIcon(ruta);
+        Icon icon = new ImageIcon(imagen.getImage().getScaledInstance(name.getWidth(), name.getHeight(), Image.SCALE_DEFAULT));
+        name.setIcon(icon);
+        this.repaint();
     }
 
 }
