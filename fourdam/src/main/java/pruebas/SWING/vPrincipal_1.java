@@ -99,53 +99,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         jScrollPane8 = new javax.swing.JScrollPane();
         txtInteresCult = new javax.swing.JTextPane();
         btnVerValoraciones = new javax.swing.JButton();
-        VerInfoRutas = new javax.swing.JDialog();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel47 = new javax.swing.JLabel();
-        RecomendacionesRuta = new javax.swing.JLabel();
-        jLabel48 = new javax.swing.JLabel();
-        AutorRuta = new javax.swing.JLabel();
-        NombreRuta = new javax.swing.JLabel();
-        jLabel49 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        TERRENO = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
-        TERRENO1 = new javax.swing.JLabel();
-        jLabel43 = new javax.swing.JLabel();
-        jLabel44 = new javax.swing.JLabel();
-        jLabel50 = new javax.swing.JLabel();
-        FechaCreacionRuta = new javax.swing.JLabel();
-        jLabel45 = new javax.swing.JLabel();
-        DesnivelNegativoRuta = new javax.swing.JLabel();
-        DesnivelPositivoRuta = new javax.swing.JLabel();
-        ClasificacionRuta = new javax.swing.JLabel();
-        TerrenoRuta = new javax.swing.JLabel();
-        AltitudMinimaRuta = new javax.swing.JLabel();
-        AltitudMaximaRuta = new javax.swing.JLabel();
-        FamiliarRuta = new javax.swing.JLabel();
-        RiesgoRuta = new javax.swing.JLabel();
-        ActividadNombreRuta = new javax.swing.JLabel();
-        MediaValoracionesRuta = new javax.swing.JLabel();
-        ZonaGeograficaRuta = new javax.swing.JLabel();
-        TemporadaRuta = new javax.swing.JLabel();
-        IndicacionesRuta = new javax.swing.JLabel();
-        EsfuerzoRuta = new javax.swing.JLabel();
-        DistanciaRuta = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        PuntoInicialNombreRuta = new javax.swing.JLabel();
-        PuntoFinalNombreRuta = new javax.swing.JLabel();
-        jLabel46 = new javax.swing.JLabel();
-        DuracionRuta = new javax.swing.JLabel();
-        UrlRuta = new javax.swing.JLabel();
         ResennaRuta = new javax.swing.JDialog();
         jLabel51 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -180,6 +133,54 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         txtFiltro = new javax.swing.JTextField();
         DescargaFichas = new javax.swing.JDialog();
         jFileChooser1 = new javax.swing.JFileChooser();
+        VerInfoRutas = new javax.swing.JDialog();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
+        jLabel54 = new javax.swing.JLabel();
+        jLabel64 = new javax.swing.JLabel();
+        jLabel65 = new javax.swing.JLabel();
+        jLabel66 = new javax.swing.JLabel();
+        jLabel67 = new javax.swing.JLabel();
+        txtNombreRuta3 = new javax.swing.JTextField();
+        txtLonFinal3 = new javax.swing.JTextField();
+        txtLatIni = new javax.swing.JTextField();
+        txtLatFin3 = new javax.swing.JTextField();
+        txtLonInicial3 = new javax.swing.JTextField();
+        txtRecomendaciones3 = new javax.swing.JTextField();
+        txtDuracion3 = new javax.swing.JTextField();
+        txtEsfuerzo3 = new javax.swing.JTextField();
+        txtDPositivo3 = new javax.swing.JTextField();
+        txtDNegativo = new javax.swing.JTextField();
+        txtRiesgo3 = new javax.swing.JTextField();
+        txtURL3 = new javax.swing.JTextField();
+        txtMediaVal3 = new javax.swing.JTextField();
+        txtClasificacion3 = new javax.swing.JTextField();
+        txtAltitudMax3 = new javax.swing.JTextField();
+        txtZona3 = new javax.swing.JTextField();
+        txtAltMin3 = new javax.swing.JTextField();
+        txtActividad3 = new javax.swing.JTextField();
+        txtIndicaciones3 = new javax.swing.JTextField();
+        txtTemporada3 = new javax.swing.JTextField();
+        txtEstado3 = new javax.swing.JTextField();
+        txtTerreno3 = new javax.swing.JTextField();
         LogIn = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -395,208 +396,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                     .addComponent(btnValorar)
                     .addComponent(btnVerValoraciones))
                 .addContainerGap(326, Short.MAX_VALUE))
-        );
-
-        VerInfoRutas.setSize(new java.awt.Dimension(600, 600));
-
-        jLabel24.setText("NOMBRE");
-
-        jLabel4.setText("USUARIO");
-
-        jLabel47.setText("RECOMENDACIONES");
-
-        RecomendacionesRuta.setText(null);
-
-        AutorRuta.setText(null);
-
-        NombreRuta.setText("hola");
-
-        jLabel49.setText("DESNIVEL POSITIVO");
-
-        jLabel33.setText("FAMILIAR");
-
-        jLabel34.setText("DESNIVEL NEGATIVO");
-
-        jLabel35.setText("RIESGO");
-
-        jLabel36.setText("ALTITUD MAXIMA");
-
-        jLabel37.setText("ALTITUD MINIMA");
-
-        TERRENO.setText("TERRENO");
-
-        jLabel38.setText("TEMPORADA");
-
-        jLabel39.setText("ESFUERZO");
-
-        jLabel40.setText("PUNTO FINAL");
-
-        jLabel41.setText("DISTANCIA");
-
-        jLabel42.setText("PUNTO INICIAL");
-
-        TERRENO1.setText("INDICACIONES");
-
-        jLabel43.setText("ACTIVIDAD");
-
-        jLabel44.setText("ZONA");
-
-        jLabel50.setText("MEDIA DE VALORACIONES");
-
-        FechaCreacionRuta.setText(null);
-
-        jLabel45.setText("FECHA DE CREACION");
-
-        DesnivelNegativoRuta.setText(null);
-
-        DesnivelPositivoRuta.setText(null);
-
-        ClasificacionRuta.setText(null);
-
-        TerrenoRuta.setText(null);
-
-        AltitudMinimaRuta.setText(null);
-
-        AltitudMaximaRuta.setText(null);
-
-        FamiliarRuta.setText(null);
-
-        RiesgoRuta.setText(null);
-
-        ActividadNombreRuta.setText(null);
-
-        MediaValoracionesRuta.setText(null);
-
-        ZonaGeograficaRuta.setText(null);
-
-        TemporadaRuta.setText(null);
-
-        IndicacionesRuta.setText(null);
-
-        EsfuerzoRuta.setText(null);
-
-        DistanciaRuta.setText(null);
-
-        jLabel32.setText("CLASIFICACION");
-
-        PuntoInicialNombreRuta.setText(null);
-
-        PuntoFinalNombreRuta.setText(null);
-
-        jLabel46.setText("DURACION");
-
-        DuracionRuta.setText(null);
-
-        UrlRuta.setText("IMAGEN");
-
-        javax.swing.GroupLayout VerInfoRutasLayout = new javax.swing.GroupLayout(VerInfoRutas.getContentPane());
-        VerInfoRutas.getContentPane().setLayout(VerInfoRutasLayout);
-        VerInfoRutasLayout.setHorizontalGroup(
-            VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(DesnivelNegativoRuta)
-            .addComponent(PuntoFinalNombreRuta)
-            .addComponent(PuntoInicialNombreRuta)
-            .addComponent(TerrenoRuta)
-            .addComponent(ActividadNombreRuta)
-            .addComponent(jLabel39)
-            .addComponent(ZonaGeograficaRuta)
-            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 827, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(IndicacionesRuta)
-            .addComponent(jLabel44)
-            .addComponent(AutorRuta)
-            .addComponent(DistanciaRuta)
-            .addComponent(jLabel38)
-            .addComponent(jLabel37)
-            .addComponent(jLabel40)
-            .addComponent(jLabel41)
-            .addComponent(jLabel45)
-            .addComponent(MediaValoracionesRuta)
-            .addComponent(TemporadaRuta)
-            .addComponent(jLabel32)
-            .addComponent(RiesgoRuta)
-            .addComponent(FamiliarRuta)
-            .addComponent(jLabel35)
-            .addComponent(jLabel24)
-            .addComponent(AltitudMinimaRuta)
-            .addComponent(jLabel43)
-            .addComponent(jLabel42)
-            .addComponent(FechaCreacionRuta)
-            .addComponent(AltitudMaximaRuta)
-            .addComponent(DesnivelPositivoRuta)
-            .addComponent(jLabel49)
-            .addComponent(EsfuerzoRuta)
-            .addComponent(ClasificacionRuta)
-            .addComponent(jLabel50)
-            .addComponent(TERRENO1)
-            .addComponent(jLabel34)
-            .addComponent(DuracionRuta)
-            .addComponent(jLabel36)
-            .addComponent(jLabel33)
-            .addComponent(TERRENO)
-            .addComponent(NombreRuta)
-            .addGroup(VerInfoRutasLayout.createSequentialGroup()
-                .addComponent(jLabel48)
-                .addGap(77, 77, 77)
-                .addComponent(jLabel46)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(UrlRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 757, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(RecomendacionesRuta))
-            .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 827, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        VerInfoRutasLayout.setVerticalGroup(
-            VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(VerInfoRutasLayout.createSequentialGroup()
-                .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(DesnivelNegativoRuta)
-                    .addComponent(PuntoFinalNombreRuta)
-                    .addComponent(PuntoInicialNombreRuta)
-                    .addComponent(TerrenoRuta)
-                    .addComponent(ActividadNombreRuta)
-                    .addComponent(jLabel39)
-                    .addComponent(ZonaGeograficaRuta)
-                    .addComponent(jLabel4)
-                    .addComponent(IndicacionesRuta)
-                    .addComponent(jLabel44)
-                    .addComponent(AutorRuta)
-                    .addComponent(DistanciaRuta)
-                    .addComponent(jLabel38)
-                    .addComponent(jLabel37)
-                    .addComponent(jLabel40)
-                    .addComponent(jLabel41)
-                    .addComponent(jLabel45)
-                    .addComponent(MediaValoracionesRuta)
-                    .addComponent(TemporadaRuta)
-                    .addComponent(jLabel32)
-                    .addComponent(RiesgoRuta)
-                    .addComponent(FamiliarRuta)
-                    .addComponent(jLabel35)
-                    .addComponent(jLabel24)
-                    .addComponent(AltitudMinimaRuta)
-                    .addComponent(jLabel43)
-                    .addComponent(jLabel42)
-                    .addComponent(FechaCreacionRuta)
-                    .addComponent(AltitudMaximaRuta)
-                    .addComponent(DesnivelPositivoRuta)
-                    .addComponent(jLabel49)
-                    .addComponent(EsfuerzoRuta)
-                    .addComponent(ClasificacionRuta)
-                    .addComponent(jLabel50)
-                    .addComponent(TERRENO1)
-                    .addComponent(jLabel34)
-                    .addComponent(DuracionRuta)
-                    .addComponent(jLabel36)
-                    .addComponent(jLabel33)
-                    .addComponent(TERRENO)
-                    .addComponent(NombreRuta))
-                .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(UrlRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(RecomendacionesRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(VerInfoRutasLayout.createSequentialGroup()
-                        .addGap(118, 118, 118)
-                        .addComponent(jLabel46)))
-                .addComponent(jLabel47))
         );
 
         ResennaRuta.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -898,6 +697,263 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
+        VerInfoRutas.setTitle("Información de las rutas");
+        VerInfoRutas.setResizable(false);
+        VerInfoRutas.setSize(new java.awt.Dimension(600, 600));
+
+        jLabel4.setText("Nombre ruta:");
+
+        jLabel24.setText("Punto inicial");
+
+        jLabel32.setText("Latitud");
+
+        jLabel33.setText("Longitud");
+
+        jLabel34.setText("Punto Final");
+
+        jLabel35.setText("Longitud");
+
+        jLabel36.setText("Latitud");
+
+        jLabel37.setText("Indicaciones");
+
+        jLabel38.setText("Temporada");
+
+        jLabel39.setText("Recomendaciones");
+
+        jLabel40.setText("Distancia");
+
+        jLabel41.setText("Duracion");
+
+        jLabel42.setText("Esfuerzo");
+
+        jLabel43.setText("Desnivel Positivo");
+
+        jLabel44.setText("Desnivel negativo");
+
+        jLabel45.setText("Altitud Maxima");
+
+        jLabel46.setText("Altitud Minima");
+
+        jLabel47.setText("Actividad");
+
+        jLabel49.setText("Zona");
+
+        jLabel50.setText("Clasificacion");
+
+        jLabel54.setText("Riesgo");
+
+        jLabel64.setText("Estado");
+
+        jLabel65.setText("URL");
+
+        jLabel66.setText("Media valoraciones");
+
+        jLabel67.setText("Terreno");
+
+        javax.swing.GroupLayout VerInfoRutasLayout = new javax.swing.GroupLayout(VerInfoRutas.getContentPane());
+        VerInfoRutas.getContentPane().setLayout(VerInfoRutasLayout);
+        VerInfoRutasLayout.setHorizontalGroup(
+            VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(VerInfoRutasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(VerInfoRutasLayout.createSequentialGroup()
+                        .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(VerInfoRutasLayout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtNombreRuta3))
+                            .addGroup(VerInfoRutasLayout.createSequentialGroup()
+                                .addComponent(jLabel24)
+                                .addGap(32, 32, 32)
+                                .addComponent(jLabel33)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtLonInicial3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(51, 51, 51)
+                                .addComponent(jLabel32)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtLatIni, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                    .addGroup(VerInfoRutasLayout.createSequentialGroup()
+                        .addComponent(jLabel45)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtAltitudMax3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(VerInfoRutasLayout.createSequentialGroup()
+                        .addComponent(jLabel44)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtDNegativo, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, VerInfoRutasLayout.createSequentialGroup()
+                            .addComponent(jLabel41)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtDuracion3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, VerInfoRutasLayout.createSequentialGroup()
+                            .addComponent(jLabel42)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtEsfuerzo3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, VerInfoRutasLayout.createSequentialGroup()
+                            .addComponent(jLabel43)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtDPositivo3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(VerInfoRutasLayout.createSequentialGroup()
+                        .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel34)
+                            .addComponent(jLabel37)
+                            .addComponent(jLabel38))
+                        .addGap(32, 32, 32)
+                        .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(VerInfoRutasLayout.createSequentialGroup()
+                                .addComponent(jLabel35)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtLonFinal3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtIndicaciones3)
+                            .addComponent(txtTemporada3))
+                        .addGap(51, 51, 51)
+                        .addComponent(jLabel36)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtLatFin3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(VerInfoRutasLayout.createSequentialGroup()
+                        .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel54)
+                                .addComponent(jLabel50)
+                                .addComponent(jLabel49)
+                                .addComponent(jLabel64)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VerInfoRutasLayout.createSequentialGroup()
+                                    .addGap(2, 2, 2)
+                                    .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel39)
+                                        .addComponent(jLabel40))))
+                            .addComponent(jLabel66)
+                            .addComponent(jLabel46)
+                            .addComponent(jLabel47)
+                            .addComponent(jLabel65))
+                        .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(VerInfoRutasLayout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtTerreno3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEstado3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtClasificacion3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtRiesgo3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtZona3, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(228, Short.MAX_VALUE))
+                            .addGroup(VerInfoRutasLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtURL3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtActividad3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtAltMin3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtMediaVal3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(VerInfoRutasLayout.createSequentialGroup()
+                        .addComponent(jLabel67)
+                        .addGap(9, 9, 9)
+                        .addComponent(txtRecomendaciones3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+        );
+        VerInfoRutasLayout.setVerticalGroup(
+            VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VerInfoRutasLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(VerInfoRutasLayout.createSequentialGroup()
+                        .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(txtNombreRuta3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(35, 35, 35)
+                        .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel24)
+                            .addComponent(jLabel33)
+                            .addComponent(jLabel32)
+                            .addComponent(txtLatIni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtLonInicial3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel34)
+                            .addComponent(jLabel35)
+                            .addComponent(jLabel36)
+                            .addComponent(txtLonFinal3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtLatFin3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(48, 48, 48)
+                        .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel37)
+                            .addComponent(txtIndicaciones3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(34, 34, 34)
+                        .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel38)
+                            .addComponent(txtTemporada3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel41)
+                            .addComponent(txtDuracion3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel67)
+                                .addComponent(txtRecomendaciones3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(35, 35, 35)
+                        .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel42)
+                            .addComponent(txtEsfuerzo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(43, 43, 43)
+                        .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel43)
+                            .addComponent(txtDPositivo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(41, 41, 41)
+                        .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel44)
+                            .addComponent(txtDNegativo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(41, 41, 41)
+                        .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel45)
+                            .addComponent(txtAltitudMax3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(VerInfoRutasLayout.createSequentialGroup()
+                        .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(VerInfoRutasLayout.createSequentialGroup()
+                                .addComponent(txtZona3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(24, 24, 24)
+                                .addComponent(txtClasificacion3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(29, 29, 29)
+                                .addComponent(txtRiesgo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(21, 21, 21)
+                                .addComponent(txtEstado3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(29, 29, 29)
+                                .addComponent(txtTerreno3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(VerInfoRutasLayout.createSequentialGroup()
+                                .addComponent(jLabel40)
+                                .addGap(32, 32, 32)
+                                .addComponent(jLabel39)
+                                .addGap(27, 27, 27)
+                                .addComponent(jLabel49)
+                                .addGap(24, 24, 24)
+                                .addComponent(jLabel50)
+                                .addGap(29, 29, 29)
+                                .addComponent(jLabel54)
+                                .addGap(21, 21, 21)
+                                .addComponent(jLabel64)))
+                        .addGap(103, 103, 103)
+                        .addGroup(VerInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(VerInfoRutasLayout.createSequentialGroup()
+                                .addComponent(jLabel65)
+                                .addGap(37, 37, 37)
+                                .addComponent(jLabel66)
+                                .addGap(43, 43, 43)
+                                .addComponent(jLabel47)
+                                .addGap(41, 41, 41)
+                                .addComponent(jLabel46))
+                            .addGroup(VerInfoRutasLayout.createSequentialGroup()
+                                .addComponent(txtURL3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(37, 37, 37)
+                                .addComponent(txtMediaVal3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(43, 43, 43)
+                                .addComponent(txtActividad3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(41, 41, 41)
+                                .addComponent(txtAltMin3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 4, Short.MAX_VALUE)))
+                .addContainerGap(564, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -952,7 +1008,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                         .addComponent(btnInvitado)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnSignin)))
-                .addContainerGap(399, Short.MAX_VALUE))
+                .addContainerGap(429, Short.MAX_VALUE))
         );
         LogInLayout.setVerticalGroup(
             LogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -969,7 +1025,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                 .addGroup(LogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInvitado)
                     .addComponent(btnSignin))
-                .addContainerGap(215, Short.MAX_VALUE))
+                .addContainerGap(221, Short.MAX_VALUE))
         );
 
         getContentPane().add(LogIn, "card2");
@@ -1009,12 +1065,12 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(34, 34, 34)))
-                .addContainerGap(344, Short.MAX_VALUE))
+                .addContainerGap(579, Short.MAX_VALUE))
         );
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
+                .addContainerGap(251, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCreaRuta)
@@ -1298,7 +1354,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                                     .addComponent(txtEsfuerzo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(73, 73, 73)))
                         .addComponent(btnCsv)
-                        .addGap(0, 12, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(CreaRutasLayout.createSequentialGroup()
                         .addGroup(CreaRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(CreaRutasLayout.createSequentialGroup()
@@ -1665,7 +1721,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                             .addComponent(txtEsfuerzo1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtDistancia1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtDuracion1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(ModificarRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ModificarRutaLayout.createSequentialGroup()
                         .addComponent(jLabel93)
@@ -1844,7 +1900,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                         .addGroup(ModificarRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel101)
                             .addComponent(cmbEstado2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addComponent(btnModificarRuta2)
                 .addGap(2, 2, 2)
                 .addComponent(btnSalirCrearR2)
@@ -2484,44 +2540,19 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel ActividadNombreRuta;
-    private javax.swing.JLabel AltitudMaximaRuta;
-    private javax.swing.JLabel AltitudMinimaRuta;
-    private javax.swing.JLabel AutorRuta;
-    private javax.swing.JLabel ClasificacionRuta;
     private javax.swing.JPanel CreaRutas;
     private javax.swing.JDialog DescargaFichas;
-    private javax.swing.JLabel DesnivelNegativoRuta;
-    private javax.swing.JLabel DesnivelPositivoRuta;
-    private javax.swing.JLabel DistanciaRuta;
-    private javax.swing.JLabel DuracionRuta;
-    private javax.swing.JLabel EsfuerzoRuta;
-    private javax.swing.JLabel FamiliarRuta;
-    private javax.swing.JLabel FechaCreacionRuta;
-    private javax.swing.JLabel IndicacionesRuta;
     private javax.swing.JDialog ListadoResennas;
     private javax.swing.JDialog ListadoVTecnica;
     private javax.swing.JDialog ListadoValoraciones;
     private javax.swing.JPanel LogIn;
-    private javax.swing.JLabel MediaValoracionesRuta;
     private javax.swing.JPanel Menu;
     private javax.swing.JPanel ModificarRuta;
-    private javax.swing.JLabel NombreRuta;
-    private javax.swing.JLabel PuntoFinalNombreRuta;
-    private javax.swing.JLabel PuntoInicialNombreRuta;
-    private javax.swing.JLabel RecomendacionesRuta;
     private javax.swing.JDialog ResennaRuta;
-    private javax.swing.JLabel RiesgoRuta;
-    private javax.swing.JLabel TERRENO;
-    private javax.swing.JLabel TERRENO1;
-    private javax.swing.JLabel TemporadaRuta;
-    private javax.swing.JLabel TerrenoRuta;
-    private javax.swing.JLabel UrlRuta;
     private javax.swing.JDialog ValoracionTec;
     private javax.swing.JDialog ValorarRuta;
     private javax.swing.JDialog VerInfoRutas;
     private javax.swing.JPanel VerRutas;
-    private javax.swing.JLabel ZonaGeograficaRuta;
     private javax.swing.JScrollPane a;
     private javax.swing.JButton btnCargarRuta;
     private javax.swing.JButton btnCreaRuta;
@@ -2618,13 +2649,13 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
-    private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
@@ -2635,6 +2666,10 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
+    private javax.swing.JLabel jLabel66;
+    private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel86;
@@ -2667,14 +2702,20 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private javax.swing.JTable tblValoraciones;
     private javax.swing.JTextField txtActividad;
     private javax.swing.JTextField txtActividad1;
+    private javax.swing.JTextField txtActividad3;
+    private javax.swing.JTextField txtAltMin3;
     private javax.swing.JTextField txtAltitudMax;
     private javax.swing.JTextField txtAltitudMax1;
+    private javax.swing.JTextField txtAltitudMax3;
     private javax.swing.JTextField txtAltitudMin;
     private javax.swing.JTextField txtAltitudMin1;
     private javax.swing.JTextPane txtBelleza;
+    private javax.swing.JTextField txtClasificacion3;
     private javax.swing.JTextArea txtComentario;
     private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtDNegativo;
+    private javax.swing.JTextField txtDPositivo3;
     private javax.swing.JTextField txtDesnivelNegativo;
     private javax.swing.JTextField txtDesnivelNegativo1;
     private javax.swing.JTextField txtDesnivelPositivo;
@@ -2685,17 +2726,27 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private javax.swing.JTextField txtDistancia1;
     private javax.swing.JTextField txtDuracion;
     private javax.swing.JTextField txtDuracion1;
+    private javax.swing.JTextField txtDuracion3;
     private javax.swing.JTextField txtEsfuerzo;
     private javax.swing.JTextField txtEsfuerzo1;
+    private javax.swing.JTextField txtEsfuerzo3;
+    private javax.swing.JTextField txtEstado3;
     private javax.swing.JTextField txtFiltro;
     private javax.swing.JTextField txtFiltro1;
     private javax.swing.JTextField txtFiltro2;
     private javax.swing.JTextField txtFiltro3;
+    private javax.swing.JTextField txtIndicaciones3;
     private javax.swing.JTextPane txtInteresCult;
+    private javax.swing.JTextField txtLatFin3;
+    private javax.swing.JTextField txtLatIni;
+    private javax.swing.JTextField txtLonFinal3;
+    private javax.swing.JTextField txtLonInicial3;
+    private javax.swing.JTextField txtMediaVal3;
     private javax.swing.JTextField txtMediaValoraciones;
     private javax.swing.JTextField txtMediaValoraciones1;
     private javax.swing.JTextField txtNombreRuta;
     private javax.swing.JTextField txtNombreRuta1;
+    private javax.swing.JTextField txtNombreRuta3;
     private javax.swing.JTextField txtPFinLat;
     private javax.swing.JTextField txtPFinLat1;
     private javax.swing.JTextField txtPFinLong;
@@ -2706,13 +2757,19 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private javax.swing.JTextField txtPiniLong1;
     private javax.swing.JTextField txtRecomendaciones;
     private javax.swing.JTextField txtRecomendaciones1;
+    private javax.swing.JTextField txtRecomendaciones3;
     private javax.swing.JTextArea txtRecomendacionesVal;
     private javax.swing.JTextField txtRiesgo;
     private javax.swing.JTextField txtRiesgo1;
+    private javax.swing.JTextField txtRiesgo3;
+    private javax.swing.JTextField txtTemporada3;
+    private javax.swing.JTextField txtTerreno3;
+    private javax.swing.JTextField txtURL3;
     private javax.swing.JTextField txtUrl;
     private javax.swing.JTextField txtUrl1;
     private javax.swing.JTextField txtZona;
     private javax.swing.JTextField txtZona1;
+    private javax.swing.JTextField txtZona3;
     // End of variables declaration//GEN-END:variables
 // ============================================================ NUESTROS METODOS =========================================================
 
