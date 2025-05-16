@@ -1,0 +1,26 @@
+-classpath
+'D:/Usuarios/DAM104/.m2/repository/mysql/mysql-connector-java/8.0.29/mysql-connector-java-8.0.29.jar;D:/Usuarios/DAM104/.m2/repository/com/google/protobuf/protobuf-java/3.19.4/protobuf-java-3.19.4.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'22'
+-sourcepath
+'D:/Usuarios/DAM104/Documents/GitHub/FOURDAM/fourdam/src/main/java'
+-source
+22
+-author
+-bottom
+'Copyright &#169; 2025. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'D:/Usuarios/DAM104/Documents/GitHub/FOURDAM/fourdam/target/reports/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'fourdam 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'fourdam 1.0-SNAPSHOT API'
