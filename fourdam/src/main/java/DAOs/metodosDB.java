@@ -38,10 +38,11 @@ import reto.fourdam.ValoracionTec;
 /**
  * Clase metodosDB.
  * <p>
- * Esta clase contiene métodos para interactuar con la base de datos, permitiendo
- * listar rutas, puntos, reseñas y valoraciones, así como agregar, modificar y eliminar
- * registros. Emplea la conexion proporcionada por la clase AccesoBaseDatos y utiliza
- * diversos metodos auxiliares para construir objetos a partir de ResultSet.
+ * Esta clase contiene métodos para interactuar con la base de datos,
+ * permitiendo listar rutas, puntos, reseñas y valoraciones, así como agregar,
+ * modificar y eliminar registros. Emplea la conexion proporcionada por la clase
+ * AccesoBaseDatos y utiliza diversos metodos auxiliares para construir objetos
+ * a partir de ResultSet.
  * </p>
  *
  * @author Rebeca Cabo Cianca
@@ -64,8 +65,8 @@ public class metodosDB {
      * Lista todas las rutas almacenadas en la base de datos.
      * <p>
      * Se ejecuta una consulta SQL para obtener los registros de rutas. Para
-     * cada registro se invoca el metodo {@code rutaPorId} para generar el objeto Ruta
-     * correspondiente.
+     * cada registro se invoca el metodo {@code rutaPorId} para generar el
+     * objeto Ruta correspondiente.
      * </p>
      *
      * @return ArrayList de objetos Ruta.
@@ -130,8 +131,8 @@ public class metodosDB {
      * Lista todas las valoraciones almacenadas en la base de datos.
      * <p>
      * Se ejecuta una consulta SQL para obtener los registros de valoraciones.
-     * Por cada registro se invoca el metodo {@code crearValoracion} para generar el
-     * objeto Valoracion.
+     * Por cada registro se invoca el metodo {@code crearValoracion} para
+     * generar el objeto Valoracion.
      * </p>
      *
      * @return ArrayList de objetos Valoracion.
@@ -152,8 +153,7 @@ public class metodosDB {
         }
         return valoraciones;
     }
-    
-    
+
     public String getEquipoRecomendadoPorRuta(int idRuta) {
         String equipo = "";
         String sql = "SELECT recomendaciones FROM valoraciontecnica WHERE id_ruta = ? LIMIT 1";
@@ -171,14 +171,13 @@ public class metodosDB {
 
         return equipo;
     }
-    
 
     /**
      * Lista todas las resennas almacenadas en la base de datos.
      * <p>
      * Se ejecuta una consulta SQL para obtener los registros de resennas y,
-     * para cada registro, se invoca el metodo {@code crearResenna(rs)} para generar
-     * el objeto Resenna correspondiente.
+     * para cada registro, se invoca el metodo {@code crearResenna(rs)} para
+     * generar el objeto Resenna correspondiente.
      * </p>
      *
      * @return ArrayList de objetos Resenna.
@@ -252,7 +251,7 @@ public class metodosDB {
         PreparedStatement checkUserPs = null;
         PreparedStatement checkActPs = null;
         PreparedStatement insertActPs = null;
-        PreparedStatement insertRutaPs = null;
+        PreparedStatement ps = null;
         ResultSet userRs = null;
         ResultSet actRs = null;
         ResultSet generatedKeys = null;
@@ -301,38 +300,38 @@ public class metodosDB {
                     + "esfuerzo, riesgo, zona, recomendaciones, clasificacion, nombre_inicial, nombre_final, "
                     + "media_valoraciones, duracion) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-            insertRutaPs = conn.prepareStatement(sql);
-            insertRutaPs.setInt(1, r.getAutor().getId());                      // id_usuario
-            insertRutaPs.setInt(2, actividadId);                               // idActividades
-            insertRutaPs.setString(3, r.getNombre());                          // nombre
-            insertRutaPs.setDate(4, Date.valueOf(r.getFecha_creacion()));      // fecha
-            insertRutaPs.setDouble(5, r.getPunto_ini().getLatitud());          // latitud_inicial
-            insertRutaPs.setDouble(6, r.getPunto_ini().getLongitud());         // longitud_inicial
-            insertRutaPs.setDouble(7, r.getPunto_fin().getLatitud());          // latitud_final
-            insertRutaPs.setDouble(8, r.getPunto_fin().getLongitud());         // longitud_final
-            insertRutaPs.setDouble(9, r.getDistanciaTotal());                  // distancia
-            insertRutaPs.setDouble(10, r.getDesnivel());                       // desnivel
-            insertRutaPs.setDouble(11, r.getDesnivelPositivo());               // desnivel_positivo
-            insertRutaPs.setDouble(12, r.getDesnivelNegativo());               // desnivel_negativo
-            insertRutaPs.setDouble(13, r.getAltMin());                         // altitud_minima
-            insertRutaPs.setDouble(14, r.getAltMax());                         // altitud_maxima
-            insertRutaPs.setString(15, r.getEstado().toString());              // estado
-            insertRutaPs.setString(16, r.getUrl());                            // url
-            insertRutaPs.setBoolean(17, r.isFamiliar());                       // familiar
-            insertRutaPs.setString(18, r.getTemporada());                      // temporada
-            insertRutaPs.setInt(19, r.getIndicaciones());                      // indicaciones
-            insertRutaPs.setInt(20, r.getTipoTerreno());                       // terreno
-            insertRutaPs.setInt(21, r.getNivelEsfuerzo());                     // esfuerzo
-            insertRutaPs.setInt(22, r.getNivelRiesgo());                       // riesgo
-            insertRutaPs.setString(23, r.getZonaGeografica());                 // zona
-            insertRutaPs.setString(24, r.getRecomendaciones());                // recomendaciones
-            insertRutaPs.setString(25, r.getClasificacion().name());           // clasificacion
-            insertRutaPs.setString(26, "Inicio");                              // nombre_inicial (no puede ser null)
-            insertRutaPs.setString(27, "Fin");                                 // nombre_final (no puede ser null)
-            insertRutaPs.setInt(28, r.getMediaValoracion());                   // media_valoraciones
-            insertRutaPs.setDouble(29, r.getDuracion());                       // duracion
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, r.getAutor().getId());                      // id_usuario
+            ps.setInt(2, actividadId);                               // idActividades
+            ps.setString(3, r.getNombre());                          // nombre
+            ps.setDate(4, Date.valueOf(r.getFecha_creacion()));      // fecha
+            ps.setDouble(5, r.getPunto_ini().getLatitud());          // latitud_inicial
+            ps.setDouble(6, r.getPunto_ini().getLongitud());         // longitud_inicial
+            ps.setDouble(7, r.getPunto_fin().getLatitud());          // latitud_final
+            ps.setDouble(8, r.getPunto_fin().getLongitud());         // longitud_final
+            ps.setDouble(9, r.getDistanciaTotal());                  // distancia
+            ps.setDouble(10, r.getDesnivel());                       // desnivel
+            ps.setDouble(11, r.getDesnivelPositivo());               // desnivel_positivo
+            ps.setDouble(12, r.getDesnivelNegativo());               // desnivel_negativo
+            ps.setDouble(13, r.getAltMin());                         // altitud_minima
+            ps.setDouble(14, r.getAltMax());                         // altitud_maxima
+            ps.setString(15, r.getEstado().toString());              // estado
+            ps.setString(16, r.getUrl());                            // url
+            ps.setBoolean(17, r.isFamiliar());                       // familiar
+            ps.setString(18, r.getTemporada());                      // temporada
+            ps.setInt(19, r.getIndicaciones());                      // indicaciones
+            ps.setInt(20, r.getTipoTerreno());                       // terreno
+            ps.setInt(21, r.getNivelEsfuerzo());                     // esfuerzo
+            ps.setInt(22, r.getNivelRiesgo());                       // riesgo
+            ps.setString(23, r.getZonaGeografica());                 // zona
+            ps.setString(24, r.getRecomendaciones());                // recomendaciones
+            ps.setString(25, r.getClasificacion().name());           // clasificacion
+            ps.setString(26, "Inicio");                              // nombre_inicial (no puede ser null)
+            ps.setString(27, "Fin");                                 // nombre_final (no puede ser null)
+            ps.setInt(28, r.getMediaValoracion());                   // media_valoraciones
+            ps.setDouble(29, r.getDuracion());                       // duracion
 
-            int salida = insertRutaPs.executeUpdate();
+            int salida = ps.executeUpdate();
 
             // Confirmar la transacción si todo salió bien
             conn.commit();
@@ -377,8 +376,8 @@ public class metodosDB {
                 if (userRs != null) {
                     userRs.close();
                 }
-                if (insertRutaPs != null) {
-                    insertRutaPs.close();
+                if (ps != null) {
+                    ps.close();
                 }
                 if (insertActPs != null) {
                     insertActPs.close();
@@ -422,9 +421,9 @@ public class metodosDB {
             ps.setInt(4, r.getUsuario().getId());
             salida = ps.executeUpdate();
             if (salida == 1) {
-                exito = true;                
+                exito = true;
                 JOptionPane.showMessageDialog(null, "Reseña insertada");
-            }            
+            }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
         } catch (Exception e) {
@@ -477,8 +476,8 @@ public class metodosDB {
      * Obtiene una ruta de la base de datos por su ID.
      * <p>
      * Ejecuta una consulta SELECT en la tabla "rutas" usando el id
-     * proporcionado. Se invoca el metodo {@code crearRuta(rs)} para construir el
-     * objeto Ruta a partir de los datos obtenidos.
+     * proporcionado. Se invoca el metodo {@code crearRuta(rs)} para construir
+     * el objeto Ruta a partir de los datos obtenidos.
      * </p>
      *
      * @param id El id de la ruta.
@@ -501,8 +500,6 @@ public class metodosDB {
         }
         return ruta;
     }
-    
-    
 
     /**
      * Obtiene un punto de interes a partir de sus coordenadas.
@@ -605,8 +602,8 @@ public class metodosDB {
             ps.setInt(1, idResenna);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    resenna = crearResenna(rs);                   
-                } 
+                    resenna = crearResenna(rs);
+                }
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al consultar reseña: " + ex.getMessage());
@@ -614,6 +611,7 @@ public class metodosDB {
 
         return resenna;
     }
+
     /**
      * Elimina una resenna de la base de datos identificada por su id.
      * <p>
@@ -646,6 +644,7 @@ public class metodosDB {
 
         return exito;
     }
+
     /**
      * Elimina una reseña de la base de datos.
      * <p>
@@ -671,6 +670,7 @@ public class metodosDB {
         }
         return exito;
     }
+
     /**
      * Modifica una ruta en la base de datos.
      * <p>
@@ -683,28 +683,40 @@ public class metodosDB {
      */
     public void modificarRuta(int k, Ruta r) {
 
-        String sql = "update rutas set nombre=?, fecha=?,"
-                + "distancia=?, estado=?, url=?, familiar=?, "
+        String sql = "update rutas set id_usuario=?, nombre=?, fecha=?, latitud_inicial=?, longitud_inicial=?,"
+                + "latitud_final=?, longitud_final=?, distancia=?, estado=?, url=?, familiar=?, altitud_minima=?, altitud_maxima=?, "
                 + "temporada=?, indicaciones=?, terreno=?, esfuerzo=?, riesgo=?, zona=?, recomendaciones=?, clasificacion=?,"
-                + "media_valoracion=?, duracion=? where id_ruta=?;";
+                + "media_valoraciones=?, duracion=?, idActividades=?, desnivel=?, desnivel_positivo=?, desnivel_negativo=? where id_ruta=?;";
 
         try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
-            ps.setString(1, r.getNombre());
-            ps.setDate(2, Date.valueOf(LocalDate.now()));
-            ps.setDouble(3, r.getDuracion());
-            ps.setObject(4, r.getEstado());
-            ps.setString(5, r.getUrl());
-            ps.setBoolean(6, r.isFamiliar());
-            ps.setObject(7, r.getTemporada());
-            ps.setInt(8, r.getIndicaciones());
-            ps.setInt(9, r.getTipoTerreno());
-            ps.setInt(10, r.getNivelEsfuerzo());
-            ps.setInt(11, r.getNivelRiesgo());
-            ps.setString(12, r.getZonaGeografica());
-            ps.setString(13, r.getRecomendaciones());
-            ps.setObject(14, r.getClasificacion());
-            ps.setInt(15, r.getMediaValoracion());
-            ps.setDouble(16, r.getDuracion());
+            ps.setInt(1, r.getAutor().getId());
+            ps.setString(2, r.getNombre());
+            ps.setDate(3, Date.valueOf(LocalDate.now()));
+            ps.setDouble(4, r.getPunto_ini().getLatitud());
+            ps.setDouble(5, r.getPunto_ini().getLongitud());
+            ps.setDouble(6, r.getPunto_fin().getLatitud());
+            ps.setDouble(7, r.getPunto_fin().getLongitud());
+            ps.setDouble(8, r.getDistanciaTotal());
+            ps.setObject(9, r.getEstado().toString());
+            ps.setString(10, r.getUrl());
+            ps.setBoolean(11, r.isFamiliar());
+            ps.setDouble(12, r.getAltMin());
+            ps.setDouble(13, r.getAltMax());
+            ps.setObject(14, r.getTemporada().toString());
+            ps.setInt(15, r.getIndicaciones());
+            ps.setInt(16, r.getTipoTerreno());
+            ps.setInt(17, r.getNivelEsfuerzo());
+            ps.setInt(18, r.getNivelRiesgo());
+            ps.setString(19, r.getZonaGeografica());
+            ps.setString(20, r.getRecomendaciones());
+            ps.setObject(21, r.getClasificacion().toString());
+            ps.setInt(22, r.getMediaValoracion());
+            ps.setDouble(23, r.getDuracion());
+            ps.setInt(24, r.getTipoActividad().getId());
+            ps.setDouble(25, r.getDesnivel());
+            ps.setDouble(26, r.getDesnivelPositivo());
+            ps.setDouble(27, r.getDesnivelNegativo());
+            ps.setInt(28, k);
             int resultado = ps.executeUpdate();
             if (resultado == 1) {
                 JOptionPane.showMessageDialog(null, "Se ha actualizado correctamente el taller");
@@ -716,6 +728,7 @@ public class metodosDB {
         }
 
     }
+
     /**
      * Modifica un punto de interes en la base de datos.
      * <p>
@@ -745,6 +758,7 @@ public class metodosDB {
 
         }
     }
+
     /**
      * Modifica un punto de peligro en la base de datos.
      * <p>
@@ -776,6 +790,7 @@ public class metodosDB {
             JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage());
         }
     }
+
     /**
      * Crea un objeto Ruta a partir de un ResultSet.
      * <p>
@@ -862,6 +877,7 @@ public class metodosDB {
         }
         return u;
     }
+
     /**
      * Agrega una nueva valoracion a la base de datos.
      * <p>
@@ -888,7 +904,7 @@ public class metodosDB {
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ERROR: " + e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
-        } 
+        }
     }
 
     /**
@@ -913,6 +929,7 @@ public class metodosDB {
                 rs.getString("justificacion")
         );
     }
+
     /**
      * Crea una objeto Valoracion a partir de un ResultSet.
      * <p>
@@ -941,6 +958,7 @@ public class metodosDB {
         }
         return null;
     }
+
     /**
      * Crea un objeto Resenna a partir de un ResultSet.
      * <p>
@@ -963,6 +981,7 @@ public class metodosDB {
         );
 
     }
+
     /**
      * Crea un objeto ValoracionTec a partir de un ResultSet.
      * <p>
@@ -991,6 +1010,7 @@ public class metodosDB {
         }
         return null;
     }
+
     /**
      * Verifica el rol de un usuario a partir de su correo y contrasena.
      * <p>
@@ -1012,8 +1032,8 @@ public class metodosDB {
             ps.setString(2, password);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    String rolStr = rs.getString("rol").toUpperCase();                    
-                        rol = TipoUsuario.valueOf(rolStr);                    
+                    String rolStr = rs.getString("rol").toUpperCase();
+                    rol = TipoUsuario.valueOf(rolStr);
                 } else {
                     System.out.println("Usuario no encontrado con ese correo.");
                 }
@@ -1024,6 +1044,7 @@ public class metodosDB {
         }
         return rol;
     }
+
     /**
      * Crea un objeto PuntoInteres a partir de un ResultSet.
      * <p>
@@ -1045,6 +1066,7 @@ public class metodosDB {
                 rs.getString("caracteristicasEsp")
         );
     }
+
     /**
      * Obtiene el id de un usuario a partir de su correo electronico.
      * <p>
@@ -1056,30 +1078,28 @@ public class metodosDB {
      * @return El id del usuario, o 1 si no se encuentra.
      */
     public static int idUsuario(String email) {
-    String sql = "SELECT id_usuario FROM usuarios WHERE correo = ?";
-    int id = -1;
-    
-    try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
-        ps.setString(1, email);
-        try (ResultSet rs = ps.executeQuery()) {
-            if (rs.next()) {
-                id = rs.getInt("id_usuario");
+        String sql = "SELECT id_usuario FROM usuarios WHERE correo = ?";
+        int id = -1;
+
+        try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
+            ps.setString(1, email);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    id = rs.getInt("id_usuario");
+                }
             }
+        } catch (SQLException e) {
+            System.out.println("Error al acceder a la base de datos: " + e.getMessage());
         }
-    } catch (SQLException e) {
-        System.out.println("Error al acceder a la base de datos: " + e.getMessage());
+
+        if (id == -1) {
+            JOptionPane.showMessageDialog(null, "ERROR: Usuario no encontrado", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+
+        return id;
     }
-
-    if (id == -1) {
-        JOptionPane.showMessageDialog(null, "ERROR: Usuario no encontrado", "ERROR", JOptionPane.ERROR_MESSAGE);
-    }
-
-    return id;
-}
-
 
     // ============================================================== ENUMS ===================================================
-    
     /**
      * Retorna una lista de cadenas con los valores del enum Clasificacion_Ruta.
      *
@@ -1105,6 +1125,7 @@ public class metodosDB {
         }
         return lista;
     }
+
     /**
      * Retorna una lista de cadenas con los valores del enum Temporada.
      *
