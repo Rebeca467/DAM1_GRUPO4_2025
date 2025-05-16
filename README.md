@@ -60,26 +60,35 @@ Este proyecto tiene como objetivo la gestión y validación de rutas educativas 
 
 ## Aplicación Web
 
-La interfaz web está desarrollada con HTML, CSS y JavaScript. La estructura está organizada por roles, y las páginas más destacadas son:
+La aplicación web es una **página estática** compuesta por varios archivos HTML conectados entre sí. Su objetivo es presentar la información de rutas, noticias y contacto de forma clara, visual y accesible para cualquier usuario. **No requiere login ni descarga de datos.**
 
-- Página de inicio y login
-- Listado y filtros de rutas
-- Crear nueva ruta (manual o desde CSV)
-- Visualización y descarga de fichas informativas
-- Validación de rutas (solo admin)
-- Valoración y reseñas
-- Eliminación de reseñas por parte de administradores
+### Estructura de la página
 
-### Estilos y diseño
+- **`index.html`**  
+  Página principal que introduce el sitio, presenta enlaces al resto de secciones y una breve explicación del propósito del proyecto.
 
-- Estilos definidos en hojas CSS externas.
-- Uso de variables y clases reutilizables.
-- Diseño limpio, enfocado a la claridad y accesibilidad.
-- Responsive: adaptado a diferentes dispositivos con `media queries`.
+- **`ruta.html`**  
+  Sección con información detallada sobre rutas representativas del proyecto. Contiene imágenes, descripción, zonas y clasificación.
 
-### Enlace al proyecto
+- **`noticias.html`**  
+  Página donde se muestra un **feed de noticias actualizado automáticamente** desde Feedly (vía RSS transformado con XSLT). Las rutas publicadas por otras fuentes se integran visualmente con estilo adaptado.
 
-🌐 [Repositorio GitHub](https://github.com/Rebeca467/DAM1_GRUPO4_2025)
+- **`contacto.html`**  
+  Página con formulario de contacto simulado, enlaces a perfiles de los integrantes del grupo y medios de comunicación adicionales.
+
+### Tecnologías utilizadas
+
+- **HTML5** para la estructura semántica.
+- **CSS3** para la presentación visual (estilo sencillo, centrado en legibilidad y contraste).
+- **XSLT** para convertir feeds RSS en HTML en tiempo real y mostrarlos en `noticias.html`.
+- No se utiliza backend, bases de datos ni JavaScript complejo.
+
+### Justificación del diseño
+
+El enfoque se centra en la **simplicidad, accesibilidad y portabilidad**. Al tratarse de un entorno educativo, se evita la complejidad innecesaria. La web puede visualizarse desde cualquier navegador moderno sin instalación ni configuración previa.
+
+
+
 
 ---
 
@@ -110,3 +119,11 @@ public String getNivelEducativoRecomendado(Ruta r) {
     };
 }
 ```
+
+### Documentación JavaDoc
+
+Todas las clases están documentadas con JavaDoc, incluyendo:
+- Descripción de propósito
+- Parámetros y retorno
+- Ejemplos de uso
+[Ver Documentacion JavaDoc](./fourdam/target/reports/apidocs)
