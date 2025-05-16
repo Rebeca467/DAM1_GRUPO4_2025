@@ -3,167 +3,110 @@
 ## Índice
 1. [Descripción del Proyecto](#descripción-del-proyecto)
 2. [Participantes](#participantes)
-3. [Diagrama Entidad-Relación (E/R)](#diagrama-entidad-relación-er)
-4. [Diagrama Relacional](#diagrama-relacional)
-5. [Script](#script-bd)
-6. [Diagrama de Clases](#diagrama-de-clases)
-7. [Diagrama de Casos de Uso](#diagrama-de-casos-de-uso)
-8. [XSLT](#xslt)
-9. [Infografía Seguridad Social](#infografía-seguridad-social)
-10. [Subsidios Seguridad Social](#subsidios-de-la-seguridad-social)
-11. [Peligros y riesgos de actividades](#peligros-y-riesgos)
-12. [Instalación](#instalación)
-13. [Uso](#uso)
+3. [Base de Datos](#base-de-datos)
+    - [Diagrama Entidad-Relación (E/R)](#diagrama-entidad-relación-er)
+    - [Diagrama Relacional](#diagrama-relacional)
+    - [Script SQL](#script-sql)
+4. [Aplicación Web](#aplicación-web)
+5. [Aplicación Java](#aplicación-java)
+    - [Diagrama de Clases](#diagrama-de-clases)
+    - [Lógica educativa Java](#lógica-educativa-java)
+    - [Documentación JavaDoc](#documentación-javadoc)
+6. [XSLT](#xslt)
+7. [Otros Documentos](#otros-documentos)
+8. [Instalación](#instalación)
+9. [Uso](#uso)
+10. [Despliegue y Tecnologías](#despliegue-y-tecnologías)
+
+---
 
 ## Descripción del Proyecto
-Resumen del objetivo del proyecto, su funcionalidad principal y tecnologías utilizadas.
+
+Este proyecto tiene como objetivo la gestión y validación de rutas educativas creadas por distintos tipos de usuarios. Ofrece funcionalidades como la creación y validación de rutas, valoración por parte de los usuarios, generación de fichas informativas y control administrativo sobre las rutas y reseñas. Se ha desarrollado con Java, MySQL y una interfaz web básica con HTML/CSS/JavaScript.
+
+---
 
 ## Participantes
+
 - Rebeca Cabo Cianca  (@Rebeca467)
 - Oriol Fernández Saiz  (@MaxwellRoyers)
 - Fabián Saiz Landeras  (@Napster002)
-- Ciro  Galán Vertiz  (@CiroGalanVertiz)
+- Ciro Galán Vertiz  (@CiroGalanVertiz)
 - Ana María Rodríguez Méndez  (@anarodriguezm)
 
-## Diagrama Entidad-Relación (E/R)
-[Ver el Diagrama E/R](./diagrama_e-r.pdf)
+---
 
-> El diagrama muestra las entidades principales, sus relaciones y atributos clave en el sistema.
+## Base de Datos
 
-## Diagrama Relacional
-[Ver el Diagrama Relacional](./diagramaRelacional-definitivo.mwb)
+### Diagrama Entidad-Relación (E/R)
 
-> El diagrama muestra las entidades principales, sus relaciones y atributos clave en el sistema.
+📎 [Ver Diagrama E/R](./diagrama_e-r.pdf)
 
-## Script BD
-[Ver el Script](./bd-script-grupo4-definitivo.sql)
+> El diagrama muestra entidades como `usuarios`, `rutas`, `valoraciones`, `puntos de interés`, etc., y sus relaciones.
 
-> Aqui se puede ver el script de la base de datos.
+### Diagrama Relacional
 
-## Diagrama de Clases
-![Ver Diagrama de Clases](./diagrama_clases-def.png)
+📎 [Ver Diagrama Relacional](./diagramaRelacional-definitivo.mwb)
 
-> El diagrama de clases ilustra la estructura del sistema orientado a objetos, incluyendo clases, métodos y relaciones de herencia o asociación.
+> Representa claves primarias, foráneas y estructura real para el uso en MySQL.
 
+### Script SQL
 
-## Diagrama de Casos de Uso
-![Ver Diagrama de Casos de Uso](./casos_uso_def.png)
+📥 [Descargar Script de Importación](./bd-script-grupo4-definitivo.sql)
 
-#### 1. Crear Ruta (Alumno/Diseñador)
-**Actor:** Alumno / Diseñador  
-**Resumen:** Permite introducir una nueva ruta de manera manual o cargando un archivo CSV.  
-**Flujo principal:**
-1. El actor accede a la aplicación y selecciona "Crear Ruta".
-2. Introduce la información de la ruta o selecciona un archivo CSV.
-3. El sistema calcula automáticamente el nivel de esfuerzo y riesgo.
-4. Se guarda la ruta con estado "Pendiente de validación".
+> Incluye toda la estructura y datos necesarios para crear la base de datos.
 
-**Decisiones destacadas:**  
-Se priorizó la carga desde archivo CSV para reducir errores de entrada manual y mejorar la eficiencia.
+---
 
+## Aplicación Web
 
-#### 2. Validar Ruta (Administrador)
-**Actor:** Administrador  
-**Resumen:** Aprueba o rechaza rutas pendientes para ser incluidas en el catálogo público.  
-**Flujo principal:**
-1. Accede a "Rutas Pendientes".
-2. Revisa los datos de cada ruta.
-3. Decide si validar o no.
-4. El sistema cambia el estado a "Validada" o muestra mensaje de rechazo.
+La interfaz web está desarrollada con HTML, CSS y JavaScript. La estructura está organizada por roles, y las páginas más destacadas son:
 
-**Decisiones destacadas:**  
-Solo los administradores pueden validar para asegurar calidad y veracidad.
+- Página de inicio y login
+- Listado y filtros de rutas
+- Crear nueva ruta (manual o desde CSV)
+- Visualización y descarga de fichas informativas
+- Validación de rutas (solo admin)
+- Valoración y reseñas
+- Eliminación de reseñas por parte de administradores
 
+### Estilos y diseño
 
-#### 3. Valorar Ruta (Alumno/Profesor/Invitado)
-**Actor:** Todos los perfiles (excepto no registrados)  
-**Resumen:** Permite valorar la dificultad, belleza e interés cultural de una ruta.  
-**Flujo principal:**
-1. Seleccionar una ruta validada.
-2. Introducir valores del 1 al 5 por cada criterio.
-3. Guardar valoración.
+- Estilos definidos en hojas CSS externas.
+- Uso de variables y clases reutilizables.
+- Diseño limpio, enfocado a la claridad y accesibilidad.
+- Responsive: adaptado a diferentes dispositivos con `media queries`.
 
-**Decisiones destacadas:**  
-Las valoraciones se almacenan por usuario y se calcula media para mostrar en la interfaz.
+### Enlace al proyecto
 
+🌐 [Repositorio GitHub](https://github.com/Rebeca467/DAM1_GRUPO4_2025)
 
-#### 4. Descargar Fichas Informativas (Diseñador/Profesor/Administrador)
-**Actor:** Diseñador, Profesor, Administrador  
-**Resumen:** Genera informes en formato texto (ficha de seguridad, usuario y organización).  
-**Flujo principal:**
-1. Selecciona una ruta validada.
-2. Elige tipo de ficha.
-3. Se genera documento con QR y datos clave.
+---
 
-**Decisiones destacadas:**  
-Se usa una plantilla XSLT para personalizar la salida y facilitar impresión o distribución.
+## Aplicación Java
 
+### Diagrama de Clases
 
-#### 5. Eliminar Reseñas (Administrador)
-**Actor:** Administrador  
-**Resumen:** Permite eliminar reseñas inapropiadas o que incumplen normas de uso.  
-**Flujo principal:**
-1. Ver reseñas marcadas por usuarios.
-2. Revisar contenido.
-3. Confirmar eliminación.
+📎 ![Ver Diagrama de Clases](./diagrama_clases-def.png)
 
-**Decisiones destacadas:**  
-Solo accesible por admin para mantener integridad del contenido público.
+> Muestra clases como `Ruta`, `Usuario`, `Actividad`, `Valoracion`, `Reseña`, etc., con relaciones de herencia y asociación.
 
+### Lógica educativa Java
 
+Para determinar el **nivel educativo recomendado** de una ruta en base a su dificultad, se ha implementado el siguiente método:
 
-## XSLT 
-[Ver XSLT para generación de CSV](./xslt-csv.xslt)
+```java
+public String getNivelEducativoRecomendado(Ruta r) {
+    int esfuerzo = r.getNivelEsfuerzo();
+    int riesgo = r.getNivelRiesgo();
+    int nivel = Math.max(esfuerzo, riesgo);
 
-[Ver XSLT para generación de HTML](./rss-to-xml-xslt)
-
-> La hoja de estilo XSLT define la transformación de un documento XML a formato CSV aparte de la deficinicion de un XSLT para la transformacion de un RSS a HTML, especificando plantillas y reglas para recorrer y convertir los nodos del XML en registros delimitados por comas.
-
-## Infografía Seguridad Social
-[Ver Infografias](./info-seguridad-social.pdf)
-
-> Documento visual que consta sobre multiples apartados de la Seguridad Social.
-
-## Subsidios de la Seguridad Social
-[Ver subsidios](./subsidios_SS.pdf)
-
-> Documento donde se presenta el cálculo de los subsidios de la Seguridad Social.
-
-## Peligros y riesgos
-[Ver peligros y riesgos](./Peligros-riesgos.pdf)
- 
-> Documento donde se muestran los peligros y riesgos de una actividad
-
-## Instalación
-```bash
-git clone https://github.com/Rebeca467/DAM1_GRUPO4_2025
-cd proyecto
-npm install
+    return switch (nivel) {
+        case 1, 2 -> "Primaria";
+        case 3 -> "Educación Secundaria Obligatoria (ESO)";
+        case 4 -> "Bachillerato";
+        case 5 -> "Ciclos Formativos / Adultos";
+        default -> "Sin especificar";
+    };
+}
 ```
-
-## Uso
->En esta sección se describen las instrucciones para utilizar la aplicación, así como ejemplos de uso y consideraciones importantes.
-
-### Requisitos Previos
->Antes de utilizar la aplicación, asegúrate de tener instaladas las siguientes herramientas:
--Node.js: La aplicación está construida sobre Node.js, por lo que es necesario tenerlo instalado en tu sistema.
--Base de Datos: Asegúrate de que la base de datos esté configurada y corriendo según el script proporcionado.
-
-### Funcionalidades Principales
-> Una vez que la aplicación esté en funcionamiento, podrás acceder a las siguientes funcionalidades:
--Crear Rutas: Los usuarios pueden crear nuevas rutas manualmente o mediante la carga de archivos CSV.
--Validar Rutas: Los administradores pueden revisar y validar rutas pendientes.
--Valorar Rutas: Todos los usuarios registrados pueden valorar las rutas en función de diferentes criterios.
--Descargar Fichas Informativas: Los diseñadores, profesores y administradores pueden generar informes en formato texto.
--Eliminar Reseñas: Los administradores tienen la capacidad de eliminar reseñas inapropiadas.
-
-> Ejemplo de Uso
-Para crear una nueva ruta, sigue estos pasos:
-Accede a la sección "Crear Ruta".
-Introduce la información requerida o selecciona un archivo CSV.
-Haz clic en "Guardar" para almacenar la ruta.
-Consideraciones Importantes
-Validación de Datos: Asegúrate de que todos los datos ingresados sean correctos para evitar errores en la creación de rutas.
-Acceso a Funciones: Algunas funciones están restringidas a ciertos tipos de usuarios (por ejemplo, solo administradores pueden validar rutas).
-Soporte
-Si encuentras algún problema o tienes preguntas sobre el uso de la aplicación, no dudes en contactar a los desarrolladores a través de los canales de comunicación establecidos en el proyecto.
