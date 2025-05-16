@@ -156,7 +156,7 @@ public class Fichero {
                 + "Puntos de peligro: " + puntosPeligro + "\n"
                 + "Recomendaciones: " + recomendaciones + "\n";
 
-        File archivo = new File(rutaFichas + File.separator + "ficha_seguridad.txt");
+        File archivo = new File(rutaFichas + File.separator + "ficha_seguridad-"+nombreRuta+".txt");
         try (FileWriter writer = new FileWriter(archivo)) {
             writer.write(contenido);
             System.out.println("Ficha de seguridad generada en: " + archivo.getAbsolutePath());
@@ -172,7 +172,7 @@ public class Fichero {
                 + "Perfil del recorrido: " + perfilRecorrido + "\n"
                 + "Recomendaciones: " + recomendaciones + "\n";
 
-        File archivo = new File(rutaFichas + File.separator + "ficha_usuario.txt");
+        File archivo = new File(rutaFichas + File.separator + "ficha_usuario-"+nombreRuta+".txt");
         try (FileWriter writer = new FileWriter(archivo)) {
             writer.write(contenido);
             System.out.println("Ficha de usuario generada en: " + archivo.getAbsolutePath());
@@ -190,7 +190,7 @@ public class Fichero {
                 + "Opinión técnica: " + opinionTecnica + "\n"
                 + "Nivel educativo recomendado: " + nivelEducativo + "\n";
 
-        File archivo = new File(rutaFichas + File.separator + "ficha_organizacion.txt");
+        File archivo = new File(rutaFichas + File.separator + "ficha_organizacion-"+nombreRuta+".txt");
         try (FileWriter writer = new FileWriter(archivo)) {
             writer.write(contenido);
             System.out.println("Ficha de organización generada en: " + archivo.getAbsolutePath());
