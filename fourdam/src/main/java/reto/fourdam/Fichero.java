@@ -149,9 +149,9 @@ public class Fichero {
     }
     
     
-    public static void generarFichaSeguridad(String dificultadGeneral, String puntosPeligro, String recomendaciones) {
+    public static void generarFichaSeguridad(String nombreRuta, String dificultadGeneral, String puntosPeligro, String recomendaciones) {
         asegurarCarpetaFichas();
-        String contenido = "=== FICHA DE SEGURIDAD ===\n"
+        String contenido = "=== FICHA DE SEGURIDAD ("+nombreRuta+") ===\n"
                 + "Dificultad general: " + dificultadGeneral + "\n"
                 + "Puntos de peligro: " + puntosPeligro + "\n"
                 + "Recomendaciones: " + recomendaciones + "\n";
@@ -165,9 +165,9 @@ public class Fichero {
         }
     }
 
-    public static void generarFichaUsuario(String datosGenerales, String perfilRecorrido, String recomendaciones) {
+    public static void generarFichaUsuario(String nombreRuta, String datosGenerales, String perfilRecorrido, String recomendaciones) {
         asegurarCarpetaFichas();
-        String contenido = "=== FICHA DE USUARIO ===\n"
+        String contenido = "=== FICHA DE USUARIO ("+nombreRuta+") ===\n"
                 + "Datos generales: " + datosGenerales + "\n"
                 + "Perfil del recorrido: " + perfilRecorrido + "\n"
                 + "Recomendaciones: " + recomendaciones + "\n";
@@ -181,9 +181,9 @@ public class Fichero {
         }
     }
 
-    public static void generarFichaOrganizacion(String datosBasicos, String altitud, String tipoRuta, String opinionTecnica, String nivelEducativo) {
+    public static void generarFichaOrganizacion(String nombreRuta, String datosBasicos, String altitud, String tipoRuta, String opinionTecnica, String nivelEducativo) {
         asegurarCarpetaFichas();
-        String contenido = "=== FICHA DE ORGANIZACIÓN ===\n"
+        String contenido = "=== FICHA DE ORGANIZACIÓN ("+nombreRuta+") ===\n"
                 + "Datos básicos: " + datosBasicos + "\n"
                 + "Altitud: " + altitud + "\n"
                 + "Tipo de ruta: " + tipoRuta + "\n"
