@@ -22,6 +22,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import javax.swing.JOptionPane;
+import static validaciones.Teclado.stringToLocalDate;
 
 /**
  * Clase para manejar la conversion de rutas a CSV y viceversa.
@@ -78,7 +79,7 @@ public class Fichero {
 
             // Datos principales
             String nombre = br.readLine().split(": ")[1];
-            LocalDate fechaCreacion = LocalDate.parse(br.readLine().split(": ")[1]);
+            LocalDate fechaCreacion = stringToLocalDate(br.readLine().split(": ")[1]);
 
             // Punto inicial y final
             String[] puntoIniDatos = br.readLine().replace("  Punto inicial: Punto{", "").replace("}", "").split(",");
@@ -108,7 +109,8 @@ public class Fichero {
             int indicaciones = Integer.parseInt(br.readLine().split(": ")[1]);
 
             // Actividad, temporada y estado
-            br.readLine(); // Saltamos la línea de actividad
+            String[] actividadDatos = br.readLine().replace("  Tipo de actividad:  Actividad{", "").replace("},", "").split(", ");
+            Actividad tipoActividad = new Actividad(actividadDatos[1].split("=")[1]);
             String temporada = br.readLine().split(": ")[1];
             boolean familiar = Boolean.parseBoolean(br.readLine().split(": ")[1]);
             String url = br.readLine().split(": ")[1];
@@ -117,15 +119,16 @@ public class Fichero {
             String zonaGeografica = br.readLine().split(": ")[1];
 
             // Últimos valores
+            br.readLine();// salta puntosIntermedios
             double duracion = Double.parseDouble(br.readLine().split(": ")[1]);
             int mediaValoracion = Integer.parseInt(br.readLine().split(": ")[1]);
 
             // Crear objeto Ruta
             ruta = new Ruta(autor, nombre, fechaCreacion, puntoIni, puntoFin, distanciaTotal, desnivel, desnivelPositivo,
                     desnivelNegativo, altMax, altMin, clasificacion, nivelRiesgo, nivelEsfuerzo, tipoTerreno,
-                    indicaciones, new Actividad("Desconocida"), temporada, familiar, url, estado, recomendaciones,
-                    zonaGeografica, new LinkedHashSet<>(), duracion, mediaValoracion);
-
+                    indicaciones, tipoActividad, temporada, familiar, url, estado, recomendaciones,
+                    zonaGeografica, duracion, mediaValoracion);
+            System.out.println(ruta.getAutor());
         } catch (IOException e) {
             System.out.println("Error al leer el archivo: " + e.getMessage());
         } catch (NumberFormatException e) {

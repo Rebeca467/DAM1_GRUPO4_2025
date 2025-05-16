@@ -49,6 +49,9 @@ public class Actividad {
     public String getNombre() {
         return nombre;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "Actividad{" + "id=" + id + ", nombre=" + nombre + '}';
+    }
 }

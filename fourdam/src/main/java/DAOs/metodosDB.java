@@ -834,7 +834,6 @@ public class metodosDB {
                 Estado.valueOf(rs.getString("estado")),
                 rs.getString("recomendaciones"),
                 rs.getString("zona"),
-                null,
                 rs.getDouble("duracion"),
                 rs.getInt("media_valoraciones")
         );
@@ -866,7 +865,6 @@ public class metodosDB {
                 u = new Profesor(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), TipoUsuario.valueOf(rs.getString(6)));
             }
             case "ADMINISTRADOR" -> {
-
                 u = new Administrador(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), TipoUsuario.valueOf(rs.getString(6)));
 
             }

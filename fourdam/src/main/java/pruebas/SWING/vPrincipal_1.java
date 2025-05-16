@@ -2213,7 +2213,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             metodos.agregarRuta(new Ruta(user, nombreRuta, LocalDate.now(), new Punto(longPIni, latPIni, ""), new Punto(longPFin, latPFin, ""), distancia, desnivelPos + desnivelNeg,
                     desnivelPos, desnivelNeg, altMax, altMin, clasificacion, riesgo, esfuerzo, cmbTerreno.getSelectedIndex(), cmbIndicacion.getSelectedIndex(),
                     new Actividad(txtActividad.getText()), temporada, chkFamiliar.isSelected(), txtUrl.getText(), estado,
-                    txtRecomendaciones.getText(), txtZona.getText(), null, duracion, Validaciones.stringToInt("media de valoraciones", txtMediaValoraciones.getText())));
+                    txtRecomendaciones.getText(), txtZona.getText(), duracion, Validaciones.stringToInt("media de valoraciones", txtMediaValoraciones.getText())));
         } catch (IllegalArgumentException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -2282,7 +2282,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             metodos.modificarRuta(r.getId(),new Ruta(user, nombreRuta, LocalDate.now(), new Punto(longPIni, latPIni, ""), new Punto(longPFin, latPFin, ""), distancia, desnivelPos + desnivelNeg,
                     desnivelPos, desnivelNeg, altMax, altMin, clasificacion, riesgo, esfuerzo, cmbTerreno.getSelectedIndex(), cmbIndicacion.getSelectedIndex(),
                     new Actividad(txtActividad1.getText()), temporada, chkFamiliar1.isSelected(), txtUrl1.getText(), estado,
-                    txtRecomendaciones1.getText(), txtZona1.getText(), null, duracion, Validaciones.stringToInt("media de valoraciones", txtMediaValoraciones1.getText())));
+                    txtRecomendaciones1.getText(), txtZona1.getText(), duracion, Validaciones.stringToInt("media de valoraciones", txtMediaValoraciones1.getText())));
         } catch (IllegalArgumentException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
