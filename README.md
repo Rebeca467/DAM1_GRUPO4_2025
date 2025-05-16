@@ -11,13 +11,14 @@
 8. [Pagina Web](#pagina-web)
 9. [XSLT](#xslt)
 10. [Logica Educativa](#lógica-educativa-java)
-11. [Documentacion JavaDoc](#documentación-javadoc)
-12. [Infografía Seguridad Social](#infografía-seguridad-social)
-13. [Subsidios Seguridad Social](#subsidios-de-la-seguridad-social)
-14. [Peligros y riesgos de actividades](#peligros-y-riesgos)
-15. [Instalación](#instalación)
-16. [Uso](#uso)
-17. [Despliegue y Tecnologías](#despliegue-y-tecnologías)
+11. [Script Triggers](#script-triggers)
+12. [Documentacion JavaDoc](#documentación-javadoc)
+13. [Infografía Seguridad Social](#infografía-seguridad-social)
+14. [Subsidios Seguridad Social](#subsidios-de-la-seguridad-social)
+15. [Peligros y riesgos de actividades](#peligros-y-riesgos)
+16. [Instalación](#instalación)
+17. [Uso](#uso)
+18. [Despliegue y Tecnologías](#despliegue-y-tecnologías)
 
 ## Descripción del Proyecto
 Resumen del objetivo del proyecto, su funcionalidad principal y tecnologías utilizadas.
@@ -144,6 +145,14 @@ public String getNivelEducativoRecomendado(Ruta r) {
     };
 }
 ```
+
+## Script Triggers
+[Ver el Script (Nivel esfuerzo)](./script-nivel_esfuerzo.sql)
+
+[Ver el Script (Nivel riesgo)](./script-nivel_riesgo.sql)
+
+> Aqui se puede ver el script de los triggers.
+
 
 ## Documentación JavaDoc
 
