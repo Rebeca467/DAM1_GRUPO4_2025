@@ -14,7 +14,6 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import javax.swing.JOptionPane;
 import reto.fourdam.AccesoBaseDatos;
 import reto.fourdam.Actividad;
@@ -1010,6 +1009,8 @@ public class metodosDB {
         }
         return null;
     }
+    
+    
 
     /**
      * Verifica el rol de un usuario a partir de su correo y contrasena.
