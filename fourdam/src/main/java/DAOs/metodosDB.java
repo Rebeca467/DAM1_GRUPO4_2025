@@ -711,14 +711,14 @@ public class metodosDB {
             ps.setObject(21, r.getClasificacion().toString());
             ps.setInt(22, r.getMediaValoracion());
             ps.setDouble(23, r.getDuracion());
-            ps.setInt(24, r.getTipoActividad().getId());
+            ps.setInt(24, obtenerOInsertarActividad(r.getTipoActividad().getNombre()));
             ps.setDouble(25, r.getDesnivel());
             ps.setDouble(26, r.getDesnivelPositivo());
             ps.setDouble(27, r.getDesnivelNegativo());
             ps.setInt(28, k);
             int resultado = ps.executeUpdate();
             if (resultado == 1) {
-                JOptionPane.showMessageDialog(null, "Se ha actualizado correctamente el taller");
+                JOptionPane.showMessageDialog(null, "Se ha actualizado correctamente la ruta");
             } else {
                 JOptionPane.showMessageDialog(null, "ERROR: no se ha modificado");
             }
@@ -1009,8 +1009,6 @@ public class metodosDB {
         }
         return null;
     }
-    
-    
 
     /**
      * Verifica el rol de un usuario a partir de su correo y contrasena.
@@ -1066,6 +1064,40 @@ public class metodosDB {
                 TipoPInteres.valueOf(rs.getString("tipo")),
                 rs.getString("caracteristicasEsp")
         );
+    }
+
+    public int obtenerOInsertarActividad(String nombreActividad) {
+        int idActividad = -1;
+
+        try {
+            // 1. Buscar si ya existe
+            String sqlBuscar = "SELECT idActividades FROM actividades WHERE nombre_actividad = ?";
+            try (PreparedStatement stmtBuscar = getConnection().prepareStatement(sqlBuscar)) {
+                stmtBuscar.setString(1, nombreActividad);
+                ResultSet rs = stmtBuscar.executeQuery();
+
+                if (rs.next()) {
+                    return rs.getInt("idActividades");
+                }
+            }
+
+            // 2. Si no existe, insertamos
+            String sqlInsertar = "INSERT INTO actividades (nombre_actividad) VALUES (?)";
+            try (PreparedStatement stmtInsertar = getConnection().prepareStatement(sqlInsertar, Statement.RETURN_GENERATED_KEYS)) {
+                stmtInsertar.setString(1, nombreActividad);
+                stmtInsertar.executeUpdate();
+
+                ResultSet rs = stmtInsertar.getGeneratedKeys();
+                if (rs.next()) {
+                    idActividad = rs.getInt(1);
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return idActividad;
     }
 
     /**
