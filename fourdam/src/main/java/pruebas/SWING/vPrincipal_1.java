@@ -190,7 +190,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         Menu = new javax.swing.JPanel();
         btnCreaRuta = new javax.swing.JButton();
         btnVerRuta = new javax.swing.JButton();
-        btnDescargaF = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         CreaRutas = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -953,7 +952,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                         .addComponent(btnInvitado)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnSignin)))
-                .addContainerGap(393, Short.MAX_VALUE))
+                .addContainerGap(399, Short.MAX_VALUE))
         );
         LogInLayout.setVerticalGroup(
             LogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -970,7 +969,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                 .addGroup(LogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInvitado)
                     .addComponent(btnSignin))
-                .addContainerGap(203, Short.MAX_VALUE))
+                .addContainerGap(215, Short.MAX_VALUE))
         );
 
         getContentPane().add(LogIn, "card2");
@@ -993,13 +992,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             }
         });
 
-        btnDescargaF.setText("DESCARGAR FICHAS");
-        btnDescargaF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDescargaFActionPerformed(evt);
-            }
-        });
-
         jLabel3.setText("RUTAS");
 
         javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);
@@ -1007,34 +999,28 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         MenuLayout.setHorizontalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuLayout.createSequentialGroup()
-                .addGap(272, 272, 272)
+                .addGap(291, 291, 291)
                 .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MenuLayout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnCreaRuta)
-                                .addGroup(MenuLayout.createSequentialGroup()
-                                    .addGap(6, 6, 6)
-                                    .addComponent(btnVerRuta)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(34, 34, 34))))
-                    .addComponent(btnDescargaF))
-                .addContainerGap(519, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnCreaRuta)
+                        .addGroup(MenuLayout.createSequentialGroup()
+                            .addGap(6, 6, 6)
+                            .addComponent(btnVerRuta)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(34, 34, 34)))
+                .addContainerGap(344, Short.MAX_VALUE))
         );
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createSequentialGroup()
-                .addContainerGap(140, Short.MAX_VALUE)
+                .addContainerGap(51, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCreaRuta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnVerRuta)
-                .addGap(83, 83, 83)
-                .addComponent(btnDescargaF, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(162, 162, 162))
+                .addGap(286, 286, 286))
         );
 
         getContentPane().add(Menu, "card3");
@@ -1312,7 +1298,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                                     .addComponent(txtEsfuerzo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(73, 73, 73)))
                         .addComponent(btnCsv)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 12, Short.MAX_VALUE))
                     .addGroup(CreaRutasLayout.createSequentialGroup()
                         .addGroup(CreaRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(CreaRutasLayout.createSequentialGroup()
@@ -1554,7 +1540,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
         getContentPane().add(VerRutas, "card5");
 
-        ModificarRuta.setBorder(javax.swing.BorderFactory.createTitledBorder("CREAR RUTAS"));
+        ModificarRuta.setBorder(javax.swing.BorderFactory.createTitledBorder("MODIFICAR RUTAS"));
         ModificarRuta.setPreferredSize(new java.awt.Dimension(900, 600));
 
         jLabel7.setText("NOMBRE RUTA");
@@ -1679,7 +1665,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                             .addComponent(txtEsfuerzo1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtDistancia1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtDuracion1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                 .addGroup(ModificarRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ModificarRutaLayout.createSequentialGroup()
                         .addComponent(jLabel93)
@@ -1858,7 +1844,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                         .addGroup(ModificarRutaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel101)
                             .addComponent(cmbEstado2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
                 .addComponent(btnModificarRuta2)
                 .addGap(2, 2, 2)
                 .addComponent(btnSalirCrearR2)
@@ -1946,7 +1932,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         btnValidarRuta.setEnabled(false);
         btnValoracionTecRuta.setEnabled(false);
         btnCrearRuta.setEnabled(false);
-        btnDescargaF.setEnabled(false);
         btnVerRuta.setEnabled(false);
         btnSalirVerR.setEnabled(false);
         btnEliminarReseña.setEnabled(false);
@@ -2162,7 +2147,16 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
 
     private void btnSalirCrearRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirCrearRActionPerformed
-        // TODO add your handling code here:
+        LogIn.setVisible(false);
+        Menu.setVisible(true);
+        CreaRutas.setVisible(false);
+        VerRutas.setVisible(false);
+        ModificarRuta.setVisible(false);
+        ResennaRuta.setVisible(false);
+        ValoracionTec.setVisible(false);
+        ValorarRuta.setVisible(false);
+        VerInfoRutas.setVisible(false);
+        DescargaFichas.setVisible(false);
     }//GEN-LAST:event_btnSalirCrearRActionPerformed
 
     private void btnSalirVerRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirVerRActionPerformed
@@ -2251,12 +2245,18 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnValorarActionPerformed
 
     private void btnModificarRuta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarRuta2ActionPerformed
-        Ruta r = seleccionarIdRuta();
-        String nombreRuta = txtNombreRuta.getText();
-        String puntoInicial = txtPiniLong.getText();
-        String puntoFinal = txtPFinLong.getText();
+        Ruta r = seleccionarIdRuta(); // Selecciona la ruta a modificar
+        if (r == null) {
+            JOptionPane.showMessageDialog(null, "No se ha seleccionado ninguna ruta.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        String nombreRuta = txtNombreRuta1.getText();
+        String puntoInicial = txtPiniLong1.getText();
+        String puntoFinal = txtPFinLong1.getText();
 
         try {
+            // Validaciones y conversiones de datos
             double distancia = Validaciones.stringToDouble("distancia", txtDistancia1.getText());
             double desnivelPos = Validaciones.stringToDouble("desnivel positivo", txtDesnivelPositivo1.getText());
             double desnivelNeg = Validaciones.stringToDouble("desnivel negativo", txtDesnivelNegativo1.getText());
@@ -2271,43 +2271,69 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
             int riesgo = Validaciones.stringToInt("nivel de riesgo", txtRiesgo1.getText());
             int esfuerzo = Validaciones.stringToInt("nivel de esfuerzo", txtEsfuerzo1.getText());
-            double duracion = Validaciones.stringToDouble("duracion", txtDuracion1.getText());
-            int mediaValoracionex = Validaciones.stringToInt("media de valoraciones", txtMediaValoraciones1.getText());
+            double duracion = Validaciones.stringToDouble("duración", txtDuracion1.getText());
+            int mediaValoracion = Validaciones.stringToInt("media de valoraciones", txtMediaValoraciones1.getText());
+
             String clasificacionTexto = (String) cmbClasificacion2.getSelectedItem();
             Clasificacion_Ruta clasificacion = Clasificacion_Ruta.valueOf(clasificacionTexto);
+
             String estadoTexto = (String) cmbEstado2.getSelectedItem();
             Estado estado = Estado.valueOf(estadoTexto);
-            String temp = String.valueOf(cmbTemporada2.getSelectedItem());
+
             String temporada = String.valueOf(cmbTemporada2.getSelectedItem());
 
-            // modifica la ruta
-            metodos.modificarRuta(r.getId(),new Ruta(user, nombreRuta, LocalDate.now(), new Punto(longPIni, latPIni, ""), new Punto(longPFin, latPFin, ""), distancia, desnivelPos + desnivelNeg,
-                    desnivelPos, desnivelNeg, altMax, altMin, clasificacion, riesgo, esfuerzo, cmbTerreno.getSelectedIndex(), cmbIndicacion.getSelectedIndex(),
-                    new Actividad(txtActividad1.getText()), temporada, chkFamiliar1.isSelected(), txtUrl1.getText(), estado,
-                    txtRecomendaciones1.getText(), txtZona1.getText(), null, duracion, Validaciones.stringToInt("media de valoraciones", txtMediaValoraciones1.getText())));
+            // Crear nueva instancia de Ruta con los datos actualizados
+            Ruta rutaModificada = new Ruta(
+                    user, // Usuario actual
+                    nombreRuta,
+                    LocalDate.now(),
+                    new Punto(longPIni, latPIni, ""),
+                    new Punto(longPFin, latPFin, ""),
+                    distancia,
+                    desnivelPos + desnivelNeg,
+                    desnivelPos,
+                    desnivelNeg,
+                    altMax,
+                    altMin,
+                    clasificacion,
+                    riesgo,
+                    esfuerzo,
+                    cmbTerreno.getSelectedIndex(),
+                    cmbIndicacion.getSelectedIndex(),
+                    new Actividad(txtActividad1.getText()),
+                    temporada,
+                    chkFamiliar1.isSelected(),
+                    txtUrl1.getText(),
+                    estado,
+                    txtRecomendaciones1.getText(),
+                    txtZona1.getText(),
+                    null,
+                    duracion,
+                    mediaValoracion
+            );
+            // Llamar al método para modificar la ruta en la base de datos
+            metodos.modificarRuta(r.getId(), rutaModificada);
         } catch (IllegalArgumentException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error inesperado: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-        limpiarFormularioCrearRuta();
+
+        limpiarFormularioCrearRuta(); // Limpia el formulario después de modificar
     }//GEN-LAST:event_btnModificarRuta2ActionPerformed
 
     private void btnSalirCrearR2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirCrearR2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSalirCrearR2ActionPerformed
-
-    private void btnDescargaFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescargaFActionPerformed
         LogIn.setVisible(false);
-        Menu.setVisible(true);
+        Menu.setVisible(false);
         CreaRutas.setVisible(false);
-        VerRutas.setVisible(false);
+        VerRutas.setVisible(true);
         ModificarRuta.setVisible(false);
         ResennaRuta.setVisible(false);
         ValoracionTec.setVisible(false);
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
-        DescargaFichas.setVisible(true);
-        DescargaFichas.setLocationRelativeTo(null);
-    }//GEN-LAST:event_btnDescargaFActionPerformed
+        DescargaFichas.setVisible(false);
+    }//GEN-LAST:event_btnSalirCrearR2ActionPerformed
 
     private void btnDescargarFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescargarFichaActionPerformed
         if (user != null) {
@@ -2341,7 +2367,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                     String peligros = "No hay puntos de peligro de momento...";
                     String recomendaciones = metodos.getEquipoRecomendadoPorRuta(rutaSeleccionada.getId());
 
-                    Fichero.generarFichaSeguridad(dificultad, peligros, recomendaciones);
+                    Fichero.generarFichaSeguridad(rutaSeleccionada.getNombre(), dificultad, peligros, recomendaciones);
                     JOptionPane.showMessageDialog(this, "Ficha de seguridad generada correctamente.",
                             "Información", JOptionPane.INFORMATION_MESSAGE);
                 }
@@ -2353,11 +2379,9 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
                     String perfil = "Perfil del recorrido: " + rutaSeleccionada.getClasificacion()
                             + ", Terreno: " + rutaSeleccionada.getTipoTerreno();
+                    String recomendaciones = rutaSeleccionada.getRecomendaciones();
 
-                    //String recomendaciones = rutaSeleccionada.getRecomendacionesGenerales();
-                    String recomendaciones = "";
-
-                    Fichero.generarFichaUsuario(datosGenerales, perfil, recomendaciones);
+                    Fichero.generarFichaUsuario(rutaSeleccionada.getNombre(), datosGenerales, perfil, recomendaciones);
                     JOptionPane.showMessageDialog(this, "Ficha de usuario generada correctamente.",
                             "Información", JOptionPane.INFORMATION_MESSAGE);
                 }
@@ -2374,7 +2398,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                     String opinion = metodos.getEquipoRecomendadoPorRuta(rutaSeleccionada.getId());
                     String nivelEducativo = getNivelEducativoRecomendado(rutaSeleccionada);
 
-                    Fichero.generarFichaOrganizacion(datosBasicos, altitud, tipo, opinion, nivelEducativo);
+                    Fichero.generarFichaOrganizacion(rutaSeleccionada.getNombre(), datosBasicos, altitud, tipo, opinion, nivelEducativo);
                     JOptionPane.showMessageDialog(this, "Ficha de organización generada correctamente.",
                             "Información", JOptionPane.INFORMATION_MESSAGE);
 
@@ -2503,7 +2527,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private javax.swing.JButton btnCreaRuta;
     private javax.swing.JButton btnCrearRuta;
     private javax.swing.JButton btnCsv;
-    private javax.swing.JButton btnDescargaF;
     private javax.swing.JButton btnDescargarFicha;
     private javax.swing.JButton btnDescargarRuta;
     private javax.swing.JButton btnEliminarReseña;
@@ -2942,7 +2965,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         btnValidarRuta.setEnabled(false);
         btnValoracionTecRuta.setEnabled(false);
         btnCrearRuta.setEnabled(false);
-        btnDescargaF.setEnabled(false);
         btnVerRuta.setEnabled(false);
         btnSalirVerR.setEnabled(false);
 
@@ -2955,7 +2977,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             btnValidarRuta.setEnabled(true);
             btnValoracionTecRuta.setEnabled(true);
             btnCrearRuta.setEnabled(true);
-            btnDescargaF.setEnabled(true);
             btnVerRuta.setEnabled(true);
             btnSalirVerR.setEnabled(true);
             btnEliminarReseña.setEnabled(true);
@@ -2968,7 +2989,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             btnValidarRuta.setEnabled(true);
             btnValoracionTecRuta.setEnabled(true);
             btnCrearRuta.setEnabled(true);
-            btnDescargaF.setEnabled(true);
             btnVerRuta.setEnabled(true);
             btnSalirVerR.setEnabled(true);
 
@@ -2978,7 +2998,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             btnReseñarRuta.setEnabled(true);
             btnValoracionTecRuta.setEnabled(true);
             btnCrearRuta.setEnabled(true);
-            btnDescargaF.setEnabled(true);
             btnVerRuta.setEnabled(true);
             btnSalirVerR.setEnabled(true);
 
@@ -2988,7 +3007,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             btnValorarRuta.setEnabled(true);
             btnReseñarRuta.setEnabled(true);
             btnCrearRuta.setEnabled(true);
-            btnDescargaF.setEnabled(false);
             btnVerRuta.setEnabled(true);
             btnSalirVerR.setEnabled(true);
 
@@ -3017,6 +3035,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         txtMediaValoraciones1.setText(String.valueOf(ruta.getMediaValoracion()));
         chkFamiliar1.setText(ruta.isFamiliar() ? "Sí" : "No");
         txtRiesgo1.setText(String.valueOf(ruta.getNivelRiesgo()));
+        txtEsfuerzo1.setText(String.valueOf(ruta.getNivelEsfuerzo()));
     }
 
     private void limpiarFormularioCrearRuta() {
@@ -3207,5 +3226,13 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         //Icon icon = new ImageIcon(imagen.getImage().getScaledInstance(labelImagen.getWidth(), labelImagen.getHeight(), imagen.getIconHeight()));
         labelImagen.setIcon(icono);
     }*/
+
+
+    private void SetImageLabel(JLabel name, String ruta) {
+        ImageIcon imagen = new ImageIcon(ruta);
+        Icon icon = new ImageIcon(imagen.getImage().getScaledInstance(name.getWidth(), name.getHeight(), Image.SCALE_DEFAULT));
+        name.setIcon(icon);
+        this.repaint();
+    }
 
 }
