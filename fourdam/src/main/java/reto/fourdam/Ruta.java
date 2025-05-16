@@ -19,6 +19,7 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import validaciones.Teclado;
+import static validaciones.Teclado.localDateToString;
 
 /**
  * Representa una ruta con todos sus atributos, incluyendo identificador,
@@ -90,7 +91,7 @@ public class Ruta {
      * @param duracion la duracion estimada de la ruta.
      * @param mediaValoracion la media de las valoraciones de la ruta.
      */
-    public Ruta(int id, Usuario autor, String nombre, LocalDate fecha_creacion, Punto punto_ini, Punto punto_fin, double distanciaTotal, double desnivel, double desnivelPositivo, double desnivelNegativo, double altMax, double altMin, Clasificacion_Ruta clasificacion, int nivelRiesgo, int nivelEsfuerzo, int tipoTerreno, int indicaciones, Actividad tipoActividad, String temporada, boolean familiar, String url, Estado estado, String recomendaciones, String zonaGeografica, LinkedHashSet<Punto> puntosIntermedios, double duracion, int mediaValoracion) {
+    public Ruta(int id, Usuario autor, String nombre, LocalDate fecha_creacion, Punto punto_ini, Punto punto_fin, double distanciaTotal, double desnivel, double desnivelPositivo, double desnivelNegativo, double altMax, double altMin, Clasificacion_Ruta clasificacion, int nivelRiesgo, int nivelEsfuerzo, int tipoTerreno, int indicaciones, Actividad tipoActividad, String temporada, boolean familiar, String url, Estado estado, String recomendaciones, String zonaGeografica, double duracion, int mediaValoracion) {
         this.id = id;
         this.autor = autor;
         this.nombre = nombre;
@@ -115,7 +116,7 @@ public class Ruta {
         this.estado = estado;
         this.recomendaciones = recomendaciones;
         this.zonaGeografica = zonaGeografica;
-        this.puntosIntermedios = puntosIntermedios;
+        this.puntosIntermedios = null;
         this.duracion = duracion;
         this.mediaValoracion = mediaValoracion;
     }
@@ -150,7 +151,7 @@ public class Ruta {
      * @param duracion la duracion estimada de la ruta.
      * @param mediaValoracion la media de las valoraciones de la ruta.
      */
-    public Ruta(Usuario autor, String nombre, LocalDate fecha_creacion, Punto punto_ini, Punto punto_fin, double distanciaTotal, double desnivel, double desnivelPositivo, double desnivelNegativo, double altMax, double altMin, Clasificacion_Ruta clasificacion, int nivelRiesgo, int nivelEsfuerzo, int tipoTerreno, int indicaciones, Actividad tipoActividad, String temporada, boolean familiar, String url, Estado estado, String recomendaciones, String zonaGeografica, LinkedHashSet<Punto> puntosIntermedios, double duracion, int mediaValoracion) {
+    public Ruta(Usuario autor, String nombre, LocalDate fecha_creacion, Punto punto_ini, Punto punto_fin, double distanciaTotal, double desnivel, double desnivelPositivo, double desnivelNegativo, double altMax, double altMin, Clasificacion_Ruta clasificacion, int nivelRiesgo, int nivelEsfuerzo, int tipoTerreno, int indicaciones, Actividad tipoActividad, String temporada, boolean familiar, String url, Estado estado, String recomendaciones, String zonaGeografica, double duracion, int mediaValoracion) {
         this.autor = autor;
         this.nombre = nombre;
         this.fecha_creacion = fecha_creacion;
@@ -174,7 +175,7 @@ public class Ruta {
         this.estado = estado;
         this.recomendaciones = recomendaciones;
         this.zonaGeografica = zonaGeografica;
-        this.puntosIntermedios = puntosIntermedios;
+        this.puntosIntermedios = null;
         this.duracion = duracion;
         this.mediaValoracion = mediaValoracion;
     }   
@@ -674,32 +675,32 @@ public class Ruta {
     @Override
     public String toString() {
         return "Ruta {\n"
-                + "  ID: " + id + ",\n"
-                + "  Autor: " + autor + ",\n"
-                + "  Nombre: " + nombre + ",\n"
-                + "  Fecha de creación: " + fecha_creacion + ",\n"
-                + "  Punto inicial: " + punto_ini + ",\n"
-                + "  Punto final: " + punto_fin + ",\n"
-                + "  Distancia total: " + distanciaTotal + " km,\n"
-                + "  Desnivel: " + desnivel + " m,\n"
-                + "  Desnivel positivo: " + desnivelPositivo + " m,\n"
-                + "  Desnivel negativo: " + desnivelNegativo + " m,\n"
-                + "  Altitud máxima: " + altMax + " m,\n"
-                + "  Altitud mínima: " + altMin + " m,\n"
-                + "  Clasificación: " + clasificacion + ",\n"
-                + "  Nivel de riesgo: " + nivelRiesgo + ",\n"
-                + "  Nivel de esfuerzo: " + nivelEsfuerzo + ",\n"
-                + "  Tipo de terreno: " + tipoTerreno + ",\n"
-                + "  Indicaciones: " + indicaciones + ",\n"
-                + "  Tipo de actividad: " + tipoActividad + ",\n"
-                + "  Temporada: " + temporada + ",\n"
-                + "  Familiar: " + familiar + ",\n"
-                + "  URL: " + url + ",\n"
-                + "  Estado: " + estado + ",\n"
-                + "  Recomendaciones: " + recomendaciones + ",\n"
-                + "  Zona geográfica: " + zonaGeografica + ",\n"
-                + "  Puntos intermedios: " + puntosIntermedios + ",\n"
-                + "  Duración: " + duracion + ",\n"
+                + "  ID: " + id + "\n"
+                + "  Autor: " + autor + "\n"
+                + "  Nombre: " + nombre + "\n"
+                + "  Fecha de creación: " + localDateToString(fecha_creacion) + "\n"
+                + "  Punto inicial: " + punto_ini + "\n"
+                + "  Punto final: " + punto_fin + "\n"
+                + "  Distancia total: " + distanciaTotal + " km\n"
+                + "  Desnivel: " + desnivel + " m\n"
+                + "  Desnivel positivo: " + desnivelPositivo + " m\n"
+                + "  Desnivel negativo: " + desnivelNegativo + " m\n"
+                + "  Altitud máxima: " + altMax + " m\n"
+                + "  Altitud mínima: " + altMin + " m\n"
+                + "  Clasificación: " + clasificacion + "\n"
+                + "  Nivel de riesgo: " + nivelRiesgo + "\n"
+                + "  Nivel de esfuerzo: " + nivelEsfuerzo + "\n"
+                + "  Tipo de terreno: " + tipoTerreno + "\n"
+                + "  Indicaciones: " + indicaciones + "\n"
+                + "  Tipo de actividad: " + tipoActividad + "\n"
+                + "  Temporada: " + temporada + "\n"
+                + "  Familiar: " + familiar + "\n"
+                + "  URL: " + url + "\n"
+                + "  Estado: " + estado + "\n"
+                + "  Recomendaciones: " + recomendaciones + "\n"
+                + "  Zona geográfica: " + zonaGeografica + "\n"
+                + "  Puntos intermedios: " + puntosIntermedios + "\n"
+                + "  Duración: " + duracion + "\n"
                 + "  Media de valoración: " + mediaValoracion + "\n"
                 + "}";
     }
