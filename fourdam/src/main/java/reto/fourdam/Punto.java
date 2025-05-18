@@ -17,6 +17,7 @@ import java.time.LocalDateTime;
  * @author Oriol Fernandez Saiz 
  */
 public class Punto {
+    private String nombre;
     private double latitud;
     private double longitud;
     private String imagen;
@@ -29,12 +30,12 @@ public class Punto {
      * @param longitud la longitud del punto.
      * @param imagen la ruta de la imagen asociada al punto.
      */
-    public Punto(double latitud, double longitud, String imagen) {
+    public Punto(double latitud, double longitud, String imagen) {        
         this.latitud = latitud;
         this.longitud = longitud;
         this.imagen = imagen;
     }
-
+    
     /**
      * Obtiene la latitud del punto.
      *

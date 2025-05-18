@@ -59,6 +59,25 @@ public class metodosDB {
     private static Connection getConnection() {
         return AccesoBaseDatos.getInstance().getConn();
     }
+    
+     public ArrayList<PuntoInteres> listarPInteres() {
+        ArrayList<PuntoInteres> pi = new ArrayList<>();
+        try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT id_ruta, id_usuario, nombre, fecha, latitud_inicial, longitud_inicial, latitud_final, longitud_final, distancia, desnivel, desnivel_positivo, desnivel_negativo, altitud_minima, altitud_maxima, estado, url, familiar, temporada, indicaciones, terreno, esfuerzo, riesgo, zona, recomendaciones, clasificacion, nombre_inicial, nombre_final, media_valoraciones, duracion FROM rutas");) {
+            while (rs.next()) {
+                PuntoInteres p = pInteresPorId(rs.getInt("idPuntos_interes"));
+                pi.add(p);
+            }
+
+        } catch (SQLException ex) {
+            // errores
+            JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage());
+        }
+        return pi;
+    }
+     
+     
 
     /**
      * Lista todas las rutas almacenadas en la base de datos.
@@ -498,6 +517,24 @@ public class metodosDB {
             JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage());
         }
         return ruta;
+    }
+    
+     public PuntoInteres pInteresPorId(int id) {
+        PuntoInteres pi = null;
+        String sql = "SELECT idPuntos_interes, id_ruta, nombre, tipo, caracteristicas, url, longitud, latitud FROM puntos_interes  WHERE idPuntos_interes=?";
+        try (PreparedStatement stmt = getConnection().prepareStatement(sql);) {
+            stmt.setInt(1, id);
+            try (ResultSet rs = stmt.executeQuery();) {
+                if (rs.next()) {
+                    pi = crearPuntoInteres(rs);
+                }
+            }
+
+        } catch (SQLException ex) {
+            // errores
+            JOptionPane.showMessageDialog(null, "ERROR: " + ex.getMessage());
+        }
+        return pi;
     }
 
     /**
@@ -1056,6 +1093,7 @@ public class metodosDB {
      */
     private PuntoInteres crearPuntoInteres(final ResultSet rs) throws SQLException {
         return new PuntoInteres(
+                rs.getString("nombre"),
                 rs.getDouble("latitud"),
                 rs.getDouble("longitud"),
                 rs.getString("imagen"),
