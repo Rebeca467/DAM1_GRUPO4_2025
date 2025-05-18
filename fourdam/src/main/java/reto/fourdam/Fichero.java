@@ -74,7 +74,8 @@ public class Fichero {
             br.readLine(); // Saltar "ID: 1"
 
             // Autor
-            String[] autorDatos = br.readLine().replace("  Autor: Usuario{", "").replace("},", "").split(", ");
+            String[] autorDatos = br.readLine().replace("  Autor: Usuario{", "").replace("}", "").split(", ");
+            System.out.println(autorDatos[2].split("=")[1]);
             Usuario autor = usuPorId(idUsuario(autorDatos[2].split("=")[1]));
 
             // Datos principales
@@ -109,7 +110,7 @@ public class Fichero {
             int indicaciones = Integer.parseInt(br.readLine().split(": ")[1]);
 
             // Actividad, temporada y estado
-            String[] actividadDatos = br.readLine().replace("  Tipo de actividad:  Actividad{", "").replace("},", "").split(", ");
+            String[] actividadDatos = br.readLine().replace("  Tipo de actividad:  Actividad{", "").replace("}", "").split(", ");
             Actividad tipoActividad = new Actividad(actividadDatos[1].split("=")[1]);
             String temporada = br.readLine().split(": ")[1];
             boolean familiar = Boolean.parseBoolean(br.readLine().split(": ")[1]);
@@ -128,7 +129,7 @@ public class Fichero {
                     desnivelNegativo, altMax, altMin, clasificacion, nivelRiesgo, nivelEsfuerzo, tipoTerreno,
                     indicaciones, tipoActividad, temporada, familiar, url, estado, recomendaciones,
                     zonaGeografica, duracion, mediaValoracion);
-            System.out.println(ruta.getAutor());
+            System.out.println(ruta.toString());
         } catch (IOException e) {
             System.out.println("Error al leer el archivo: " + e.getMessage());
         } catch (NumberFormatException e) {

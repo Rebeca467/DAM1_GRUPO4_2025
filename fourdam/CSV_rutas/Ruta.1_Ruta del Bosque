@@ -2,7 +2,7 @@ Ruta {
   ID: 1
   Autor: Usuario{nombre=fabian, apellidos=saiz, email=fabi@gmail.com}
   Nombre: Ruta del Bosque
-  Fecha de creación: 2025-05-01
+  Fecha de creación: 01/05/2025
   Punto inicial: Punto{latitud=40.654321, longitud=-3.654321, imagen=null}
   Punto final: Punto{latitud=40.654321, longitud=-3.654321, imagen=null}
   Distancia total: 10.5 km
@@ -16,7 +16,7 @@ Ruta {
   Nivel de esfuerzo: 2
   Tipo de terreno: 1
   Indicaciones: 1
-  Tipo de actividad: Actividad{id=1, nombre=Prueba,}
+  Tipo de actividad: Actividad{id=1, nombre=Prueba}
   Temporada: PRIMAVERA
   Familiar: true
   URL: http://example.com/ruta1
