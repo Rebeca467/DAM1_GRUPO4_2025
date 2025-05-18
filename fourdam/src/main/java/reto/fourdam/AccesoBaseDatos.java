@@ -36,8 +36,8 @@ public class AccesoBaseDatos {
     private Connection conn = null;
     private static final String BD = "mydb";
     private static final String USUARIO = "root";
-    private static final String CLAVE = "mysql";
-    private static final String URL = "jdbc:mysql://localhost:3307/" + BD;
+    private static final String CLAVE = "GfMZVonDoeWUiPQCTvRaZZGIbRgPLNoO";
+    private static final String URL = "jdbc:mysql://yamabiko.proxy.rlwy.net:15067/" + BD;
     /**
      * Constructor privado que establece la conexion a la base de datos MySQL
      * mediante las credenciales definidas.

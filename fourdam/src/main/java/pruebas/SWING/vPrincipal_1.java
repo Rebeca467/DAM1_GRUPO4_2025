@@ -28,6 +28,7 @@ import javax.swing.JLabel;
 import reto.fourdam.AccesoBaseDatos;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
@@ -74,8 +75,8 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         ValorarRuta.setVisible(false);
         VerInfoRutas.setVisible(false);
         DescargaFichas.setVisible(false);
-        Connection conn = AccesoBaseDatos.getInstance().getConn();   
-        posicion=0;
+        Connection conn = AccesoBaseDatos.getInstance().getConn();
+        posicion = 0;
     }
 
     /**
@@ -1146,6 +1147,11 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         cmbTemporada.setToolTipText("");
 
         btnCsv.setText("CREAR CON CSV");
+        btnCsv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCsvActionPerformed(evt);
+            }
+        });
 
         btnCrearRuta.setText("CREAR RUTA");
         btnCrearRuta.addActionListener(new java.awt.event.ActionListener() {
@@ -2279,12 +2285,13 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             metodos.agregarRuta(new Ruta(user, nombreRuta, LocalDate.now(), new Punto(longPIni, latPIni, ""), new Punto(longPFin, latPFin, ""), distancia, desnivelPos + desnivelNeg,
                     desnivelPos, desnivelNeg, altMax, altMin, clasificacion, riesgo, esfuerzo, cmbTerreno.getSelectedIndex(), cmbIndicacion.getSelectedIndex(),
                     new Actividad(txtActividad.getText()), temporada, chkFamiliar.isSelected(), txtUrl.getText(), estado,
-                    txtRecomendaciones.getText(), txtZona.getText(), duracion, Validaciones.stringToInt("media de valoraciones", txtMediaValoraciones.getText())));
+                    txtRecomendaciones.getText(), txtZona.getText(), duracion, mediaValoracionex));
+            limpiarFormularioCrearRuta();
         } catch (IllegalArgumentException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
 
-        limpiarFormularioCrearRuta();
+
     }//GEN-LAST:event_btnCrearRutaActionPerformed
 
     private void btnEliminarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarRutaActionPerformed
@@ -2352,7 +2359,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
             String temporada = String.valueOf(cmbTemporada2.getSelectedItem());
 
-
             // Crear nueva instancia de Ruta con los datos actualizados
             /*Ruta rutaModificada = new Ruta(
                     user, // Usuario actual
@@ -2384,7 +2390,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             );
             // Llamar al método para modificar la ruta en la base de datos
             metodos.modificarRuta(r.getId(), rutaModificada);*/
-             metodos.modificarRuta(r.getId(), new Ruta(user, nombreRuta, LocalDate.now(), new Punto(longPIni, latPIni, ""), new Punto(longPFin, latPFin, ""), distancia, desnivelPos + desnivelNeg,
+            metodos.modificarRuta(r.getId(), new Ruta(user, nombreRuta, LocalDate.now(), new Punto(longPIni, latPIni, ""), new Punto(longPFin, latPFin, ""), distancia, desnivelPos + desnivelNeg,
                     desnivelPos, desnivelNeg, altMax, altMin, clasificacion, riesgo, esfuerzo, cmbTerreno1.getSelectedIndex(), cmbIndicacion1.getSelectedIndex(),
                     new Actividad(txtActividad1.getText()), temporada, chkFamiliar1.isSelected(), txtUrl1.getText(), estado,
                     txtRecomendaciones1.getText(), txtZona1.getText(), duracion, Validaciones.stringToInt("media de valoraciones", txtMediaValoraciones1.getText())));
@@ -2522,6 +2528,44 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         String txt = txtFiltro2.getText();
         filtroResennas(txt);
     }//GEN-LAST:event_txtFiltro2KeyReleased
+
+    private void btnCsvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCsvActionPerformed
+        JFileChooser j = new JFileChooser(new File("CSV_rutas"));
+        j.setFileSelectionMode(JFileChooser.FILES_ONLY);
+
+        int result = j.showOpenDialog(null);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = j.getSelectedFile();
+            System.out.println("Archivo seleccionado: " + selectedFile.getAbsolutePath());
+
+            Ruta nueva = Fichero.csvToRuta(selectedFile);
+            JOptionPane.showMessageDialog(this, "La ruta se cargó correctamente");
+
+            // Cargar los campos con los datos de la ruta
+            txtNombreRuta.setText(nueva.getNombre());
+            txtPiniLong.setText(String.valueOf(nueva.getPunto_ini().getLongitud()));
+            txtPFinLong.setText(String.valueOf(nueva.getPunto_fin().getLongitud()));
+            txtDistancia.setText(String.valueOf(nueva.getDistanciaTotal()));
+            txtDesnivelPositivo.setText(String.valueOf(nueva.getDesnivelPositivo()));
+            txtDesnivelNegativo.setText(String.valueOf(nueva.getDesnivelNegativo()));
+            txtAltitudMax.setText(String.valueOf(nueva.getAltMax()));
+            txtAltitudMin.setText(String.valueOf(nueva.getAltMin()));
+            txtActividad.setText(nueva.getTipoActividad().getNombre());
+            txtPiniLat.setText(String.valueOf(nueva.getPunto_ini().getLatitud()));
+            txtPFinLat.setText(String.valueOf(nueva.getPunto_fin().getLatitud()));
+            txtRiesgo.setText(String.valueOf(nueva.getNivelRiesgo()));
+            txtEsfuerzo.setText(String.valueOf(nueva.getNivelEsfuerzo()));
+            txtDuracion.setText(String.valueOf(nueva.getDuracion()));
+            txtMediaValoraciones.setText(String.valueOf(nueva.getMediaValoracion()));
+            txtRecomendaciones.setText(nueva.getRecomendaciones());
+            txtUrl.setText(nueva.getUrl());
+            txtZona.setText(nueva.getZonaGeografica());
+
+        } else {
+            JOptionPane.showMessageDialog(this, "No se seleccionó ningún archivo.");
+        }
+
+    }//GEN-LAST:event_btnCsvActionPerformed
 
     /**
      * @param args the command line argumentsoriolfs
@@ -3124,6 +3168,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         txtDesnivelNegativo.setText("");
         txtAltitudMax.setText("");
         txtAltitudMin.setText("");
+        txtActividad.setText("");
         txtPiniLong.setText("");
         txtPiniLat.setText("");
         txtPFinLong.setText("");
@@ -3170,13 +3215,11 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
         // Indicaciones (combo indexado del 1 al 5)
         //cmbIndicaciones3.setSelectedIndex(ruta.getIndicaciones());
-
         // Temporada (enum en Set, se selecciona el primero)
         /*if (!ruta.getTemporada().isEmpty()) {
             String temporadaEnum = ruta.getTemporada();
             cmbTemporada3.setSelectedItem(temporadaEnum);
         }*/
-
         txtRecomendaciones3.setText(ruta.getRecomendaciones());
         txtDistancia3.setText(String.valueOf(ruta.getDistanciaTotal()));
         txtDuracion3.setText(String.valueOf(ruta.getDuracion()));
@@ -3200,7 +3243,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
         // Tipo de terreno (asumido como enum o string en combo)
         //cmbTerreno3.setSelectedItem(ruta.getTipoTerreno());
-
         txtURL3.setText(ruta.getUrl());
         txtMediaVal3.setText(String.valueOf(ruta.getMediaValoracion()));
 
@@ -3295,14 +3337,12 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         tblRutas.setRowSorter(tr);
         tr.setRowFilter(RowFilter.regexFilter("(?i)" + txt));
     }
-    
+
     /*private void cargaImagen(){
         Icon icono = new ImageIcon(new ImageIcon (getClass().getResource("Desktop/mo.png")).getImage().getScaledInstance(labelImagen.getWidth(), labelImagen.getHeight(), 0));
         //Icon icon = new ImageIcon(imagen.getImage().getScaledInstance(labelImagen.getWidth(), labelImagen.getHeight(), imagen.getIconHeight()));
         labelImagen.setIcon(icono);
     }*/
-
-
     private void SetImageLabel(JLabel name, String ruta) {
         ImageIcon imagen = new ImageIcon(ruta);
         Icon icon = new ImageIcon(imagen.getImage().getScaledInstance(name.getWidth(), name.getHeight(), Image.SCALE_DEFAULT));
