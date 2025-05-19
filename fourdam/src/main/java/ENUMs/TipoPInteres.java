@@ -5,9 +5,10 @@
 package ENUMs;
 
 /**
- *
- * @author DAM106
+ * Enumerado que define el tipo de puntos de interes que puedes encontrar.
+ * 
+ * @author Ciro Galan Vertiz
  */
 public enum TipoPInteres {
-    
+    HISTÓRICO_ARQUEOLÓGICO, NATURALEZA, MIRADOR, AREA_DE_DESCANSO, PUNTO_DE_AGUA, REFUGIO, CULTURAL, GEOLOGICO, FAUNA_ESPECIFICA, BOTANICO
 }
