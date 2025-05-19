@@ -17,9 +17,9 @@
 14. [Subsidios Seguridad Social](#subsidios-de-la-seguridad-social)
 15. [Peligros y riesgos de actividades](#peligros-y-riesgos)
 16. [Plan de emergencias](#plan-emergencias) 
-16. [Instalación](#instalación)
-17. [Uso](#uso)
-18. [Despliegue y Tecnologías](#despliegue-y-tecnologías)
+17. [Instalación](#instalación)
+18. [Uso](#uso)
+19. [Despliegue y Tecnologías](#despliegue-y-tecnologías)
 
 ## Descripción del Proyecto
 Resumen del objetivo del proyecto, su funcionalidad principal y tecnologías utilizadas.
@@ -185,6 +185,13 @@ Todas las clases están documentadas con JavaDoc, incluyendo:
 
 > Documentos en los que vemos una plantilla de plan de emergencias y dos rellenadas con ejemplos
 
+
+## OVAS
+[Ver Servidor base datos](https://educantabria.sharepoint.com/:u:/s/RETODAM1DAM12025-39009471-DAM1-EQUIPO4/EU9hOuwfpcxAnU8_NpqX8Y4B0ncmvSH60ee48FQ8NRo2MA?e=kHjcTF)
+[Ver Servidor web](https://educantabria.sharepoint.com/:u:/s/RETODAM1DAM12025-39009471-DAM1-EQUIPO4/EYDumvlP1GFOk7sq_AyfMG4BH4gDg85HQs2b-BcBe_oO3A?e=yjv0Pa)
+
+## Guia despliegue
+[Ver guia despliegue](./guia-despligue.pdf)
 ## Instalación
 ```bash
 git clone https://github.com/Rebeca467/DAM1_GRUPO4_2025
