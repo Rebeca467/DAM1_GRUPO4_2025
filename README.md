@@ -1,26 +1,31 @@
 # DAM1_GRUPO4_2025
 
 ## Índice
-1. [Descripción del Proyecto](#descripción-del-proyecto)
-2. [Participantes](#participantes)
-3. [Diagrama Entidad-Relación (E/R)](#diagrama-entidad-relación-er)
-4. [Diagrama Relacional](#diagrama-relacional)
-5. [Script](#script-bd)
-6. [Diagrama de Clases](#diagrama-de-clases)
-7. [Diagrama de Casos de Uso](#diagrama-de-casos-de-uso)
-8. [Pagina Web](#pagina-web)
-9. [XSLT](#xslt)
-10. [Logica Educativa](#lógica-educativa-java)
-11. [Script Triggers](#script-triggers)
-12. [Documentacion JavaDoc](#documentación-javadoc)
-13. [Manual de usuario](#manual-de-usuario)
-14. [Infografía Seguridad Social](#infografía-seguridad-social)
-15. [Subsidios Seguridad Social](#subsidios-de-la-seguridad-social)
-16. [Peligros y riesgos de actividades](#peligros-y-riesgos)
-17. [Plan de emergencias](#plan-emergencias) 
-18. [Instalación](#instalación)
-19. [Uso](#uso)
-20. [Despliegue y Tecnologías](#despliegue-y-tecnologías)
+1. [Descripción del Proyecto](#descripción-del-proyecto)  
+2. [Participantes](#participantes)  
+3. Diagramas del Sistema  
+   - [Diagrama Entidad-Relación (E/R)](#diagrama-entidad-relación-er)  
+   - [Diagrama Relacional](#diagrama-relacional)  
+   - [Diagrama de Clases](#diagrama-de-clases)  
+   - [Diagrama de Casos de Uso](#diagrama-de-casos-de-uso)  
+4. Base de Datos  
+   - [Script SQL](#script-bd)  
+   - [Triggers](#script-triggers)  
+5. [Lógica del Sistema (Java)](#lógica-educativa-java)  
+6. [Página Web y Frontend](#pagina-web)  
+7. [Transformaciones XSLT](#xslt)  
+8. [Documentación Técnica (JavaDoc)](#documentación-javadoc)  
+9. [Manual de Usuario](#manual-de-usuario)  
+10. Documentos de Seguridad y Prevención  
+    - [Infografía Seguridad Social](#infografía-seguridad-social)  
+    - [Subsidios Seguridad Social](#subsidios-de-la-seguridad-social)  
+    - [Peligros y Riesgos de Actividades](#peligros-y-riesgos)  
+    - [Plan de Emergencias](#plan-emergencias)  
+11. [Recursos OVAs](#ovas)  
+12. [Guía de Despliegue](#guia-despliegue)  
+13. [Instalación](#instalación)  
+14. [Uso de la Aplicación](#uso)  
+15. [Tecnologías Utilizadas](#despliegue-y-tecnologías)  
 
 ## Descripción del Proyecto
 Resumen del objetivo del proyecto, su funcionalidad principal y tecnologías utilizadas.
