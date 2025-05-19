@@ -13,13 +13,14 @@
 10. [Logica Educativa](#lógica-educativa-java)
 11. [Script Triggers](#script-triggers)
 12. [Documentacion JavaDoc](#documentación-javadoc)
-13. [Infografía Seguridad Social](#infografía-seguridad-social)
-14. [Subsidios Seguridad Social](#subsidios-de-la-seguridad-social)
-15. [Peligros y riesgos de actividades](#peligros-y-riesgos)
-16. [Plan de emergencias](#plan-emergencias) 
-17. [Instalación](#instalación)
-18. [Uso](#uso)
-19. [Despliegue y Tecnologías](#despliegue-y-tecnologías)
+13. [Manual de usuario](#manual-de-usuario)
+14. [Infografía Seguridad Social](#infografía-seguridad-social)
+15. [Subsidios Seguridad Social](#subsidios-de-la-seguridad-social)
+16. [Peligros y riesgos de actividades](#peligros-y-riesgos)
+17. [Plan de emergencias](#plan-emergencias) 
+18. [Instalación](#instalación)
+19. [Uso](#uso)
+20. [Despliegue y Tecnologías](#despliegue-y-tecnologías)
 
 ## Descripción del Proyecto
 Resumen del objetivo del proyecto, su funcionalidad principal y tecnologías utilizadas.
@@ -162,6 +163,10 @@ Todas las clases están documentadas con JavaDoc, incluyendo:
 - Parámetros y retorno
 - Ejemplos de uso
 [Ver Documentacion JavaDoc](./documentacion-javadoc/index.html)
+
+## Manual de usuario
+
+[Ver Manual de usuario](./manual-de-usuario.pdf)
 
 ## Infografía Seguridad Social
 [Ver Infografias](./info-seguridad-social.pdf)
