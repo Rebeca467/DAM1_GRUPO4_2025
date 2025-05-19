@@ -658,6 +658,7 @@ public class Ruta {
     public void setMediaValoracion(int mediaValoracion) {
         this.mediaValoracion = mediaValoracion;
     }
+    
     /**
      * @return una String que representa la ruta.
      */

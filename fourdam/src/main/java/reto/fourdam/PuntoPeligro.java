@@ -30,12 +30,13 @@ public class PuntoPeligro extends Punto {
      * @param nivelgravedad el nivel de gravedad del peligro.
      * @param justificacion la justificacion del peligro.
      */
-    public PuntoPeligro(double latitud, double longitud, String imagen, int km, int nivelgravedad, String justificacion) {
-        super(latitud, longitud, imagen);
+    public PuntoPeligro(Ruta ruta, double latitud, double longitud, String imagen,int km, int nivelgravedad, String justificacion ) {    
+        super(ruta, latitud, longitud, imagen);
         this.km = km;
         this.nivelgravedad = nivelgravedad;
         this.justificacion = justificacion;
     }
+
     /**
      * @return una cadena que representa al punto de peligro.
      */

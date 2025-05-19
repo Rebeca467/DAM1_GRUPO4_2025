@@ -30,18 +30,25 @@ public class PuntoInteres extends Punto {
      * @param tipo el tipo de punto de interes.
      * @param caracteristicasEsp las caracteristicas especiales del punto.
      */
-    public PuntoInteres(String nombre, double latitud, double longitud, String imagen, TipoPInteres tipo, String caracteristicasEsp) {
-        super(latitud, longitud, imagen);
-        this.nombre = nombre;
+    
+    public PuntoInteres(Ruta ruta, double latitud, double longitud, String imagen,String nombre,TipoPInteres tipo, String caracteristicasEsp) {
+        super(ruta, latitud, longitud, imagen);
         this.tipo = tipo;
         this.caracteristicasEsp = caracteristicasEsp;
+        this.nombre = nombre;
     }
-     /**
+    public PuntoInteres(double latitud, double longitud, String imagen,String nombre,TipoPInteres tipo, String caracteristicasEsp) {
+        super(latitud, longitud, imagen);
+        this.tipo = tipo;
+        this.caracteristicasEsp = caracteristicasEsp;
+        this.nombre = nombre;
+    }
+
+    /**
      * Obtiene el nombre del punto.
      *
      * @return el nombre.
      */
-    
     public String getNombre() {
         return nombre;
     }

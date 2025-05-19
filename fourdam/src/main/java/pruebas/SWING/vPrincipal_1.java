@@ -2426,7 +2426,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             );
             // Llamar al método para modificar la ruta en la base de datos
             metodos.modificarRuta(r.getId(), rutaModificada);*/
-            metodos.modificarRuta(r.getId(), new Ruta(user, nombreRuta, LocalDate.now(), new Punto(longPIni, latPIni, ""), new Punto(longPFin, latPFin, ""), distancia, desnivelPos + desnivelNeg,
+            metodos.modificarRuta(r.getId(), new Ruta(user, nombreRuta, LocalDate.now(), new Punto(r,longPIni, latPIni, ""), new Punto(r,longPFin, latPFin, ""), distancia, desnivelPos + desnivelNeg,
                     desnivelPos, desnivelNeg, altMax, altMin, clasificacion, riesgo, esfuerzo, cmbTerreno1.getSelectedIndex(), cmbIndicacion1.getSelectedIndex(),
                     new Actividad(txtActividad1.getText()), temporada, chkFamiliar1.isSelected(), txtUrl1.getText(), estado,
                     txtRecomendaciones1.getText(), txtZona1.getText(), duracion, Validaciones.stringToInt("media de valoraciones", txtMediaValoraciones1.getText())));
@@ -3012,8 +3012,10 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         modelo = new DefaultTableModel(encabezados, 0);
         ArrayList<PuntoInteres> lista = metodos.listarPInteres();
         for (PuntoInteres p : lista) {
+            if (p.getRuta().getId()==seleccionarIdRuta().getId()){
             String linea[] = {p.getNombre(), String.valueOf(p.getTipo()), p.getCaracteristicasEsp(), String.valueOf(p.getLongitud()), String.valueOf(p.getLatitud())};
             modelo.addRow(linea);
+            } 
         }
         tblPInteres.setModel(modelo);
         TableRowSorter<TableModel> sorter = new TableRowSorter<>(modelo);
