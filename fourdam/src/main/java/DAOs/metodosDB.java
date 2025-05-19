@@ -655,9 +655,7 @@ public class metodosDB {
      * reseña con el id proporcionado.
      * </p>
      *
-     * @param k El id de la resenna a eliminar.
-     * @param r Objeto Ruta del cual se elimina la resenna (parametro no
-     * utilizado).
+     * @param idRuta El id de la ruta que se va a eliminar.
      * @return true si la eliminacion fue exitosa, false en caso contrario.
      */
     public boolean eliminarRuta(int idRuta) {

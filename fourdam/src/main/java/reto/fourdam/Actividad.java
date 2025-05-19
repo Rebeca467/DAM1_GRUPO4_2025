@@ -49,7 +49,9 @@ public class Actividad {
     public String getNombre() {
         return nombre;
     }
-
+    /**
+     * @return una cadena que representa la actividad.
+     */
     @Override
     public String toString() {
         return "Actividad{" + "id=" + id + ", nombre=" + nombre + '}';
