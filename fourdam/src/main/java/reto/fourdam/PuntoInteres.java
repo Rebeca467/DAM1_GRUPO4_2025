@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
  * @author Fabian Saiz Landeras
  */
 public class PuntoInteres extends Punto {
-private int id;
+    private int id;
     private TipoPInteres tipo;
     private String caracteristicasEsp;
     private String nombre;
@@ -31,17 +31,21 @@ private int id;
      * @param caracteristicasEsp las caracteristicas especiales del punto.
      */
     
-    public PuntoInteres(Ruta ruta, double latitud, double longitud, String imagen,String nombre,TipoPInteres tipo, String caracteristicasEsp) {
+    public PuntoInteres(int id,Ruta ruta, double latitud, double longitud, String imagen,String nombre,TipoPInteres tipo, String caracteristicasEsp) {
         super(ruta, latitud, longitud, imagen);
         this.tipo = tipo;
         this.caracteristicasEsp = caracteristicasEsp;
         this.nombre = nombre;
     }
-    public PuntoInteres(double latitud, double longitud, String imagen,String nombre,TipoPInteres tipo, String caracteristicasEsp) {
+    public PuntoInteres(int id,double latitud, double longitud, String imagen,String nombre,TipoPInteres tipo, String caracteristicasEsp) {
         super(latitud, longitud, imagen);
         this.tipo = tipo;
         this.caracteristicasEsp = caracteristicasEsp;
         this.nombre = nombre;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public void setId(int id) {
