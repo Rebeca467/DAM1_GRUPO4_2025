@@ -4,10 +4,7 @@
  */
 package validaciones;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
 import java.util.regex.Pattern;
-import javax.swing.JOptionPane;
 
 /**
  * Clase para validar entradas numericas y correos electronicos.

@@ -5,8 +5,6 @@
 package reto.fourdam;
 
 import ENUMs.TipoUsuario;
-import java.time.LocalDate;
-import validaciones.Teclado;
 
 /**
  * Representa a un diseñador de ruta, que es un tipo de usuario con funcionalidades

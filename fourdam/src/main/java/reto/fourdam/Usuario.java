@@ -5,8 +5,6 @@
 package reto.fourdam;
 
 import ENUMs.TipoUsuario;
-import java.time.LocalDate;
-import validaciones.Teclado;
 
 /**
  * Representa un usuario del sistema, con atributos basicos como el id, nombre, 
@@ -124,10 +122,6 @@ public class Usuario{
     public TipoUsuario getRol() {
         return rol;
     }
-    /////////////////////// MIRAR METODO
-//    public Resenna resennar(Ruta ruta){
-//        return new Resenna(1,Usuario.this, ruta, LocalDate.now(), Teclado.texto("Comentario respecto a la ruta"));
-//    }
     /**
      * @return una String que representa al usuario.
      */

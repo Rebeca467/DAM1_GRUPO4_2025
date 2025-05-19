@@ -3,8 +3,6 @@ package reto.fourdam;
 import static DAOs.metodosDB.idUsuario;
 import static DAOs.metodosDB.usuPorId;
 import ENUMs.Clasificacion_Ruta;
-import ENUMs.TipoPInteres;
-import ENUMs.TipoUsuario;
 import ENUMs.Estado;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -12,15 +10,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
 import javax.swing.JOptionPane;
 import static validaciones.Teclado.stringToLocalDate;
 
@@ -141,7 +131,15 @@ public class Fichero {
     }
 
     
-    // Método para asegurar que la carpeta FichasRutas existe
+    /**
+     * Verifica si la carpeta de fichas existe y la crea en caso contrario.
+     *
+     * Este método revisa la ruta especificada en la variable `rutaFichas`. Si
+     * la carpeta no existe, la crea utilizando `mkdirs()`, asegurando que todos
+     * los directorios necesarios sean generados.
+     *
+     * @throws SecurityException Si no se tienen permisos para crear la carpeta.
+     */
     private static void asegurarCarpetaFichas() {
         File carpeta = new File(rutaFichas);
         if (!carpeta.exists()) {
@@ -149,7 +147,19 @@ public class Fichero {
         }
     }
     
-    
+    /**
+     * Genera un archivo de ficha de seguridad para una ruta específica.
+     *
+     * Este método crea una ficha de seguridad en formato de texto dentro de la
+     * carpeta definida en `rutaFichas`. La ficha incluye detalles sobre la
+     * dificultad general, puntos de peligro y recomendaciones.
+     *
+     * @param nombreRuta Nombre de la ruta que se documentará en la ficha.
+     * @param dificultadGeneral Nivel de dificultad general de la ruta.
+     * @param puntosPeligro Descripción de los puntos de peligro en la ruta.
+     * @param recomendaciones Consejos y recomendaciones para la ruta.
+     * @throws IOException Si ocurre un error al escribir en el archivo de la ficha.
+     */
     public static void generarFichaSeguridad(String nombreRuta, String dificultadGeneral, String puntosPeligro, String recomendaciones) {
         asegurarCarpetaFichas();
         String contenido = "=== FICHA DE SEGURIDAD ("+nombreRuta+") ===\n"
@@ -165,7 +175,19 @@ public class Fichero {
             System.out.println("Error al crear la ficha de seguridad: " + e.getMessage());
         }
     }
-
+    /**
+     * Genera un archivo de ficha de usuario para una ruta especifica.
+     *
+     * Este metodo crea una ficha de usuario en formato de texto dentro de la
+     * carpeta definida en `rutaFichas`. La ficha incluye datos generales, el
+     * perfil del recorrido y recomendaciones.
+     *
+     * @param nombreRuta Nombre de la ruta que se documentara en la ficha.
+     * @param datosGenerales Informacion general sobre la ruta.
+     * @param perfilRecorrido Descripcion del perfil del recorrido.
+     * @param recomendaciones Consejos y recomendaciones para la ruta.
+     * @throws IOException Si ocurre un error al escribir en el archivo de la ficha.
+     */
     public static void generarFichaUsuario(String nombreRuta, String datosGenerales, String perfilRecorrido, String recomendaciones) {
         asegurarCarpetaFichas();
         String contenido = "=== FICHA DE USUARIO ("+nombreRuta+") ===\n"
@@ -181,7 +203,21 @@ public class Fichero {
             System.out.println("Error al crear la ficha de usuario: " + e.getMessage());
         }
     }
-
+    /**
+     * Genera un archivo de ficha de organizacion para una ruta especifica.
+     *
+     * Este metodo crea una ficha de organizacion en formato de texto dentro de
+     * la carpeta definida en `rutaFichas`. La ficha incluye datos basicos,
+     * altitud, tipo de ruta, opinion tecnica y nivel educativo recomendado.
+     *
+     * @param nombreRuta Nombre de la ruta que se documentara en la ficha.
+     * @param datosBasicos Informacion general sobre la ruta.
+     * @param altitud Altitud de la ruta.
+     * @param tipoRuta Tipo de recorrido de la ruta.
+     * @param opinionTecnica Evaluacion tecnica sobre la ruta.
+     * @param nivelEducativo Nivel educativo recomendado para la ruta.
+     * @throws IOException Si ocurre un error al escribir en el archivo de la ficha.
+     */
     public static void generarFichaOrganizacion(String nombreRuta, String datosBasicos, String altitud, String tipoRuta, String opinionTecnica, String nivelEducativo) {
         asegurarCarpetaFichas();
         String contenido = "=== FICHA DE ORGANIZACIÓN ("+nombreRuta+") ===\n"
