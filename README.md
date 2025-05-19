@@ -16,6 +16,7 @@
 13. [Infografía Seguridad Social](#infografía-seguridad-social)
 14. [Subsidios Seguridad Social](#subsidios-de-la-seguridad-social)
 15. [Peligros y riesgos de actividades](#peligros-y-riesgos)
+16. [Plan de emergencias](#plan-emergencias) 
 16. [Instalación](#instalación)
 17. [Uso](#uso)
 18. [Despliegue y Tecnologías](#despliegue-y-tecnologías)
@@ -36,12 +37,12 @@ Resumen del objetivo del proyecto, su funcionalidad principal y tecnologías uti
 > El diagrama muestra las entidades principales, sus relaciones y atributos clave en el sistema.
 
 ## Diagrama Relacional
-[Ver el Diagrama Relacional](./diagramaRelacional-definitivo.mwb)
+[Ver el Diagrama Relacional](./diagrma-relacional-actualizado.mwb)
 
 > El diagrama muestra las entidades principales, sus relaciones y atributos clave en el sistema.
 
 ## Script BD
-[Ver el Script](./bd-script-grupo4-definitivo.sql)
+[Ver el Script](./script-bd-actualizado.sql)
 
 > Aqui se puede ver el script de la base de datos.
 
@@ -176,6 +177,13 @@ Todas las clases están documentadas con JavaDoc, incluyendo:
 [Ver peligros y riesgos](./Peligros-riesgos.pdf)
  
 > Documento donde se muestran los peligros y riesgos de una actividad
+
+## Plan Emergencias
+[Ver plantilla](./Plantilla-protocoloEmergencias.dotx)
+[Ver ejemplo 1](./protocolo-piragua.pdf)
+[Ver ejemplo 2](./protocolo-senderismo.pdf)
+
+> Documentos en los que vemos una plantilla de plan de emergencias y dos rellenadas con ejemplos
 
 ## Instalación
 ```bash
