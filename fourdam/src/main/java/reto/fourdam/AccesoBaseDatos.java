@@ -35,9 +35,9 @@ import java.util.Properties;
 public class AccesoBaseDatos {
     private Connection conn = null;
     private static final String BD = "mydb";
-    private static final String USUARIO = "root";
-    private static final String CLAVE = "mysql";
-    private static final String URL = "jdbc:mysql://localhost:3307/" + BD;
+    private static final String USUARIO = "fourdam";
+    private static final String CLAVE = "usuario@1";
+    private static final String URL = "jdbc:mysql://10.0.16.36:3306/" + BD;
     /**
      * Constructor privado que establece la conexion a la base de datos MySQL
      * mediante las credenciales definidas.
