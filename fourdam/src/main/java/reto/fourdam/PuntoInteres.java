@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
  * @author Fabian Saiz Landeras
  */
 public class PuntoInteres extends Punto {
-
+private int id;
     private TipoPInteres tipo;
     private String caracteristicasEsp;
     private String nombre;
@@ -43,6 +43,11 @@ public class PuntoInteres extends Punto {
         this.caracteristicasEsp = caracteristicasEsp;
         this.nombre = nombre;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
 
     /**
      * Obtiene el nombre del punto.

@@ -3078,7 +3078,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     }
 
     private void cargaTablaPInteres() {
-        String encabezados[] = {"", "Nombre", "Tipo", "Caracteristicas", "Long", "Lat"};
+        String encabezados[] = {"","Nombre", "Tipo", "Caracteristicas", "Long", "Lat"};
         modelo = new DefaultTableModel(encabezados, 0);
         ArrayList<PuntoInteres> lista = metodos.listarPInteres();
         for (PuntoInteres p : lista) {
