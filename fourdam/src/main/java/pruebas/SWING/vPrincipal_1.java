@@ -2532,7 +2532,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDescargarFichaActionPerformed
 
     private void btnCargarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarRutaActionPerformed
-        JFileChooser j = new JFileChooser(new File("CSV_rutas"));
+        JFileChooser j = new JFileChooser(new File(System.getProperty("user.home") + File.separator + "Documents" + File.separator + "CSVRutas"));
         j.setFileSelectionMode(JFileChooser.FILES_ONLY);
         int result = j.showOpenDialog(null);
         if (result == JFileChooser.APPROVE_OPTION) {
@@ -2567,7 +2567,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtFiltro2KeyReleased
 
     private void btnCsvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCsvActionPerformed
-        JFileChooser j = new JFileChooser(new File("CSV_rutas"));
+        JFileChooser j = new JFileChooser(new File(System.getProperty("user.home") + File.separator + "Documents" + File.separator + "CSVRutas"));
         j.setFileSelectionMode(JFileChooser.FILES_ONLY);
 
         int result = j.showOpenDialog(null);

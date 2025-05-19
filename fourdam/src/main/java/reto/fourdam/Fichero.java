@@ -36,6 +36,7 @@ import static validaciones.Teclado.stringToLocalDate;
 public class Fichero {
 
     private static final String rutaFichas = System.getProperty("user.home") + File.separator + "Documents" + File.separator + "FichasRutas";
+    private static final String rutaRutas = System.getProperty("user.home") + File.separator + "Documents" + File.separator + "CSVRutas";
 
 
     /**
@@ -44,8 +45,9 @@ public class Fichero {
      * @param ruta Objeto Ruta a convertir.
      */
     public static void rutaToCsv(Ruta ruta) {
+        asegurarCarpeta();
         try {
-            File archivo = new File("CSV_rutas/Ruta."+ruta.getId()+"_"+ruta.getNombre());
+            File archivo = new File(rutaRutas + File.separator + "Ruta."+ruta.getId()+"_"+ruta.getNombre());
             // Crear el archivo si no existe
             if (!archivo.exists()) {
                 archivo.createNewFile();
@@ -142,16 +144,20 @@ public class Fichero {
 
     
     // Método para asegurar que la carpeta FichasRutas existe
-    private static void asegurarCarpetaFichas() {
-        File carpeta = new File(rutaFichas);
-        if (!carpeta.exists()) {
-            carpeta.mkdirs(); // crea la carpeta si no existe
+    private static void asegurarCarpeta() {
+        File carpeta1 = new File(rutaFichas);
+        File carpeta2 = new File(rutaRutas);
+        if (!carpeta1.exists()) {
+            carpeta1.mkdirs(); // crea la carpeta si no existe
+        }
+        if (!carpeta2.exists()) {
+            carpeta2.mkdirs(); // crea la carpeta si no existe
         }
     }
     
     
     public static void generarFichaSeguridad(String nombreRuta, String dificultadGeneral, String puntosPeligro, String recomendaciones) {
-        asegurarCarpetaFichas();
+        asegurarCarpeta();
         String contenido = "=== FICHA DE SEGURIDAD ("+nombreRuta+") ===\n"
                 + "Dificultad general: " + dificultadGeneral + "\n"
                 + "Puntos de peligro: " + puntosPeligro + "\n"
@@ -167,7 +173,7 @@ public class Fichero {
     }
 
     public static void generarFichaUsuario(String nombreRuta, String datosGenerales, String perfilRecorrido, String recomendaciones) {
-        asegurarCarpetaFichas();
+        asegurarCarpeta();
         String contenido = "=== FICHA DE USUARIO ("+nombreRuta+") ===\n"
                 + "Datos generales: " + datosGenerales + "\n"
                 + "Perfil del recorrido: " + perfilRecorrido + "\n"
@@ -183,7 +189,7 @@ public class Fichero {
     }
 
     public static void generarFichaOrganizacion(String nombreRuta, String datosBasicos, String altitud, String tipoRuta, String opinionTecnica, String nivelEducativo) {
-        asegurarCarpetaFichas();
+        asegurarCarpeta();
         String contenido = "=== FICHA DE ORGANIZACIÓN ("+nombreRuta+") ===\n"
                 + "Datos básicos: " + datosBasicos + "\n"
                 + "Altitud: " + altitud + "\n"
