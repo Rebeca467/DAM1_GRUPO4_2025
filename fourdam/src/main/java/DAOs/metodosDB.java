@@ -1151,6 +1151,7 @@ public class metodosDB {
      */
     private PuntoInteres crearPuntoInteres(final ResultSet rs) throws SQLException {
         return new PuntoInteres(
+                rs.getInt("idPuntos_Interes"),
                 rutaPorId(rs.getInt("id_ruta")),
                 rs.getDouble("latitud"),
                 rs.getDouble("longitud"),

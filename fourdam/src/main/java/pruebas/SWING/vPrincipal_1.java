@@ -3083,7 +3083,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         ArrayList<PuntoInteres> lista = metodos.listarPInteres();
         for (PuntoInteres p : lista) {
             if (p.getRuta().getId() == seleccionarIdRuta().getId()) {
-                String linea[] = {p.getNombre(), String.valueOf(p.getTipo()), p.getCaracteristicasEsp(), String.valueOf(p.getLongitud()), String.valueOf(p.getLatitud())};
+                String linea[] = {String.valueOf(p.getId()),p.getNombre(), String.valueOf(p.getTipo()), p.getCaracteristicasEsp(), String.valueOf(p.getLongitud()), String.valueOf(p.getLatitud())};
                 modelo.addRow(linea);
             }
         }
