@@ -17,7 +17,6 @@ import java.time.LocalDateTime;
  * @author Oriol Fernandez Saiz 
  */
 public class Punto {
-    private String nombre;
     private Ruta ruta;
     private double latitud;
     private double longitud;
