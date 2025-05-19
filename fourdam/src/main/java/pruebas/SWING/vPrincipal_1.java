@@ -242,8 +242,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         btnCrearRuta = new javax.swing.JButton();
         btnSalirCrearR = new javax.swing.JButton();
         cmbClasificacion = new javax.swing.JComboBox<>();
-        jLabel52 = new javax.swing.JLabel();
-        cmbEstado = new javax.swing.JComboBox<>();
         chkFamiliar = new javax.swing.JCheckBox();
         txtDuracion = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
@@ -1253,8 +1251,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
         cmbClasificacion.setToolTipText("");
 
-        jLabel52.setText("ESTADO");
-
         jLabel28.setText("LONGITUD");
 
         jLabel29.setText("LATITUD");
@@ -1316,7 +1312,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                             .addComponent(txtEsfuerzo, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtDistancia, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(CreaRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCrearRuta, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CreaRutasLayout.createSequentialGroup()
@@ -1330,18 +1326,11 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtAltitudMin, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(CreaRutasLayout.createSequentialGroup()
-                                .addGroup(CreaRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(CreaRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel22)
-                                        .addComponent(jLabel23))
-                                    .addGroup(CreaRutasLayout.createSequentialGroup()
-                                        .addComponent(jLabel52)
-                                        .addGap(42, 42, 42)))
+                                .addGroup(CreaRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel22)
+                                    .addComponent(jLabel23))
                                 .addGroup(CreaRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtRiesgo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(CreaRutasLayout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(CreaRutasLayout.createSequentialGroup()
                                         .addGap(22, 22, 22)
                                         .addComponent(cmbClasificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -1379,7 +1368,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                                 .addComponent(jLabel25)
                                 .addGap(18, 18, 18)
                                 .addComponent(cmbTerreno, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
             .addGroup(CreaRutasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnSalirCrearR)
@@ -1458,7 +1447,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                                     .addComponent(txtEsfuerzo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(73, 73, 73)))
                         .addComponent(btnCsv)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 18, Short.MAX_VALUE))
                     .addGroup(CreaRutasLayout.createSequentialGroup()
                         .addGroup(CreaRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(CreaRutasLayout.createSequentialGroup()
@@ -1498,10 +1487,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                         .addGroup(CreaRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel23)
                             .addComponent(txtRiesgo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(15, 15, 15)
-                        .addGroup(CreaRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel52)
-                            .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnCrearRuta)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1545,6 +1530,11 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         });
 
         btnValidarRuta.setText("VALIDAR");
+        btnValidarRuta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValidarRutaActionPerformed(evt);
+            }
+        });
 
         btnValorarRuta.setText("VALORAR");
         btnValorarRuta.addActionListener(new java.awt.event.ActionListener() {
@@ -2052,7 +2042,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnValorarMouseClicked
 
     private void btnCreaRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreaRutaActionPerformed
-        cargaCmbEstado();
         cargaCmbTemporada();
         cargaCmbClasificacion();
         LogIn.setVisible(false);
@@ -2140,12 +2129,12 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSigninActionPerformed
 
     private void btnModificarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarRutaActionPerformed
-        // Ya no necesitamos cargar los ComboBox
-        // cargaCmbEstado1();
-        // cargaCmbTemporada1();
-        // cargaCmbClasificacion1();
+        // Cargar los ComboBox primero
+        cargaCmbEstado1();
+        cargaCmbTemporada1();
+        cargaCmbClasificacion1();
 
-        // Cargar la ruta en el formulario
+        // Luego cargar la ruta en el formulario
         cargarRutaEnFormulario(seleccionarIdRuta());
 
         // Cambiar a la pantalla de modificar ruta
@@ -2165,12 +2154,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         try {
             Ruta ruta = seleccionarIdRuta();
             if (ruta != null) {
-                // Ya no necesitamos inicializar los ComboBox
-                // cargaCmbEstadoInfo();
-                // cargaCmbTemporadaInfo();
-                // cargaCmbClasificacionInfo();
-                // cargaCmbTerrenoInfo();
-                // cargaCmbIndicacionesInfo();
                 cargarInfoRuta(ruta);
 
                 LogIn.setVisible(false);
@@ -2351,13 +2334,8 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
     private void btnCrearRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearRutaActionPerformed
         //CON ESTO TIENES EL USUARIO QUE HA INICIADO SESION
-
-        String nombreRuta = txtNombreRuta.getText();
-        String puntoInicial = txtPiniLong.getText();
-        String puntoFinal = txtPFinLong.getText();
-
         try {
-
+            String nombreRuta = txtNombreRuta.getText();
             double distancia = Validaciones.stringToDouble("distancia", txtDistancia.getText());
             double desnivelPos = Validaciones.stringToDouble("desnivel positivo", txtDesnivelPositivo.getText());
             double desnivelNeg = Validaciones.stringToDouble("desnivel negativo", txtDesnivelNegativo.getText());
@@ -2376,8 +2354,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             int mediaValoracionex = Validaciones.stringToInt("media de valoraciones", txtMediaValoraciones.getText());
             String clasificacionTexto = (String) cmbClasificacion.getSelectedItem();
             Clasificacion_Ruta clasificacion = Clasificacion_Ruta.valueOf(clasificacionTexto);
-            String estadoTexto = (String) cmbEstado.getSelectedItem();
-            Estado estado = Estado.valueOf(estadoTexto);
+            Estado estado = Estado.valueOf("PENDIENTE");
             String temp = String.valueOf(cmbTemporada.getSelectedItem());
             String temporada = String.valueOf(cmbTemporada.getSelectedItem());
 
@@ -2490,7 +2467,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             );
             // Llamar al método para modificar la ruta en la base de datos
             metodos.modificarRuta(r.getId(), rutaModificada);*/
-            metodos.modificarRuta(r.getId(), new Ruta(user, nombreRuta, LocalDate.now(), new Punto(r,longPIni, latPIni, ""), new Punto(r,longPFin, latPFin, ""), distancia, desnivelPos + desnivelNeg,
+            metodos.modificarRuta(r.getId(), new Ruta(user, nombreRuta, LocalDate.now(), new Punto(r, longPIni, latPIni, ""), new Punto(r, longPFin, latPFin, ""), distancia, desnivelPos + desnivelNeg,
                     desnivelPos, desnivelNeg, altMax, altMin, clasificacion, riesgo, esfuerzo, cmbTerreno1.getSelectedIndex(), cmbIndicacion1.getSelectedIndex(),
                     new Actividad(txtActividad1.getText()), temporada, chkFamiliar1.isSelected(), txtUrl1.getText(), estado,
                     txtRecomendaciones1.getText(), txtZona1.getText(), duracion, Validaciones.stringToInt("media de valoraciones", txtMediaValoraciones1.getText())));
@@ -2641,7 +2618,8 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
             Ruta nueva = Fichero.csvToRuta(selectedFile);
             JOptionPane.showMessageDialog(this, "La ruta se cargó correctamente");
-
+            cargaCmbTemporada();
+            cargaCmbClasificacion();
             // Cargar los campos con los datos de la ruta
             txtNombreRuta.setText(nueva.getNombre());
             txtPiniLong.setText(String.valueOf(nueva.getPunto_ini().getLongitud()));
@@ -2684,6 +2662,36 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         ListadoPInteres.setVisible(true);
         ListadoPInteres.setLocationRelativeTo(null);
     }//GEN-LAST:event_verPuntosActionPerformed
+
+    private void btnValidarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValidarRutaActionPerformed
+        Ruta ruta = seleccionarIdRuta();
+
+        if (ruta != null) {
+            if (metodos.compruebaValidacion(ruta.getId())) {
+                JOptionPane.showMessageDialog(this, "Esta ruta ya está validada.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            } else {
+                int confirmacion = JOptionPane.showConfirmDialog(this,
+                        "¿Estás seguro de que deseas validad la ruta con ID: " + ruta.getId() + "?",
+                        "Confirmar eliminación",
+                        JOptionPane.YES_NO_OPTION);
+
+                if (confirmacion == JOptionPane.YES_OPTION) {
+                    boolean exito = metodos.validaRuta(ruta.getId());
+                    if (exito) {
+                        JOptionPane.showMessageDialog(this, "Ruta validad correctamente.");
+
+                        cargaTablaRutas();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Error al validad la ruta.", "ERROR", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Por favor, selecciona una ruta primero.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
+
+    }//GEN-LAST:event_btnValidarRutaActionPerformed
 
     /**
      * @param args the command line argumentsoriolfs
@@ -2770,7 +2778,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private javax.swing.JCheckBox chkFamiliar1;
     private javax.swing.JComboBox<String> cmbClasificacion;
     private javax.swing.JComboBox<String> cmbClasificacion2;
-    private javax.swing.JComboBox<String> cmbEstado;
     private javax.swing.JComboBox<String> cmbEstado2;
     private javax.swing.JComboBox<String> cmbIndicacion;
     private javax.swing.JComboBox<String> cmbIndicacion1;
@@ -2835,7 +2842,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
-    private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
@@ -3076,10 +3082,10 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         modelo = new DefaultTableModel(encabezados, 0);
         ArrayList<PuntoInteres> lista = metodos.listarPInteres();
         for (PuntoInteres p : lista) {
-            if (p.getRuta().getId()==seleccionarIdRuta().getId()){
-            String linea[] = {p.getNombre(), String.valueOf(p.getTipo()), p.getCaracteristicasEsp(), String.valueOf(p.getLongitud()), String.valueOf(p.getLatitud())};
-            modelo.addRow(linea);
-            } 
+            if (p.getRuta().getId() == seleccionarIdRuta().getId()) {
+                String linea[] = {p.getNombre(), String.valueOf(p.getTipo()), p.getCaracteristicasEsp(), String.valueOf(p.getLongitud()), String.valueOf(p.getLatitud())};
+                modelo.addRow(linea);
+            }
         }
         tblPInteres.setModel(modelo);
         TableRowSorter<TableModel> sorter = new TableRowSorter<>(modelo);
@@ -3107,14 +3113,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         cmbTemporada.setModel(modelo);
     }
 
-    private void cargaCmbEstado() {
-        ArrayList<String> lista = metodosDB.Estado();
-        DefaultComboBoxModel modelo = new DefaultComboBoxModel();
-        modelo.removeAllElements();
-        modelo.addAll(lista);
-        cmbEstado.setModel(modelo);
-    }
-
     private void cargaCmbClasificacion1() {
         ArrayList<String> lista = metodosDB.Clasificacion();
         DefaultComboBoxModel modelo = new DefaultComboBoxModel();
@@ -3138,8 +3136,6 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         modelo.addAll(lista);
         cmbEstado2.setModel(modelo);
     }
-
-    
 
     private Ruta seleccionarIdRuta() {
         int filaSeleccionada = tblRutas.getSelectedRow();
@@ -3254,7 +3250,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             btnVerInfoRuta.setEnabled(true);
             btnValorarRuta.setEnabled(true);
             btnReseñarRuta.setEnabled(true);
-            btnValidarRuta.setEnabled(true);
+            btnValidarRuta.setEnabled(false);
             btnValoracionTecRuta.setEnabled(true);
             btnCrearRuta.setEnabled(true);
             btnVerRuta.setEnabled(true);

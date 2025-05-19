@@ -59,8 +59,8 @@ public class metodosDB {
     private static Connection getConnection() {
         return AccesoBaseDatos.getInstance().getConn();
     }
-    
-     public ArrayList<PuntoInteres> listarPInteres() {
+
+    public ArrayList<PuntoInteres> listarPInteres() {
         ArrayList<PuntoInteres> pi = new ArrayList<>();
         try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT idPuntos_interes, id_ruta, nombre, tipo, caracteristicas, url, longitud, latitud FROM puntos_interes");) {
             while (rs.next()) {
@@ -76,8 +76,6 @@ public class metodosDB {
         }
         return pi;
     }
-     
-     
 
     /**
      * Lista todas las rutas almacenadas en la base de datos.
@@ -188,6 +186,66 @@ public class metodosDB {
         }
 
         return equipo;
+    }
+
+    /**
+     * Valida una ruta cambiando su estado a "VALIDADA" en la base de datos.
+     *
+     * @param idRuta El ID de la ruta a validar
+     * @return true si la validación fue exitosa, false en caso contrario
+     */
+    public static boolean validaRuta(int idRuta) {
+        // Variable para almacenar el resultado de la operación
+        boolean resultado = false;
+
+        // Corregir la consulta SQL añadiendo el nombre de la tabla (asumiendo que es "rutas")
+        String sql = "UPDATE rutas SET estado='VALIDADA' WHERE id_ruta=?";
+
+        try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
+            stmt.setInt(1, idRuta);
+            int filasAfectadas = stmt.executeUpdate();
+            resultado = filasAfectadas > 0;
+
+        } catch (SQLException ex) {
+            System.err.println("Error al validar la ruta con ID " + idRuta + ": " + ex.getMessage());
+            ex.printStackTrace();
+            // resultado ya es false por defecto, no es necesario asignarlo de nuevo
+        }
+        return resultado;
+    }
+
+    /**
+     * Comprueba si una ruta ya está validada en la base de datos.
+     *
+     * @param idRuta El ID de la ruta a comprobar
+     * @return true si la ruta ya está validada, false en caso contrario o si
+     * ocurre un error
+     */
+    public static boolean compruebaValidacion(int idRuta) {
+        boolean resultado = false;
+        // Corregir la consulta SQL añadiendo la cláusula FROM y el nombre de la tabla
+        String sql = "SELECT estado FROM rutas WHERE id_ruta=?";
+
+        try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
+            // Establecer el parámetro ID de la ruta
+            stmt.setInt(1, idRuta);
+
+            // Ejecutar la consulta y obtener el resultado
+            try (ResultSet rs = stmt.executeQuery()) {
+                // Si hay un resultado y el estado es "VALIDADA", devolver true
+                if (rs.next()) {
+                    String estado = rs.getString("estado");
+                    resultado = "VALIDADA".equals(estado);
+                }
+                // Si no hay resultados o el estado no es "VALIDADA", resultado sigue siendo false
+            }
+        } catch (SQLException ex) {
+            System.err.println("Error al comprobar la validación de la ruta con ID " + idRuta + ": " + ex.getMessage());
+            ex.printStackTrace();
+            // resultado ya es false por defecto, no es necesario asignarlo de nuevo
+        }
+
+        return resultado;
     }
 
     /**
@@ -518,8 +576,8 @@ public class metodosDB {
         }
         return ruta;
     }
-    
-     public PuntoInteres pInteresPorId(int id) {
+
+    public PuntoInteres pInteresPorId(int id) {
         PuntoInteres pi = null;
         String sql = "SELECT idPuntos_interes, id_ruta, nombre, tipo, caracteristicas, url, longitud, latitud FROM puntos_interes  WHERE idPuntos_interes=?";
         try (PreparedStatement stmt = getConnection().prepareStatement(sql);) {
