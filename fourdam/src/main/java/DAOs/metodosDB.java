@@ -62,7 +62,7 @@ public class metodosDB {
     
      public ArrayList<PuntoInteres> listarPInteres() {
         ArrayList<PuntoInteres> pi = new ArrayList<>();
-        try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT id_ruta, id_usuario, nombre, fecha, latitud_inicial, longitud_inicial, latitud_final, longitud_final, distancia, desnivel, desnivel_positivo, desnivel_negativo, altitud_minima, altitud_maxima, estado, url, familiar, temporada, indicaciones, terreno, esfuerzo, riesgo, zona, recomendaciones, clasificacion, nombre_inicial, nombre_final, media_valoraciones, duracion FROM rutas");) {
+        try (Statement stmt = getConnection().createStatement(); ResultSet rs = stmt.executeQuery("SELECT idPuntos_interes, id_ruta, nombre, tipo, caracteristicas, url, longitud, latitud FROM puntos_interes");) {
             while (rs.next()) {
                 PuntoInteres p = pInteresPorId(rs.getInt("idPuntos_interes"));
                 pi.add(p);
@@ -955,6 +955,7 @@ public class metodosDB {
      */
     private PuntoPeligro crearPuntoPeligro(final ResultSet rs) throws SQLException {
         return new PuntoPeligro(
+                rutaPorId(rs.getInt("id_ruta")),
                 rs.getDouble("latitud"),
                 rs.getDouble("longitud"),
                 rs.getString("imagen"),
@@ -1093,10 +1094,11 @@ public class metodosDB {
      */
     private PuntoInteres crearPuntoInteres(final ResultSet rs) throws SQLException {
         return new PuntoInteres(
-                rs.getString("nombre"),
+                rutaPorId(rs.getInt("id_ruta")),
                 rs.getDouble("latitud"),
                 rs.getDouble("longitud"),
                 rs.getString("imagen"),
+                rs.getString("nombre"),
                 TipoPInteres.valueOf(rs.getString("tipo")),
                 rs.getString("caracteristicasEsp")
         );
