@@ -2077,7 +2077,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                 ValoracionTec.setVisible(false);
                 ValorarRuta.setVisible(false);
                 VerInfoRutas.setVisible(false);
-                DescargaFichas.setVisible(false);
+                //DescargaFichas.setVisible(false);
                 //metodosDB.idUsuario(txtCorreo.getText());
                 user = metodos.usuPorId(metodosDB.idUsuario(txtCorreo.getText()));
                 activarBotones();
@@ -2480,7 +2480,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
 
             switch (seleccion) {
                 case 0 -> { // Ficha de Seguridad
-                    String dificultad = "Dificultad general: " + rutaSeleccionada.getNivelEsfuerzo();
+                    String dificultad = String.valueOf(rutaSeleccionada.getNivelEsfuerzo());
                     //String peligros = rutaSeleccionada.getDescripcionPuntosPeligro(); 
                     String peligros = "No hay puntos de peligro de momento...";
                     String recomendaciones = metodos.getEquipoRecomendadoPorRuta(rutaSeleccionada.getId());
@@ -2532,7 +2532,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDescargarFichaActionPerformed
 
     private void btnCargarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarRutaActionPerformed
-        JFileChooser j = new JFileChooser(new File("CSV_rutas"));
+        JFileChooser j = new JFileChooser(new File(System.getProperty("user.home") + File.separator + "Documents" + File.separator + "CSVRutas"));
         j.setFileSelectionMode(JFileChooser.FILES_ONLY);
         int result = j.showOpenDialog(null);
         if (result == JFileChooser.APPROVE_OPTION) {
@@ -2567,7 +2567,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_txtFiltro2KeyReleased
 
     private void btnCsvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCsvActionPerformed
-        JFileChooser j = new JFileChooser(new File("CSV_rutas"));
+        JFileChooser j = new JFileChooser(new File(System.getProperty("user.home") + File.separator + "Documents" + File.separator + "CSVRutas"));
         j.setFileSelectionMode(JFileChooser.FILES_ONLY);
 
         int result = j.showOpenDialog(null);
@@ -3177,6 +3177,10 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             btnVerRuta.setEnabled(true);
             btnSalirVerR.setEnabled(true);
             btnEliminarReseña.setEnabled(true);
+            btnDescargarFicha.setEnabled(true);
+            btnCargarRuta.setEnabled(true);
+            btnDescargarRuta.setEnabled(true);
+            
 
         } else if (u instanceof Profesor) {
             btnModificarRuta.setEnabled(true);
@@ -3188,6 +3192,9 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             btnCrearRuta.setEnabled(true);
             btnVerRuta.setEnabled(true);
             btnSalirVerR.setEnabled(true);
+            btnDescargarFicha.setEnabled(true);
+            btnCargarRuta.setEnabled(true);
+            btnDescargarRuta.setEnabled(true);
 
         } else if (u instanceof DisennadorRuta) {
             btnVerInfoRuta.setEnabled(true);
@@ -3197,6 +3204,9 @@ public class vPrincipal_1 extends javax.swing.JFrame {
             btnCrearRuta.setEnabled(true);
             btnVerRuta.setEnabled(true);
             btnSalirVerR.setEnabled(true);
+            btnDescargarFicha.setEnabled(true);
+            btnCargarRuta.setEnabled(true);
+            btnDescargarRuta.setEnabled(true);
 
         } else if (u instanceof Alumno) {
             // El ALUMNO tiene el acceso más limitado
