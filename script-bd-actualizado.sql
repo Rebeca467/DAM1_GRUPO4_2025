@@ -274,7 +274,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 
 INSERT INTO `mydb`.`usuarios` (`nombre`, `apellidos`, `correo`, `contraseña`, `rol`) VALUES
-('Oriol', 'Fernandez', 'juanperez@gmail.com', '12345', 'ADMINISTRADOR'),
+('Oriol', 'Fernandez', 'oriolfs@gmail.com', '12345', 'ADMINISTRADOR'),
 ('Fabian', 'Saiz', 'fabis@gmail.com', '12345', 'DISEÑADOR'),
 ('Rebeca', 'Cabo', 'rebeca@gmail.com', '12345', 'PROFESOR'),
 ('Ciro', 'Galan', 'cirog@gmail.com', '12345', 'ALUMNO'),
