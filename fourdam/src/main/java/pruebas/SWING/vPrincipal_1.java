@@ -324,7 +324,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         cmbTerreno1 = new javax.swing.JComboBox<>();
 
         ValorarRuta.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        ValorarRuta.setTitle("Valorar");
+        ValorarRuta.setTitle("FOURDAM - Valorar");
         ValorarRuta.setResizable(false);
         ValorarRuta.setSize(new java.awt.Dimension(500, 500));
 
@@ -404,7 +404,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         );
 
         ResennaRuta.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        ResennaRuta.setTitle("Reseña");
+        ResennaRuta.setTitle("FOURDAM - Reseña");
         ResennaRuta.setResizable(false);
         ResennaRuta.setSize(new java.awt.Dimension(400, 400));
 
@@ -474,7 +474,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                 .addContainerGap(154, Short.MAX_VALUE))
         );
 
-        ValoracionTec.setTitle("Valoración Tecnica");
+        ValoracionTec.setTitle("FOURDAM - Valoración Tecnica");
         ValoracionTec.setSize(new java.awt.Dimension(500, 500));
 
         jLabel62.setText("Dificultad");
@@ -550,6 +550,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                 .addGap(184, 184, 184))
         );
 
+        ListadoResennas.setTitle("FOURDAM - Listado Reseñas");
         ListadoResennas.setSize(new java.awt.Dimension(500, 500));
 
         jScrollPane9.setViewportView(tblReseña);
@@ -605,6 +606,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                 .addGap(44, 44, 44))
         );
 
+        ListadoVTecnica.setTitle("FOURDAM - Listado Valoracion Tecnica");
         ListadoVTecnica.setSize(new java.awt.Dimension(600, 600));
 
         a.setViewportView(tblValTec);
@@ -643,6 +645,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                 .addGap(16, 16, 16))
         );
 
+        ListadoValoraciones.setTitle("FOURDAM - Listado Valoraciones");
         ListadoValoraciones.setSize(new java.awt.Dimension(600, 600));
 
         jScrollPane10.setViewportView(tblValoraciones);
@@ -679,6 +682,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                 .addContainerGap(59, Short.MAX_VALUE))
         );
 
+        DescargaFichas.setTitle("FOURDAM - Descargar Fichas");
         DescargaFichas.setSize(new java.awt.Dimension(550, 550));
 
         javax.swing.GroupLayout DescargaFichasLayout = new javax.swing.GroupLayout(DescargaFichas.getContentPane());
@@ -702,7 +706,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        VerInfoRutas.setTitle("Información de las rutas");
+        VerInfoRutas.setTitle("FOURDAM - Información de las rutas");
         VerInfoRutas.setResizable(false);
         VerInfoRutas.setSize(new java.awt.Dimension(750, 750));
 
@@ -1036,6 +1040,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                         .addContainerGap(494, Short.MAX_VALUE))))
         );
 
+        ListadoPInteres.setTitle("FOURDAM - Listado Puntos Interes");
         ListadoPInteres.setSize(new java.awt.Dimension(500, 500));
 
         jScrollPane2.setViewportView(tblPInteres);
@@ -1056,6 +1061,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         getContentPane().setLayout(new java.awt.CardLayout());
 
         LogIn.setBorder(javax.swing.BorderFactory.createTitledBorder("LOG IN"));
+        LogIn.setToolTipText("FOURDAM");
         LogIn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         LogIn.setPreferredSize(new java.awt.Dimension(380, 277));
         LogIn.setRequestFocusEnabled(false);
@@ -1105,7 +1111,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                         .addComponent(btnInvitado)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnSignin)))
-                .addContainerGap(429, Short.MAX_VALUE))
+                .addContainerGap(362, Short.MAX_VALUE))
         );
         LogInLayout.setVerticalGroup(
             LogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1122,12 +1128,13 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                 .addGroup(LogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInvitado)
                     .addComponent(btnSignin))
-                .addContainerGap(221, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         getContentPane().add(LogIn, "card2");
 
         Menu.setBorder(javax.swing.BorderFactory.createTitledBorder("MENU"));
+        Menu.setToolTipText("FOURDAM");
         Menu.setFocusable(false);
         Menu.setPreferredSize(new java.awt.Dimension(100, 100));
 
@@ -1162,12 +1169,12 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(34, 34, 34)))
-                .addContainerGap(579, Short.MAX_VALUE))
+                .addContainerGap(236, Short.MAX_VALUE))
         );
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createSequentialGroup()
-                .addContainerGap(251, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCreaRuta)
@@ -1180,6 +1187,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         Menu.getAccessibleContext().setAccessibleParent(Menu);
 
         CreaRutas.setBorder(javax.swing.BorderFactory.createTitledBorder("CREAR RUTAS"));
+        CreaRutas.setToolTipText("FOURDAM");
         CreaRutas.setPreferredSize(new java.awt.Dimension(900, 600));
 
         jLabel5.setText("NOMBRE RUTA");
@@ -1312,7 +1320,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                             .addComponent(txtEsfuerzo, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtDistancia, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(CreaRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCrearRuta, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CreaRutasLayout.createSequentialGroup()
@@ -1368,7 +1376,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                                 .addComponent(jLabel25)
                                 .addGap(18, 18, 18)
                                 .addComponent(cmbTerreno, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(CreaRutasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnSalirCrearR)
@@ -1447,7 +1455,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
                                     .addComponent(txtEsfuerzo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(73, 73, 73)))
                         .addComponent(btnCsv)
-                        .addGap(0, 18, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(CreaRutasLayout.createSequentialGroup()
                         .addGroup(CreaRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(CreaRutasLayout.createSequentialGroup()
@@ -1497,6 +1505,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         getContentPane().add(CreaRutas, "card4");
 
         VerRutas.setBorder(javax.swing.BorderFactory.createTitledBorder("VER RUTAS"));
+        VerRutas.setToolTipText("FOURDAM");
 
         tblRutas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1691,6 +1700,7 @@ public class vPrincipal_1 extends javax.swing.JFrame {
         getContentPane().add(VerRutas, "card5");
 
         ModificarRuta.setBorder(javax.swing.BorderFactory.createTitledBorder("MODIFICAR RUTAS"));
+        ModificarRuta.setToolTipText("FOURDAM");
         ModificarRuta.setPreferredSize(new java.awt.Dimension(900, 600));
 
         jLabel7.setText("NOMBRE RUTA");
@@ -3005,11 +3015,11 @@ public class vPrincipal_1 extends javax.swing.JFrame {
     }
 
     private void cargaTablaRutas() {
-        String encabezados[] = {"id_ruta", "Autor", "nombre", "fecha", "latitud_inicial"};
+        String encabezados[] = {"id_ruta", "Autor", "nombre", "fecha", "estado"};
         DefaultTableModel modelo = new DefaultTableModel(encabezados, 0);
         ArrayList<Ruta> lista = metodos.listarRutas();
         for (Ruta r : lista) {
-            String linea[] = {String.valueOf(r.getId()), r.getAutor().getNombre(), r.getNombre(), Teclado.localDateToString(r.getFecha_creacion()), String.valueOf(r.getPunto_ini().getLatitud())};
+            String linea[] = {String.valueOf(r.getId()), r.getAutor().getNombre(), r.getNombre(), Teclado.localDateToString(r.getFecha_creacion()), r.getEstado().toString()};
             modelo.addRow(linea);
         }
         tblRutas.setModel(modelo);

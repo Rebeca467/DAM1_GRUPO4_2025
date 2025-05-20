@@ -38,7 +38,7 @@ Resumen del objetivo del proyecto, su funcionalidad principal y tecnologías uti
 - Ana María Rodríguez Méndez  (@anarodriguezm)
 
 ## Diagrama Entidad-Relación (E/R)
-[Ver el Diagrama E/R](./diagrama_e-r.pdf)
+![Ver el Diagrama E/R](./diagrama_e-r.jpg)
 
 > El diagrama muestra las entidades principales, sus relaciones y atributos clave en el sistema.
 
