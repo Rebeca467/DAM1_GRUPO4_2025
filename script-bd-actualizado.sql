@@ -273,6 +273,21 @@ DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
 
+INSERT INTO `mydb`.`usuarios` (`nombre`, `apellidos`, `correo`, `contraseña`, `rol`) VALUES
+('Oriol', 'Fernandez', 'oriolfs@gmail.com', '12345', 'ADMINISTRADOR'),
+('Fabian', 'Saiz', 'fabis@gmail.com', '12345', 'DISEÑADOR'),
+('Rebeca', 'Cabo', 'rebeca@gmail.com', '12345', 'PROFESOR'),
+('Ciro', 'Galan', 'cirog@gmail.com', '12345', 'ALUMNO'),
+('Ana', 'Rodriguez', 'anarodri@gmail.com', '12345', 'ADMINISTRADOR');
+
+
+INSERT INTO `mydb`.`rutas` 
+(`id_usuario`, `idActividades`, `nombre`, `fecha`, `latitud_inicial`, `longitud_inicial`, `latitud_final`, `longitud_final`, `distancia`, `desnivel`, `desnivel_positivo`, `desnivel_negativo`, `altitud_minima`, `altitud_maxima`, `estado`, `url`, `familiar`, `temporada`, `indicaciones`, `terreno`, `esfuerzo`, `riesgo`, `zona`, `recomendaciones`, `clasificacion`, `nombre_inicial`, `nombre_final`, `media_valoraciones`, `duracion`) 
+VALUES 
+(1, 1, 'Ruta de la Montaña', '2025-05-20', 40.7128, -74.0060, 40.7306, -73.9352, 10.5, 200, 150, 50, 100, 300, 'PENDIENTE', 'http://example.com/ruta1', 0, 'VERANO', NULL, 1, NULL, NULL, NULL, NULL, 'CIRCULAR', 'Inicio Montaña', 'Fin Montaña', 4, 2.5),
+(2, 1, 'Sendero del Lago', '2025-05-21', 40.7306, -73.9352, 40.7495, -73.9342, 8.0, 100, 80, 20, 50, 150, 'PENDIENTE', 'http://example.com/ruta2', 0, 'PRIMAVERA', NULL, 1, NULL, NULL, NULL, NULL, 'LINEAL', 'Inicio Lago', 'Fin Lago', 5, 1.5);
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
